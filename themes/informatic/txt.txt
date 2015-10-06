@@ -1,0 +1,33 @@
+{#
+A plain TXT resume template for FluentCV's "informatic" theme.
+#}
+{{ r.basics.name }}
+{% if (r.basics.email) { %}Email: {{ r.basics.email }}{% } %}
+{% if (r.basics.phone) { %}Tel: {{ r.basics.phone }}{% } %}
+{% if (r.basics.website) { %}Web: {{ r.basics.website }}{% } %}
+
+***
+
+{% if ( r.basics.summary && r.basics.summary.length ) { %}{{ r.basics.summary }}{% } %}
+
+
+{% if ( r.skills && r.skills.length ) { %}SKILLS
+{% r.skills.forEach( function( skill, idx, ar) { %}
+  - {{ skill.name }}: {% print( skill.keywords.join(', ') ); %}
+{% }); } %}
+
+{% if ( r.work && r.work.length ) { %}EMPLOYMENT
+{% r.work.forEach( function( proj, idx, ar) { %}
+{{ proj.company }} ({{ proj.startDate }} — {{ proj.endDate }})
+{{ proj.summary }}
+{% if( proj.highlights ) { %}{% proj.highlights.forEach( function( high, idx, ar) { %}
+  - {{ high }}
+{% }); }  }); } %}
+
+{% if ( r.education && r.education.length ) { %}EDUCATION
+{% r.education.forEach( function( edu, idx, ar) { %}
+{{ edu.institution }} ({{ edu.startDate }} — {{ edu.endDate }})
+{{ edu.area }}
+{% if( edu.courses ) { %}{% edu.courses.forEach( function( course, idx, ar) { %}
+  - {{ course }}
+{% }); } }); } %}

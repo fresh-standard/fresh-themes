@@ -1,0 +1,23 @@
+{
+  "name": "watermark",
+  "version": "0.1.0",
+  "description": "Themes and exemplars for FluentCV.",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fluentdesk/watermark.git"
+  },
+  "keywords": [
+    "resume",
+    "CV",
+    "portfolio",
+    "Markdown"
+  ],
+  "author": "James M. Devlin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fluentdesk/watermark/issues"
+  },
+  "homepage": "https://github.com/fluentdesk/watermark",
+  "dependencies": { }
+}

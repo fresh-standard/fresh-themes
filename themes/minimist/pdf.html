@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ r.basics.name }}</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <style>
+    {{ cssInfo.data }}
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>{{ r.basics.name }}</h1>
+        <div id="contact">
+          {% if (r.basics.email) { %}<div class="email">{{ r.basics.email }}</div>{% } %}
+          {% if (r.basics.phone) { %}<div class="phone">{{ r.basics.phone }}</div>{% } %}
+          {% if (r.basics.website) { %}<div class="website"><a href="{{ r.basics.website }}">{{ r.basics.website }}</a></div>{% } %}
+        </div>
+      </header>
+
+
+{% if ( r.basics.summary && r.basics.summary.length ) { %}
+      <section id="summary">
+        {{ r.basics.summary|md }}
+      </section>
+{% } %}
+
+
+{% if ( r.skills && r.skills.length ) { %}
+      <section id="skills">
+        <header>
+        <h2>Skills</h2><hr>
+        </header>
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th>Keywords</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% r.skills.forEach( function( skill, idx, ar) { %}
+            <tr>
+              <td style="width: 25%;">{{ skill.name }}</td>
+              <td class="keywords">{% print(skill.keywords.join(', ')); %}</td>
+            </tr>
+            {% }); %}
+          </tbody>
+        </table>
+      </section>
+{% } %}
+
+
+
+{% if ( r.work && r.work.length ) { %}
+      <section id="employment">
+        <header>
+        <h2>Employment</h2><hr>
+        </header>
+        {% r.work.forEach( function( proj, idx, ar) { %}
+          <h3>{{ proj.company }} <span class="tenure">{{ proj.startDate }}&mdash;{{ proj.endDate }}<span></h3>
+          <p style="clear: both;">{{ proj.summary|md }}</p>
+          {% if( proj.highlights ) { %}
+            <ul>
+            {% proj.highlights.forEach( function( high, idx, ar) { %}
+              <li>{{ high|md }}</li>
+            {% }); %}
+            </ul>
+          {% } %}
+        {% }); %}
+
+      </section>
+{% } %}
+
+
+
+{% if ( r.education && r.education.length ) { %}
+      <section id="education">
+        <header>
+        <h2>Education</h2><hr>
+        </header>
+        {% r.education.forEach( function( edu, idx, ar) { %}
+          <h3>{{ edu.institution }} <span class="tenure">{{ edu.startDate }}&mdash;{{ edu.endDate }}<span></h3>
+          <p style="clear: both;">{{ edu.area|md }}</p>
+          {% if( edu.courses ) { %}
+            <ul>
+            {% edu.courses.forEach( function( course, idx, ar) { %}
+              <li>{{ course|md }}</li>
+            {% }); %}
+            </ul>
+          {% } %}
+        {% }); %}
+
+      </section>
+{% } %}
+
+
+    </main>
+  </body>
+</html>
