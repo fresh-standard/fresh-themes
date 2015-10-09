@@ -83,9 +83,9 @@
         <span class="fa fa-lg fa-building"></span>
         {% r.work.forEach( function( proj, idx, ar) { %}
           {% if( proj.website && proj.website.length ) { %}
-          <h4>{{ proj.position }}, <a href="{{ proj.website|raw }}">{{ proj.company }}</a></h4>
+          <h4><span class="res-label">{{ proj.position }}</span>, <a href="{{ proj.website|raw }}">{{ proj.company }}</a></h4>
           {% } else { %}
-          <h4>{{ proj.position }}, <span class="defunct">{{ proj.company }}</span></h4>
+          <h4><span class="res-label">{{ proj.position }}</span>, <span class="defunct">{{ proj.company }}</span></h4>
           {% } %}
           <span class="tenure">{{ proj.startDate }}&mdash;{{ proj.endDate }}</span>
           {{ proj.summary|md }}
@@ -134,7 +134,7 @@
         </header>
         <span class="fa fa-lg fa-trophy"></span>
         {% r.awards.forEach( function( award, idx, ar) { %}
-          <h4><em>{{ award.title }}</em>, {{ award.awarder }}</h4>
+          <h4><span class="res-label">{{ award.title }}</span>, {{ award.awarder }}</h4>
           <span class="tenure">{{ award.date }}</span>
           {{ award.summary|md }}
         {% }); %}
@@ -151,13 +151,15 @@
         {% r.publications.forEach( function( pub, idx, ar) { %}
           <h4>
             {% if( pub.website ) { %}
-              <a href="{{ pub.website }}" >{{ pub.name }}</a>,&nbsp;{{ pub.publisher }}
+              <span class="res-label"><a href="{{ pub.website }}" ></span>{{ pub.name }}</a>,&nbsp;{{ pub.publisher }}
             {% } else { %}
-              {{ pub.name }},&nbsp;{{ pub.publisher }}
+              <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
             {% } %}
           </h4>
         <span class="tenure">Published on: {{ pub.releaseDate }}</span>
-        <p>{{ pub.summary }}</p>
+
+        {{ pub.summary|md }}
+
         {% }); %}
       </section>
 {% } %}
@@ -171,9 +173,9 @@
         <span class="fa fa-lg fa-child"></span>
         {% r.volunteer.forEach( function( vol, idx, ar) { %}
           {% if( vol.website && vol.website.length ) { %}
-          <h4>{{ vol.position }}, <a href="{{ vol.website|raw }}">{{ vol.organization }}</a></h4>
+          <h4><span class="res-label">{{ vol.position }}</span>, <a href="{{ vol.website|raw }}">{{ vol.organization }}</a></h4>
           {% } else { %}
-          <h4>{{ vol.position }}, <span class="defunct">{{ vol.organization }}</span></h4>
+          <h4><span class="res-label">{{ vol.position }}</span>, <span class="defunct">{{ vol.organization }}</span></h4>
           {% } %}
           <span class="tenure">{{ vol.startDate }}&mdash;{{ vol.endDate }}</span>
           {{ vol.summary|md }}

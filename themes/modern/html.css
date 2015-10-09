@@ -7,7 +7,7 @@ main {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, 'Lato', sans-serif;
   font-size: 15px;
   color: #333;
   line-height: 1.42857143;
@@ -92,13 +92,17 @@ a, a:visited {
   font-weight: bold;
 }
 
+a:hover {
+  text-decoration: underline;
+}
+
 .defunct {
   color: #989898;
   font-weight: bold;
 }
 
 #summary > p > strong {
-  font-size: 150%;
+  font-size: 1.25em;
 }
 
 
@@ -192,4 +196,8 @@ a, a:visited {
   color: #BFC1C3;
   text-transform: uppercase;
   font-weight: normal;
+}
+
+.res-label {
+  font-style: italic;
 }
