@@ -1,5 +1,8 @@
 {#
-A plain TXT resume template for FluentCV's "informatic" theme.
+
+  modern/txt.txt
+  A plain text resume template for FluentCV's "modern" theme.
+
 #}
 {{ r.basics.name }}
 {% if (r.basics.email) { %}Email: {{ r.basics.email }}{% } %}
