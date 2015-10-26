@@ -1,12 +1,11 @@
-watermark
-=========
-Predefined template-based resume themes for [FluentCV][1] and [FluentCMD][2].
+fluent-themes
+=============
+Resume themes for [FluentCV][1] and [FluentCMD][2].
 
 - `minimist`: A no-frills theme.
-- `informatic`: An informative theme for technical resumes.
 - `modern`: A middle of the road theme with a modern look 'n feel.
 - `hello-world`: A simple-as-possible example theme.
-- New themes added weekly.
+- New themes forthcoming.
 
 ## How It Works
 
