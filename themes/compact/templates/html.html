@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ r.basics.name }}</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href="resume.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>{{ r.basics.name }}</h1>
+        <div id="contact">
+          {% if (r.basics.email) { %}<div class="email">{{ r.basics.email }}</div>{% } %}
+          {% if (r.basics.phone) { %}<div class="phone">{{ r.basics.phone }}</div>{% } %}
+          {% if (r.basics.website) { %}<div class="website"><a href="{{ r.basics.website }}">{{ r.basics.website }}</a></div>{% } %}
+        </div>
+      </header>
+
+
+{% if ( r.basics.summary && r.basics.summary.length ) { %}
+      <section id="summary">
+        {{ r.basics.summary|md }}
+      </section>
+{% } %}
+
+
+{% if ( r.skills && r.skills.length ) { %}
+      <section id="skills">
+        <header>
+        <h2>Skills</h2><hr>
+        </header>
+        <table>
+          <thead>
+            <tr>
+              <th>Skill</th>
+              <th>Keywords</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% r.skills.forEach( function( skill, idx, ar) { %}
+            <tr>
+              <td style="width: 25%;">{{ skill.name }}</td>
+              <td class="keywords">{% print( skill.keywords.join(', ') ) %}</td>
+            </tr>
+            {% }); %}
+          </tbody>
+        </table>
+      </section>
+{% } %}
+
+
+
+{% if ( r.work && r.work.length ) { %}
+      <section id="employment">
+        <header>
+        <h2>Employment</h2><hr>
+        </header>
+        {% r.work.forEach( function( proj, idx, ar) { %}
+          <h3><em>{{ proj.position }}</em>, {{ proj.company }} <span class="tenure">{{ proj.startDate }} &mdash; {{ proj.endDate }}<span></h3>
+          <p style="clear: both;">{{ proj.summary|md }}</p>
+          {% if( proj.highlights ) { %}
+            <ul>
+            {% proj.highlights.forEach( function( high, idx, ar) { %}
+              <li>{{ high|md }}</li>
+            {% }); %}
+            </ul>
+          {% } %}
+        {% }); %}
+
+      </section>
+{% } %}
+
+
+
+{% if ( r.education && r.education.length ) { %}
+      <section id="education">
+        <header>
+        <h2>Education</h2><hr>
+        </header>
+        {% r.education.forEach( function( edu, idx, ar) { %}
+          <h3>{{ edu.institution }} <span class="tenure">{{ edu.startDate }} &mdash; {{ edu.endDate }}<span></h3>
+          <p style="clear: both;">{{ edu.area|md }}</p>
+        {% }); %}
+
+      </section>
+{% } %}
+
+{% if ( r.volunteer && r.volunteer.length ) { %}
+      <section id="volunteer">
+        <header>
+        <h2>Volunteer</h2><hr>
+        </header>
+        {% r.volunteer.forEach( function( vol, idx, ar ) { %}
+          <h3>{{ vol.organization }} <span class="tenure">{{ vol.startDate }} &mdash; {{ vol.endDate }}<span></h3>
+          <p style="clear: both;">{{ vol.summary|md }}</p>
+          {% if( vol.highlights ) { %}
+            <ul>
+            {% vol.highlights.forEach( function( high, idx, ar) { %}
+              <li>{{ high|md }}</li>
+            {% }); %}
+            </ul>
+          {% } %}
+        {% }); %}
+
+      </section>
+{% } %}
+
+{% if( r.publications ) { %}
+      <section id="publications">
+        <header>
+        <h2>Publications</h2><hr>
+        </header>
+        <span class="fa fa-lg fa-trophy"></span>
+        {% r.publications.forEach( function( pub, idx, ar) { %}
+          <h4>
+            {% if( pub.website ) { %}
+              <span class="res-label"><a href="{{ pub.website }}" ></span>{{ pub.name }}</a>,&nbsp;{{ pub.publisher }}
+            {% } else { %}
+              <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
+            {% } %}
+          </h4>
+        <span class="tenure">Published on: {{ pub.releaseDate }}</span>
+
+        {{ pub.summary|md }}
+
+        {% }); %}
+      </section>
+{% } %}
+
+{% if( r.awards ) { %}
+      <section id="awards">
+        <header>
+        <h2>Awards</h2><hr>
+        </header>
+        <span class="fa fa-lg fa-trophy"></span>
+        {% r.awards.forEach( function( award, idx, ar) { %}
+          <h4><span class="res-label">{{ award.title }}</span>, {{ award.awarder }}</h4>
+          <span class="tenure">{{ award.date }}</span>
+          {{ award.summary|md }}
+        {% }); %}
+      </section>
+{% } %}
+
+    </main>
+  </body>
+</html>
