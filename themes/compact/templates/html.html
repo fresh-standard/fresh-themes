@@ -56,17 +56,40 @@
         <header>
         <h2>Employment</h2><hr>
         </header>
+
+
+
         {% r.work.forEach( function( proj, idx, ar) { %}
-          <h3><em>{{ proj.position }}</em>, {{ proj.company }} <span class="tenure">{{ proj.startDate }} &mdash; {{ proj.endDate }}<span></h3>
-          <p style="clear: both;">{{ proj.summary|md }}</p>
-          {% if( proj.highlights ) { %}
+          {% if( idx < 4 ) { %}
+            <h3><em>{{ proj.position }}</em>, {{ proj.company }} <span class="tenure">{{ proj.startDate }} &mdash; {{ proj.endDate }}<span></h3>
+            <p style="clear: both;">{{ proj.summary|md }}</p>
+            {% if( proj.highlights ) { %}
+              <ul>
+              {% proj.highlights.forEach( function( high, idx, ar) { %}
+                <li>{{ high|mdin }}</li>
+              {% }); %}
+              </ul>
+            {% } %}
+          {% } else { %}
+
+            {% if( idx === 4 ) { %}
+            <h3>Previously... <span class="tenure">{{ r.work[ r.work.length - 1 ].safeStartDate.format('YYYY') }} &mdash; {{ proj.safeEndDate.format('YYYY') }}<span></h3>
+            <p style="clear: both;">Prior to {{ r.work[ 3 ].company }}, I worked on a range of projects for companies large and small.</p>
             <ul>
-            {% proj.highlights.forEach( function( high, idx, ar) { %}
-              <li>{{ high|mdin }}</li>
-            {% }); %}
+            {% } %}
+
+
+            <li>{{ proj.position }}, {{ proj.company }}</li>
+
+
+            {% if( idx === ar.length - 1 ) { %}
             </ul>
+            {% } %}
+
           {% } %}
         {% }); %}
+
+
 
       </section>
 {% } %}
@@ -79,7 +102,7 @@
         <h2>Education</h2><hr>
         </header>
         {% r.education.forEach( function( edu, idx, ar) { %}
-          <h3>{{ edu.institution }} <span class="tenure">{{ edu.startDate }} &mdash; {{ edu.endDate }}<span></h3>
+          <h3>{{ edu.institution }} <span class="tenure">{{ edu.safeStartDate.format('YYYY') }} &mdash; {{ edu.safeEndDate.format('YYYY') }}<span></h3>
           <p style="clear: both;">{{ edu.area|md }}</p>
         {% }); %}
 
@@ -92,7 +115,7 @@
         <h2>Volunteer</h2><hr>
         </header>
         {% r.volunteer.forEach( function( vol, idx, ar ) { %}
-          <h3>{{ vol.organization }} <span class="tenure">{{ vol.startDate }} &mdash; {{ vol.endDate }}<span></h3>
+          <h3>{{ vol.organization }} <span class="tenure">{{ vol.safeStartDate.format('YYYY') }} &mdash; {{ vol.safeEndDate.format('YYYY') }}<span></h3>
           <p style="clear: both;">{{ vol.summary|md }}</p>
           {% if( vol.highlights ) { %}
             <ul>
@@ -119,8 +142,8 @@
             {% } else { %}
               <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
             {% } %}
+            <span class="tenure">{{ pub.safeReleaseDate.format('YYYY') }}</span>
           </h4>
-        <span class="tenure">Published on: {{ pub.releaseDate }}</span>
 
         {{ pub.summary|md }}
 
@@ -135,8 +158,7 @@
         </header>
         <span class="fa fa-lg fa-trophy"></span>
         {% r.awards.forEach( function( award, idx, ar) { %}
-          <h4><span class="res-label">{{ award.title }}</span>, {{ award.awarder }}</h4>
-          <span class="tenure">{{ award.date }}</span>
+          <h4><span class="res-label">{{ award.title }}</span>, {{ award.awarder }} <span class="tenure">{{ award.safeDate.format('YYYY') }}</span></h4>
           {{ award.summary|md }}
         {% }); %}
       </section>
