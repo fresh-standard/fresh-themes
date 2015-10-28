@@ -1,10 +1,11 @@
 fluent-themes
 =============
-Resume themes for [FluentCV][1] and [FluentCMD][2].
+Resume themes for [FluentCV][1] and [FluentCV command line][2].
 
 - `minimist`: A no-frills theme.
 - `modern`: A middle of the road theme with a modern look 'n feel.
 - `hello-world`: A simple-as-possible example theme.
+- `compact`: A compact theme.
 - New themes forthcoming.
 
 ## How It Works
@@ -27,5 +28,5 @@ This scheme ensures that theme template files have the "correct" file extension 
 MIT. See [LICENSE.md][1] for details.
 
 [1]: http://fluentcv.com
-[2]: https://github.com/fluentdesk/fluentcmd
+[2]: https://github.com/fluentdesk/fluentcv
 [3]: ../LICENSE.md
