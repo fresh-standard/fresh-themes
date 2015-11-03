@@ -1,7 +1,7 @@
 {
   "name": "fluent-themes",
-  "version": "0.1.0-beta",
-  "description": "Resume themes for FluentCV and FluentCMD.",
+  "version": "0.3.0-beta",
+  "description": "Resume themes for FluentCV.",
   "repository": {
     "type": "git",
     "url": "https://github.com/fluentdesk/fluent-themes.git"
