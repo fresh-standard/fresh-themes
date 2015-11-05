@@ -131,7 +131,7 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.awards ) { %}
+{% if( r.awards && r.awards.length ) { %}
       <hr>
       <section id="awards">
         <header>
@@ -146,7 +146,7 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.publications ) { %}
+{% if( r.publications && r.publications.length ) { %}
       <hr>
       <section id="publications">
         <header>
