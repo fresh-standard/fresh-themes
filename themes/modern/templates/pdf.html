@@ -7,15 +7,18 @@ engine: Underscore
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ r.basics.name }}</title>
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{ headFragment }}
     <style>
     {{ cssInfo.data }}
     </style>
   </head>
-  <body class="pdf">
-    <div id="main">
+  <body>
+    <main id="main">
       <div id="container">
       <header>
         <h1>{{ r.basics.name }}</h1>
@@ -81,9 +84,9 @@ engine: Underscore
         <span class="fa fa-lg fa-building"></span>
         {% r.work.forEach( function( proj, idx, ar) { %}
           {% if( proj.website && proj.website.length ) { %}
-          <h4>{{ proj.position }}, <a href="{{ proj.website|raw }}">{{ proj.company }}</a></h4>
+          <h4><span class="res-label">{{ proj.position }}</span>, <a href="{{ proj.website|raw }}">{{ proj.company }}</a></h4>
           {% } else { %}
-          <h4>{{ proj.position }}, <span class="defunct">{{ proj.company }}</span></h4>
+          <h4><span class="res-label">{{ proj.position }}</span>, <span class="defunct">{{ proj.company }}</span></h4>
           {% } %}
           <span class="tenure">{{ proj.startDate }}&mdash;{{ proj.endDate }}</span>
           {{ proj.summary|md }}
@@ -124,7 +127,7 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.awards ) { %}
+{% if( r.awards && r.awards.length ) { %}
       <hr>
       <section id="awards">
         <header>
@@ -132,14 +135,14 @@ engine: Underscore
         </header>
         <span class="fa fa-lg fa-trophy"></span>
         {% r.awards.forEach( function( award, idx, ar) { %}
-          <h4><em>{{ award.title }}</em>, {{ award.awarder }}</h4>
+          <h4><span class="res-label">{{ award.title }}</span>, {{ award.awarder }}</h4>
           <span class="tenure">{{ award.date }}</span>
           {{ award.summary|md }}
         {% }); %}
       </section>
 {% } %}
 
-{% if( r.publications ) { %}
+{% if( r.publications && r.publications.length ) { %}
       <hr>
       <section id="publications">
         <header>
@@ -149,19 +152,18 @@ engine: Underscore
         {% r.publications.forEach( function( pub, idx, ar) { %}
           <h4>
             {% if( pub.website ) { %}
-              <a href="{{ pub.website }}" >{{ pub.name }}</a>
+              <span class="res-label"><a href="{{ pub.website }}" ></span>{{ pub.name }}</a>,&nbsp;{{ pub.publisher }}
             {% } else { %}
-              {{ pub.name }}
+              <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
             {% } %}
-            ,&nbsp;
-            {{ pub.publisher }}
           </h4>
         <span class="tenure">Published on: {{ pub.releaseDate }}</span>
-        <p>{{ pub.summary }}</p>
+
+        {{ pub.summary|md }}
+
         {% }); %}
       </section>
 {% } %}
-
 
 {% if ( r.volunteer && r.volunteer.length ) { %}
       <hr>
@@ -172,9 +174,9 @@ engine: Underscore
         <span class="fa fa-lg fa-child"></span>
         {% r.volunteer.forEach( function( vol, idx, ar) { %}
           {% if( vol.website && vol.website.length ) { %}
-          <h4>{{ vol.position }}, <a href="{{ vol.website|raw }}">{{ vol.organization }}</a></h4>
+          <h4><span class="res-label">{{ vol.position }}</span>, <a href="{{ vol.website|raw }}">{{ vol.organization }}</a></h4>
           {% } else { %}
-          <h4>{{ vol.position }}, <span class="defunct">{{ vol.organization }}</span></h4>
+          <h4><span class="res-label">{{ vol.position }}</span>, <span class="defunct">{{ vol.organization }}</span></h4>
           {% } %}
           <span class="tenure">{{ vol.startDate }}&mdash;{{ vol.endDate }}</span>
           {{ vol.summary|md }}
@@ -190,7 +192,6 @@ engine: Underscore
       </section>
 {% } %}
 
-
 {% if( r.elevatorPitch ) { %}
       <hr>
       <section id='elevator-pitch'>
@@ -198,7 +199,7 @@ engine: Underscore
       </section>
 {% } %}
 
-    </div>
-  </div>
+      </div>
+    </main>
   </body>
 </html>
