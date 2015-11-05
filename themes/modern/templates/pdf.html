@@ -60,9 +60,11 @@ engine: Underscore
                 <strong>{{ skill.name }}</strong>
 
                 <div class="space-top labels">
-                  {% skill.keywords.forEach(function(kw) { %}
-                    <span class="label label-keyword">{{ kw }}</span>
-                  {% }); %}
+                  {% if( skill.keywords && skill.keywords.length ) { %}
+                    {% skill.keywords.forEach(function(kw) { %}
+                      <span class="label label-keyword">{{ kw }}</span>
+                    {% }); %}
+                  {% } %}
                 </div>
               </div>
             </li>

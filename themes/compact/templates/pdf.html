@@ -43,7 +43,7 @@
             {% r.skills.forEach( function( skill, idx, ar) { %}
             <tr>
               <td style="width: 25%;">{{ skill.name }}</td>
-              <td class="keywords">{% print( skill.keywords.join(', ') ) %}</td>
+              <td class="keywords">{% print( (skill.keywords && skill.keywords.length && skill.keywords.join(', ')) || '[None Specified]' ) %}</td>
             </tr>
             {% }); %}
           </tbody>
