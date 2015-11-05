@@ -129,7 +129,7 @@
       </section>
 {% } %}
 
-{% if( r.publications ) { %}
+{% if( r.publications && r.publications.length ) { %}
       <section id="publications">
         <header>
         <h2>Publications</h2><hr>
@@ -151,7 +151,7 @@
       </section>
 {% } %}
 
-{% if( r.awards ) { %}
+{% if( r.awards && r.awards.length ) { %}
       <section id="awards">
         <header>
         <h2>Awards</h2><hr>
