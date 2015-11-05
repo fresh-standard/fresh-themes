@@ -5,6 +5,19 @@ html, body, main, section, header, ul, p, h1, h2, h3 {
   display: block;
 }
 
+a {
+  color: #0064BD;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #7B0796;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 h2 {
   text-transform: uppercase;
 }
@@ -52,6 +65,7 @@ main > header {
 
 main > header > h1 {
   float: left;
+  font-size: 1.5em;
 }
 #contact {
   float: right;
