@@ -64,9 +64,11 @@ engine: Underscore
                 <strong>{{ skill.name }}</strong>
 
                 <div class="space-top labels">
-                  {% skill.keywords.forEach(function(kw) { %}
-                    <span class="label label-keyword">{{ kw }}</span>
-                  {% }); %}
+                  {% if( skill.keywords && skill.keywords.length ) { %}
+                    {% skill.keywords.forEach(function(kw) { %}
+                      <span class="label label-keyword">{{ kw }}</span>
+                    {% }); %}
+                  {% } %}
                 </div>
               </div>
             </li>
@@ -131,7 +133,7 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.awards ) { %}
+{% if( r.awards && r.awards.length ) { %}
       <hr>
       <section id="awards">
         <header>
@@ -146,7 +148,7 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.publications ) { %}
+{% if( r.publications && r.publications.length ) { %}
       <hr>
       <section id="publications">
         <header>

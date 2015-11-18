@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>{{ r.basics.name }}</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link href="resume.css" rel="stylesheet" type="text/css">
+    <link href="html.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <main>
@@ -41,7 +41,7 @@
             {% r.skills.forEach( function( skill, idx, ar) { %}
             <tr>
               <td style="width: 25%;">{{ skill.name }}</td>
-              <td class="keywords">{% print( skill.keywords.join(', ') ) %}</td>
+              <td class="keywords">{% print( (skill.keywords && skill.keywords.length && skill.keywords.join(', ')) || '[None Specified]' ) %}</td>
             </tr>
             {% }); %}
           </tbody>
@@ -129,7 +129,7 @@
       </section>
 {% } %}
 
-{% if( r.publications ) { %}
+{% if( r.publications && r.publications.length ) { %}
       <section id="publications">
         <header>
         <h2>Publications</h2><hr>
@@ -151,7 +151,7 @@
       </section>
 {% } %}
 
-{% if( r.awards ) { %}
+{% if( r.awards && r.awards.length ) { %}
       <section id="awards">
         <header>
         <h2>Awards</h2><hr>
