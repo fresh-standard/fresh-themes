@@ -29,12 +29,12 @@ engine: Underscore
         </div>
       </header>
 
-{% if ( r.summary && r.summary.length ) { %}
+{% if ( r.info.summary && r.info.summary.length ) { %}
       <hr>
       <section id="summary">
         <h3>About</h3>
         <span class="fa fa-lg fa-user"></span>
-        {{ r.summary|md }}
+        {{ r.info.summary|md }}
       </section>
 {% } %}
 
@@ -51,8 +51,7 @@ engine: Underscore
           {% r.skills.forEach( function(skill) { %}
             <li class="card card-nested card-skills">
               <div class="skill-level" rel="tooltip" title="{{ skill.level }}" data-placement="left">
-                <div class="skill-progress {{ skill.level|lower }}">
-                </div>
+                <div class="skill-progress {{ skill.level }}"></div>
               </div>
               <div class="skill-info">
                 <strong>{{ skill.name }}</strong>

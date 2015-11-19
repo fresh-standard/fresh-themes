@@ -721,7 +721,7 @@ engine: Underscore
           <w:rPr>
             <w:rStyle w:val="IntenseEmphasis"/>
           </w:rPr>
-          <w:t>{{ r.summary|xml }}</w:t>
+          <w:t>{{ r.info.summary|xml }}</w:t>
         </w:r>
       </w:p>
       <wx:sub-section>

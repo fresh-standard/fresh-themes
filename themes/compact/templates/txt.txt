@@ -5,7 +5,7 @@
 
 ***
 
-{% if ( r.summary && r.summary.length ) { %}{{ r.summary }}{% } %}
+{% if ( r.info.summary && r.info.summary.length ) { %}{{ r.summary }}{% } %}
 
 
 {% if ( r.skills && r.skills.length ) { %}SKILLS
