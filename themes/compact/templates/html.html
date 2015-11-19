@@ -18,9 +18,9 @@
       </header>
 
 
-{% if ( r.info.summary && r.info.summary.length ) { %}
+{% if ( r.info.brief && r.info.brief.length ) { %}
       <section id="summary">
-        {{ r.info.summary|md }}
+        {{ r.info.brief|md }}
       </section>
 {% } %}
 

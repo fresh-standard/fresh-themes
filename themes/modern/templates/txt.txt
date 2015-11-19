@@ -11,7 +11,7 @@
 
 ***
 
-{% if ( r.info.summary && r.info.summary.length ) { %}{{ r.info.summary }}{% } %}
+{% if ( r.info.brief && r.info.brief.length ) { %}{{ r.info.brief }}{% } %}
 
 
 {% if ( r.skills && r.skills.length ) { %}SKILLS

@@ -33,12 +33,12 @@ engine: Underscore
         </div>
       </header>
 
-{% if ( r.info.summary && r.info.summary.length ) { %}
+{% if ( r.info.brief && r.info.brief.length ) { %}
       <hr>
       <section id="summary">
         <h3>About</h3>
         <span class="fa fa-lg fa-user"></span>
-        {{ r.info.summary|md }}
+        {{ r.info.brief|md }}
       </section>
 {% } %}
 
