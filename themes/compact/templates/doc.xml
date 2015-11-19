@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+[[[
+title: Modern (PDF)
+description: An HTML-driven PDF resume template for FluentCV's "modern" theme.
+engine: Underscore
+]]]
+-->
 <?mso-application progid="Word.Document"?>
 <w:wordDocument xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wsp="http://schemas.microsoft.com/office/word/2003/wordml/sp2" xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
   <w:ignoreSubtree w:val="http://schemas.microsoft.com/office/word/2003/wordml/sp2"/>
   <o:DocumentProperties>
-    <o:Author>{{ r.basics.name|xml }}</o:Author>
-    <o:LastAuthor>{{ r.basics.name|xml }}</o:LastAuthor>
+    <o:Author>{{ r.name|xml }}</o:Author>
+    <o:LastAuthor>{{ r.name|xml }}</o:LastAuthor>
     <o:Revision>4</o:Revision>
     <o:TotalTime>14</o:TotalTime>
     <o:Created>2015-08-28T04:22:00Z</o:Created>
@@ -643,7 +650,7 @@
                         <w:sz-cs w:val="16"/>
                       </w:rPr>
                     </w:pPr>
-                    <w:hlink w:dest="mailto:{{ r.basics.email }}">
+                    <w:hlink w:dest="mailto:{{ r.contact.email }}">
                       <w:r wsp:rsidRPr="00D76150">
                         <w:rPr>
                           <w:rStyle w:val="Hyperlink"/>
@@ -651,7 +658,7 @@
                           <w:sz-cs w:val="16"/>
                           <w:u w:val="none"/>
                         </w:rPr>
-                        <w:t>{{ r.basics.email|xml }}</w:t>
+                        <w:t>{{ r.contact.email|xml }}</w:t>
                       </w:r>
                     </w:hlink>
                   </w:p>
@@ -664,7 +671,7 @@
                         <w:sz-cs w:val="16"/>
                       </w:rPr>
                     </w:pPr>
-                    <w:hlink w:dest="{{ r.basics.website }}">
+                    <w:hlink w:dest="{{ r.contact.website }}">
                       <w:r wsp:rsidRPr="00D76150">
                         <w:rPr>
                           <w:rStyle w:val="Hyperlink"/>
@@ -672,7 +679,7 @@
                           <w:sz-cs w:val="16"/>
                           <w:u w:val="none"/>
                         </w:rPr>
-                        <w:t>{{ r.basics.website|xml }}</w:t>
+                        <w:t>{{ r.contact.website|xml }}</w:t>
                       </w:r>
                     </w:hlink>
                   </w:p>
@@ -691,7 +698,7 @@
                         <w:sz-cs w:val="16"/>
                         <w:u w:val="none"/>
                       </w:rPr>
-                      <w:t>{{ r.basics.phone|xml }}</w:t>
+                      <w:t>{{ r.contact.phone|xml }}</w:t>
                     </w:r>
                   </w:p>
                 </w:txbxContent>
@@ -701,7 +708,7 @@
           </w:pict>
         </w:r>
         <w:r wsp:rsidRPr="00C61794">
-          <w:t>{{ r.basics.name|xml }}</w:t>
+          <w:t>{{ r.name|xml }}</w:t>
         </w:r>
       </w:p>
       <w:p wsp:rsidR="00657B14" wsp:rsidRPr="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00657B14">
@@ -714,7 +721,7 @@
           <w:rPr>
             <w:rStyle w:val="IntenseEmphasis"/>
           </w:rPr>
-          <w:t>{{ r.basics.summary|xml }}</w:t>
+          <w:t>{{ r.summary|xml }}</w:t>
         </w:r>
       </w:p>
       <wx:sub-section>
@@ -747,7 +754,7 @@
           </w:tblGrid>
 
           {% r.skills.forEach( function( skill, idx, ar) { %}
-          {% var kwords = skill.keywords.join(', '); %}
+          {% var kwords = skill.summary; %}
 
           <w:tr wsp:rsidR="00427ECC" wsp:rsidTr="00FD3B33">
             <w:tc>
@@ -805,7 +812,7 @@
             <w:gridCol w:w="4428"/>
             <w:gridCol w:w="4428"/>
           </w:tblGrid>
-          {% r.work.forEach( function( proj, idx, ar) { %}
+          {% r.employment.history.forEach( function( proj, idx, ar) { %}
           <w:tr wsp:rsidR="00C61794" wsp:rsidTr="00C61794">
             <w:tc>
               <w:tcPr>
@@ -823,7 +830,7 @@
                   <w:pStyle w:val="Heading2"/>
                 </w:pPr>
                 <w:r>
-                  <w:t>{{ proj.company|xml }}</w:t>
+                  <w:t>{{ proj.employer|xml }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -860,7 +867,7 @@
                     <w:sz w:val="28"/>
                     <w:sz-cs w:val="28"/>
                   </w:rPr>
-                  <w:t>{{ proj.startDate|xml }} — {{ proj.endDate|xml }}</w:t>
+                  <w:t>{{ proj.safe.start.format('YYYY-MM')|xml }} — {{ proj.safe.end.format('YYYY-MM')|xml }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -930,7 +937,7 @@
             <w:gridCol w:w="4428"/>
             <w:gridCol w:w="4428"/>
           </w:tblGrid>
-          {% r.education.forEach( function( edu, idx, ar) { %}
+          {% r.education.history.forEach( function( edu, idx, ar) { %}
           <w:tr wsp:rsidR="00C61794" wsp:rsidTr="00C61794">
             <w:tc>
               <w:tcPr>
@@ -985,7 +992,7 @@
                     <w:sz w:val="28"/>
                     <w:sz-cs w:val="28"/>
                   </w:rPr>
-                  <w:t>{{ edu.startDate|xml }} — {{ edu.endDate|xml }}</w:t>
+                  <w:t>{{ edu.safe.start.format('YYYY-MM')|xml }} — {{ edu.safe.end.format('YYYY-MM')|xml }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -1005,10 +1012,10 @@
               </w:tcPr>
               <w:p wsp:rsidR="00C61794" wsp:rsidRDefault="00C61794" wsp:rsidP="00023F41">
                 <w:r>
-                  <w:t>{{ edu.area|xml }}</w:t>
+                  <w:t>TODO</w:t>
                 </w:r>
               </w:p>
-              {% edu.courses.forEach( function( course, idx, ar) { %}
+              {% edu.curriculum.forEach( function( course, idx, ar) { %}
               <w:p wsp:rsidR="00C61794" wsp:rsidRDefault="00C61794" wsp:rsidP="00C61794">
                 <w:pPr>
                   <w:listPr>

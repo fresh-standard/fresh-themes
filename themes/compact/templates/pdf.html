@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ r.basics.name }}</title>
+    <title>{{ r.name }}</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <style>
     {{ cssInfo.data }}
@@ -11,18 +11,18 @@
   <body>
     <main>
       <header>
-        <h1>{{ r.basics.name }}</h1>
+        <h1>{{ r.name }}</h1>
         <div id="contact">
-          {% if (r.basics.email) { %}<div class="email">{{ r.basics.email }}</div>{% } %}
-          {% if (r.basics.phone) { %}<div class="phone">{{ r.basics.phone }}</div>{% } %}
-          {% if (r.basics.website) { %}<div class="website"><a href="{{ r.basics.website }}">{{ r.basics.website }}</a></div>{% } %}
+          {% if (r.contact.email) { %}<div class="email">{{ r.contact.email }}</div>{% } %}
+          {% if (r.contact.phone) { %}<div class="phone">{{ r.contact.phone }}</div>{% } %}
+          {% if (r.contact.website) { %}<div class="website"><a href="{{ r.contact.website }}">{{ r.contact.website }}</a></div>{% } %}
         </div>
       </header>
 
 
-{% if ( r.basics.summary && r.basics.summary.length ) { %}
+{% if ( r.summary && r.summary.length ) { %}
       <section id="summary">
-        {{ r.basics.summary|md }}
+        {{ r.summary|md }}
       </section>
 {% } %}
 
@@ -43,7 +43,7 @@
             {% r.skills.forEach( function( skill, idx, ar) { %}
             <tr>
               <td style="width: 25%;">{{ skill.name }}</td>
-              <td class="keywords">{% print( (skill.keywords && skill.keywords.length && skill.keywords.join(', ')) || '[None Specified]' ) %}</td>
+              <td class="keywords">{{ skill.level }}</td>
             </tr>
             {% }); %}
           </tbody>
@@ -53,7 +53,7 @@
 
 
 
-{% if ( r.work && r.work.length ) { %}
+{% if ( r.employment && r.employment.history ) { %}
       <section id="employment">
         <header>
         <h2>Employment</h2><hr>
@@ -61,9 +61,9 @@
 
 
 
-        {% r.work.forEach( function( proj, idx, ar) { %}
+        {% r.employment.history.forEach( function( proj, idx, ar) { %}
           {% if( idx < 4 ) { %}
-            <h3><em>{{ proj.position }}</em>, {{ proj.company }} <span class="tenure">{{ proj.startDate }} &mdash; {{ proj.endDate }}<span></h3>
+            <h3><em>{{ proj.position }}</em>, {{ proj.employer }} <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }} &mdash; {{ proj.safe.end.format('YYYY-MM') }}<span></h3>
             <p style="clear: both;">{{ proj.summary|md }}</p>
             {% if( proj.highlights ) { %}
               <ul>
@@ -75,13 +75,13 @@
           {% } else { %}
 
             {% if( idx === 4 ) { %}
-            <h3>Previously... <span class="tenure">{{ r.work[ r.work.length - 1 ].safeStartDate.format('YYYY') }} &mdash; {{ proj.safeEndDate.format('YYYY') }}<span></h3>
-            <p style="clear: both;">Prior to {{ r.work[ 3 ].company }}, I worked on a range of projects for companies large and small.</p>
+            <h3>Previously... <span class="tenure">{{ r.employment.history[ r.employment.history.length - 1 ].safe.start.format('YYYY') }} &mdash; {{ proj.safe.end.format('YYYY') }}<span></h3>
+            <p style="clear: both;">Prior to {{ r.employment.history[ 3 ].employer }}, I worked on a range of projects for companies large and small.</p>
             <ul>
             {% } %}
 
 
-            <li>{{ proj.position }}, {{ proj.company }}</li>
+            <li>{{ proj.position }}, {{ proj.employer }}</li>
 
 
             {% if( idx === ar.length - 1 ) { %}
@@ -98,26 +98,26 @@
 
 
 
-{% if ( r.education && r.education.length ) { %}
+{% if ( r.education && r.education.history ) { %}
       <section id="education">
         <header>
         <h2>Education</h2><hr>
         </header>
-        {% r.education.forEach( function( edu, idx, ar) { %}
-          <h3>{{ edu.institution }} <span class="tenure">{{ edu.safeStartDate.format('YYYY') }} &mdash; {{ edu.safeEndDate.format('YYYY') }}<span></h3>
-          <p style="clear: both;">{{ edu.area|md }}</p>
+        {% r.education.history.forEach( function( edu, idx, ar) { %}
+          <h3>{{ edu.institution }} <span class="tenure">{{ edu.safe.start.format('YYYY') }} &mdash; {{ edu.safe.end.format('YYYY') }}<span></h3>
+          {% if(edu.summary) { %}<p style="clear: both;">{{ edu.summary|md }}</p>{% } %}
         {% }); %}
 
       </section>
 {% } %}
 
-{% if ( r.volunteer && r.volunteer.length ) { %}
+{% if ( r.service && r.service.history && r.service.history.length ) { %}
       <section id="volunteer">
         <header>
         <h2>Volunteer</h2><hr>
         </header>
-        {% r.volunteer.forEach( function( vol, idx, ar ) { %}
-          <h3>{{ vol.organization }} <span class="tenure">{{ vol.safeStartDate.format('YYYY') }} &mdash; {{ vol.safeEndDate.format('YYYY') }}<span></h3>
+        {% r.service.history.forEach( function( vol, idx, ar ) { %}
+          <h3>{{ vol.organization }} <span class="tenure">{{ vol.safe.start.format('YYYY') }} &mdash; {{ vol.safe.end.format('YYYY') }}<span></h3>
           <p style="clear: both;">{{ vol.summary|md }}</p>
           {% if( vol.highlights ) { %}
             <ul>
@@ -139,15 +139,15 @@
         <span class="fa fa-lg fa-trophy"></span>
         {% r.publications.forEach( function( pub, idx, ar) { %}
           <h4>
-            {% if( pub.website ) { %}
-              <span class="res-label"><a href="{{ pub.website }}" ></span>{{ pub.name }}</a>,&nbsp;{{ pub.publisher }}
+            {% if( pub.link ) { %}
+              <span class="res-label"><a href="{{ pub.link[0].url }}" ></span>{{ pub.title }}</a>,&nbsp;{{ pub.publisher }}
             {% } else { %}
-              <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
+              <span class="res-label">{{ pub.title }}</span>,&nbsp;{{ pub.publisher }}
             {% } %}
-            <span class="tenure">{{ pub.safeReleaseDate.format('YYYY') }}</span>
+            <span class="tenure">{{ pub.safe.date.format('YYYY') }}</span>
           </h4>
 
-        {{ pub.summary|md }}
+        {% if (pub.summary) { %}{{ pub.summary|md }}{% } %}
 
         {% }); %}
       </section>
