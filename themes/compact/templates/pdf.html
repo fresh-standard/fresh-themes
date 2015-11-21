@@ -13,7 +13,7 @@
       <header>
         <h1>{{ r.name }}</h1>
         <div id="contact">
-          {% if (r.contact.email) { %}<div class="email">{{ r.contact.email }}</div>{% } %}
+          {% if (r.contact.email) { %}<div class="email"><a href="mailto:{{ r.contact.email }}">{{ r.contact.email }}</a></div>{% } %}
           {% if (r.contact.phone) { %}<div class="phone">{{ r.contact.phone }}</div>{% } %}
           {% if (r.contact.website) { %}<div class="website"><a href="{{ r.contact.website }}">{{ r.contact.website }}</a></div>{% } %}
         </div>
@@ -30,7 +30,7 @@
 {% if ( r.skills && r.skills.sets && r.skills.sets.length ) { %}
       <section id="skills">
         <header>
-        <h2>Skills</h2><hr>
+        <h2><span class="fa fa-code"></span> Skills</h2><hr>
         </header>
         <table>
           <thead>
@@ -43,7 +43,7 @@
             {% r.skills.sets.forEach( function( skillset ) { %}
             <tr>
               <td style="width: 25%;">{{ skillset.name }}</td>
-              <td class="keywords">{{ skillset.skills.join(',') }}</td>
+              <td class="keywords">{{ skillset.skills.join(', ') }}</td>
             </tr>
             {% }); %}
           </tbody>
@@ -56,14 +56,14 @@
 {% if ( r.employment && r.employment.history ) { %}
       <section id="employment">
         <header>
-        <h2>Employment</h2><hr>
+        <h2><span class="fa fa-building" style="vertical-align: top;"></span> Employment</h2><hr>
         </header>
 
 
 
         {% r.employment.history.forEach( function( proj, idx, ar) { %}
           {% if( idx < 4 ) { %}
-            <h3><em>{{ proj.position }}</em>, {{ proj.employer }} <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }} &mdash; {{ proj.safe.end.format('YYYY-MM') }}<span></h3>
+            <h3><em>{{ proj.position }}</em>, {{ filt.link( proj.employer, proj.url ) }} <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }} &mdash; {{ proj.safe.end.format('YYYY-MM') }}<span></h3>
             <p style="clear: both;">{{ proj.summary|md }}</p>
             {% if( proj.highlights ) { %}
               <ul>
@@ -101,11 +101,10 @@
 {% if ( r.education && r.education.history ) { %}
       <section id="education">
         <header>
-        <h2>Education</h2><hr>
+        <h2><span class="fa fa-mortar-board"></span> Education</h2><hr>
         </header>
         {% r.education.history.forEach( function( edu, idx, ar) { %}
           <h3>{{ edu.institution }} <span class="tenure">{{ edu.safe.start.format('YYYY') }} &mdash; {{ edu.safe.end.format('YYYY') }}<span></h3>
-          {% if(edu.summary) { %}<p style="clear: both;">{{ edu.summary|md }}</p>{% } %}
         {% }); %}
 
       </section>
@@ -114,10 +113,10 @@
 {% if ( r.service && r.service.history && r.service.history.length ) { %}
       <section id="volunteer">
         <header>
-        <h2>Volunteer</h2><hr>
+        <h2><span class="fa fa-child" style="vertical-align: top;"></span> Service</h2><hr>
         </header>
         {% r.service.history.forEach( function( vol, idx, ar ) { %}
-          <h3>{{ vol.organization }} <span class="tenure">{{ vol.safe.start.format('YYYY') }} &mdash; {{ vol.safe.end.format('YYYY') }}<span></h3>
+          <h3>{{ filt.link(vol.organization, vol.url) }} <span class="tenure">{{ vol.safe.start.format('YYYY') }} &mdash; {{ vol.safe.end.format('YYYY') }}<span></h3>
           <p style="clear: both;">{{ vol.summary|md }}</p>
           {% if( vol.highlights ) { %}
             <ul>
@@ -134,18 +133,10 @@
 {% if( r.writing && r.writing.length ) { %}
       <section id="publications">
         <header>
-        <h2>Publications</h2><hr>
+        <h2><span class="fa fa-book"></span> Writing</h2><hr>
         </header>
-        <span class="fa fa-lg fa-trophy"></span>
-        {% r.writing.forEach( function( pub, idx, ar) { %}
-          <h4>
-            {% if( pub.url ) { %}
-              <span class="res-label"><a href="{{ pub.link[0].url }}" ></span>{{ pub.title }}</a>,&nbsp;{{ pub.publisher }}
-            {% } else { %}
-              <span class="res-label">{{ pub.title }}</span>,&nbsp;{{ pub.publisher }}
-            {% } %}
-            <span class="tenure">{{ pub.safe.date.format('YYYY') }}</span>
-          </h4>
+        {% r.writing.forEach( function( pub, idx, ar ) { %}
+          <h3><em>{{ filt.link( pub.title, pub.url ) }}</em>, {{ pub.publisher }} <span class="tenure">{{ pub.safe.date.format('YYYY') }}</span></h3>
 
         {% if (pub.summary) { %}{{ pub.summary|md }}{% } %}
 
@@ -156,9 +147,8 @@
 {% if( r.recognition && r.recognition.length ) { %}
       <section id="awards">
         <header>
-        <h2>Awards</h2><hr>
+        <h2><span class="fa fa-trophy"></span> Awards</h2><hr>
         </header>
-        <span class="fa fa-lg fa-trophy"></span>
         {% r.recognition.forEach( function( award, idx, ar) { %}
           <h4><span class="res-label">{{ award.title }}</span>, {{ award.from }} <span class="tenure">{{ award.safe.date.format('YYYY') }}</span></h4>
           {{ award.summary|md }}
@@ -168,3 +158,4 @@
 
     </main>
   </body>
+</html>
