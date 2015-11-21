@@ -145,14 +145,10 @@ engine: Underscore
         <header>
         <h3>Publications</h3>
         </header>
-        <span class="fa fa-lg fa-trophy"></span>
+        <span class="fa fa-lg fa-pencil"></span>
         {% r.writing.forEach( function( pub, idx, ar) { %}
           <h4>
-            {% if( pub.url ) { %}
-              <span class="res-label"><a href="{{ pub.link[0].url }}" ></span>{{ pub.title }}</a>,&nbsp;{{ pub.publisher }}
-            {% } else { %}
-              <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
-            {% } %}
+            <span class="res-label">{{ filt.link(pub.title, pub.url) }}</span>&nbsp;{{ pub.publisher }}
           </h4>
         <span class="tenure">Published on: {{ pub.safe.date.format('YYYY-MM') }}</span>
 
