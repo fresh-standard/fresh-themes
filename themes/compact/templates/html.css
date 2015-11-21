@@ -75,3 +75,8 @@ main > header > h1 {
   display: inline-block;
   margin-left: 5px;
 }
+
+h2 > span.fa {
+  text-align: left;
+  margin-right: 3px;
+}

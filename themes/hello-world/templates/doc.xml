@@ -7,8 +7,8 @@ Uses the MS Word 2003 XML format.
 <w:wordDocument xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wsp="http://schemas.microsoft.com/office/word/2003/wordml/sp2" xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
   <w:ignoreSubtree w:val="http://schemas.microsoft.com/office/word/2003/wordml/sp2"/>
   <o:DocumentProperties>
-    <o:Author>{{ r.basics.name }}</o:Author>
-    <o:LastAuthor>{{ r.basics.name }}</o:LastAuthor>
+    <o:Author>{{ r.name }}</o:Author>
+    <o:LastAuthor>{{ r.name }}</o:LastAuthor>
     <o:Revision>1</o:Revision>
     <o:TotalTime>2</o:TotalTime>
     <o:Created>2015-10-08T04:10:00Z</o:Created>
@@ -438,7 +438,7 @@ Uses the MS Word 2003 XML format.
     <wx:sect>
       <w:p wsp:rsidR="00CB5B76" wsp:rsidRDefault="00DA470D">
         <w:r>
-          <w:t>Hello, world! My name is {{ r.basics.name }}.</w:t>
+          <w:t>Hello, world! My name is {{ r.name }}.</w:t>
         </w:r>
       </w:p>
       <w:sectPr wsp:rsidR="00CB5B76">

@@ -4,4 +4,4 @@
   A Markdown resume template for FluentCV's "hello-world" theme.
 
 #}
-# Hello, world! My name is {{ r.basics.name }}.
+# Hello, world! My name is {{ r.name }}.

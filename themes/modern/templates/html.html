@@ -9,7 +9,7 @@ engine: Underscore
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ r.basics.name }}</title>
+    <title>{{ r.name }}</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {{ headFragment }}
@@ -25,25 +25,25 @@ engine: Underscore
     <main id="main">
       <div id="container">
       <header>
-        <h1>{{ r.basics.name }}</h1>
+        <h1>{{ r.name }}</h1>
         <div id="contact">
-          {% if (r.basics.email) { %}<div class="email">{{ r.basics.email }}</div>{% } %}
-          {% if (r.basics.phone) { %}<div class="phone">{{ r.basics.phone }}</div>{% } %}
-          {% if (r.basics.website) { %}<div class="website"><a href="{{ r.basics.website }}">{{ r.basics.website }}</a></div>{% } %}
+          {% if (r.contact.email) { %}<div class="email">{{ r.contact.email }}</div>{% } %}
+          {% if (r.contact.phone) { %}<div class="phone">{{ r.contact.phone }}</div>{% } %}
+          {% if (r.contact.website) { %}<div class="website"><a href="{{ r.contact.website }}">{{ r.contact.website }}</a></div>{% } %}
         </div>
       </header>
 
-{% if ( r.basics.summary && r.basics.summary.length ) { %}
+{% if ( r.info.brief && r.info.brief.length ) { %}
       <hr>
       <section id="summary">
         <h3>About</h3>
         <span class="fa fa-lg fa-user"></span>
-        {{ r.basics.summary|md }}
+        {{ r.info.brief|md }}
       </section>
 {% } %}
 
 
-{% if ( r.skills && r.skills.length ) { %}
+{% if ( r.skills && r.skills.sets ) { %}
       <hr>
       <section id="skills">
         <header>
@@ -52,20 +52,16 @@ engine: Underscore
         <span class="fa fa-lg fa-code"></span>
 
         <ul class="list-unstyled">
-          {% r.skills.forEach( function(skill) { %}
+          {% r.skills.sets.forEach( function(set) { %}
             <li class="card card-nested card-skills">
-              {% if( r.display_progress_bar ) { %}
-                <div class="skill-level" rel="tooltip" title="{{ skill.level }}" data-placement="left">
-                  <div class="skill-progress {{ skill.level|lower }}">
-                  </div>
-                </div>
-              {% } %}
+              <div class="skill-level" rel="tooltip" title="{{ set.level }}" data-placement="left">
+                <div class="skill-progress {{ set.level }}"></div>
+              </div>
               <div class="skill-info">
-                <strong>{{ skill.name }}</strong>
-
+                <strong>{{ set.name }}</strong>
                 <div class="space-top labels">
-                  {% if( skill.keywords && skill.keywords.length ) { %}
-                    {% skill.keywords.forEach(function(kw) { %}
+                  {% if( set.skills && set.skills.length ) { %}
+                    {% set.skills.forEach(function(kw) { %}
                       <span class="label label-keyword">{{ kw }}</span>
                     {% }); %}
                   {% } %}
@@ -81,20 +77,20 @@ engine: Underscore
 
 
 
-{% if ( r.work && r.work.length ) { %}
+{% if ( r.employment.history && r.employment.history.length ) { %}
       <hr>
       <section id="employment">
         <header>
         <h3>Employment</h3>
         </header>
         <span class="fa fa-lg fa-building"></span>
-        {% r.work.forEach( function( proj, idx, ar) { %}
-          {% if( proj.website && proj.website.length ) { %}
-          <h4><span class="res-label">{{ proj.position }}</span>, <a href="{{ proj.website|raw }}">{{ proj.company }}</a></h4>
+        {% r.employment.history.forEach( function( proj, idx, ar) { %}
+          {% if( proj.url && proj.url.length ) { %}
+          <h4><span class="res-label">{{ proj.position }}</span>, <a href="{{ proj.url|raw }}">{{ proj.employer }}</a></h4>
           {% } else { %}
-          <h4><span class="res-label">{{ proj.position }}</span>, <span class="defunct">{{ proj.company }}</span></h4>
+          <h4><span class="res-label">{{ proj.position }}</span>, <span class="defunct">{{ proj.employer }}</span></h4>
           {% } %}
-          <span class="tenure">{{ proj.startDate }}&mdash;{{ proj.endDate }}</span>
+          <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }}&mdash;{{ proj.safe.end.format('YYYY-MM') }}</span>
           {{ proj.summary|md }}
           {% if( proj.highlights ) { %}
             <ul>
@@ -110,17 +106,16 @@ engine: Underscore
 
 
 
-{% if ( r.education && r.education.length ) { %}
+{% if ( r.education.history && r.education.history.length ) { %}
       <hr>
       <section id="education">
         <header>
         <h3>Education</h3>
         </header>
         <span class="fa fa-lg fa-mortar-board"></span>
-        {% r.education.forEach( function( edu, idx, ar) { %}
+        {% r.education.history.forEach( function( edu, idx, ar) { %}
           <h4>{{ edu.institution }}</h4>
-          <span class="tenure">{{ edu.startDate }}&mdash;{{ edu.endDate }}</span>
-          {{ edu.area|md }}
+          <span class="tenure">{{ edu.safe.start.format('YYYY-MM') }}&mdash;{{ edu.safe.end.format('YYYY-MM') }}</span>
           {% if( edu.courses ) { %}
             <ul>
             {% edu.courses.forEach( function( course, idx, ar) { %}
@@ -133,58 +128,54 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.awards && r.awards.length ) { %}
+{% if( r.recognition && r.recognition.length ) { %}
       <hr>
       <section id="awards">
         <header>
         <h3>Awards</h3>
         </header>
         <span class="fa fa-lg fa-trophy"></span>
-        {% r.awards.forEach( function( award, idx, ar) { %}
-          <h4><span class="res-label">{{ award.title }}</span>, {{ award.awarder }}</h4>
+        {% r.recognition.forEach( function( award, idx, ar) { %}
+          <h4><span class="res-label">{{ award.title }}</span>, {{ award.from }}</h4>
           <span class="tenure">{{ award.date }}</span>
           {{ award.summary|md }}
         {% }); %}
       </section>
 {% } %}
 
-{% if( r.publications && r.publications.length ) { %}
+{% if( r.writing && r.writing.length ) { %}
       <hr>
       <section id="publications">
         <header>
         <h3>Publications</h3>
         </header>
-        <span class="fa fa-lg fa-trophy"></span>
-        {% r.publications.forEach( function( pub, idx, ar) { %}
+        <span class="fa fa-lg fa-pencil"></span>
+        {% r.writing.forEach( function( pub, idx, ar) { %}
           <h4>
-            {% if( pub.website ) { %}
-              <span class="res-label"><a href="{{ pub.website }}" ></span>{{ pub.name }}</a>,&nbsp;{{ pub.publisher }}
-            {% } else { %}
-              <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
-            {% } %}
+            <span class="res-label">{{ filt.link(pub.title, pub.url) }}</span>&nbsp;{{ pub.publisher }}
           </h4>
-        <span class="tenure">Published on: {{ pub.releaseDate }}</span>
+        <span class="tenure">Published on: {{ pub.safe.date.format('YYYY-MM') }}</span>
 
-        {{ pub.summary|md }}
+
 
         {% }); %}
       </section>
 {% } %}
 
-{% if ( r.volunteer && r.volunteer.length ) { %}
+{% if ( r.service.history && r.service.history.length ) { %}
       <hr>
       <section id="volunteer">
         <header>
         <h3>Volunteer Work</h3>
         </header>
         <span class="fa fa-lg fa-child"></span>
-        {% r.volunteer.forEach( function( vol, idx, ar) { %}
-          {% if( vol.website && vol.website.length ) { %}
+        {% r.service.history.forEach( function( vol, idx, ar) { %}
+          {% if( vol.url && vol.url.length ) { %}
           <h4><span class="res-label">{{ vol.position }}</span>, <a href="{{ vol.website|raw }}">{{ vol.organization }}</a></h4>
           {% } else { %}
           <h4><span class="res-label">{{ vol.position }}</span>, <span class="defunct">{{ vol.organization }}</span></h4>
           {% } %}
-          <span class="tenure">{{ vol.startDate }}&mdash;{{ vol.endDate }}</span>
+          <span class="tenure">{{ vol.safe.start.format('YYYY-MM') }}&mdash;{{ vol.safe.end.format('YYYY-MM') }}</span>
           {{ vol.summary|md }}
           {% if( vol.highlights ) { %}
             <ul>
@@ -198,12 +189,6 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.elevatorPitch ) { %}
-      <hr>
-      <section id='elevator-pitch'>
-        {{ r.elevatorPitch }}
-      </section>
-{% } %}
 
       </div>
     </main>

@@ -1,30 +1,54 @@
-{{ r.basics.name }}
-{% if (r.basics.email) { %}Email: {{ r.basics.email }}{% } %}
-{% if (r.basics.phone) { %}Tel: {{ r.basics.phone }}{% } %}
-{% if (r.basics.website) { %}Web: {{ r.basics.website }}{% } %}
+{#
+
+  minimist/txt.txt
+  A plain text resume template for FluentCV's "minimist" theme.
+
+#}
+{{ r.name }}
+{% if (r.contact.email) { %}Email: {{ r.contact.email }}{% } %}
+{% if (r.contact.phone) { %}Tel: {{ r.contact.phone }}{% } %}
+{% if (r.contact.website) { %}Web: {{ r.contact.website }}{% } %}
 
 ***
 
-{% if ( r.basics.summary && r.basics.summary.length ) { %}{{ r.basics.summary }}{% } %}
+{% if ( r.info.brief && r.info.brief.length ) { %}{{ r.info.brief }}{% } %}
 
 
-{% if ( r.skills && r.skills.length ) { %}SKILLS
-{% r.skills.forEach( function( skill, idx, ar) { %}
-  - {{ skill.name }}: {% print( skill.keywords.join(', ') ); %}
-{% }); } %}
+{% if ( r.skills && r.skills.sets && r.skills.sets.length ) { %}SKILLS
+{% r.skills.sets.forEach( function( set ) { %}
+  - {{ set.name }}: {% set.skills.forEach(function(sk){ %}{{ sk }}, {% }); %}
+  {{ set.level }}
+{% }); %}
+{% } else if( r.skills && r.skills.list && r.skills.list.length ) { %}
 
-{% if ( r.work && r.work.length ) { %}EMPLOYMENT
-{% r.work.forEach( function( proj, idx, ar) { %}
-{{ proj.company }} ({{ proj.startDate }} — {{ proj.endDate }})
+{% } %}
+
+{% if ( r.employment && r.employment.history ) { %}EMPLOYMENT
+{% r.employment.history.forEach( function( proj, idx, ar) { %}
+{{ proj.employer }} ({{ proj.safe.start.format('YYYY-MM') }} — {{ proj.safe.end.format('YYYY-MM') }})
 {{ proj.summary }}
-{% if( proj.highlights ) { %}{% proj.highlights.forEach( function( high, idx, ar) { %}
+{% if( proj.highlights ) { %}{% proj.highlights.forEach( function( high ) { %}
   - {{ high }}
 {% }); }  }); } %}
 
-{% if ( r.education && r.education.length ) { %}EDUCATION
-{% r.education.forEach( function( edu, idx, ar) { %}
-{{ edu.institution }} ({{ edu.startDate }} — {{ edu.endDate }})
-{{ edu.area }}
-{% if( edu.courses ) { %}{% edu.courses.forEach( function( course, idx, ar) { %}
+{% if ( r.education && r.education.history ) { %}EDUCATION
+{% r.education.history.forEach( function( edu, idx, ar) { %}
+{{ edu.institution }} ({{ edu.safe.start.format('YYYY-MM') }} — {{ edu.safe.end.format('YYYY-MM') }})
+{{ edu.summary }}
+{% if( edu.courses ) { %}{% edu.courses.forEach( function( course ) { %}
   - {{ course }}
 {% }); } }); } %}
+
+{% if ( r.service && r.service.history ) { %}VOLUNTEER
+{% r.service.history.forEach( function( srv, idx, ar) { %}
+{{ srv.organization }} ({{ srv.safe.start.format('YYYY-MM') }} — {{ srv.safe.end.format('YYYY-MM') }})
+{{ srv.summary }}
+{% if( srv.highlights ) { %}{% srv.highlights.forEach( function( high ) { %}
+  - {{ high }}
+{% }); } }); } %}
+
+{% if ( r.writing && r.writing.length ) { %}WRITING
+{% r.writing.forEach( function( wri, idx, ar) { %}
+{{ wri.title }} ({{ wri.safe.date.format('YYYY-MM') }})
+{{ wri.summary }}
+{% }); } %}
