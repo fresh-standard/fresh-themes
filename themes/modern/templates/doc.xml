@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 [[[
-title: Modern (PDF)
-description: An HTML-driven PDF resume template for FluentCV's "modern" theme.
+title: Modern (MS Word)
+description: An HTML-driven MS Word resume template for FluentCV's "modern" theme.
 engine: Underscore
 ]]]
 -->
@@ -753,8 +753,8 @@ engine: Underscore
             <w:gridCol w:w="4428"/>
           </w:tblGrid>
 
-          {% r.skills.forEach( function( skill, idx, ar) { %}
-          {% var kwords = skill.summary; %}
+          {% r.skills.sets.forEach( function( set, idx, ar) { %}
+          {% var kwords = set.skills.join(', '); %}
 
           <w:tr wsp:rsidR="00427ECC" wsp:rsidTr="00FD3B33">
             <w:tc>
@@ -764,7 +764,7 @@ engine: Underscore
               </w:tcPr>
               <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
                 <w:r>
-                  <w:t>{{ skill.name|xml }}:</w:t>
+                  <w:t>{{ set.name|xml }}:</w:t>
                 </w:r>
               </w:p>
             </w:tc>

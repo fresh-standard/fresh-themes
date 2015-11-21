@@ -12,10 +12,10 @@
 
 {% if ( r.info.brief && r.info.brief.length ) { %}{{ r.info.brief }}{% } %}
 
-{% if ( r.skills && r.skills.length ) { %}
+{% if ( r.skills && r.skills.sets ) { %}
 ## Skills
-{% r.skills.forEach( function( skill, idx, ar) { %}
-- **{{ skill.name }}**: {{ skill.level }}
+{% r.skills.sets.forEach( function( set, idx, ar) { %}
+- **{{ set.name }}**: {{ set.level }}
 {% }); } %}
 
 {% if ( r.employment.history && r.employment.history.length ) { %}
@@ -36,9 +36,9 @@
 - {{ course }}
 {% }); } }); } %}
 
-{% if ( r.publications && r.publications.length ) { %}
+{% if ( r.writing && r.writing.length ) { %}
 ## Publications
-{% r.publications.forEach( function( pub, idx, ar) { %}
+{% r.writing.forEach( function( pub, idx, ar) { %}
 ### {{ pub.title }} ({{ pub.safe.date.format('MMM YYYY') }})
 {{ pub.publisher }}
 {{ pub.summary }}
@@ -51,9 +51,9 @@
 {{ vol.summary }}
 {% }); } %}
 
-{% if ( r.awards && r.awards.length ) { %}
-## Awards
-{% r.awards.forEach( function( awd, idx, ar) { %}
-### *{{ awd.title }}*, {{ awd.awarder }} ({{ awd.safeDate.format('MMM YYYY') }})
+{% if ( r.recognition && r.recognition.length ) { %}
+## Recognition
+{% r.recognition.forEach( function( awd, idx, ar) { %}
+### *{{ awd.title }}*, {{ awd.from }} ({{ awd.safe.date.format('MMM YYYY') }})
 {{ awd.summary }}
 {% }); } %}

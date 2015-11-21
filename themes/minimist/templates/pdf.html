@@ -1,15 +1,25 @@
 <!DOCTYPE html>
+<!-- [[[
+title: Modern (PDF)
+description: An HTML-driven PDF resume template for FluentCV's "minimist" theme.
+engine: Underscore
+]]] -->
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ r.name }}</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{ headFragment }}
     <style>
     {{ cssInfo.data }}
     </style>
   </head>
   <body>
-    <main>
+    <main id="main">
+      <div id="container">
       <header>
         <h1>{{ r.name }}</h1>
         <div id="contact">
@@ -19,52 +29,69 @@
         </div>
       </header>
 
-
 {% if ( r.info.brief && r.info.brief.length ) { %}
+      <hr>
       <section id="summary">
+        <h3>About</h3>
+        <span class="fa fa-lg fa-user"></span>
         {{ r.info.brief|md }}
       </section>
 {% } %}
 
 
-{% if ( r.skills && r.skills.length ) { %}
+{% if ( r.skills && r.skills.sets ) { %}
+      <hr>
       <section id="skills">
         <header>
-        <h2>Skills</h2><hr>
+        <h3>Skills</h3>
         </header>
-        <table>
-          <thead>
-            <tr>
-              <th>Skill</th>
-              <th>Keywords</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% r.skills.forEach( function( skill, idx, ar) { %}
-            <tr>
-              <td style="width: 25%;">{{ skill.name }}</td>
-              <td class="keywords">{{ skill.level }}</td>
-            </tr>
-            {% }); %}
-          </tbody>
-        </table>
+        <span class="fa fa-lg fa-code"></span>
+
+        <ul class="list-unstyled">
+          {% r.skills.sets.forEach( function(set) { %}
+            <li class="card card-nested card-skills">
+              <div class="skill-level" rel="tooltip" title="{{ set.level }}" data-placement="left">
+                <div class="skill-progress {{ set.level }}"></div>
+              </div>
+              <div class="skill-info">
+                <strong>{{ set.name }}</strong>
+                <div class="space-top labels">
+                  {% if( set.skills && set.skills.length ) { %}
+                    {% set.skills.forEach(function(kw) { %}
+                      <span class="label label-keyword">{{ kw }}</span>
+                    {% }); %}
+                  {% } %}
+                </div>
+              </div>
+            </li>
+          {% }); %}
+        </ul>
+
+
       </section>
 {% } %}
 
 
 
-{% if ( r.employment && r.employment.history && r.employment.history.length ) { %}
+{% if ( r.employment.history && r.employment.history.length ) { %}
+      <hr>
       <section id="employment">
         <header>
-        <h2>Employment</h2><hr>
+        <h3>Employment</h3>
         </header>
+        <span class="fa fa-lg fa-building"></span>
         {% r.employment.history.forEach( function( proj, idx, ar) { %}
-          <h3>{{ proj.employer }} <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }}&mdash;{{ proj.safe.end.format('YYYY-MM') }}<span></h3>
-          {% if( proj.summary && proj.summary.length ) { %}<p style="clear: both;">{{ proj.summary|md }}</p>{% } %}
+          {% if( proj.url && proj.url.length ) { %}
+          <h4><span class="res-label">{{ proj.position }}</span>, <a href="{{ proj.url|raw }}">{{ proj.employer }}</a></h4>
+          {% } else { %}
+          <h4><span class="res-label">{{ proj.position }}</span>, <span class="defunct">{{ proj.employer }}</span></h4>
+          {% } %}
+          <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }}&mdash;{{ proj.safe.end.format('YYYY-MM') }}</span>
+          {{ proj.summary|md }}
           {% if( proj.highlights ) { %}
             <ul>
             {% proj.highlights.forEach( function( high, idx, ar) { %}
-              <li>{{ high|md }}</li>
+              <li>{{ high|mdin }}</li>
             {% }); %}
             </ul>
           {% } %}
@@ -75,18 +102,85 @@
 
 
 
-{% if ( r.education && r.education.history && r.education.history.length ) { %}
+{% if ( r.education.history && r.education.history.length ) { %}
+      <hr>
       <section id="education">
         <header>
-        <h2>Education</h2><hr>
+        <h3>Education</h3>
         </header>
+        <span class="fa fa-lg fa-mortar-board"></span>
         {% r.education.history.forEach( function( edu, idx, ar) { %}
-          <h3>{{ edu.institution }} <span class="tenure">{{ edu.safe.start.format('YYYY-MM') }}&mdash;{{ edu.safe.end.format('YYYY-MM') }}<span></h3>
-          {% if( edu.summary && edu.summary.length ) { %}<p style="clear: both;">{{ edu.summary|md }}</p>{% } %}
-          {% if( edu.curriculum ) { %}
+          <h4>{{ edu.institution }}</h4>
+          <span class="tenure">{{ edu.safe.start.format('YYYY-MM') }}&mdash;{{ edu.safe.end.format('YYYY-MM') }}</span>
+          {% if( edu.courses ) { %}
             <ul>
-            {% edu.curriculum.forEach( function( course, idx, ar) { %}
-              <li>{{ course|md }}</li>
+            {% edu.courses.forEach( function( course, idx, ar) { %}
+              <li>{{ course|mdin }}</li>
+            {% }); %}
+            </ul>
+          {% } %}
+        {% }); %}
+
+      </section>
+{% } %}
+
+{% if( r.recognition && r.recognition.length ) { %}
+      <hr>
+      <section id="awards">
+        <header>
+        <h3>Awards</h3>
+        </header>
+        <span class="fa fa-lg fa-trophy"></span>
+        {% r.recognition.forEach( function( award, idx, ar) { %}
+          <h4><span class="res-label">{{ award.title }}</span>, {{ award.from }}</h4>
+          <span class="tenure">{{ award.date }}</span>
+          {{ award.summary|md }}
+        {% }); %}
+      </section>
+{% } %}
+
+{% if( r.writing && r.writing.length ) { %}
+      <hr>
+      <section id="publications">
+        <header>
+        <h3>Publications</h3>
+        </header>
+        <span class="fa fa-lg fa-trophy"></span>
+        {% r.writing.forEach( function( pub, idx, ar) { %}
+          <h4>
+            {% if( pub.url ) { %}
+              <span class="res-label"><a href="{{ pub.link[0].url }}" ></span>{{ pub.title }}</a>,&nbsp;{{ pub.publisher }}
+            {% } else { %}
+              <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
+            {% } %}
+          </h4>
+        <span class="tenure">Published on: {{ pub.safe.date.format('YYYY-MM') }}</span>
+
+
+
+        {% }); %}
+      </section>
+{% } %}
+
+{% if ( r.service.history && r.service.history.length ) { %}
+      <hr>
+      <section id="volunteer">
+        <header>
+        <h3>Volunteer Work</h3>
+        </header>
+        <span class="fa fa-lg fa-child"></span>
+        {% r.service.history.forEach( function( vol, idx, ar) { %}
+          {% if( vol.url && vol.url.length ) { %}
+          <h4><span class="res-label">{{ vol.position }}</span>, <a href="{{ vol.website|raw }}">{{ vol.organization }}</a></h4>
+          {% } else { %}
+          <h4><span class="res-label">{{ vol.position }}</span>, <span class="defunct">{{ vol.organization }}</span></h4>
+          {% } %}
+          <span class="tenure">{{ vol.safe.start.format('YYYY-MM') }}&mdash;{{ vol.safe.end.format('YYYY-MM') }}</span>
+          {{ vol.summary|md }}
+          {% if( vol.highlights ) { %}
+            <ul>
+            {% vol.highlights.forEach( function( high, idx, ar) { %}
+              <li>{{ high|mdin }}</li>
             {% }); %}
             </ul>
           {% } %}
@@ -96,6 +190,7 @@
 {% } %}
 
 
+      </div>
     </main>
   </body>
 </html>

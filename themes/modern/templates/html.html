@@ -43,7 +43,7 @@ engine: Underscore
 {% } %}
 
 
-{% if ( r.skills && r.skills.length ) { %}
+{% if ( r.skills && r.skills.sets ) { %}
       <hr>
       <section id="skills">
         <header>
@@ -52,16 +52,16 @@ engine: Underscore
         <span class="fa fa-lg fa-code"></span>
 
         <ul class="list-unstyled">
-          {% r.skills.forEach( function(skill) { %}
+          {% r.skills.sets.forEach( function(set) { %}
             <li class="card card-nested card-skills">
-              <div class="skill-level" rel="tooltip" title="{{ skill.level }}" data-placement="left">
-                <div class="skill-progress {{ skill.level }}"></div>
+              <div class="skill-level" rel="tooltip" title="{{ set.level }}" data-placement="left">
+                <div class="skill-progress {{ set.level }}"></div>
               </div>
               <div class="skill-info">
-                <strong>{{ skill.name }}</strong>
+                <strong>{{ set.name }}</strong>
                 <div class="space-top labels">
-                  {% if( skill.keywords && skill.keywords.length ) { %}
-                    {% skill.keywords.forEach(function(kw) { %}
+                  {% if( set.skills && set.skills.length ) { %}
+                    {% set.skills.forEach(function(kw) { %}
                       <span class="label label-keyword">{{ kw }}</span>
                     {% }); %}
                   {% } %}
@@ -128,31 +128,31 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.awards && r.awards.length ) { %}
+{% if( r.recognition && r.recognition.length ) { %}
       <hr>
       <section id="awards">
         <header>
         <h3>Awards</h3>
         </header>
         <span class="fa fa-lg fa-trophy"></span>
-        {% r.awards.forEach( function( award, idx, ar) { %}
-          <h4><span class="res-label">{{ award.title }}</span>, {{ award.awarder }}</h4>
+        {% r.recognition.forEach( function( award, idx, ar) { %}
+          <h4><span class="res-label">{{ award.title }}</span>, {{ award.from }}</h4>
           <span class="tenure">{{ award.date }}</span>
           {{ award.summary|md }}
         {% }); %}
       </section>
 {% } %}
 
-{% if( r.publications && r.publications.length ) { %}
+{% if( r.writing && r.writing.length ) { %}
       <hr>
       <section id="publications">
         <header>
         <h3>Publications</h3>
         </header>
         <span class="fa fa-lg fa-trophy"></span>
-        {% r.publications.forEach( function( pub, idx, ar) { %}
+        {% r.writing.forEach( function( pub, idx, ar) { %}
           <h4>
-            {% if( pub.link ) { %}
+            {% if( pub.url ) { %}
               <span class="res-label"><a href="{{ pub.link[0].url }}" ></span>{{ pub.title }}</a>,&nbsp;{{ pub.publisher }}
             {% } else { %}
               <span class="res-label">{{ pub.name }}</span>,&nbsp;{{ pub.publisher }}
@@ -193,12 +193,6 @@ engine: Underscore
       </section>
 {% } %}
 
-{% if( r.elevatorPitch ) { %}
-      <hr>
-      <section id='elevator-pitch'>
-        {{ r.elevatorPitch }}
-      </section>
-{% } %}
 
       </div>
     </main>
