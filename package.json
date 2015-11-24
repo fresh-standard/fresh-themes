@@ -6,6 +6,7 @@
     "type": "git",
     "url": "https://github.com/fluentdesk/fluent-themes.git"
   },
+  "main": "themes/index.html",
   "keywords": [
     "resume",
     "CV",
