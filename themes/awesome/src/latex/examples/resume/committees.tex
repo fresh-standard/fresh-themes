@@ -1,13 +1,12 @@
+[~ if( r.committees && r.committees.length ) { ~]
 \cvsection{Program Committees}
 \begin{cvhonors}
+  [~ _.each(r.committees, function(com) { ~]
   \cvhonor
-    {Organizer \& Co-director}
-    {1st POSTECH Hackathon}
-    {S.Korea}
-    {2013}
-  \cvhonor
-    {Staff \& Problem Writer}
-    {JFF(Just for Fun) Hacking Competition}
-    {S.Korea}
-    {2012}
+    {[[ com.position ]]}
+    {[[ com.organization ]]}
+    {[[ com.location ]]}
+    {[[ com.safe.date ]]}
+  [~ }); ~]
 \end{cvhonors}
+[~ } ~]

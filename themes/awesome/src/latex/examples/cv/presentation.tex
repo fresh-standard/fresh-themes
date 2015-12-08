@@ -1,23 +1,21 @@
+[~ if( r.presentations && r.presentations.length) { ~]
 \cvsection{Presentation}
 \begin{cventries}
+  [~ _.each(r.presentations, function(pres) { ~]
   \cventry
-    {Presenter for <DEFCON 20th : The way to go to Las Vegas>}
-    {6th CodeEngn (Reverse Engineering Conference)}
-    {Seoul, S.Korea}
-    {Jul. 2012}
+    {[[ pres.title ]]}
+    {[[ pres.event ]]}
+    {[[ pres.location ]]}
+    {[[ pres.safe.date ]]}
+    [~ if (pres.highlights && pres.highlights.length) { ~]
     {
       \begin{cvitems}
-        \item {Introduced CTF(Capture the Flag) hacking competition and advanced techniques and strategy for CTF}
+        [~ _.each(pres.highlights, function( high) { ~]
+        \item {[[ high ]]}
+        [~ }); ~]
       \end{cvitems}
     }
-  \cventry
-    {Presenter for <Metasploit 101>}
-    {6th Hacking Camp - S.Korea}
-    {S.Korea}
-    {Sep. 2012}
-    {
-      \begin{cvitems}
-        \item {Introduced basic procedure for penetration testing and how to use Metasploit}
-      \end{cvitems}
-    }
+    [~ } ~]
+  [~ }); ~]
 \end{cventries}
+[~ } ~]

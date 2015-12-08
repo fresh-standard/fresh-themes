@@ -1,23 +1,21 @@
+[~ if( r.writing && r.writing.length ) { ~]
 \cvsection{Writing}
 \begin{cventries}
+[~ _.each(r.writing, function(wri) { ~]
   \cventry
-    {Founder \& Writer}
-    {A Guide for Developers in Start-up}
-    {Facebook Page}
-    {Jan. 2015 - PRESENT}
+    {[[ wri.publisher ]]}
+    {[[ wri.title ]]}
+    {[[ wri.url ]]}
+    {[[ wri.safe.date ]] - PRESENT}
+    [~ if( wri.highlights && wri.highlights.length ) { ~]
     {
       \begin{cvitems}
-        \item {Drafted daily news for developers in Korea about IT technologies, issues about start-up.}
+        [~ _.each(wri.highlights, function(high) { ~]
+        \item {[[ high ]]}
+        [~ }); ~]
       \end{cvitems}
     }
-  \cventry
-    {Undergraduate Student Reporter}
-    {AhnLab}
-    {S.Korea}
-    {Oct. 2012 - Jul. 2013}
-    {
-      \begin{cvitems}
-        \item {Drafted reports about IT trends and Security issues on AhnLab Company magazine.}
-      \end{cvitems}
-    }
+    [~ } ~]
+[~ }); ~]
 \end{cventries}
+[~ } ~]

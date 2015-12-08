@@ -3,10 +3,10 @@
 \begin{cventries}
 [~ _.each(r.employment.history, function(emp) { ~]
   \cventry
-    {Software Engineer \& Security Researcher (Compulsory Military Service)}
+    {[[ emp.position ]]}
     {[[ emp.employer ]]}
-    {Seoul, S.Korea}
-    {[[emp.safe.start]] - [[ emp.safe.end ]]}
+    {[[ emp.location ]]}
+    {[[ emp.safe.start ]] - [[ emp.safe.end ]]}
     [~ if( emp.highlights && emp.highlights.length ) { ~]
     {
       \begin{cvitems}
