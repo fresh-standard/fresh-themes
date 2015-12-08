@@ -1,0 +1,34 @@
+{
+  "title": "compact",
+  "description": "A FluentCV résumé theme based on Awesome-CV for LaTeX.",
+  "engine": "underscore",
+  "delimeters": {
+    "interpolate": "\\[\\[(.+?)\\]\\]",
+    "escape": "\\[\\=(.+?)\\]\\]",
+    "evaluate": "\\[\\~(.+?)\\~\\]",
+    "comment": "\\[\\#(.+?)\\#\\]"
+  },
+  "formats": {
+    "latex": {
+      "transform": [
+        "src/latex/examples/resume.tex",
+        "src/latex/examples/cv.tex",
+        "src/latex/examples/resume/committees.tex",
+        "src/latex/examples/resume/education.tex",
+        "src/latex/examples/resume/experience.tex",
+        "src/latex/examples/resume/extracurricular.tex",
+        "src/latex/examples/resume/honors.tex",
+        "src/latex/examples/resume/presentation.tex",
+        "src/latex/examples/resume/writing.tex",
+        "src/latex/examples/cv/committees.tex",
+        "src/latex/examples/cv/education.tex",
+        "src/latex/examples/cv/experience.tex",
+        "src/latex/examples/cv/extracurricular.tex",
+        "src/latex/examples/cv/honors.tex",
+        "src/latex/examples/cv/presentation.tex",
+        "src/latex/examples/cv/skills.tex",
+        "src/latex/examples/cv/writing.tex"
+      ]
+    }
+  }
+}
