@@ -28,7 +28,12 @@
         "src/latex/examples/cv/presentation.tex",
         "src/latex/examples/cv/skills.tex",
         "src/latex/examples/cv/writing.tex"
-      ]
+      ],
+      "symlinks": {
+        "src/latex/examples/awesome-cv.cls": "../awesome-cv.cls",
+        "src/latex/examples/fontawesome.sty": "../fontawesome.sty",
+        "src/latex/examples/fonts": "../fonts"
+      }
     }
   }
 }
