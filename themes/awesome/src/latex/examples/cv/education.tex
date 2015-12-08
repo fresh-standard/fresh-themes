@@ -1,13 +1,21 @@
+[~ if( r.education && r.education.history && r.education.history.length) { ~]
 \cvsection{Education}
 \begin{cventries}
+[~ _.each(r.education.history, function(edu) { ~]
   \cventry
-    {B.S. in Computer Science and Engineering}
-    {POSTECH(Pohang University of Science and Technology)}
+    {[[ edu.studyType ]], [[ edu.area ]]}
+    {[[ edu.institution ]]}
     {Pohang, S.Korea}
-    {Mar. 2010 - PRESENT}
+    {[[ edu.safe.start ]] - [[ edu.safe.end ]]}
+    [~ if( edu.highlights && edu.highlights.length ) { ~]
     {
       \begin{cvitems}
-        \item {Got a Chun Shin-Il Scholarship which is given to promising students in CSE Dept.}
+        [~ _.each(edu.highlights, function(high) { ~]
+        \item {[[ high ]]}
+        [~ }); ~]
       \end{cvitems}
     }
+    [~ } ~]
+[~ }); ~]
 \end{cventries}
+[~ } ~]

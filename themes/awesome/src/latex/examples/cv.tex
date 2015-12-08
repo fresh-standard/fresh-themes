@@ -44,17 +44,17 @@
 %     Personal Data
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Essentials
-\name{Claud D. }{Park}
-\address{246-1002, Gwangmyeongmayrouge Apt. 86, Cheongna lime-ro, Seo-gu, Incheon-si, 404-180, Rep. of KOREA}
-\mobile{(+82) 10-9030-1843} 
+\name{[[ _.initial(r.name.split(' ')).join(' ') ]] }{[[ _.last(r.name.split(' ')) ]]}
+\address{[[ r.location.address.replace(/\n/g, ', ') ]]}
+\mobile{[[ r.contact.phone ]]}
 %%% Social
-\email{posquit0.bj@gmail.com}
-\homepage{www.posquit0.com}
-\github{posquit0}
-\linkedin{posquit0}
+\email{[[ r.contact.email ]]}
+\homepage{[[ r.contact.website ]]}
+[~ if(r.hasProfile('github')) { ~]\github{[[ r.getProfile('github').user ]]}[~ } ~]
+[~ if(r.hasProfile('linkedin')) { ~]\linkedin{[[ r.getProfile('linkedin').user ]]}[~ } ~]
 %%% Optionals
-\position{Software Engineer{\enskip\cdotp\enskip}Security Expert}
-\quote{``Make the change that you want to see in the world."}
+\position{[[ r.info.characterClass ]]{\enskip\cdotp\enskip}[[ r.info.label ]]}
+[~ if( r.info.quote ) { ~]\quote{``[[ r.info.quote ]]"}[~ } ~]
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -63,7 +63,7 @@
 %%% Make a footer for CV with three arguments(<left>, <center>, <right>)
 \makecvfooter
   {\today}
-  {Claud D. Park~~~·~~~Curriculum Vitae}
+  {[[ r.name ]]~~~·~~~Curriculum Vitae}
   {\thepage}
 
 \begin{document}
