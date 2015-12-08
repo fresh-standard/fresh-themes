@@ -3,10 +3,10 @@
   "description": "A FluentCV résumé theme based on Awesome-CV for LaTeX.",
   "engine": "underscore",
   "delimeters": {
-    "interpolate": "\\[\\[(.+?)\\]\\]",
-    "escape": "\\[\\=(.+?)\\]\\]",
-    "evaluate": "\\[\\~(.+?)\\~\\]",
-    "comment": "\\[\\#(.+?)\\#\\]"
+    "interpolate": "\\[\\[([\\s\\S]+?)\\]\\]",
+    "escape": "\\[\\=([\\s\\S]+?)\\]\\]",
+    "evaluate": "\\[~([\\s\\S]+?)~]",
+    "comment": "\\[\\#([\\s\\S]+?)\\#\\]"
   },
   "formats": {
     "latex": {
@@ -29,7 +29,7 @@
         "src/latex/examples/cv/skills.tex",
         "src/latex/examples/cv/writing.tex"
       ],
-      "symlinks": {
+      "symLinks": {
         "src/latex/examples/awesome-cv.cls": "../awesome-cv.cls",
         "src/latex/examples/fontawesome.sty": "../fontawesome.sty",
         "src/latex/examples/fonts": "../fonts"

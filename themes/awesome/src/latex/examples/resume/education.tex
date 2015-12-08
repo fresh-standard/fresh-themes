@@ -7,15 +7,14 @@
     {[[ edu.institution ]]}
     {[[ edu.location ]]}
     {[[ edu.safe.start ]] - [[ edu.safe.end ]]}
-    [~ if( edu.highlights && edu.highlights.length ) { ~]
-    {
+    [~ if( edu.highlights && edu.highlights.length ) {
+    ~]{
       \begin{cvitems}
         [~ _.each(edu.highlights, function(high) { ~]
         \item {[[ high ]]}
         [~ }); ~]
       \end{cvitems}
-    }
-    [~ } ~]
+    }[~ } else { ~]{ }[~ } ~]
 [~ }); ~]
 \end{cventries}
 [~ } ~]

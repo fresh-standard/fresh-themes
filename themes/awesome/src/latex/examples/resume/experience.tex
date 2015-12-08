@@ -7,15 +7,12 @@
     {[[ emp.employer ]]}
     {[[ emp.location ]]}
     {[[ emp.safe.start ]] - [[ emp.safe.end ]]}
-    [~ if( emp.highlights && emp.highlights.length ) { ~]
-    {
-      \begin{cvitems}
-      [~ _.each( emp.highlights, function(high) { ~]
-        \item {[[ high ]]}
-      [~ }); ~]
+    [~ if( emp.highlights && emp.highlights.length ) {
+    ~]{
+      \begin{cvitems}[~ _.each( emp.highlights, function(high) { ~]
+        \item {[[ high.replace(/#/g, '\\#') ]]}[~ }); ~]
       \end{cvitems}
-    }
-    [~ } ~]
+    }[~ } ~]
 [~ }); ~]
 \end{cventries}
 [~ } ~]
