@@ -7,15 +7,13 @@
     {[[ ex.activity ]]}
     {[[ ex.location ]]}
     {[[ ex.safe.start ]] - [[ ex.safe.end ]]}
-    [~ if( ex.highlights && ex.highlights.length ) { ~]
-    {
+    [~ if( ex.highlights && ex.highlights.length ) {
+    ~]{
       \begin{cvitems}
-        [~ _.each(ex.highlights, function(high) { ~]
-        \item {[[high]]}
-        [~ }); ~]
-      \end{cvitems}
-    }
-    [~ } else { ~]{ }[~ } ~]
+        [~ _.each(ex.highlights, function(high) {
+        ~]\item {[[high]]}
+        [~ }); ~]\end{cvitems}
+    }[~ } else { ~]{ }[~ } ~]
   [~ }); ~]
 \end{cventries}
 [~ } ~]
