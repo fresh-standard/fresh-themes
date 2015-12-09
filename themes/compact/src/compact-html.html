@@ -12,16 +12,16 @@
       <header>
         <h1>{{ r.name }}</h1>
         <div id="contact">
-          {% if (r.contact.email) { %}<div class="email"><a href="mailto:{{ r.contact.email }}">{{ r.contact.email }}</a></div>{% } %}
+          {% if (r.contact.email) { %}<div class="email"><a href="mailto:{{ RAW.contact.email }}">{{ RAW.contact.email }}</a></div>{% } %}
           {% if (r.contact.phone) { %}<div class="phone">{{ r.contact.phone }}</div>{% } %}
-          {% if (r.contact.website) { %}<div class="website"><a href="{{ r.contact.website }}">{{ r.contact.website }}</a></div>{% } %}
+          {% if (r.contact.website) { %}<div class="website"><a href="{{ RAW.contact.website }}">{{ RAW.contact.website }}</a></div>{% } %}
         </div>
       </header>
 
 
 {% if ( r.info.brief && r.info.brief.length ) { %}
       <section id="summary">
-        {{ r.info.brief|md }}
+        {{ r.info.brief }}
       </section>
 {% } %}
 
@@ -63,11 +63,11 @@
         {% r.employment.history.forEach( function( proj, idx, ar) { %}
           {% if( idx < 4 ) { %}
             <h3><em>{{ proj.position }}</em>, {{ filt.link( proj.employer, proj.url ) }} <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }} &mdash; {{ proj.safe.end.format('YYYY-MM') }}<span></h3>
-            <p style="clear: both;">{{ proj.summary|md }}</p>
+            <p style="clear: both;">{{ proj.summary }}</p>
             {% if( proj.highlights ) { %}
               <ul>
               {% proj.highlights.forEach( function( high, idx, ar) { %}
-                <li>{{ high|mdin }}</li>
+                <li>{{ high }}</li>
               {% }); %}
               </ul>
             {% } %}
@@ -116,11 +116,11 @@
         </header>
         {% r.service.history.forEach( function( vol, idx, ar ) { %}
           <h3><em>{{ vol.position }}</em>, {{ filt.link(vol.organization, vol.url) }} <span class="tenure">{{ vol.safe.start.format('YYYY') }} &mdash; {{ vol.safe.end.format('YYYY') }}<span></h3>
-          <p style="clear: both;">{{ vol.summary|md }}</p>
+          <p style="clear: both;">{{ vol.summary }}</p>
           {% if( vol.highlights ) { %}
             <ul>
             {% vol.highlights.forEach( function( high, idx, ar) { %}
-              <li>{{ high|md }}</li>
+              <li>{{ high }}</li>
             {% }); %}
             </ul>
           {% } %}
@@ -137,7 +137,7 @@
         {% r.writing.forEach( function( pub, idx, ar ) { %}
           <h3><em>{{ filt.link( pub.title, pub.url ) }}</em>, {{ pub.publisher }} <span class="tenure">{{ pub.safe.date.format('YYYY') }}</span></h3>
 
-        {% if (pub.summary) { %}{{ pub.summary|md }}{% } %}
+        {% if (pub.summary) { %}{{ pub.summary }}{% } %}
 
         {% }); %}
       </section>
@@ -150,7 +150,7 @@
         </header>
         {% r.recognition.forEach( function( award, idx, ar) { %}
           <h4><span class="res-label">{{ award.title }}</span>, {{ award.from }} <span class="tenure">{{ award.safe.date.format('YYYY') }}</span></h4>
-          {{ award.summary|md }}
+          {{ award.summary }}
         {% }); %}
       </section>
 {% } %}

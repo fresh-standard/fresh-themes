@@ -23,9 +23,9 @@ engine: Underscore
       <header>
         <h1>{{ r.name }}</h1>
         <div id="contact">
-          {% if (r.contact.email) { %}<div class="email">{{ r.contact.email }}</div>{% } %}
-          {% if (r.contact.phone) { %}<div class="phone">{{ r.contact.phone }}</div>{% } %}
-          {% if (r.contact.website) { %}<div class="website"><a href="{{ r.contact.website }}">{{ r.contact.website }}</a></div>{% } %}
+          {% if (r.contact.email) { %}<div class="email">{{ RAW.contact.email }}</div>{% } %}
+          {% if (r.contact.phone) { %}<div class="phone">{{ RAW.contact.phone }}</div>{% } %}
+          {% if (r.contact.website) { %}<div class="website"><a href="{{ RAW.contact.website }}">{{ RAW.contact.website }}</a></div>{% } %}
         </div>
       </header>
 
@@ -34,7 +34,7 @@ engine: Underscore
       <section id="summary">
         <h3>About</h3>
         <span class="fa fa-lg fa-user"></span>
-        {{ r.info.brief|md }}
+        {{ r.info.brief }}
       </section>
 {% } %}
 
@@ -82,16 +82,16 @@ engine: Underscore
         <span class="fa fa-lg fa-building"></span>
         {% r.employment.history.forEach( function( proj, idx, ar) { %}
           {% if( proj.url && proj.url.length ) { %}
-          <h4><span class="res-label">{{ proj.position }}</span>, <a href="{{ proj.url|raw }}">{{ proj.employer }}</a></h4>
+          <h4><span class="res-label">{{ proj.position }}</span>, <a href="{{ RAW.employment.history[idx].url }}">{{ proj.employer }}</a></h4>
           {% } else { %}
           <h4><span class="res-label">{{ proj.position }}</span>, <span class="defunct">{{ proj.employer }}</span></h4>
           {% } %}
           <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }}&mdash;{{ proj.safe.end.format('YYYY-MM') }}</span>
-          {{ proj.summary|md }}
+          {{ proj.summary }}
           {% if( proj.highlights ) { %}
             <ul>
             {% proj.highlights.forEach( function( high, idx, ar) { %}
-              <li>{{ high|mdin }}</li>
+              <li>{{ high }}</li>
             {% }); %}
             </ul>
           {% } %}
@@ -115,7 +115,7 @@ engine: Underscore
           {% if( edu.courses ) { %}
             <ul>
             {% edu.courses.forEach( function( course, idx, ar) { %}
-              <li>{{ course|mdin }}</li>
+              <li>{{ course }}</li>
             {% }); %}
             </ul>
           {% } %}
@@ -134,7 +134,7 @@ engine: Underscore
         {% r.recognition.forEach( function( award, idx, ar) { %}
           <h4><span class="res-label">{{ award.title }}</span>, {{ award.from }}</h4>
           <span class="tenure">{{ award.date }}</span>
-          {{ award.summary|md }}
+          {{ award.summary }}
         {% }); %}
       </section>
 {% } %}
@@ -167,16 +167,16 @@ engine: Underscore
         <span class="fa fa-lg fa-child"></span>
         {% r.service.history.forEach( function( vol, idx, ar) { %}
           {% if( vol.url && vol.url.length ) { %}
-          <h4><span class="res-label">{{ vol.position }}</span>, <a href="{{ vol.website|raw }}">{{ vol.organization }}</a></h4>
+          <h4><span class="res-label">{{ vol.position }}</span>, <a href="{{ vol.website }}">{{ vol.organization }}</a></h4>
           {% } else { %}
           <h4><span class="res-label">{{ vol.position }}</span>, <span class="defunct">{{ vol.organization }}</span></h4>
           {% } %}
           <span class="tenure">{{ vol.safe.start.format('YYYY-MM') }}&mdash;{{ vol.safe.end.format('YYYY-MM') }}</span>
-          {{ vol.summary|md }}
+          {{ vol.summary }}
           {% if( vol.highlights ) { %}
             <ul>
             {% vol.highlights.forEach( function( high, idx, ar) { %}
-              <li>{{ high|mdin }}</li>
+              <li>{{ high }}</li>
             {% }); %}
             </ul>
           {% } %}

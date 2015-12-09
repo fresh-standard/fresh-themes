@@ -10,8 +10,8 @@ engine: Underscore
 <w:wordDocument xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wsp="http://schemas.microsoft.com/office/word/2003/wordml/sp2" xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
   <w:ignoreSubtree w:val="http://schemas.microsoft.com/office/word/2003/wordml/sp2"/>
   <o:DocumentProperties>
-    <o:Author>{{ r.name|xml }}</o:Author>
-    <o:LastAuthor>{{ r.name|xml }}</o:LastAuthor>
+    <o:Author>{{ XML(r.name) }}</o:Author>
+    <o:LastAuthor>{{ XML(r.name) }}</o:LastAuthor>
     <o:Revision>4</o:Revision>
     <o:TotalTime>14</o:TotalTime>
     <o:Created>2015-08-28T04:22:00Z</o:Created>
@@ -658,7 +658,7 @@ engine: Underscore
                           <w:sz-cs w:val="16"/>
                           <w:u w:val="none"/>
                         </w:rPr>
-                        <w:t>{{ r.contact.email|xml }}</w:t>
+                        <w:t>{{ XML(r.contact.email) }}</w:t>
                       </w:r>
                     </w:hlink>
                   </w:p>
@@ -679,7 +679,7 @@ engine: Underscore
                           <w:sz-cs w:val="16"/>
                           <w:u w:val="none"/>
                         </w:rPr>
-                        <w:t>{{ r.contact.website|xml }}</w:t>
+                        <w:t>{{ XML(r.contact.website) }}</w:t>
                       </w:r>
                     </w:hlink>
                   </w:p>
@@ -698,7 +698,7 @@ engine: Underscore
                         <w:sz-cs w:val="16"/>
                         <w:u w:val="none"/>
                       </w:rPr>
-                      <w:t>{{ r.contact.phone|xml }}</w:t>
+                      <w:t>{{ XML(r.contact.phone) }}</w:t>
                     </w:r>
                   </w:p>
                 </w:txbxContent>
@@ -708,7 +708,7 @@ engine: Underscore
           </w:pict>
         </w:r>
         <w:r wsp:rsidRPr="00C61794">
-          <w:t>{{ r.name|xml }}</w:t>
+          <w:t>{{ XML(r.name) }}</w:t>
         </w:r>
       </w:p>
       <w:p wsp:rsidR="00657B14" wsp:rsidRPr="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00657B14">
@@ -721,7 +721,7 @@ engine: Underscore
           <w:rPr>
             <w:rStyle w:val="IntenseEmphasis"/>
           </w:rPr>
-          <w:t>{{ r.info.brief|xml }}</w:t>
+          <w:t>{{ XML(r.info.brief) }}</w:t>
         </w:r>
       </w:p>
       <wx:sub-section>
@@ -764,7 +764,7 @@ engine: Underscore
               </w:tcPr>
               <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
                 <w:r>
-                  <w:t>{{ set.name|xml }}:</w:t>
+                  <w:t>{{ XML(set.name) }}:</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -775,7 +775,7 @@ engine: Underscore
               </w:tcPr>
               <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
                 <w:r>
-                  <w:t>{{ kwords|xml }}</w:t>
+                  <w:t>{{ XML(kwords) }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -830,7 +830,7 @@ engine: Underscore
                   <w:pStyle w:val="Heading2"/>
                 </w:pPr>
                 <w:r>
-                  <w:t>{{ proj.employer|xml }}</w:t>
+                  <w:t>{{ XML(proj.employer) }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -867,7 +867,7 @@ engine: Underscore
                     <w:sz w:val="28"/>
                     <w:sz-cs w:val="28"/>
                   </w:rPr>
-                  <w:t>{{ proj.safe.start.format('YYYY-MM')|xml }} — {{ proj.safe.end.format('YYYY-MM')|xml }}</w:t>
+                  <w:t>{{ XML(proj.safe.start.format('YYYY-MM')) }} — {{ XML(proj.safe.end.format('YYYY-MM')) }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -887,7 +887,7 @@ engine: Underscore
               </w:tcPr>
               <w:p wsp:rsidR="00C61794" wsp:rsidRDefault="00C61794" wsp:rsidP="00C61794">
                 <w:r>
-                  <w:t>{{ proj.summary|xml }}</w:t>
+                  <w:t>{{ XML(proj.summary) }}</w:t>
                 </w:r>
               </w:p>
               {% proj.highlights.forEach( function( high, idx, ar) { %}
@@ -901,7 +901,7 @@ engine: Underscore
                   </w:listPr>
                 </w:pPr>
                 <w:r>
-                  <w:t>{{ high|xml }}</w:t>
+                  <w:t>{{ XML(high) }}</w:t>
                 </w:r>
               </w:p>
               {% }); %}
@@ -955,7 +955,7 @@ engine: Underscore
                   <w:pStyle w:val="Heading2"/>
                 </w:pPr>
                 <w:r>
-                  <w:t>{{ edu.institution|xml }}</w:t>
+                  <w:t>{{ XML(edu.institution) }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -992,7 +992,7 @@ engine: Underscore
                     <w:sz w:val="28"/>
                     <w:sz-cs w:val="28"/>
                   </w:rPr>
-                  <w:t>{{ edu.safe.start.format('YYYY-MM')|xml }} — {{ edu.safe.end.format('YYYY-MM')|xml }}</w:t>
+                  <w:t>{{ XML(edu.safe.start.format('YYYY-MM')) }} — {{ XML(edu.safe.end.format('YYYY-MM')) }}</w:t>
                 </w:r>
               </w:p>
             </w:tc>
@@ -1026,7 +1026,7 @@ engine: Underscore
                   </w:listPr>
                 </w:pPr>
                 <w:r>
-                  <w:t>{{ course|xml }}</w:t>
+                  <w:t>{{ XML(course) }}</w:t>
                 </w:r>
               </w:p>
               {% }); %}
