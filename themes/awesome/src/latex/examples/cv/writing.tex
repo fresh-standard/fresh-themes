@@ -1,0 +1,21 @@
+[~ if( r.writing && r.writing.length ) { ~]
+\cvsection{Writing}
+\begin{cventries}
+[~ _.each(r.writing, function(wri) { ~]
+  \cventry
+    {[[ wri.publisher ]]}
+    {[[ wri.title ]]}
+    {[[ wri.url ]]}
+    {[[ wri.safe.date ]] - PRESENT}
+    [~ if( wri.highlights && wri.highlights.length ) { ~]
+    {
+      \begin{cvitems}
+        [~ _.each(wri.highlights, function(high) { ~]
+        \item {[[ high ]]}
+        [~ }); ~]
+      \end{cvitems}
+    }
+    [~ } else { ~]{ }[~ } ~]
+[~ }); ~]
+\end{cventries}
+[~ } ~]

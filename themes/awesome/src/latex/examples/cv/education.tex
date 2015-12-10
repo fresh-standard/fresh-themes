@@ -1,0 +1,20 @@
+[~ if( r.education && r.education.history && r.education.history.length) { ~]
+\cvsection{Education}
+\begin{cventries}
+[~ _.each(r.education.history, function(edu) { ~]
+  \cventry
+    {[[ edu.studyType ]], [[ edu.area ]]}
+    {[[ edu.institution ]]}
+    {[[ edu.location ]]}
+    {[[ edu.safe.start ]] - [[ edu.safe.end ]]}
+    [~ if( edu.highlights && edu.highlights.length ) {
+    ~]{
+      \begin{cvitems}
+        [~ _.each(edu.highlights, function(high) { ~]
+        \item {[[ high ]]}
+        [~ }); ~]
+      \end{cvitems}
+    }[~ } else { ~]{ }[~ } ~]
+[~ }); ~]
+\end{cventries}
+[~ } ~]

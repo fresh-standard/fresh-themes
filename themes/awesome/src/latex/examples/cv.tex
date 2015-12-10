@@ -1,0 +1,83 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Copyright 2015 Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Configuration
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Themes: Awesome-CV
+\documentclass[11pt, a4paper]{awesome-cv}
+
+%%% Override a directory location for fonts(default: 'fonts/')
+\fontdir[fonts/]
+
+%%% Configure a directory location for sections
+\newcommand*{\sectiondir}{cv/}
+
+%%% Override color
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+%% Color for highlight
+% Define your custom color if you don't like awesome colors
+\colorlet{awesome}{awesome-red}
+%\definecolor{awesome}{HTML}{CA63A8}
+%% Colors for text
+%\definecolor{darktext}{HTML}{414141}
+%\definecolor{text}{HTML}{414141}
+%\definecolor{graytext}{HTML}{414141}
+%\definecolor{lighttext}{HTML}{414141}
+
+%%% Override a separator for social informations in header(default: ' | ')
+%\headersocialsep[\quad\textbar\quad]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     3rd party packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Needed to divide into several files
+\usepackage{import}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Personal Data
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Essentials
+\name{[[ _.initial(r.name.split(' ')).join(' ') ]] }{[[ _.last(r.name.split(' ')) ]]}
+\address{[[ r.location.address.replace(/\n/g, ', ') ]]}
+\mobile{[[ r.contact.phone ]]}
+%%% Social
+\email{[[ r.contact.email ]]}
+\homepage{[[ r.contact.website ]]}
+[~ if(r.hasProfile('github')) { ~]\github{[[ r.getProfile('github').user ]]}[~ } ~]
+[~ if(r.hasProfile('linkedin')) { ~]\linkedin{[[ r.getProfile('linkedin').user ]]}[~ } ~]
+%%% Optionals
+\position{[[ r.info.characterClass ]]{\enskip\cdotp\enskip}[[ r.info.label ]]}
+[~ if( r.info.quote ) { ~]\quote{``[[ r.info.quote ]]"}[~ } ~]
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Content
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Make a footer for CV with three arguments(<left>, <center>, <right>)
+\makecvfooter
+  {\today}
+  {[[ r.name ]]~~~·~~~Curriculum Vitae}
+  {\thepage}
+
+\begin{document}
+%%% Make a header for CV using personal data
+\makecvheader
+
+%%% Import contents
+\import{\sectiondir}{education.tex}
+\import{\sectiondir}{skills.tex}
+\import{\sectiondir}{experience.tex}
+\import{\sectiondir}{extracurricular.tex}
+\import{\sectiondir}{honors.tex}
+\import{\sectiondir}{presentation.tex}
+\import{\sectiondir}{writing.tex}
+\import{\sectiondir}{committees.tex}
+
+\end{document}

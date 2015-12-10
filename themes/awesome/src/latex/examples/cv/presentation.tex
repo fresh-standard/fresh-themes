@@ -1,0 +1,20 @@
+[~ if( r.speaking && r.speaking.length) { ~]
+\cvsection{Presentation}
+\begin{cventries}
+  [~ _.each(r.speaking, function(pres) { ~]
+  \cventry
+    {[[ pres.title ]]}
+    {[[ pres.event ]]}
+    {[[ pres.location ]]}
+    {[[ pres.safe.date ]]}
+    [~ if (pres.highlights && pres.highlights.length) {
+    ~]{
+      \begin{cvitems}
+        [~ _.each(pres.highlights, function( high) {
+        ~]\item {[[ high ]]}[~ }); ~]
+      \end{cvitems}
+    }
+    [~ } else { ~]{ }[~ } ~]
+  [~ }); ~]
+\end{cventries}
+[~ } ~]

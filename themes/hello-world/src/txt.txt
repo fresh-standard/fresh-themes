@@ -1,0 +1,4 @@
+{{!
+A simple-as-possible plain TXT resume template for the "Hello World" theme.
+}}
+Hello, world! My name is {{ r.name }}.

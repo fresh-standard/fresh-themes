@@ -1,0 +1,12 @@
+[~ if( r.committees && r.committees.length ) { ~]
+\cvsection{Program Committees}
+\begin{cvhonors}
+  [~ _.each(r.committees, function(com) { ~]
+  \cvhonor
+    {[[ com.position ]]}
+    {[[ com.organization ]]}
+    {[[ com.location ]]}
+    {[[ com.safe.date ]]}
+  [~ }); ~]
+\end{cvhonors}
+[~ } ~]

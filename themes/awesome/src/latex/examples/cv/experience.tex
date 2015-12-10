@@ -1,0 +1,18 @@
+[~ if( r.employment && r.employment.history && r.employment.history.length ) { ~]
+\cvsection{Experience}
+\begin{cventries}
+[~ _.each(r.employment.history, function(emp) { ~]
+  \cventry
+    {[[ emp.position ]]}
+    {[[ emp.employer ]]}
+    {[[ emp.location ]]}
+    {[[ emp.safe.start ]] - [[ emp.safe.end ]]}
+    [~ if( emp.highlights && emp.highlights.length ) {
+    ~]{
+      \begin{cvitems}[~ _.each( emp.highlights, function(high) { ~]
+        \item {[[ high.replace(/#/g, '\\#') ]]}[~ }); ~]
+      \end{cvitems}
+    }[~ } ~]
+[~ }); ~]
+\end{cventries}
+[~ } ~]

@@ -1,0 +1,7 @@
+{{!
+
+  modern/md.txt
+  A Markdown resume template for FluentCV's "hello-world" theme.
+
+}}
+# Hello, world! My name is {{ r.name }}.

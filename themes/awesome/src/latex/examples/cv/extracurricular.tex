@@ -1,0 +1,19 @@
+[~ if( r.extracurricular && r.extracurricular.length ) { ~]
+\cvsection{Extracurricular Activity}
+\begin{cventries}
+  [~ _.each( r.extracurricular, function(ex) { ~]
+  \cventry
+    {[[ ex.title ]]}
+    {[[ ex.activity ]]}
+    {[[ ex.location ]]}
+    {[[ ex.safe.start ]] - [[ ex.safe.end ]]}
+    [~ if( ex.highlights && ex.highlights.length ) {
+    ~]{
+      \begin{cvitems}
+        [~ _.each(ex.highlights, function(high) {
+        ~]\item {[[high]]}
+        [~ }); ~]\end{cvitems}
+    }[~ } else { ~]{ }[~ } ~]
+  [~ }); ~]
+\end{cventries}
+[~ } ~]

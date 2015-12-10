@@ -1,0 +1,15 @@
+[~ if( r.skills && r.skills.sets && r.skills.sets.length ) { ~]
+\cvsection{Skills}
+\begin{cvskills}
+[~ _.each(r.skills.sets, function(set) { ~]
+  \cvskill
+    {[[ set.name ]]}
+    {[[ set.skills.join(', ') ]]}
+[~ }); ~]
+[~ if( r.languages && r.languages.length ) { ~]
+  \cvskill
+    {Languages}
+    {[[ r.languages.map( function(lang) { return lang.language } ).join(', ') ]]}
+[~ } ~]
+\end{cvskills}
+[~ } ~]
