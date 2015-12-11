@@ -1,7 +1,7 @@
 Theme: Awesome
 ==============
-An experimental FluentCV theme based on the [Awesome-CV][acv] resume
-template for LaTeX.
+An experimental FluentCV theme based on [Byungjin Park's][author]
+[Awesome-CV][acv] resume template for LaTeX.
 
 ## Use
 
@@ -36,3 +36,4 @@ Themes are licensed under MIT. See [LICENSE.md][lic].
 [desk]: http://fluentcv.com
 [cli]: https://github.com/fluentdesk/fluentcv
 [lic]: https://github.com/fluentdesk/fluent-themes/blob/master/LICENSE.md
+[author]: https://github.com/posquit0
