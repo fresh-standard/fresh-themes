@@ -1,7 +1,9 @@
 {
   "title": "compact",
-  "description": "A FluentCV résumé theme based on Awesome-CV for LaTeX.",
+  "description": "A technical résumé theme based on Awesome-CV for LaTeX.",
   "engine": "underscore",
+  "url": "https://github.com/posquit0/Awesome-CV",
+  "author": "Byungjin Park <posquit0.bj@gmail.com> (http://www.posquit0.com)",
   "delimeters": {
     "interpolate": "\\[\\[([\\s\\S]+?)\\]\\]",
     "escape": "\\[\\=([\\s\\S]+?)\\]\\]",

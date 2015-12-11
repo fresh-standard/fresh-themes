@@ -1,5 +1,6 @@
 {
   "title": "minimist",
   "description": "An unstyled starter résumé theme for FluentCV.",
+  "author": "hacksalot <hacksalot@fluentdesk.com>",  
   "engine": "handlebars"
 }

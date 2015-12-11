@@ -3,11 +3,11 @@ fluent-themes
 Stylized templates for your résumé and/or CV, compatible with [FRESH][f] and
 [JSON Resume][jrs] formats.
 
-- `awesome`: A technical resume theme based on Awesome-CV.
-- `minimist`: A no-frills theme.
+- `awesome`: A technical resume theme based on [Awesome-CV][awe].
+- `minimist`: An unstyled barebones theme.
 - `modern`: A middle of the road theme with a modern look 'n feel.
 - `hello-world`: A simple-as-possible example theme.
-- `compact`: A compact theme.
+- `compact`: A visually dense/compact theme.
 - New themes weekly.
 
 ## Install
@@ -49,3 +49,4 @@ MIT. See [LICENSE.md][1] for details.
 [3]: ../LICENSE.md
 [f]: https://github.com/fluentdesk/FRESCA
 [jrs]: http://jsonresume.org
+[awe]: https://github.com/posquit0/Awesome-CV

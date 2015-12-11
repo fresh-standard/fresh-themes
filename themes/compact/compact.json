@@ -1,5 +1,6 @@
 {
   "title": "hello-world",
-  "description": "An example 'Hello, World!' résumé theme for FluentCV.",
+  "description": "A compact résumé theme for FluentCV.",
+  "author": "hacksalot <hacksalot@fluentdesk.com>",
   "engine": "underscore"
 }
