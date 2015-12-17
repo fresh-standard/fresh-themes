@@ -12,21 +12,21 @@
       <header>
         <h1>{{ r.name }}</h1>
         <div id="contact">
-          {% if (r.contact.email) { %}<div class="email"><a href="mailto:{{ RAW.contact.email }}">{{ RAW.contact.email }}</a></div>{% } %}
-          {% if (r.contact.phone) { %}<div class="phone">{{ r.contact.phone }}</div>{% } %}
-          {% if (r.contact.website) { %}<div class="website"><a href="{{ RAW.contact.website }}">{{ RAW.contact.website }}</a></div>{% } %}
+          {{#if r.contact.email}}<div class="email"><a href="mailto:{{ RAW.contact.email }}">{{ r.contact.email }}</a></div>{{/if}}
+          {{#if r.contact.phone}}<div class="phone">{{ r.contact.phone }}</div>{{/if}}
+          {{#if r.contact.website}}<div class="website"><a href="{{ RAW.contact.website }}">{{ r.contact.website }}</a></div>{{/if}}
         </div>
       </header>
 
 
-{% if ( r.info.brief && r.info.brief.length ) { %}
+{{#if r.info.brief}}
       <section id="summary">
         {{ r.info.brief }}
       </section>
-{% } %}
+{{/if}}
 
 
-{% if ( r.skills && r.skills.sets && r.skills.sets.length ) { %}
+{{#if r.skills}}
       <section id="skills">
         <header>
         <h2><span class="fa fa-code"></span> Skills</h2><hr>
@@ -39,121 +39,124 @@
             </tr>
           </thead>
           <tbody>
-            {% r.skills.sets.forEach( function( skillset ) { %}
+            {{#each r.skills.sets}}
             <tr>
-              <td style="width: 25%;">{{ skillset.name }}</td>
-              <td class="keywords">{{ skillset.skills.join(', ') }}</td>
+              <td style="width: 25%;">{{ name }}</td>
+              <td class="keywords">{{#each skills}}{{ this }} {{/each}}</td>
             </tr>
-            {% }); %}
+            {{/each}}
           </tbody>
         </table>
       </section>
-{% } %}
+{{/if}}
 
 
 
-{% if ( r.employment && r.employment.history ) { %}
+{{#if r.employment}}
       <section id="employment">
         <header>
         <h2><span class="fa fa-building" style="vertical-align: top;"></span> Employment</h2><hr>
         </header>
 
-
-
-        {% r.employment.history.forEach( function( proj, idx, ar) { %}
-          {% if( idx < 4 ) { %}
-            <h3><em>{{ proj.position }}</em>, {{ filt.link( proj.employer, proj.url ) }} <span class="tenure">{{ proj.safe.start.format('YYYY-MM') }} &mdash; {{ proj.safe.end.format('YYYY-MM') }}<span></h3>
-            <p style="clear: both;">{{ proj.summary }}</p>
-            {% if( proj.highlights ) { %}
+        {{#each r.employment.history }}
+          {{#compare @index 4 operator="<"}}
+            <h3><em>{{ position }}</em>,
+              {{#if url }}
+              <a href="{{ url }}">{{ employer }}</a>
+              {{else}}
+              {{ employer }}
+              {{/if}}
+              <span class="tenure">{{formatDate safe.start 'YYYY-MM' }} &mdash; {{formatDate safe.end 'YYYY-MM' }}<span></h3>
+            <p style="clear: both;">{{ summary }}</p>
+            {{#if highlights}}
               <ul>
-              {% proj.highlights.forEach( function( high, idx, ar) { %}
-                <li>{{ high }}</li>
-              {% }); %}
+              {{#each highlights}}
+                <li>{{ this }}</li>
+              {{/each}}
               </ul>
-            {% } %}
-          {% } else { %}
+            {{/if}}
+          {{/compare}}
+          {{#compare @index 4 operator=">="}}
 
-            {% if( idx === 4 ) { %}
-            <h3>Previously... <span class="tenure">{{ r.employment.history[ r.employment.history.length - 1 ].safe.start.format('YYYY') }} &mdash; {{ proj.safe.end.format('YYYY') }}<span></h3>
-            <p style="clear: both;">Prior to {{ r.employment.history[ 3 ].employer }}, I worked on a range of projects for companies large and small.</p>
+            {{#compare @index 4 operator="=="}}
+            <h3>Previously...</h3>
+            <p style="clear: both;">Prior to {{ employer }}, I worked on a range of projects for companies large and small.</p>
             <ul>
-            {% } %}
+            {{/compare}}
 
+            <li>{{ position }}, {{ employer }}</li>
 
-            <li>{{ proj.position }}, {{ proj.employer }}</li>
-
-
-            {% if( idx === ar.length - 1 ) { %}
+            {{#if @last}}
             </ul>
-            {% } %}
-
-          {% } %}
-        {% }); %}
-
-
+            {{/if}}
+          {{/compare}}
+        {{/each}}
 
       </section>
-{% } %}
+{{/if}}
 
-
-
-{% if ( r.education && r.education.history ) { %}
+{{# if r.education}}
       <section id="education">
         <header>
         <h2><span class="fa fa-mortar-board"></span> Education</h2><hr>
         </header>
-        {% r.education.history.forEach( function( edu, idx, ar) { %}
-          <h3>{{ edu.institution }} <span class="tenure">{{ edu.safe.start.format('YYYY') }} &mdash; {{ edu.safe.end.format('YYYY') }}<span></h3>
-        {% }); %}
+        {{#each r.education.history}}
+          <h3>{{ institution }} <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
+        {{/each}}
 
       </section>
-{% } %}
+{{/if}}
 
-{% if ( r.service && r.service.history && r.service.history.length ) { %}
+{{#if r.service}}
       <section id="volunteer">
         <header>
         <h2><span class="fa fa-child" style="vertical-align: top;"></span> Service</h2><hr>
         </header>
-        {% r.service.history.forEach( function( vol, idx, ar ) { %}
-          <h3><em>{{ vol.position }}</em>, {{ filt.link(vol.organization, vol.url) }} <span class="tenure">{{ vol.safe.start.format('YYYY') }} &mdash; {{ vol.safe.end.format('YYYY') }}<span></h3>
-          <p style="clear: both;">{{ vol.summary }}</p>
-          {% if( vol.highlights ) { %}
+        {{#each r.service.history}}
+          <h3><em>{{ position }}</em>,
+            {{#if url}}
+            <a href="{{ url }}">{{ organization }}</a>
+            {{else}}
+            {{ organization }}
+            {{/if}}
+            <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
+          <p style="clear: both;">{{ summary }}</p>
+          {{#if highlights}}
             <ul>
-            {% vol.highlights.forEach( function( high, idx, ar) { %}
-              <li>{{ high }}</li>
-            {% }); %}
+            {{#each highlights}}
+              <li>{{ this }}</li>
+            {{/each}}
             </ul>
-          {% } %}
-        {% }); %}
+          {{/if}}
+        {{/each}}
 
       </section>
-{% } %}
+{{/if}}
 
-{% if( r.writing && r.writing.length ) { %}
+{{#if r.writing}}
       <section id="publications">
         <header>
         <h2><span class="fa fa-book"></span> Writing</h2><hr>
         </header>
-        {% r.writing.forEach( function( pub, idx, ar ) { %}
-          <h3><em>{{ filt.link( pub.title, pub.url ) }}</em>, {{ pub.publisher }} <span class="tenure">{{ pub.safe.date.format('YYYY') }}</span></h3>
-
-        {% if (pub.summary) { %}{{ pub.summary }}{% } %}
-
-        {% }); %}
+        {{#each r.writing }}
+          <h3><em>{{#if url}}<a href="{{ url }}">{{ title }}</a>{{else}}{{ title }}{{/if}}</em>,
+            {{ publisher }} <span class="tenure">{{formatDate safe.date 'YYYY'}}</span></h3>
+        {{# if summary}}{{ summary }}{{/if}}
+        {{/each}}
       </section>
-{% } %}
+{{/if}}
 
-{% if( r.recognition && r.recognition.length ) { %}
+{{# if r.recognition}}
       <section id="awards">
         <header>
         <h2><span class="fa fa-trophy"></span> Awards</h2><hr>
         </header>
-        {% r.recognition.forEach( function( award, idx, ar) { %}
-          <h4><span class="res-label">{{ award.title }}</span>, {{ award.from }} <span class="tenure">{{ award.safe.date.format('YYYY') }}</span></h4>
-          {{ award.summary }}
-        {% }); %}
+        {{#each r.recognition}}
+          <h4><span class="res-label">{{ title }}</span>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h4>
+          {{ summary }}
+        {{/each}}
       </section>
-{% } %}
+{{/if}}
 
     </main>
   </body>
