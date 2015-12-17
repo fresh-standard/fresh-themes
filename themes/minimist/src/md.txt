@@ -1,9 +1,3 @@
-{#
-
-  minimist/md.txt
-  A Markdown resume template for FluentCV's "minimist" theme.
-
-#}
 # {{ r.name }}
 
 {% if (r.contact.email) { %}Email: {{ r.contact.email }}{% } %}
@@ -15,13 +9,14 @@
 {% if ( r.skills && r.skills.sets ) { %}
 ## Skills
 {% r.skills.sets.forEach( function( set, idx, ar) { %}
-- **{{ set.name }}**: {{ set.level }}
+- **{{ set.name }}**: {{ set.skills.join(', ') }}
 {% }); } %}
 
 {% if ( r.employment.history && r.employment.history.length ) { %}
 ## Employment
 {% r.employment.history.forEach( function( proj, idx, ar) { %}
-### *{{ proj.position }}*, {{ proj.employer }} ({{ proj.safe.start.format('MMM YYYY') }} — {{ proj.safe.end.format('MMM YYYY') }})
+### *{{ proj.position }}*, {{ proj.employer }}
+<small>{{ proj.safe.start.format('MMM YYYY') }} — {{ proj.safe.end.format('MMM YYYY') }}</small>
 {{ proj.summary }}
 {% if( proj.highlights ) { %}{% proj.highlights.forEach( function( high, idx, ar) { %}
 - {{ high }}
