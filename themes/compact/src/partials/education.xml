@@ -53,7 +53,7 @@
         <w:pStyle w:val="ListParagraph"/>
         <w:listPr>
           <w:ilvl w:val="0"/>
-          <w:ilfo w:val="7"/>
+          <w:ilfo w:val="1"/>
           <wx:t wx:val="•"/>
           <wx:font wx:val="Calibri"/>
         </w:listPr>
