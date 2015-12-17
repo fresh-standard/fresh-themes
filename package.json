@@ -1,17 +1,27 @@
 {
   "name": "fluent-themes",
   "version": "0.6.2-beta",
-  "description": "Resume themes for FluentCV.",
+  "description": "Multiformat résumé themes and templates for FluentCV and JSON Resume.",
   "repository": {
     "type": "git",
     "url": "https://github.com/fluentdesk/fluent-themes.git"
   },
   "main": "themes/README.md",
   "keywords": [
+    "résumé",
     "resume",
     "CV",
     "portfolio",
-    "Markdown"
+    "Handlebars",
+    "Underscore",
+    "Markdown",
+    "LaTeX",
+    "HTML",
+    "Microsoft Word",
+    "PDF",
+    "Acrobat",
+    "JSON",
+    "YAML"
   ],
   "author": "James M. Devlin",
   "license": "MIT",
