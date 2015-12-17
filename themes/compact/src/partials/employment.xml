@@ -39,12 +39,13 @@
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      <w:r wsp:rsidRPr="000A3AF0">
+      {{{wpml summary true }}}
+      <!-- <w:r wsp:rsidRPr="000A3AF0">
         <w:rPr>
           <w:sz-cs w:val="20"/>
         </w:rPr>
         <w:t>{{ summary }}</w:t>
-      </w:r>
+      </w:r> -->
     </w:p>
 
     {{#each highlights }}
@@ -61,12 +62,13 @@
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      <w:r>
+      {{{wpml this true}}}
+      <!-- <w:r>
         <w:rPr>
           <w:sz-cs w:val="20"/>
         </w:rPr>
         <w:t>{{ this }}</w:t>
-      </w:r>
+      </w:r> -->
     </w:p>
     {{/each}}
 

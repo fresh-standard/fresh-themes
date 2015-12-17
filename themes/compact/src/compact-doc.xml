@@ -166,7 +166,7 @@
       </w:rPr>
       <w:pPr>
         <w:jc w:val="both"/>
-      </w:pPr>      
+      </w:pPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading1">
       <w:name w:val="heading 1"/>
@@ -497,14 +497,15 @@
           </w:r>
         </w:hlink>
       </w:p>
-      <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00A210E1">
+      <!-- <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00A210E1">
         <w:pPr>
           <w:pStyle w:val="Summary"/>
         </w:pPr>
         <w:r wsp:rsidRPr="000A3AF0">
           <w:t>{{ r.info.brief }}</w:t>
         </w:r>
-      </w:p>
+      </w:p> -->
+      {{{wpml r.info.brief }}}
       {{> employment }}
       {{> education }}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
