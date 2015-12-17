@@ -1,0 +1,52 @@
+{{#if r.skills }}
+<wx:sub-section>
+  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+    <w:pPr>
+      <w:pStyle w:val="Heading1"/>
+    </w:pPr>
+    <w:r wsp:rsidRPr="00C146CA">
+      <w:t>SKILLS</w:t>
+    </w:r>
+  </w:p>
+  <w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="0" w:type="auto"/>
+      <w:tblLook w:val="04A0"/>
+    </w:tblPr>
+    <w:tblGrid>
+      <w:gridCol w:w="3000"/>
+      <w:gridCol w:w="8000"/>
+    </w:tblGrid>
+
+    {{#each r.skills.sets}}
+
+    <w:tr wsp:rsidR="00427ECC" wsp:rsidTr="00FD3B33">
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="3000" w:type="dxa"/>
+          <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+        </w:tcPr>
+        <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
+          <w:r>
+            <w:t>{{ name }}:</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="8000" w:type="dxa"/>
+          <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+        </w:tcPr>
+        <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
+          <w:r>
+            <w:t>{{#each skills }}{{ this }}{{#unless @last}}, {{/unless}}{{/each}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+
+    {{/each}}
+
+  </w:tbl>
+  {{/if}}
+</wx:sub-section>

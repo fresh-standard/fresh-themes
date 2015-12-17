@@ -18,14 +18,16 @@
           <w:tab w:val="right" w:pos="9360"/>
         </w:tabs>
       </w:pPr>
-      <w:hlink w:dest="https://veridiandynamics.com">
+      {{#if url}}<w:hlink w:dest="https://veridiandynamics.com">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
+          {{#if url }}
           <w:rPr>
             <w:rStyle w:val="Hyperlink"/>
           </w:rPr>
+          {{/if}}
           <w:t>{{ this.institution }}</w:t>
         </w:r>
-      </w:hlink>
+      {{#if url}}</w:hlink>{{/if}}
       <w:r wsp:rsidR="00EA0B64">
         <w:tab/>
       </w:r>

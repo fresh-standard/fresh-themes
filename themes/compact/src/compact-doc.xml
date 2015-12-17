@@ -449,9 +449,21 @@
       <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="007D096C" wsp:rsidP="00C146CA">
         <w:pPr>
           <w:pStyle w:val="Title"/>
+          <w:tabs>
+            <w:tab w:val="right" w:pos="9360"/>
+          </w:tabs>
         </w:pPr>
         <w:r>
           <w:t>{{ r.name }}</w:t>
+        </w:r>
+        <w:r>
+          <w:tab/>
+        </w:r>
+        <w:r>
+          <w:rPr>
+            <w:color w:val="DADADA"/>
+          </w:rPr>
+          <w:t>{{ r.info.label }}</w:t>
         </w:r>
       </w:p>
       <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="00505903" wsp:rsidP="00C146CA">
@@ -506,6 +518,7 @@
         </w:r>
       </w:p> -->
       {{{wpml r.info.brief }}}
+      {{> skills }}
       {{> employment }}
       {{> education }}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
