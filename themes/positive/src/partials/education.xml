@@ -18,14 +18,14 @@
           <w:tab w:val="right" w:pos="9360"/>
         </w:tabs>
       </w:pPr>
-      {{#if url}}<w:hlink w:dest="https://veridiandynamics.com">{{/if}}
+      {{#if url}}<w:hlink w:dest="{{{ url }}}">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
           {{#if url }}
           <w:rPr>
             <w:rStyle w:val="Hyperlink"/>
           </w:rPr>
           {{/if}}
-          <w:t>{{ this.institution }}</w:t>
+          <w:t>{{ institution }}</w:t>
         </w:r>
       {{#if url}}</w:hlink>{{/if}}
       <w:r wsp:rsidR="00EA0B64">
@@ -35,6 +35,7 @@
         <w:t>{{formatDate safe.start 'YYYY' }} — {{formatDate safe.end 'YYYY'}}</w:t>
       </w:r>
     </w:p>
+    {{#either area studyType }}
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
       <w:pPr>
         <w:rPr>
@@ -48,6 +49,7 @@
         <w:t>{{ area }}, {{ studyType }}</w:t>
       </w:r>
     </w:p>
+    {{/either}}
 
     {{#each highlights }}
     <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
