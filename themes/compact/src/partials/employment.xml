@@ -18,6 +18,9 @@
           <w:tab w:val="right" w:pos="9360"/>
         </w:tabs>
       </w:pPr>
+      <w:r>
+        <w:t>{{ position }}, </w:t>
+      </w:r>
       {{#if url}}<w:hlink w:dest="{{ url }}">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
           {{#if url}}

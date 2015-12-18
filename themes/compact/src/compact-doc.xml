@@ -161,7 +161,7 @@
       <w:rPr>
         <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
         <wx:font wx:val="Calibri"/>
-        <w:sz-cs w:val="24"/>
+        <w:sz-cs w:val="20"/>
         <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
       </w:rPr>
       <w:pPr>
@@ -177,15 +177,18 @@
       <w:pPr>
         <w:spacing w:before="100" w:before-autospacing="on"/>
         <w:outlineLvl w:val="0"/>
+        <w:pBdr>
+          <w:bottom w:val="single" w:sz="6" w:space="1" w:color="auto" />
+        </w:pBdr>
       </w:pPr>
       <w:rPr>
         <wx:font wx:val="Calibri"/>
         <w:b/>
         <w:b-cs/>
-        <w:color w:val="AEAAAA"/>
-        <w:kern w:val="36"/>
-        <w:sz w:val="32"/>
-        <w:sz-cs w:val="48"/>
+        <!-- <w:color w:val="AEAAAA"/> -->
+        <w:kern w:val="20"/>
+        <w:sz w:val="20"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading2">
@@ -203,7 +206,7 @@
         <w:b/>
         <w:b-cs/>
         <w:caps/>
-        <w:sz-cs w:val="36"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading3">
@@ -276,7 +279,7 @@
         <w:b/>
         <w:b-cs/>
         <w:caps/>
-        <w:sz-cs w:val="36"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="Heading3Char">
@@ -286,8 +289,8 @@
       <w:rPr>
         <w:rFonts w:ascii="Calibri Light" w:fareast="Times New Roman" w:h-ansi="Calibri Light" w:cs="Times New Roman"/>
         <w:color w:val="1F4D78"/>
-        <w:sz w:val="24"/>
-        <w:sz-cs w:val="24"/>
+        <w:sz w:val="20"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="NormalWeb">
@@ -312,8 +315,8 @@
         <w:b-cs/>
         <w:color w:val="AEAAAA"/>
         <w:kern w:val="36"/>
-        <w:sz w:val="32"/>
-        <w:sz-cs w:val="48"/>
+        <w:sz w:val="20"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="Strong">
@@ -349,11 +352,11 @@
       <w:rPr>
         <w:rFonts w:ascii="Calibri Light" w:h-ansi="Calibri Light"/>
         <wx:font wx:val="Calibri Light"/>
-        <w:caps/>
+        <!-- <w:caps/> -->
         <w:spacing w:val="-10"/>
         <w:kern w:val="28"/>
-        <w:sz w:val="48"/>
-        <w:sz-cs w:val="56"/>
+        <w:sz w:val="20"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="TitleChar">
@@ -362,11 +365,11 @@
       <w:rsid w:val="002D3B7B"/>
       <w:rPr>
         <w:rFonts w:ascii="Calibri Light" w:h-ansi="Calibri Light"/>
-        <w:caps/>
+        <!-- <w:caps/> -->
         <w:spacing w:val="-10"/>
         <w:kern w:val="28"/>
-        <w:sz w:val="48"/>
-        <w:sz-cs w:val="56"/>
+        <w:sz w:val="20"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="ListParagraph">
@@ -399,7 +402,7 @@
       <w:rsid w:val="00A210E1"/>
       <w:rPr>
         <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
-        <w:sz-cs w:val="24"/>
+        <w:sz-cs w:val="20"/>
       </w:rPr>
     </w:style>
   </w:styles>
@@ -454,24 +457,14 @@
           </w:tabs>
         </w:pPr>
         <w:r>
+          <w:rPr>
+            <w:sz w:val="36"/>
+          </w:rPr>
           <w:t>{{ r.name }}</w:t>
         </w:r>
         <w:r>
           <w:tab/>
         </w:r>
-        <w:r>
-          <w:rPr>
-            <w:color w:val="DADADA"/>
-          </w:rPr>
-          <w:t>{{ r.info.label }}</w:t>
-        </w:r>
-      </w:p>
-      <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="00505903" wsp:rsidP="00C146CA">
-        <w:pPr>
-          <w:rPr>
-            <w:sz-cs w:val="20"/>
-          </w:rPr>
-        </w:pPr>
         <w:hlink w:dest="mailto:{{ r.contact.email }}">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
