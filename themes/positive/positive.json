@@ -1,0 +1,10 @@
+{
+  "title": "positive",
+  "description": "A conventional résumé theme for FluentCV.",
+  "author": "hacksalot <hacksalot@fluentdesk.com>",
+  "engine": "handlebars",
+  "inherits": {
+    "text": "compact",
+    "md": "compact"
+  }
+}
