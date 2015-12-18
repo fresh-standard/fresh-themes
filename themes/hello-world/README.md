@@ -1,3 +1,3 @@
 Theme: Hello-World
 ==================
-The simplest possible resume theme for FluentCV. For example purposes.
+The simplest possible résumé theme for FluentCV. For example purposes.

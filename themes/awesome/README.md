@@ -1,12 +1,12 @@
 Theme: Awesome
 ==============
 An experimental FluentCV theme based on [Byungjin Park's][author]
-[Awesome-CV][acv] resume template for LaTeX.
+[Awesome-CV][acv] résumé template for LaTeX.
 
 ## Use
 
 1. Run `fluentcv build my-resume.json to out/my-resume.all -t awesome` to create
-a LaTeX resume in the Awesome-CV style using your FRESH or JSON Resume resume.
+a LaTeX résumé in the Awesome-CV style using your FRESH or JSON Resume resume.
 
 2. Generate a styled PDF by running `xelatex my-resume.tex` in the `examples`
 folder generated in Step 1. You'll need a valid and updated LaTeX environment on
