@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!-- [[[
-title: Modern (HTML)
-description: An HTML resume template for FluentCV's "modern" theme.
-engine: Underscore
-]]] -->
 <html>
   <head>
     <meta charset="utf-8">
@@ -55,7 +50,7 @@ engine: Underscore
           {% r.skills.sets.forEach( function(set) { %}
             <li class="card card-nested card-skills">
               <div class="skill-level" rel="tooltip" title="{{ set.level }}" data-placement="left">
-                <div class="skill-progress {{ set.level }}"></div>
+                <div class="skill-progress {{ set.level.toLowerCase() }}"></div>
               </div>
               <div class="skill-info">
                 <strong>{{ set.name }}</strong>
