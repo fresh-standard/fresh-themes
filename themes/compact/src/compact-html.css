@@ -26,6 +26,11 @@ h3 {
   font-size: 1em;
 }
 
+hr {
+  border: none;
+  border-top: 1px solid #B3B3B3;
+}
+
 main {
   padding: 15px;
   max-width: 700px;
@@ -59,16 +64,22 @@ thead {
 main > header {
   width: 100%;
   float: left;
-  margin-bottom: 1em;
+  margin-bottom: 0;
+  position: relative;
 }
 
 
 main > header > h1 {
   float: left;
   font-size: 1.5em;
+  text-transform: uppercase;
+  line-height: 1;
 }
 #contact {
   float: right;
+  position: absolute;
+  right: 0;
+  bottom: 0;
 }
 
 #contact > div {

@@ -175,7 +175,7 @@
       <w:link w:val="Heading1Char"/>
       <w:rsid w:val="00505903"/>
       <w:pPr>
-        <w:spacing w:before="100" w:before-autospacing="on"/>
+        <w:spacing w:before="100" w:before-autospacing="off"/>
         <w:outlineLvl w:val="0"/>
         <w:pBdr>
           <w:bottom w:val="single" w:sz="6" w:space="1" w:color="auto" />
@@ -198,7 +198,7 @@
       <w:link w:val="Heading2Char"/>
       <w:rsid w:val="00505903"/>
       <w:pPr>
-        <w:spacing w:before="120"/>
+        <w:spacing w:before="60"/>
         <w:outlineLvl w:val="1"/>
       </w:pPr>
       <w:rPr>
@@ -357,6 +357,7 @@
         <w:kern w:val="28"/>
         <w:sz w:val="20"/>
         <w:sz-cs w:val="20"/>
+        <w:caps/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="TitleChar">
@@ -458,14 +459,15 @@
         </w:pPr>
         <w:r>
           <w:rPr>
-            <w:sz w:val="36"/>
+            <w:sz w:val="28"/>
+            <w:b/>
           </w:rPr>
           <w:t>{{ r.name }}</w:t>
         </w:r>
         <w:r>
           <w:tab/>
         </w:r>
-        <w:hlink w:dest="mailto:{{ r.contact.email }}">
+        <w:hlink w:dest="mailto:{{{ r.contact.email }}}">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
               <w:rStyle w:val="Hyperlink"/>
@@ -492,13 +494,13 @@
           </w:rPr>
           <w:t> - </w:t>
         </w:r>
-        <w:hlink w:dest="{{ r.contact.website }}">
+        <w:hlink w:dest="{{{ r.contact.website }}}">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
               <w:rStyle w:val="Hyperlink"/>
               <w:sz-cs w:val="20"/>
             </w:rPr>
-            <w:t>{{ r.contact.website }}</w:t>
+            <w:t>{{trimURL r.contact.website }}</w:t>
           </w:r>
         </w:hlink>
       </w:p>
