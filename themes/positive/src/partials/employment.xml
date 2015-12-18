@@ -21,7 +21,7 @@
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
         <w:t>{{ position }}, </w:t>
       </w:r>
-      {{#if url}}<w:hlink w:dest="{{ url }}">{{/if}}
+      {{#if url}}<w:hlink w:dest="{{{ url }}}">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
           {{#if url}}
           <w:rPr>
@@ -44,7 +44,7 @@
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      {{{wpml summary true }}}
+      {{{wpml summary true}}}
       <!-- <w:r wsp:rsidRPr="000A3AF0">
         <w:rPr>
           <w:sz-cs w:val="20"/>

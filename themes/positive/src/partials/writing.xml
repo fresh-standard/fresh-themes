@@ -18,7 +18,7 @@
           <w:tab w:val="right" w:pos="9360"/>
         </w:tabs>
       </w:pPr>
-      {{#if url}}<w:hlink w:dest="{{ url }}">{{/if}}
+      {{#if url}}<w:hlink w:dest="{{{ url }}}">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
           {{#if url}}
           <w:rPr>
@@ -35,20 +35,16 @@
         <w:t>{{formatDate safe.date 'YYYY'}}</w:t>
       </w:r>
     </w:p>
+    {{#if summary}}
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
       <w:pPr>
         <w:rPr>
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      {{#if summary}}{{{wpml summary true }}}{{/if}}
-      <!-- <w:r wsp:rsidRPr="000A3AF0">
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-        <w:t>{{ summary }}</w:t>
-      </w:r> -->
+      {{{wpml summary true}}}
     </w:p>
+    {{/if}}
 
     {{#each highlights }}
     <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
