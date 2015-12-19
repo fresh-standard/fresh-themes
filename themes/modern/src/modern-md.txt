@@ -1,0 +1,84 @@
+{{ r.name }}
+============
+{{#if r.contact.email }}Email: {{{ r.contact.email }}}{{/if}}
+{{#if r.contact.phone }}Tel: {{{ r.contact.phone }}}{{/if}}
+{{#if r.contact.website }}Web: {{{ r.contact.website }}}{{/if}}
+
+{{#if r.info.brief }}{{{ r.info.brief }}}{{/if}}
+
+{{#if r.skills}}
+## SKILLS
+
+{{#each r.skills.sets}}
+  - {{{ name }}}: {{#each this.skills}}{{{ this }}} {{/each}}
+{{/each}}
+{{/if}}
+
+{{#if r.employment}}
+## EMPLOYMENT
+
+{{#each r.employment.history }}
+  {{#compare @index 4 operator="<"}}
+### {{{ position }}}, {{{ employer }}} ({{formatDate safe.start 'YYYY-MM' }} -- {{formatDate safe.end 'YYYY-MM' }})
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+  - {{{ this }}}
+{{/each}}
+{{/if}}
+
+  {{/compare}}
+  {{#compare @index 4 operator=">="}}
+    {{#compare @index 4 operator="=="}}
+### Previously...
+Prior to {{{ employer }}}, I worked on a range of projects for companies large and small.
+    {{/compare}}
+  - {{{ position }}}, {{{ employer }}}
+  {{/compare}}
+{{/each}}
+{{/if}}
+
+{{#if r.education}}
+## EDUCATION
+
+{{#each r.education.history}}
+### {{{ institution }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{#if summary }}
+{{{ summary }}}
+{{/if}}
+{{#if courses}}
+{{#each courses}}
+  - {{{ this }}}{{/each}}{{/if}}
+{{/each}}
+{{/if}}
+{{#if r.writing}}
+## WRITING
+
+{{#each r.writing}}
+### {{{ title }}} ({{formatDate safe.date 'YYYY-MM' }})
+{{{ summary }}}
+{{/each}}
+{{/if}}
+
+{{#if r.service }}
+## SERVICE
+
+{{#each r.service.history}}
+### {{{ organization }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+  - {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/if}}
+{{#if r.recognition}}
+## RECOGNITION
+
+{{#each r.recognition}}
+### {{{ title }}}, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
+{{{ summary }}}
+{{/each}}
+{{/if}}
