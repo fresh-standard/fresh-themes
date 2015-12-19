@@ -1,3 +1,3 @@
 Theme: Minimist
 ===============
-An unstyled resume theme for FluentCV.
+An unstyled résumé theme for FluentCV.

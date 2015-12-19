@@ -3,26 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>{{ r.name }}</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <style>
-    {{ cssInfo.data }}
+    {{{ cssInfo.data }}}
     </style>
   </head>
   <body>
     <main>
       <header>
-        <h1>{{ r.name }}</h1>
+        <h1>{{{ r.name }}}</h1>
         <div id="contact">
-          {{#if r.contact.email}}<div class="email"><a href="mailto:{{ RAW.contact.email }}">{{ r.contact.email }}</a></div>{{/if}}
-          {{#if r.contact.phone}}<div class="phone">{{ r.contact.phone }}</div>{{/if}}
-          {{#if r.contact.website}}<div class="website"><a href="{{ RAW.contact.website }}">{{ r.contact.website }}</a></div>{{/if}}
+          {{#if r.contact.email}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/if}}
+          {{#if r.contact.phone}}<div class="phone">{{ RAW.contact.phone }}</div>{{/if}}
+          {{#if r.contact.website}}<div class="website"><a href="{{{ RAW.contact.website }}}">{{trimURL RAW.contact.website }}</a></div>{{/if}}
         </div>
       </header>
 
 
 {{#if r.info.brief}}
       <section id="summary">
-        {{ r.info.brief }}
+        {{{ r.info.brief }}}
       </section>
 {{/if}}
 
@@ -59,7 +58,7 @@
         <h2><span class="fa fa-building" style="vertical-align: top;"></span> Employment</h2><hr>
         </header>
 
-        {{#each r.employment.history }}
+        {{#each r.employment.history}}
           {{#compare @index 4 operator="<"}}
             <h3><em>{{ position }}</em>,
               {{#if url }}
@@ -68,11 +67,11 @@
               {{ employer }}
               {{/if}}
               <span class="tenure">{{formatDate safe.start 'YYYY-MM' }} &mdash; {{formatDate safe.end 'YYYY-MM' }}<span></h3>
-            <p style="clear: both;">{{ summary }}</p>
+            <p style="clear: both;">{{{ summary }}}</p>
             {{#if highlights}}
               <ul>
               {{#each highlights}}
-                <li>{{ this }}</li>
+                <li>{{{ this }}}</li>
               {{/each}}
               </ul>
             {{/if}}
@@ -85,7 +84,7 @@
             <ul>
             {{/compare}}
 
-            <li>{{ position }}, {{ employer }}</li>
+            <li>{{{ position }}}, {{{ employer }}}</li>
 
             {{#if @last}}
             </ul>
@@ -102,7 +101,7 @@
         <h2><span class="fa fa-mortar-board"></span> Education</h2><hr>
         </header>
         {{#each r.education.history}}
-          <h3>{{ institution }} <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
+          <h3>{{{ institution }}} <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
         {{/each}}
 
       </section>
@@ -121,11 +120,11 @@
             {{ organization }}
             {{/if}}
             <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
-          <p style="clear: both;">{{ summary }}</p>
+          <p style="clear: both;">{{{ summary }}}</p>
           {{#if highlights}}
             <ul>
             {{#each highlights}}
-              <li>{{ this }}</li>
+              <li>{{{ this }}}</li>
             {{/each}}
             </ul>
           {{/if}}
@@ -140,9 +139,9 @@
         <h2><span class="fa fa-book"></span> Writing</h2><hr>
         </header>
         {{#each r.writing }}
-          <h3><em>{{#if url}}<a href="{{ url }}">{{ title }}</a>{{else}}{{ title }}{{/if}}</em>,
+          <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
             {{ publisher }} <span class="tenure">{{formatDate safe.date 'YYYY'}}</span></h3>
-        {{# if summary}}{{ summary }}{{/if}}
+        {{# if summary}}{{{ summary }}}{{/if}}
         {{/each}}
       </section>
 {{/if}}

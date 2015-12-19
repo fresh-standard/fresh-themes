@@ -1,3 +1,5 @@
 Theme: Compact
 ==============
-A compact, no-nonsense resume theme for FluentCV.
+A compact, no-frills résumé theme for FluentCV.
+
+![](compact.png)

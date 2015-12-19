@@ -4,11 +4,11 @@
       <w:pStyle w:val="Heading1"/>
     </w:pPr>
     <w:r wsp:rsidRPr="00C146CA">
-      <w:t>EMPLOYMENT</w:t>
+      <w:t>EDUCATION</w:t>
     </w:r>
   </w:p>
 
-  {{#each r.employment.history}}
+  {{#each r.education.history}}
 
   <wx:sub-section>
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
@@ -18,40 +18,38 @@
           <w:tab w:val="right" w:pos="9360"/>
         </w:tabs>
       </w:pPr>
-      <w:r>
-        <w:t>{{ position }}, </w:t>
-      </w:r>
-      {{#if url}}<w:hlink w:dest="{{ url }}">{{/if}}
+      {{#if url}}<w:hlink w:dest="{{{ url }}}">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
-          {{#if url}}
+          {{#if url }}
           <w:rPr>
             <w:rStyle w:val="Hyperlink"/>
           </w:rPr>
           {{/if}}
-          <w:t>{{ employer }}</w:t>
+          <w:t>{{ institution }}</w:t>
         </w:r>
       {{#if url}}</w:hlink>{{/if}}
       <w:r wsp:rsidR="00EA0B64">
         <w:tab/>
       </w:r>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>{{formatDate safe.start 'YYYY-MM'}} — {{formatDate safe.end 'YYYY-MM'}}</w:t>
+        <w:t>{{formatDate safe.start 'YYYY' }} — {{formatDate safe.end 'YYYY'}}</w:t>
       </w:r>
     </w:p>
+    {{#either area studyType }}
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
       <w:pPr>
         <w:rPr>
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      {{{wpml summary true }}}
-      <!-- <w:r wsp:rsidRPr="000A3AF0">
+      <w:r wsp:rsidRPr="000A3AF0">
         <w:rPr>
           <w:sz-cs w:val="20"/>
         </w:rPr>
-        <w:t>{{ summary }}</w:t>
-      </w:r> -->
+        <w:t>{{ area }}, {{ studyType }}</w:t>
+      </w:r>
     </w:p>
+    {{/either}}
 
     {{#each highlights }}
     <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
@@ -67,13 +65,12 @@
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      {{{wpml this true}}}
-      <!-- <w:r>
+      <w:r>
         <w:rPr>
           <w:sz-cs w:val="20"/>
         </w:rPr>
         <w:t>{{ this }}</w:t>
-      </w:r> -->
+      </w:r>
     </w:p>
     {{/each}}
 

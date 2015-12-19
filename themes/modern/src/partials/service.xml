@@ -1,0 +1,99 @@
+{{#if r.service }}
+<wx:sub-section>
+  <wx:pBdrGroup>
+    <wx:borders>
+      <wx:top wx:val="solid" wx:bdrwidth="15" wx:space="1" wx:color="EEEEEE"/>
+    </wx:borders>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00851045" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="Heading1"/>
+      </w:pPr>
+      <w:r>
+        <w:pict>
+          <w:binData w:name="wordml://03000005.png" xml:space="preserve">iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAMxQTFRFv8HDv8HEv8jXv8HOv8LSv8TTv8zdv8LKv8bT3czIwcHDwcTM18bDxcHDw8zdx8HD08bDw8HDw8rZ3drbz8TDycHDzcHDw8LDwc7ixdLqzdzxxdLoxdTs1ePx0eH72+n//dzO79LG89bK+9rM997Q5drb/9zO7dbK5c7G/+nV++XT/+3X//Hf//HZ///d/+fT//nq///q8////fXx8+/z+///4f//9///6f///f//7/////Xk8fv///Hk/fXo5ef1///7///x6fX/////TAOGGAAAALpJREFUSMft1NcOgjAUBuCDe4Hixr33Xohb+/7vZCnEKC3ShEv4b5om30Xzn5wC4g741Keu6CqegGSdh65TgCM0OGgLSAKbv3S72yPUNmjwYN6ZdCyCpKKOQUNHNBGhrLFpFwtJnaYJVXQJ4RObnjPE9mR8ZC+6FCp2b70a9tbP3TVKWhog9pNfaS3r21ok1essbyfpEcwLJq06TmtRNKniZSqUuGlk4Hm6xCtQc6SPoRxtPkcQe7n4s96JF4yPwZXEugAAAABJRU5ErkJggk==</w:binData>
+          <v:shape id="_x0000_i1029" type="#_x0000_t75" style="width:31.5pt;height:31.5pt">
+            <v:imagedata src="wordml://03000005.png" o:title="fa-child"/>
+          </v:shape>
+        </w:pict>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>SERVICE</w:t>
+      </w:r>
+    </w:p>
+  </wx:pBdrGroup>
+
+  {{#each r.service.history}}
+
+  <wx:sub-section>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+        <w:tabs>
+          <w:tab w:val="right" w:pos="9360"/>
+        </w:tabs>
+      </w:pPr>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>{{ position }}, </w:t>
+      </w:r>
+      {{#if url}}<w:hlink w:dest="{{{ url }}}">{{/if}}
+        <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
+          {{#if url}}
+          <w:rPr>
+            <w:rStyle w:val="Hyperlink"/>
+          </w:rPr>
+          {{/if}}
+          <w:t>{{ organization }}</w:t>
+        </w:r>
+      {{#if url}}</w:hlink>{{/if}}
+      <w:r wsp:rsidR="00EA0B64">
+        <w:tab/>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>{{formatDate safe.start 'MMM YYYY'}} — {{formatDate safe.end 'MMM YYYY'}}</w:t>
+      </w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      {{{wpml summary true}}}
+      <!-- <w:r wsp:rsidRPr="000A3AF0">
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+        <w:t>{{ summary }}</w:t>
+      </w:r> -->
+    </w:p>
+
+    {{#each highlights }}
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="ListParagraph"/>
+        <w:listPr>
+          <w:ilvl w:val="0"/>
+          <w:ilfo w:val="1"/>
+          <wx:t wx:val="•"/>
+          <wx:font wx:val="Calibri"/>
+        </w:listPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      {{{wpml this true}}}
+      <!-- <w:r>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+        <w:t>{{ this }}</w:t>
+      </w:r> -->
+    </w:p>
+    {{/each}}
+
+  </wx:sub-section>
+
+  {{/each}}
+
+</wx:sub-section>
+{{/if}}

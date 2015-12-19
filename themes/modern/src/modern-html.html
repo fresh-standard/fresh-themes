@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ r.name }}</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href="modern-html.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <main id="main">
+      <div id="container">
+      <header>
+        <h1>{{{ r.name }}}</h1>
+        <div id="contact">
+          {{#if r.contact.email}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/if}}
+          {{#if r.contact.phone}}<div class="phone">{{ RAW.contact.phone }}</div>{{/if}}
+          {{#if r.contact.website}}<div class="website"><a href="{{{ RAW.contact.website }}}">{{ RAW.contact.website }}</a></div>{{/if}}
+        </div>
+      </header>
+      </header>
+
+
+{{#if r.info.brief}}
+<hr>
+<section id="summary">
+  <h3>About</h3>
+  <span class="fa fa-lg fa-user"></span>
+  {{{ r.info.brief }}}
+</section>
+{{/if}}
+
+
+{{#if r.skills }}
+      <hr>
+      <section id="skills">
+        <header>
+        <h3>Skills</h3>
+        </header>
+        <span class="fa fa-lg fa-code"></span>
+
+        <ul class="list-unstyled">
+          {{#each r.skills.sets}}
+            <li class="card card-nested card-skills">
+              <div class="skill-level" rel="tooltip" title="{{ level }}" data-placement="left">
+                <div class="skill-progress {{toLower level }}"></div>
+              </div>
+              <div class="skill-info">
+                <strong>{{ name }}</strong>
+                <div class="space-top labels">
+                  {{#if skills}}
+                    {{#each skills}}
+                      <span class="label label-keyword">{{ this }}</span>
+                    {{/each}}
+                  {{/if}}
+                </div>
+              </div>
+            </li>
+          {{/each}}
+        </ul>
+
+
+      </section>
+{{/if}}
+
+
+
+{{#if r.employment}}
+<hr>
+<section id="employment">
+  <header>
+  <h3>Employment</h3>
+  </header>
+  <span class="fa fa-lg fa-building"></span>
+  {{#each r.employment.history}}
+    {{#if url}}
+    <h4><span class="res-label">{{ position }}</span>, <a href="{{ url }}">{{ employer }}</a></h4>
+    {{else}}
+    <h4><span class="res-label">{{ position }}</span>, <span class="defunct">{{ employer }}</span></h4>
+    {{/if}}
+    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
+    {{{ summary }}}
+    {{#if proj.highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{ this }}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+
+</section>
+{{/if}}
+
+{{# if r.education}}
+<hr>
+<section id="education">
+  <header>
+  <h3>Education</h3>
+  </header>
+  <span class="fa fa-lg fa-mortar-board"></span>
+  {{#each r.education.history}}
+    <h4>{{ institution }}</h4>
+    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
+    {{#if courses}}
+      <ul>
+      {{#each courses}}
+        <li>{{ this }}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+
+</section>
+{{/if}}
+
+{{#if r.service}}
+<hr>
+<section id="volunteer">
+  <header>
+  <h3>Service</h3>
+  </header>
+  <span class="fa fa-lg fa-child"></span>
+  {{#each r.service.history}}
+    {{#if url}}
+    <h4><span class="res-label">{{ position }}</span>, <a href="{{{ website }}}">{{ organization }}</a></h4>
+    {{else}}
+    <h4><span class="res-label">{{ position }}</span>, <span class="defunct">{{ organization }}</span></h4>
+    {{/if}}
+    <span class="tenure">{{formatDate safe.start 'YYYY-MM'}}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
+    {{{ summary }}}
+    {{#if highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{ this }}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+
+</section>
+{{/if}}
+
+{{#if r.writing}}
+<hr>
+<section id="publications">
+  <header>
+  <h3>Publications</h3>
+  </header>
+  <span class="fa fa-lg fa-pencil"></span>
+  {{#each r.writing}}
+  {{#if url}}
+  <h4><a href=""><span class="res-label">{{{ title }}}</span></a>, <span>{{{ publisher.name }}}</span></h4>
+  {{else}}
+  <h4><span class="res-label">{{{ title }}}</span>, <span class="defunct">{{{ publisher.name }}}</span></h4>
+  {{/if}}
+  <span class="tenure">Published on: {{formatDate safe.date 'YYYY-MM'}}</span>
+  {{/each}}
+</section>
+{{/if}}
+
+{{# if r.recognition}}
+<hr>
+<section id="awards">
+  <header>
+  <h3>Awards</h3>
+  </header>
+  <span class="fa fa-lg fa-trophy"></span>
+  {{#each r.recognition}}
+    <h4><span class="res-label">{{{ title }}}</span>, {{{ from }}}</h4>
+    <span class="tenure">{{{ date }}}</span>
+    {{{ summary }}}
+  {{/each}}
+</section>
+{{/if}}
+
+      </div>
+    </main>
+  </body>
+</html>

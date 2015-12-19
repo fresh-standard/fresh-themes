@@ -161,7 +161,7 @@
       <w:rPr>
         <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
         <wx:font wx:val="Calibri"/>
-        <w:sz-cs w:val="20"/>
+        <w:sz-cs w:val="24"/>
         <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
       </w:rPr>
       <w:pPr>
@@ -175,20 +175,18 @@
       <w:link w:val="Heading1Char"/>
       <w:rsid w:val="00505903"/>
       <w:pPr>
-        <w:spacing w:before="100" w:before-autospacing="off"/>
+        <w:spacing w:before="100" w:before-autospacing="on"/>
         <w:outlineLvl w:val="0"/>
         <w:pBdr>
-          <w:bottom w:val="single" w:sz="6" w:space="1" w:color="auto" />
+          <w:top w:val="single" w:sz="6" w:space="1" w:color="#EEEEEE" />
         </w:pBdr>
       </w:pPr>
       <w:rPr>
         <wx:font wx:val="Calibri"/>
-        <w:b/>
-        <w:b-cs/>
-        <!-- <w:color w:val="AEAAAA"/> -->
-        <w:kern w:val="20"/>
-        <w:sz w:val="20"/>
-        <w:sz-cs w:val="20"/>
+        <w:color w:val="AEAAAA"/>
+        <w:kern w:val="36"/>
+        <w:sz w:val="40"/>
+        <w:sz-cs w:val="40"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading2">
@@ -198,7 +196,7 @@
       <w:link w:val="Heading2Char"/>
       <w:rsid w:val="00505903"/>
       <w:pPr>
-        <w:spacing w:before="60"/>
+        <w:spacing w:before="120"/>
         <w:outlineLvl w:val="1"/>
       </w:pPr>
       <w:rPr>
@@ -206,7 +204,7 @@
         <w:b/>
         <w:b-cs/>
         <w:caps/>
-        <w:sz-cs w:val="20"/>
+        <w:sz-cs w:val="36"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="Heading3">
@@ -279,7 +277,7 @@
         <w:b/>
         <w:b-cs/>
         <w:caps/>
-        <w:sz-cs w:val="20"/>
+        <w:sz-cs w:val="36"/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="Heading3Char">
@@ -289,8 +287,8 @@
       <w:rPr>
         <w:rFonts w:ascii="Calibri Light" w:fareast="Times New Roman" w:h-ansi="Calibri Light" w:cs="Times New Roman"/>
         <w:color w:val="1F4D78"/>
-        <w:sz w:val="20"/>
-        <w:sz-cs w:val="20"/>
+        <w:sz w:val="24"/>
+        <w:sz-cs w:val="24"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="NormalWeb">
@@ -311,12 +309,10 @@
       <w:rsid w:val="00505903"/>
       <w:rPr>
         <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
-        <w:b/>
-        <w:b-cs/>
         <w:color w:val="AEAAAA"/>
         <w:kern w:val="36"/>
-        <w:sz w:val="20"/>
-        <w:sz-cs w:val="20"/>
+        <w:sz w:val="40"/>
+        <w:sz-cs w:val="40"/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="Strong">
@@ -350,14 +346,13 @@
         <w:contextualSpacing/>
       </w:pPr>
       <w:rPr>
-        <w:rFonts w:ascii="Calibri Light" w:h-ansi="Calibri Light"/>
-        <wx:font wx:val="Calibri Light"/>
-        <!-- <w:caps/> -->
+        <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
+        <wx:font wx:val="Segoe UI"/>
+        <w:b/>
         <w:spacing w:val="-10"/>
         <w:kern w:val="28"/>
-        <w:sz w:val="20"/>
-        <w:sz-cs w:val="20"/>
-        <w:caps/>
+        <w:sz w:val="48"/>
+        <w:sz-cs w:val="56"/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="TitleChar">
@@ -365,12 +360,11 @@
       <w:link w:val="Title"/>
       <w:rsid w:val="002D3B7B"/>
       <w:rPr>
-        <w:rFonts w:ascii="Calibri Light" w:h-ansi="Calibri Light"/>
-        <!-- <w:caps/> -->
+        <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
         <w:spacing w:val="-10"/>
         <w:kern w:val="28"/>
-        <w:sz w:val="20"/>
-        <w:sz-cs w:val="20"/>
+        <w:sz w:val="48"/>
+        <w:sz-cs w:val="56"/>
       </w:rPr>
     </w:style>
     <w:style w:type="paragraph" w:styleId="ListParagraph">
@@ -395,6 +389,7 @@
       </w:pPr>
       <w:rPr>
         <wx:font wx:val="Calibri"/>
+        <w:color w:val="767171"/>
       </w:rPr>
     </w:style>
     <w:style w:type="character" w:styleId="SummaryChar">
@@ -403,7 +398,7 @@
       <w:rsid w:val="00A210E1"/>
       <w:rPr>
         <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
-        <w:sz-cs w:val="20"/>
+        <w:sz-cs w:val="24"/>
       </w:rPr>
     </w:style>
   </w:styles>
@@ -453,69 +448,50 @@
       <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="007D096C" wsp:rsidP="00C146CA">
         <w:pPr>
           <w:pStyle w:val="Title"/>
-          <w:tabs>
-            <w:tab w:val="right" w:pos="9360"/>
-          </w:tabs>
         </w:pPr>
         <w:r>
-          <w:rPr>
-            <w:sz w:val="28"/>
-            <w:b/>
-          </w:rPr>
           <w:t>{{ r.name }}</w:t>
         </w:r>
-        <w:r>
-          <w:tab/>
-        </w:r>
-        <w:hlink w:dest="mailto:{{{ r.contact.email }}}">
+      </w:p>
+      <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="00505903" wsp:rsidP="00C146CA">
+        <w:pPr>
+          <w:rPr>
+            <w:sz-cs w:val="20"/>
+          </w:rPr>
+          <!-- <w:jc w:val="right"/> -->
+        </w:pPr>
+        <w:hlink w:dest="mailto:{{ r.contact.email }}">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
               <w:rStyle w:val="Hyperlink"/>
-              <w:sz-cs w:val="20"/>
+              <w:sz w:val="16"/>
             </w:rPr>
-            <w:t>{{ r.contact.email }}</w:t>
+            <w:t>{{ r.contact.email }}<w:br/></w:t>
           </w:r>
         </w:hlink>
-        <w:r>
-          <w:rPr>
-            <w:sz-cs w:val="20"/>
-          </w:rPr>
-          <w:t> - </w:t>
-        </w:r>
         <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0">
           <w:rPr>
-            <w:sz-cs w:val="20"/>
+            <w:sz w:val="16"/>
           </w:rPr>
-          <w:t>{{ r.contact.phone }}</w:t>
+          <w:t>{{ r.contact.phone }}<w:br/></w:t>
         </w:r>
-        <w:r>
-          <w:rPr>
-            <w:sz-cs w:val="20"/>
-          </w:rPr>
-          <w:t> - </w:t>
-        </w:r>
-        <w:hlink w:dest="{{{ r.contact.website }}}">
+        <w:hlink w:dest="{{ r.contact.website }}">
           <w:r wsp:rsidRPr="003876BF">
             <w:rPr>
               <w:rStyle w:val="Hyperlink"/>
-              <w:sz-cs w:val="20"/>
+              <w:sz w:val="16"/>
             </w:rPr>
-            <w:t>{{trimURL r.contact.website }}</w:t>
+            <w:t>{{ r.contact.website }}</w:t>
           </w:r>
         </w:hlink>
       </w:p>
-      <!-- <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00A210E1">
-        <w:pPr>
-          <w:pStyle w:val="Summary"/>
-        </w:pPr>
-        <w:r wsp:rsidRPr="000A3AF0">
-          <w:t>{{ r.info.brief }}</w:t>
-        </w:r>
-      </w:p> -->
-      {{{wpml r.info.brief }}}
+      {{> info }}
       {{> skills }}
       {{> employment }}
       {{> education }}
+      {{> service }}
+      {{> writing }}
+      {{> recognition }}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>
         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>

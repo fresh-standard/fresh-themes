@@ -2,19 +2,22 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ RAW.name }}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="compact-html.css" rel="stylesheet" type="text/css">
+    <title>{{ r.name }}</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <style>
+    {{{ cssInfo.data }}}
+    </style>
   </head>
   <body>
     <main>
       <header>
-        <h1>{{{ r.name }}}</h1>
-        <div id="contact">
-          {{#if r.contact.email}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/if}}
-          {{#if r.contact.phone}}<div class="phone">{{ RAW.contact.phone }}</div>{{/if}}
-          {{#if r.contact.website}}<div class="website"><a href="{{{ RAW.contact.website }}}">{{trimURL RAW.contact.website }}</a></div>{{/if}}
-        </div>
+        <h1>{{initialWords r.name }} <span style="color: #C00000;">{{lastWord r.name }}</span></h1>
+        <span class="label">{{{ r.info.label }}}</span>
+        <p id="contact">
+          {{#if r.contact.email}}<span class="email"><a href="mailto:{{ RAW.contact.email }}">{{{ r.contact.email }}}</a></span>{{/if}}
+          {{#if r.contact.phone}}<span class="phone">{{{ r.contact.phone }}}</span>{{/if}}
+          {{#if r.contact.website}}<span class="website"><a href="{{ RAW.contact.website }}">{{{ r.contact.website }}}</a></span>{{/if}}
+        </p>
       </header>
 
 
@@ -28,7 +31,7 @@
 {{#if r.skills}}
       <section id="skills">
         <header>
-        <h2><span class="fa fa-code"></span> Skills</h2><hr>
+        <h2><span class="fa fa-code"></span> Skills</h2>
         </header>
         <table>
           <thead>
@@ -40,8 +43,8 @@
           <tbody>
             {{#each r.skills.sets}}
             <tr>
-              <td style="width: 25%;">{{ name }}</td>
-              <td class="keywords">{{#each skills}}{{ this }} {{/each}}</td>
+              <td style="width: 33%;">{{{ name }}}</td>
+              <td class="keywords">{{#each skills}}{{{ this }}} {{/each}}</td>
             </tr>
             {{/each}}
           </tbody>
@@ -54,10 +57,10 @@
 {{#if r.employment}}
       <section id="employment">
         <header>
-        <h2><span class="fa fa-building" style="vertical-align: top;"></span> Employment</h2><hr>
+        <h2><span class="fa fa-building" style="vertical-align: top;"></span> Employment</h2>
         </header>
 
-        {{#each r.employment.history}}
+        {{#each r.employment.history }}
           {{#compare @index 4 operator="<"}}
             <h3><em>{{ position }}</em>,
               {{#if url }}
@@ -79,7 +82,7 @@
 
             {{#compare @index 4 operator="=="}}
             <h3>Previously...</h3>
-            <p style="clear: both;">Prior to {{ employer }}, I worked on a range of projects for companies large and small.</p>
+            <p style="clear: both;">Prior to {{{ employer }}}, I worked on a range of projects for companies large and small.</p>
             <ul>
             {{/compare}}
 
@@ -97,7 +100,7 @@
 {{# if r.education}}
       <section id="education">
         <header>
-        <h2><span class="fa fa-mortar-board"></span> Education</h2><hr>
+        <h2><span class="fa fa-mortar-board"></span> Education</h2>
         </header>
         {{#each r.education.history}}
           <h3>{{{ institution }}} <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
@@ -109,7 +112,7 @@
 {{#if r.service}}
       <section id="volunteer">
         <header>
-        <h2><span class="fa fa-child" style="vertical-align: top;"></span> Service</h2><hr>
+        <h2><span class="fa fa-child" style="vertical-align: top;"></span> Service</h2>
         </header>
         {{#each r.service.history}}
           <h3><em>{{ position }}</em>,
@@ -123,7 +126,7 @@
           {{#if highlights}}
             <ul>
             {{#each highlights}}
-              <li>{{{ this }}}</li>
+              <li>{{ this }}</li>
             {{/each}}
             </ul>
           {{/if}}
@@ -135,11 +138,11 @@
 {{#if r.writing}}
       <section id="publications">
         <header>
-        <h2><span class="fa fa-book"></span> Writing</h2><hr>
+        <h2><span class="fa fa-book"></span> Writing</h2>
         </header>
         {{#each r.writing }}
-          <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
-            {{ publisher }} <span class="tenure">{{formatDate safe.date 'YYYY'}}</span></h3>
+          <h3><em>{{#if url}}<a href="{{ url }}">{{ title }}</a>{{else}}{{ title }}{{/if}}</em>,
+            {{{ publisher.name }}} <span class="tenure">{{formatDate safe.date 'YYYY'}}</span></h3>
         {{# if summary}}{{{ summary }}}{{/if}}
         {{/each}}
       </section>
@@ -148,11 +151,11 @@
 {{# if r.recognition}}
       <section id="awards">
         <header>
-        <h2><span class="fa fa-trophy"></span> Awards</h2><hr>
+        <h2><span class="fa fa-trophy"></span> Awards</h2>
         </header>
         {{#each r.recognition}}
           <h4><span class="res-label">{{ title }}</span>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h4>
-          {{ summary }}
+          {{{ summary }}}
         {{/each}}
       </section>
 {{/if}}

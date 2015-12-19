@@ -1,3 +1,5 @@
 Theme: Modern
 ===============
-A contemporary technical resume theme for FluentCV.
+A contemporary technical résumé theme for FluentCV.
+
+![](modern.png)
