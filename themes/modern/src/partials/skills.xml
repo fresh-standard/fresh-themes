@@ -14,20 +14,23 @@
       <w:tblLook w:val="04A0"/>
     </w:tblPr>
     <w:tblGrid>
-      <w:gridCol w:w="3000"/>
-      <w:gridCol w:w="8000"/>
+      <w:gridCol w:w="828"/>
+      <w:gridCol w:w="8748"/>
     </w:tblGrid>
 
     {{#each r.skills.sets}}
 
     <w:tr wsp:rsidR="00427ECC" wsp:rsidTr="00FD3B33">
+      <w:trPr>
+        <w:trHeight w:val="882"/>
+      </w:trPr>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="3000" w:type="dxa"/>
+          <w:tcW w:w="828" w:type="dxa"/>
           <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
         </w:tcPr>
         <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
-          <w:pPr>
+          <!-- <w:pPr>
             <w:jc w:val="right"/>
           </w:pPr>
           <w:r>
@@ -36,14 +39,43 @@
               <w:color w:val="989898"/>
             </w:rPr>
             <w:t>{{ name }}</w:t>
+          </w:r> -->
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:pict>
+              <v:rect id="_x0000_s1028" style="position:absolute;left:0;text-align:left;margin-left:20.6pt;margin-top:1.4pt;width:7.15pt;height:38.25pt;z-index:1" fillcolor="{{{skillColor level}}}"  strokeweight="0"/>
+            </w:pict>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:pict>
+              <v:rect id="_x0000_s1026" style="position:absolute;left:0;text-align:left;margin-left:20.6pt;margin-top:1.4pt;width:7.15pt;height:{{{skillHeight level}}}pt;z-index:2" fillcolor="#FFFFFF" strokeweight="0"/>
+            </w:pict>
           </w:r>
         </w:p>
       </w:tc>
       <w:tc>
         <w:tcPr>
-          <w:tcW w:w="8000" w:type="dxa"/>
+          <w:tcW w:w="8748" w:type="dxa"/>
           <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
         </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:spacing w:before="120"/>
+          </w:pPr>          
+          <w:r>
+            <w:rPr>
+              <w:sz w:val="24"/>
+              <w:b/>
+              <w:caps/>
+            </w:rPr>
+            <w:t>{{{ name }}}</w:t>
+          </w:r>
+        </w:p>
         <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
           <w:r>
             <w:rPr>
