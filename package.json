@@ -1,6 +1,6 @@
 {
   "name": "fluent-themes",
-  "version": "0.7.0-beta",
+  "version": "0.7.1-beta",
   "description": "Multiformat résumé themes and templates for FluentCV and JSON Resume.",
   "repository": {
     "type": "git",
