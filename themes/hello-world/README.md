@@ -1,3 +1,9 @@
 Theme: Hello-World
 ==================
-The simplest possible résumé theme for FluentCV. For example purposes.
+A simple résumé theme for example purposes.
+
+## License
+
+MIT. See [LICENSE.md][lic] for details.
+
+[lic]: https://github.com/fluentdesk/fluent-themes/blob/master/LICENSE.md
