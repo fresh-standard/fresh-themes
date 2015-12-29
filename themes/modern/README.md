@@ -3,6 +3,10 @@ Theme: Modern
 A contemporary technical résumé theme for FluentCV with colored progress bars
 representing skill levels and Font Awesome icons for section headers.
 
+![](modern.png)
+
+## Use
+
 Note: In order to display colored progress bars as in the below image, your resume should include a `level` annotation for each skill:
 
 ```json
@@ -25,4 +29,8 @@ Note: In order to display colored progress bars as in the below image, your resu
 Valid values for `level` are `master`, `advanced`, `intermediate`, `beginner`,
 or a number between 1 and 10.
 
-![](modern.png)
+## License
+
+MIT. See [LICENSE.md][lic] for details.
+
+[lic]: https://github.com/fluentdesk/fluent-themes/blob/master/LICENSE.md

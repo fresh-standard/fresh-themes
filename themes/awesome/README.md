@@ -1,6 +1,6 @@
 Theme: Awesome
 ==============
-An experimental FluentCV theme based on [Byungjin Park's][author]
+An experimental resume theme based on [Byungjin Park's][author] awesome
 [Awesome-CV][acv] résumé template for LaTeX.
 
 ## Use
@@ -28,7 +28,7 @@ and `mklink /J` for the last.
 
 ## License
 
-Themes are licensed under MIT. See [LICENSE.md][lic].
+MIT. See [LICENSE.md][lic].
 
 
 [acv]: https://github.com/posquit0/Awesome-CV
