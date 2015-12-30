@@ -4,7 +4,7 @@
   "description": "Multiformat résumé themes and templates for HackMyResume and FluentCV.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fluentdesk/fluent-themes.git"
+    "url": "https://github.com/fluentdesk/fresh-themes.git"
   },
   "main": "themes/README.md",
   "keywords": [
@@ -26,8 +26,8 @@
   "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fluentdesk/fluent-themes/issues"
+    "url": "https://github.com/fluentdesk/fresh-themes/issues"
   },
-  "homepage": "https://github.com/fluentdesk/fluent-themes",
+  "homepage": "https://github.com/fluentdesk/fresh-themes",
   "dependencies": { }
 }
