@@ -38,5 +38,5 @@
       }
     }
   },
-  "message": "Don't forget to run 'xelatex <myresume.tex>' in the generated latex/examples folder to complete your resume build! For more info, see the theme README at https://github.com/fluentdesk/fluent-themes/blob/master/themes/awesome/README.md."
+  "message": "Don't forget to run 'xelatex <myresume.tex>' in the generated latex/examples folder to complete your resume build! For more info, see the theme README at https://github.com/fluentdesk/fresh-themes/blob/master/themes/awesome/README.md."
 }

@@ -18,7 +18,7 @@ You don't need to install this repository to use the themes; just install
 [FluentCV Desktop][1] or [Command Line][2]. Otherwise you can install the latest
 official standalone version of the theme repository over NPM...
 
-`[sudo] npm install fluent-themes --save`
+`[sudo] npm install fresh-themes --save`
 
 ...or fork and clone it as usual.
 
@@ -51,13 +51,13 @@ MIT. See [LICENSE.md][1] for details.
 
 [1]: http://fluentcv.com
 [2]: https://github.com/fluentdesk/fluentcv
-[3]: https://github.com/fluentdesk/fluent-themes/blob/master/LICENSE.md
+[3]: https://github.com/fluentdesk/fresh-themes/blob/master/LICENSE.md
 [f]: https://github.com/fluentdesk/FRESCA
 [jrs]: http://jsonresume.org
 [awe]: https://github.com/posquit0/Awesome-CV
-[t-awesome]: https://github.com/fluentdesk/fluent-themes/tree/master/themes/awesome
-[t-minimist]: https://github.com/fluentdesk/fluent-themes/tree/master/themes/minimist
-[t-modern]: https://github.com/fluentdesk/fluent-themes/tree/master/themes/modern
-[t-hello]: https://github.com/fluentdesk/fluent-themes/tree/master/themes/hello-world
-[t-compact]: https://github.com/fluentdesk/fluent-themes/tree/master/themes/compact
-[t-positive]: https://github.com/fluentdesk/fluent-themes/tree/master/themes/positive
+[t-awesome]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/awesome
+[t-minimist]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/minimist
+[t-modern]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/modern
+[t-hello]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/hello-world
+[t-compact]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/compact
+[t-positive]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/positive
