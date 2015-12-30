@@ -34,5 +34,5 @@ MIT. See [LICENSE.md][lic].
 [m]: http://miktex.org/download
 [desk]: http://fluentcv.com
 [cli]: https://github.com/fluentdesk/fluentcv
-[lic]: https://github.com/fluentdesk/fluent-themes/blob/master/LICENSE.md
+[lic]: https://github.com/fluentdesk/fresh-themes/blob/master/LICENSE.md
 [author]: https://github.com/posquit0
