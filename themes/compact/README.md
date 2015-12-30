@@ -1,6 +1,7 @@
 Theme: Compact
 ==============
-A compact, no-frills résumé theme for FluentCV.
+A compact, no-frills résumé theme for candidates with lengthy work histories.
+Collapses older work history into a single summary entry.
 
 ![](compact.png)
 

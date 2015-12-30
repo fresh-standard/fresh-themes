@@ -1,6 +1,6 @@
 Theme: Positive
 ===============
-A dynamic technical résumé theme for FluentCV.
+A dynamic technical résumé theme.
 
 ![](positive.png)
 
@@ -8,4 +8,4 @@ A dynamic technical résumé theme for FluentCV.
 
 MIT. See [LICENSE.md][lic] for details.
 
-[lic]: https://github.com/fluentdesk/fluent-themes/blob/master/LICENSE.md
+[lic]: https://github.com/fluentdesk/fresh-themes/blob/master/LICENSE.md

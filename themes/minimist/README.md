@@ -1,6 +1,6 @@
 Theme: Minimist
 ===============
-An unstyled résumé theme for FluentCV.
+An unstyled résumé theme.
 
 ## License
 

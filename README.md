@@ -1,5 +1,5 @@
-fluent-themes
-=============
+fresh-themes
+============
 
 Stylized templates for your résumé and/or CV, compatible with [FRESH][f] and
 [JSON Resume][jrs] formats.
