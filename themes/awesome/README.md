@@ -30,7 +30,6 @@ and `mklink /J` for the last.
 
 MIT. See [LICENSE.md][lic].
 
-
 [acv]: https://github.com/posquit0/Awesome-CV
 [m]: http://miktex.org/download
 [desk]: http://fluentcv.com

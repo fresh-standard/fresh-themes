@@ -1,6 +1,6 @@
 Theme: Modern
 ===============
-A contemporary technical résumé theme for FluentCV with colored progress bars
+A contemporary technical résumé theme. Features colored progress bars
 representing skill levels and Font Awesome icons for section headers.
 
 ![](modern.png)
