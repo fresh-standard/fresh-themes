@@ -73,7 +73,7 @@
   <span class="fa fa-lg fa-building"></span>
   {{#each r.employment.history}}
     {{#if url}}
-    <h4><span class="res-label">{{ position }}</span>, <a href="{{ url }}">{{ employer }}</a></h4>
+    <h4><span class="res-label">{{ position }}</span>, <a href="{{{ url }}}">{{ employer }}</a></h4>
     {{else}}
     <h4><span class="res-label">{{ position }}</span>, <span class="defunct">{{ employer }}</span></h4>
     {{/if}}
@@ -82,7 +82,7 @@
     {{#if proj.highlights}}
       <ul>
       {{#each highlights}}
-        <li>{{ this }}</li>
+        <li>{{{ this }}}</li>
       {{/each}}
       </ul>
     {{/if}}
@@ -104,7 +104,7 @@
     {{#if courses}}
       <ul>
       {{#each courses}}
-        <li>{{ this }}</li>
+        <li>{{{ this }}}</li>
       {{/each}}
       </ul>
     {{/if}}
@@ -131,7 +131,7 @@
     {{#if highlights}}
       <ul>
       {{#each highlights}}
-        <li>{{ this }}</li>
+        <li>{{{ this }}}</li>
       {{/each}}
       </ul>
     {{/if}}
