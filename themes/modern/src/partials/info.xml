@@ -36,7 +36,7 @@
         </w:pict>
       </w:r>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>ABOUT</w:t>
+        <w:t>{{{sectionTitle "info" "ABOUT"}}}</w:t>
       </w:r>
     </w:p>
   </wx:pBdrGroup>

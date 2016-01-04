@@ -15,7 +15,7 @@
 {{/if}}
 
 {{#if r.employment}}
-## EMPLOYMENT
+## {{{sectionTitle "EMPLOYMENT"}}}
 
 {{#each r.employment.history }}
   {{#compare @index 4 operator="<"}}
@@ -39,7 +39,7 @@ Prior to {{{ employer }}}, I worked on a range of projects for companies large a
 {{/if}}
 
 {{#if r.education}}
-## EDUCATION
+## {{{sectionTitle "EDUCATION"}}}
 
 {{#each r.education.history}}
 ### {{{ institution }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
@@ -61,7 +61,7 @@ Prior to {{{ employer }}}, I worked on a range of projects for companies large a
 {{/if}}
 
 {{#if r.service }}
-## SERVICE
+## {{{sectionTitle "SERVICE"}}}
 
 {{#each r.service.history}}
 ### {{{ organization }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
@@ -75,7 +75,7 @@ Prior to {{{ employer }}}, I worked on a range of projects for companies large a
 {{/each}}
 {{/if}}
 {{#if r.recognition}}
-## RECOGNITION
+## {{{sectionTitle "RECOGNITION"}}}
 
 {{#each r.recognition}}
 ### {{{ title }}}, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})

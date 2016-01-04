@@ -16,7 +16,7 @@
         </w:pict>
       </w:r>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>EDUCATION</w:t>
+        <w:t>{{{sectionTitle "EDUCATION"}}}</w:t>
       </w:r>
     </w:p>
   </wx:pBdrGroup>

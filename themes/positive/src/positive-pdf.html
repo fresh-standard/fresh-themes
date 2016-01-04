@@ -11,7 +11,7 @@
   <body>
     <main>
       <header>
-        <h1>{{initialWords r.name }} <span style="color: #C00000;">{{lastWord r.name }}</span></h1>
+        <h1>{{{initialWords r.name }}} <span style="color: #C00000;">{{{lastWord r.name }}}</span></h1>
         <span class="label">{{{ r.info.label }}}</span>
         <p id="contact">
           {{#if r.contact.email}}<span class="email"><a href="mailto:{{ RAW.contact.email }}">{{{ r.contact.email }}}</a></span>{{/if}}
@@ -36,7 +36,7 @@
         <table>
           <thead>
             <tr>
-              <th>Skill</th>
+              <th>{{{sectionTitle "Skills"}}}</th>
               <th>Keywords</th>
             </tr>
           </thead>
@@ -57,16 +57,16 @@
 {{#if r.employment}}
       <section id="employment">
         <header>
-        <h2><span class="fa fa-building" style="vertical-align: top;"></span> Employment</h2>
+        <h2><span class="fa fa-building" style="vertical-align: top;"></span> {{{sectionTitle "Employment"}}}</h2>
         </header>
 
         {{#each r.employment.history }}
           {{#compare @index 4 operator="<"}}
             <h3><em>{{ position }}</em>,
               {{#if url }}
-              <a href="{{ url }}">{{ employer }}</a>
+              <a href="{{ url }}">{{{ employer }}}</a>
               {{else}}
-              {{ employer }}
+              {{{ employer }}}
               {{/if}}
               <span class="tenure">{{formatDate safe.start 'YYYY-MM' }} &mdash; {{formatDate safe.end 'YYYY-MM' }}<span></h3>
             <p style="clear: both;">{{{ summary }}}</p>
@@ -100,7 +100,7 @@
 {{# if r.education}}
       <section id="education">
         <header>
-        <h2><span class="fa fa-mortar-board"></span> Education</h2>
+        <h2><span class="fa fa-mortar-board"></span> {{{sectionTitle "Education"}}}</h2>
         </header>
         {{#each r.education.history}}
           <h3>{{{ institution }}} <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
@@ -112,21 +112,21 @@
 {{#if r.service}}
       <section id="volunteer">
         <header>
-        <h2><span class="fa fa-child" style="vertical-align: top;"></span> Service</h2>
+        <h2><span class="fa fa-child" style="vertical-align: top;"></span> {{{sectionTitle "Service"}}}</h2>
         </header>
         {{#each r.service.history}}
-          <h3><em>{{ position }}</em>,
+          <h3><em>{{{ position }}}</em>,
             {{#if url}}
-            <a href="{{ url }}">{{ organization }}</a>
+            <a href="{{ url }}">{{{ organization }}}</a>
             {{else}}
-            {{ organization }}
+            {{{ organization }}}
             {{/if}}
             <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
           <p style="clear: both;">{{{ summary }}}</p>
           {{#if highlights}}
             <ul>
             {{#each highlights}}
-              <li>{{ this }}</li>
+              <li>{{{ this }}}</li>
             {{/each}}
             </ul>
           {{/if}}
@@ -138,10 +138,10 @@
 {{#if r.writing}}
       <section id="publications">
         <header>
-        <h2><span class="fa fa-book"></span> Writing</h2>
+        <h2><span class="fa fa-book"></span> {{{sectionTitle "Writing"}}}</h2>
         </header>
         {{#each r.writing }}
-          <h3><em>{{#if url}}<a href="{{ url }}">{{ title }}</a>{{else}}{{ title }}{{/if}}</em>,
+          <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
             {{{ publisher.name }}} <span class="tenure">{{formatDate safe.date 'YYYY'}}</span></h3>
         {{# if summary}}{{{ summary }}}{{/if}}
         {{/each}}
@@ -151,10 +151,10 @@
 {{# if r.recognition}}
       <section id="awards">
         <header>
-        <h2><span class="fa fa-trophy"></span> Awards</h2>
+        <h2><span class="fa fa-trophy"></span> {{{"sectionTitle" "recognition" "Awards"}}}</h2>
         </header>
         {{#each r.recognition}}
-          <h4><span class="res-label">{{ title }}</span>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h4>
+          <h4><span class="res-label">{{{ title }}}</span>, {{{ from }}} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h4>
           {{{ summary }}}
         {{/each}}
       </section>

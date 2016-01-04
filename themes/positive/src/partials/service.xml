@@ -5,7 +5,7 @@
       <w:pStyle w:val="Heading1"/>
     </w:pPr>
     <w:r wsp:rsidRPr="00C146CA">
-      <w:t>SERVICE</w:t>
+      <w:t>{{{sectionTitle "SERVICE"}}}</w:t>
     </w:r>
   </w:p>
 

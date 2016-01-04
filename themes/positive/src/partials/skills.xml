@@ -5,7 +5,7 @@
       <w:pStyle w:val="Heading1"/>
     </w:pPr>
     <w:r wsp:rsidRPr="00C146CA">
-      <w:t>SKILLS</w:t>
+      <w:t>{{{sectionTitle "SKILLS"}}}</w:t>
     </w:r>
   </w:p>
   <w:tbl>

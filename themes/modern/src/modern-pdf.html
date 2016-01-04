@@ -28,7 +28,7 @@
 {{#if r.info.brief}}
 <hr>
 <section id="summary">
-  <h3>About</h3>
+  <h3>{{{sectionTitle "info" "About"}}}</h3>
   <span class="fa fa-lg fa-user"></span>
   {{{ r.info.brief }}}
 </section>
@@ -39,7 +39,7 @@
       <hr>
       <section id="skills">
         <header>
-        <h3>Skills</h3>
+        <h3>{{{sectionTitle "Skills"}}}</h3>
         </header>
         <span class="fa fa-lg fa-code"></span>
 
@@ -73,7 +73,7 @@
 <hr>
 <section id="employment">
   <header>
-  <h3>Employment</h3>
+  <h3>{{{sectionTitle "Employment"}}}</h3>
   </header>
   <span class="fa fa-lg fa-building"></span>
   {{#each r.employment.history}}
@@ -100,7 +100,7 @@
 <hr>
 <section id="education">
   <header>
-  <h3>Education</h3>
+  <h3>{{{sectionTitle "Education"}}}</h3>
   </header>
   <span class="fa fa-lg fa-mortar-board"></span>
   {{#each r.education.history}}
@@ -122,7 +122,7 @@
 <hr>
 <section id="volunteer">
   <header>
-  <h3>Service</h3>
+  <h3>{{{sectionTitle "Service"}}}</h3>
   </header>
   <span class="fa fa-lg fa-child"></span>
   {{#each r.service.history}}
@@ -149,7 +149,7 @@
 <hr>
 <section id="publications">
   <header>
-  <h3>Publications</h3>
+  <h3>{{{sectionTitle "writing" "Publications"}}}</h3>
   </header>
   <span class="fa fa-lg fa-pencil"></span>
   {{#each r.writing}}
@@ -167,7 +167,7 @@
 <hr>
 <section id="awards">
   <header>
-  <h3>Awards</h3>
+  <h3>{{{sectionTitle "recognition" "Awards"}}}</h3>
   </header>
   <span class="fa fa-lg fa-trophy"></span>
   {{#each r.recognition}}
