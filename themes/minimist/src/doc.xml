@@ -740,7 +740,7 @@ engine: Underscore
               <w:i w:val="off"/>
               <w:i-cs w:val="off"/>
             </w:rPr>
-            <w:t>{{{sectionTitle "Skills"}}}</w:t>
+            <w:t>{% print(h.sectionTitle('Skills')) %}</w:t>
           </w:r>
         </w:p>
         <w:tbl>
@@ -792,7 +792,7 @@ engine: Underscore
             <w:pStyle w:val="Heading1"/>
           </w:pPr>
           <w:r>
-            <w:t>{{{sectionTitle "Employment"}}}</w:t>
+            <w:t>{% print(h.sectionTitle('Employment')) %}</w:t>
           </w:r>
         </w:p>
         <w:tbl>
@@ -917,7 +917,7 @@ engine: Underscore
             <w:pStyle w:val="Heading1"/>
           </w:pPr>
           <w:r>
-            <w:t>{{{sectionTitle "Education"}}}</w:t>
+            <w:t>{% print(h.sectionTitle('Education')) %}</w:t>
           </w:r>
         </w:p>
         <w:tbl>

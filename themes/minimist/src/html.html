@@ -30,7 +30,7 @@ engine: Underscore
 {% if ( r.info.brief && r.info.brief.length ) { %}
       <hr>
       <section id="summary">
-        <h3>{{{sectionTitle "info" "About"}}}</h3>
+        <h3>{% print(h.sectionTitle('info', 'About')) %}</h3>
         <span class="fa fa-lg fa-user"></span>
         {{ r.info.brief }}
       </section>
@@ -41,7 +41,7 @@ engine: Underscore
       <hr>
       <section id="skills">
         <header>
-        <h3>{{{sectionTitle "Skills"}}}</h3>
+        <h3>{% print(h.sectionTitle('Skills')) %}</h3>
         </header>
         <span class="fa fa-lg fa-code"></span>
 
@@ -75,7 +75,7 @@ engine: Underscore
       <hr>
       <section id="employment">
         <header>
-        <h3>{{{sectionTitle "Employment"}}}</h3>
+        <h3>{% print(h.sectionTitle("Employment")) %}</h3>
         </header>
         <span class="fa fa-lg fa-building"></span>
         {% r.employment.history.forEach( function( proj, idx, ar) { %}
@@ -104,7 +104,7 @@ engine: Underscore
       <hr>
       <section id="education">
         <header>
-        <h3>{{{sectionTitle "Education"}}}</h3>
+        <h3>{% print(h.sectionTitle("Education")) %}</h3>
         </header>
         <span class="fa fa-lg fa-mortar-board"></span>
         {% r.education.history.forEach( function( edu, idx, ar) { %}
@@ -126,7 +126,7 @@ engine: Underscore
       <hr>
       <section id="awards">
         <header>
-        <h3>{{{sectionTitle "recognition" "Awards"}}}</h3>
+        <h3>{% print( h.sectionTitle("recognition", "Awards")) %}</h3>
         </header>
         <span class="fa fa-lg fa-trophy"></span>
         {% r.recognition.forEach( function( award, idx, ar) { %}
@@ -141,7 +141,7 @@ engine: Underscore
       <hr>
       <section id="publications">
         <header>
-        <h3>{{{sectionTitle "writing" "Publications"}}}</h3>
+        <h3>{% print( h.sectionTitle("writing", "Publications")) %}</h3>
         </header>
         <span class="fa fa-lg fa-pencil"></span>
         {% r.writing.forEach( function( pub, idx, ar) { %}
@@ -160,7 +160,7 @@ engine: Underscore
       <hr>
       <section id="volunteer">
         <header>
-        <h3>{{{sectionTitle "service" "Volunteer Work"}}}</h3>
+        <h3>{% print(h.sectionTitle("service", "Volunteer Work")) %}</h3>
         </header>
         <span class="fa fa-lg fa-child"></span>
         {% r.service.history.forEach( function( vol, idx, ar) { %}
