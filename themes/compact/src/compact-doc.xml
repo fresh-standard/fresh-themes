@@ -512,7 +512,7 @@
           <w:t>{{ r.info.brief }}</w:t>
         </w:r>
       </w:p> -->
-      {{{wpml r.info.brief }}}
+      {{{wpml RAW.info.brief }}}
       {{> skills }}
       {{> employment }}
       {{> education }}
