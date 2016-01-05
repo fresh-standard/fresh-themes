@@ -5,7 +5,6 @@
   "engine": "handlebars",
   "inherits": {
     "txt": "basis",
-    "md": "basis",
-    "html": "basis"
+    "md": "basis"
   }
 }
