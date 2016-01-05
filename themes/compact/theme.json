@@ -1,7 +1,7 @@
 {
   "title": "compact",
   "description": "A compact résumé theme for FluentCV.",
-  "author": "hacksalot <hacksalot@fluentdesk.com>",
+  "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
   "engine": "handlebars",
   "inherits": {
     "txt": "basis",

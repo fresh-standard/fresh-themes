@@ -1,6 +1,6 @@
 {
   "title": "hello-world",
   "description": "An unstyled starter résumé theme for FluentCV.",
-  "author": "hacksalot <hacksalot@fluentdesk.com>",
+  "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
   "engine": "handlebars"
 }
