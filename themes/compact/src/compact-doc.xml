@@ -513,9 +513,9 @@
         </w:r>
       </w:p> -->
       {{{wpml RAW.info.brief }}}
-      {{> skills }}
-      {{> employment }}
-      {{> education }}
+      {{#hasSection "skills"}}{{> skills }}{{/hasSection}}
+      {{#hasSection "employment"}}{{> employment }}{{/hasSection}}
+      {{#hasSection "education"}}{{> education }}{{/hasSection}}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>
         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>

@@ -91,7 +91,34 @@
 </section>
 {{/if}}
 
-{{# if r.education}}
+{{#hasSection 'projects'}}
+<hr>
+<section id="projects">
+  <header>
+  <h3>{{{sectionTitle "Projects"}}}</h3>
+  </header>
+  <span class="fa fa-lg fa-building"></span>
+  {{#each r.projects}}
+    {{#if url}}
+    <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
+    {{else}}
+    <h4><span class="res-label">{{ role }}</span>, <span class="defunct">{{ title }}</span></h4>
+    {{/if}}
+    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
+    {{{ summary }}}
+    {{#if proj.highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{{ this }}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+
+</section>
+{{/hasSection}}
+
+{{#hasSection 'education'}}
 <hr>
 <section id="education">
   <header>
@@ -111,7 +138,7 @@
   {{/each}}
 
 </section>
-{{/if}}
+{{/hasSection}}
 
 {{#if r.service}}
 <hr>

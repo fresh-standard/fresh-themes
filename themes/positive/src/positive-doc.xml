@@ -526,12 +526,12 @@
           <w:t>{{ r.info.brief }}</w:t>
         </w:r> -->
       </w:p>
-      {{> skills }}
-      {{> employment }}
-      {{> education }}
-      {{> service }}
-      {{> writing }}
-      {{> recognition }}
+      {{#hasSection "skills"}}{{> skills }}{{/hasSection}}
+      {{#hasSection "employment"}}{{> employment }}{{/hasSection}}
+      {{#hasSection "education"}}{{> education }}{{/hasSection}}
+      {{#hasSection "service"}}{{> service }}{{/hasSection}}
+      {{#hasSection "writing"}}{{> writing }}{{/hasSection}}
+      {{#hasSection "recognition"}}{{> recognition }}{{/hasSection}}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>
         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>

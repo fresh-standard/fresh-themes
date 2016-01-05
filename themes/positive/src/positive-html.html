@@ -20,14 +20,14 @@
       </header>
 
 
-{{#if r.info.brief}}
+{{#has "info.brief"}}
       <section id="summary">
         {{{ r.info.brief }}}
       </section>
-{{/if}}
+{{/has}}
 
 
-{{#if r.skills}}
+{{#hasSection "skills"}}
       <section id="skills">
         <header>
         <h2><span class="fa fa-code"></span> Skills</h2>
@@ -49,11 +49,11 @@
           </tbody>
         </table>
       </section>
-{{/if}}
+{{/hasSection}}
 
 
 
-{{#if r.employment}}
+{{#hasSection "employment"}}
       <section id="employment">
         <header>
         <h2><span class="fa fa-building" style="vertical-align: top;"></span> {{{sectionTitle "Employment"}}}</h2>
@@ -94,9 +94,9 @@
         {{/each}}
 
       </section>
-{{/if}}
+{{/hasSection}}
 
-{{# if r.education}}
+{{#hasSection "education"}}
       <section id="education">
         <header>
         <h2><span class="fa fa-mortar-board"></span> {{{sectionTitle "Education"}}}</h2>
@@ -106,9 +106,9 @@
         {{/each}}
 
       </section>
-{{/if}}
+{{/hasSection}}
 
-{{#if r.service}}
+{{#hasSection "service"}}
       <section id="volunteer">
         <header>
         <h2><span class="fa fa-child" style="vertical-align: top;"></span> {{{sectionTitle "Service"}}}</h2>
@@ -132,9 +132,9 @@
         {{/each}}
 
       </section>
-{{/if}}
+{{/hasSection}}
 
-{{#if r.writing}}
+{{#hasSection "writing"}}
       <section id="publications">
         <header>
         <h2><span class="fa fa-book"></span> {{{sectionTitle "Writing"}}}</h2>
@@ -145,9 +145,9 @@
         {{# if summary}}{{{ summary }}}{{/if}}
         {{/each}}
       </section>
-{{/if}}
+{{/hasSection}}
 
-{{# if r.recognition}}
+{{#hasSection "recognition"}}
       <section id="awards">
         <header>
         <h2><span class="fa fa-trophy"></span> {{{"sectionTitle" "recognition" "Awards"}}}</h2>
@@ -157,7 +157,7 @@
           {{{ summary }}}
         {{/each}}
       </section>
-{{/if}}
+{{/has}}
 
     </main>
   </body>

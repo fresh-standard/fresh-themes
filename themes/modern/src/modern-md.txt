@@ -18,7 +18,6 @@
 ## {{{sectionTitle "EMPLOYMENT"}}}
 
 {{#each r.employment.history }}
-  {{#compare @index 4 operator="<"}}
 ### {{{ position }}}, {{{ employer }}} ({{formatDate safe.start 'YYYY-MM' }} -- {{formatDate safe.end 'YYYY-MM' }})
 {{{ summary }}}
 {{#if highlights}}
@@ -26,15 +25,6 @@
   - {{{ this }}}
 {{/each}}
 {{/if}}
-
-  {{/compare}}
-  {{#compare @index 4 operator=">="}}
-    {{#compare @index 4 operator="=="}}
-### Previously...
-Prior to {{{ employer }}}, I worked on a range of projects for companies large and small.
-    {{/compare}}
-  - {{{ position }}}, {{{ employer }}}
-  {{/compare}}
 {{/each}}
 {{/if}}
 

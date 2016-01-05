@@ -33,6 +33,14 @@
   - {{ course }}
 {% }); } }); } %}
 
+{% if ( r.projects && r.projects.length ) { %}{% print(h.sectionTitle('PROJECTS')) %}
+{% r.projects.forEach( function( proj, idx, ar) { %}
+{{ proj.title }} ({{ proj.safe.start.format('YYYY-MM') }} — {{ proj.safe.end.format('YYYY-MM') }})
+{{ proj.summary }}
+{% if( edu.courses ) { %}{% proj.highlights.forEach( function( course ) { %}
+  - {{ course }}
+{% }); } }); } %}
+
 {% if ( r.service && r.service.history ) { %}{% print(h.sectionTitle('service', 'VOLUNTEER')) %}
 {% r.service.history.forEach( function( srv, idx, ar) { %}
 {{ srv.organization }} ({{ srv.safe.start.format('YYYY-MM') }} — {{ srv.safe.end.format('YYYY-MM') }})

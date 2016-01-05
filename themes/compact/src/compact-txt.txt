@@ -1,9 +1,3 @@
-{{!
-
-  compact/txt.txt
-  A plain text resume template for FluentCV's "compact" theme.
-
-}}
 {{ r.name }}
 {{#if r.contact.email }}Email: {{{ r.contact.email }}}{{/if}}
 {{#if r.contact.phone }}Tel: {{{ r.contact.phone }}}{{/if}}
@@ -12,40 +6,46 @@
 
 {{#if r.info.brief }}{{{ r.info.brief }}}{{/if}}
 
-{{#if r.skills}}
-SKILLS -------------------------------------------------------------------------
+{{#hasSection "skills"}}
+{{{sectionTitle "SKILLS"}}} -------------------------------------------------------------------------
 
 {{#each r.skills.sets}}
-  - {{{ name }}}: {{#each this.skills}}{{{ this }}} {{/each}}
+- {{{ name }}}: {{#each skills}}{{{ this }}} {{/each}}
 {{/each}}
-{{/if}}
+{{/hasSection}}
 
-{{#if r.employment}}
-EMPLOYMENT ---------------------------------------------------------------------
+{{#hasSection "employment"}}
+{{{sectionTitle "EMPLOYMENT"}}} ---------------------------------------------------------------------
 
 {{#each r.employment.history }}
-  {{#compare @index 4 operator="<"}}
 {{{ position }}}, {{{ employer }}} ({{formatDate safe.start 'YYYY-MM' }} -- {{formatDate safe.end 'YYYY-MM' }})
 {{{ summary }}}
 {{#if highlights}}
 {{#each highlights}}
-  - {{{ this }}}
+- {{{ this }}}
 {{/each}}
 {{/if}}
 
-  {{/compare}}
-  {{#compare @index 4 operator=">="}}
-    {{#compare @index 4 operator="=="}}
-Previously...
-Prior to {{{ employer }}}, I worked on a range of projects for companies large and small.
-    {{/compare}}
-  - {{{ position }}}, {{{ employer }}}
-  {{/compare}}
+{{/each}}
+{{/hasSection}}
+
+{{#hasSection 'projects'}}
+{{{sectionTitle "PROJECTS"}}} -----------------------------------------------------------------------
+
+{{#each r.projects }}
+{{{ title }}}, {{{ role }}} ({{formatDate safe.start 'YYYY-MM' }} -- {{formatDate safe.end 'YYYY-MM' }})
+{{{ description }}}
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+- {{{ this }}}
 {{/each}}
 {{/if}}
+{{/each}}
+{{/hasSection}}
 
-{{#if r.education}}
-EDUCATION ----------------------------------------------------------------------
+{{#hasSection "education"}}
+{{{sectionTitle "EDUCATION"}}} ----------------------------------------------------------------------
 
 {{#each r.education.history}}
 {{{ institution }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
@@ -54,37 +54,41 @@ EDUCATION ----------------------------------------------------------------------
 {{/if}}
 {{#if courses}}
 {{#each courses}}
-  - {{{ this }}}{{/each}}{{/if}}
+- {{{ this }}}
 {{/each}}
 {{/if}}
-{{#if r.writing}}
-WRITING ------------------------------------------------------------------------
+
+{{/each}}
+{{/hasSection}}
+
+{{#hasSection "writing"}}
+{{{sectionTitle "WRITING"}}} ------------------------------------------------------------------------
 
 {{#each r.writing}}
 {{{ title }}} ({{formatDate safe.date 'YYYY-MM' }})
 {{{ summary }}}
 {{/each}}
-{{/if}}
+{{/hasSection}}
 
-{{#if r.service }}
-SERVICE ------------------------------------------------------------------------
+{{#hasSection "service" }}
+{{{sectionTitle "SERVICE"}}} ------------------------------------------------------------------------
 
 {{#each r.service.history}}
 {{{ organization }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
 {{{ summary }}}
 {{#if highlights}}
 {{#each highlights}}
-  - {{{ this }}}
+- {{{ this }}}
 {{/each}}
 {{/if}}
+{{/each}}
+{{/hasSection}}
 
-{{/each}}
-{{/if}}
-{{#if r.recognition}}
-RECOGNITION --------------------------------------------------------------------
+{{#hasSection "recognition"}}
+{{{sectionTitle "RECOGNITION"}}} --------------------------------------------------------------------
 
 {{#each r.recognition}}
 {{{ title }}}, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
 {{{ summary }}}
 {{/each}}
-{{/if}}
+{{/hasSection}}
