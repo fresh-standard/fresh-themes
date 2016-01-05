@@ -1,0 +1,94 @@
+{{ r.name }}
+{{#has 'contact.email' }}Email: {{{ r.contact.email }}}{{/has}}
+{{#has 'contact.phone' }}Tel: {{{ r.contact.phone }}}{{/has}}
+{{#has 'contact.website' }}Web: {{{ r.contact.website }}}{{/has}}
+================================================================================
+
+{{#has 'info.brief' }}{{{ r.info.brief }}}{{/has}}
+
+{{#section "skills"}}
+{{{sectionTitle "SKILLS"}}} -------------------------------------------------------------------------
+
+{{#each r.skills.sets}}
+- {{{ name }}}: {{#each skills}}{{{ this }}} {{/each}}
+{{/each}}
+{{/section}}
+
+{{#section "employment"}}
+{{{sectionTitle "EMPLOYMENT"}}} ---------------------------------------------------------------------
+
+{{#each r.employment.history }}
+{{{ position }}}, {{{ employer }}} ({{dateRange .}})
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+- {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}
+
+{{#section 'projects'}}
+{{{sectionTitle "PROJECTS"}}} -----------------------------------------------------------------------
+
+{{#each r.projects }}
+{{{ title }}}, {{{ role }}} ({{dateRange .}})
+{{{ description }}}
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+- {{{ this }}}
+{{/each}}
+{{/if}}
+{{/each}}
+{{/section}}
+
+{{#section "education"}}
+{{{sectionTitle "EDUCATION"}}} ----------------------------------------------------------------------
+
+{{#each r.education.history}}
+{{{ institution }}} ({{dateRange .}})
+{{#if summary }}
+{{{ summary }}}
+{{/if}}
+{{#if courses}}
+{{#each courses}}
+- {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}
+
+{{#section "writing"}}
+{{{sectionTitle "WRITING"}}} ------------------------------------------------------------------------
+
+{{#each r.writing}}
+{{{ title }}}{{#has 'safe.date'}} ({{formatDate safe.date 'YYYY-MM' }}){{/has}}
+{{{ summary }}}
+{{/each}}
+{{/section}}
+
+{{#section "service" }}
+{{{sectionTitle "SERVICE"}}} ------------------------------------------------------------------------
+
+{{#each r.service.history}}
+{{{ organization }}} ({{dateRange .}})
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+- {{{ this }}}
+{{/each}}
+{{/if}}
+{{/each}}
+{{/section}}
+
+{{#section "recognition"}}
+{{{sectionTitle "RECOGNITION"}}} --------------------------------------------------------------------
+
+{{#each r.recognition}}
+{{{ title }}}, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
+{{{ summary }}}
+{{/each}}
+{{/section}}

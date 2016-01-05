@@ -1,0 +1,7 @@
+{
+  "title": "basis",
+  "description": "A theme that is a basis for other themes.",
+  "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
+  "engine": "handlebars",
+  "message": "To get colored skill progress bars, make sure your resume includes a `level` element for each skill!"
+}

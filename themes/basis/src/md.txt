@@ -1,0 +1,108 @@
+{{ r.name }}
+============
+{{#has 'contact.email' }}Email: {{{ r.contact.email }}}{{/has}}
+{{#has 'contact.phone' }}Tel: {{{ r.contact.phone }}}{{/has}}
+{{#has 'contact.website' }}Web: {{{ r.contact.website }}}{{/has}}
+
+{{#has "info.brief" }}{{{ r.info.brief }}}{{/has}}
+
+{{#section "skills"}}
+## {{{sectionTitle "SKILLS"}}}
+
+{{#each r.skills.sets}}
+  - {{{ name }}}: {{#each this.skills}}{{{ this }}} {{/each}}
+{{/each}}
+{{/section}}
+
+{{#section "employment"}}
+## {{{sectionTitle "EMPLOYMENT"}}}
+
+{{#each r.employment.history }}
+
+{{#if url}}
+### *{{{ position }}}*, [{{{ employer }}}]({{{ url }}}) ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{else}}
+### *{{{ position }}}*, {{{ employer }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{/if}}
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+  - {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}
+
+{{#section 'projects'}}
+## {{{sectionTitle "PROJECTS"}}}
+
+{{#each r.projects }}
+{{#if url }}
+### *{{{camelCase role }}}*, [{{{ title }}}]({{{ url }}}) ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{else}}
+### *{{{camelCase role }}}*, {{{ title }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{/if}}
+{{{ description }}}
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+  - {{{ . }}}
+
+{{/each}}
+{{/if}}
+{{/each}}
+{{/section}}
+
+{{#section 'education'}}
+## {{{sectionTitle "EDUCATION"}}}
+
+{{#each r.education.history}}
+{{#if url}}
+### [{{{ institution }}}]({{{ url }}}) ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{else}}
+### {{{ institution }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{/if}}
+{{#if summary }}
+{{{ summary }}}
+{{/if}}
+{{#if courses}}
+{{#each courses}}
+  - {{{ this }}}{{/each}}{{/if}}
+{{/each}}
+{{/section}}
+{{#section 'writing'}}
+## WRITING
+
+{{#each r.writing}}
+### {{{ title }}} ({{formatDate safe.date 'YYYY-MM' }})
+{{{ summary }}}
+{{/each}}
+{{/section}}
+
+{{#section 'service'}}
+## {{{sectionTitle "SERVICE"}}}
+
+{{#each r.service.history }}
+{{#if url}}
+### [{{{ organization }}}]({{{ url }}}) ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{else}}
+### {{{ organization }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
+{{/if}}
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+  - {{{ this }}}
+{{/each}}
+{{/if}}
+{{/each}}
+{{/section}}
+
+{{#section 'recognition'}}
+## {{{sectionTitle "RECOGNITION"}}}
+
+{{#each r.recognition}}
+### *{{{ title }}}*, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
+{{{ summary }}}
+{{/each}}
+{{/section}}
