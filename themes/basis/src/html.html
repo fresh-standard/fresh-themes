@@ -27,7 +27,7 @@
 {{#section "skills"}}
 <section id="skills">
   <header>
-  <h2><span class="fa fa-code"></span> {{{sectionTitle "Skills"}}}</h2><hr>
+  <h2>{{{sectionTitle "Skills"}}}</h2><hr>
   </header>
   <table>
     <thead>
@@ -53,7 +53,7 @@
 {{#section "employment"}}
 <section id="employment">
   <header>
-  <h2><span class="fa fa-building" style="vertical-align: top;"></span> {{{sectionTitle "Employment"}}}</h2><hr>
+  <h2>{{{sectionTitle "Employment"}}}</h2><hr>
   </header>
 
   {{#each r.employment.history}}
@@ -83,7 +83,6 @@
   <header>
   <h3>{{{sectionTitle "Projects"}}}</h3>
   </header>
-  <span class="fa fa-lg fa-building"></span>
   {{#each r.projects}}
     {{#if url}}
     <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
@@ -107,7 +106,7 @@
 {{#section "education"}}
 <section id="education">
   <header>
-  <h2><span class="fa fa-mortar-board"></span> {{{sectionTitle "Education"}}}</h2><hr>
+  <h2>{{{sectionTitle "Education"}}}</h2><hr>
   </header>
   {{#each r.education.history}}
     <h3>{{{ institution }}} <span class="tenure">{{formatDate safe.start 'YYYY' }} &mdash; {{formatDate safe.end 'YYYY' }}<span></h3>
@@ -119,7 +118,7 @@
 {{#section "service"}}
 <section id="volunteer">
   <header>
-  <h2><span class="fa fa-child" style="vertical-align: top;"></span> {{{sectionTitle "Service"}}}</h2><hr>
+  <h2>{{{sectionTitle "Service"}}}</h2><hr>
   </header>
   {{#each r.service.history}}
     <h3><em>{{ position }}</em>,
@@ -145,7 +144,7 @@
 {{#section "writing"}}
 <section id="publications">
   <header>
-  <h2><span class="fa fa-book"></span> {{{sectionTitle "Writing"}}}</h2><hr>
+  <h2>{{{sectionTitle "Writing"}}}</h2><hr>
   </header>
   {{#each r.writing }}
     <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
@@ -158,7 +157,7 @@
 {{#section "recognition"}}
 <section id="awards">
   <header>
-  <h2><span class="fa fa-trophy"></span> {{{sectionTitle "recognition" "Awards"}}}</h2><hr>
+  <h2>{{{sectionTitle "recognition" "Awards"}}}</h2><hr>
   </header>
   {{#each r.recognition}}
     <h4><span class="res-label">{{ title }}</span>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h4>
