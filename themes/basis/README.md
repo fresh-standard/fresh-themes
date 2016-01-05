@@ -3,8 +3,6 @@ Theme: Basis
 A basis résumé theme for HackMyResume, FluentCV, and other FRESH-compatible
 resume tools.
 
-![](modern.png)
-
 ## Use
 
 The basis theme contains default theme files for use in other themes. Other

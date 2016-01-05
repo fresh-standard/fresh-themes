@@ -10,6 +10,7 @@
     "evaluate": "\\[~([\\s\\S]+?)~]",
     "comment": "\\[\\#([\\s\\S]+?)\\#\\]"
   },
+  "leaf": true,
   "formats": {
     "latex": {
       "transform": [

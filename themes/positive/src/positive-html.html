@@ -60,37 +60,21 @@
         </header>
 
         {{#each r.employment.history }}
-          {{#compare @index 4 operator="<"}}
-            <h3><em>{{ position }}</em>,
-              {{#if url }}
-              <a href="{{ url }}">{{{ employer }}}</a>
-              {{else}}
-              {{{ employer }}}
-              {{/if}}
-              <span class="tenure">{{formatDate safe.start 'YYYY-MM' }} &mdash; {{formatDate safe.end 'YYYY-MM' }}<span></h3>
-            <p style="clear: both;">{{{ summary }}}</p>
-            {{#if highlights}}
-              <ul>
-              {{#each highlights}}
-                <li>{{{ this }}}</li>
-              {{/each}}
-              </ul>
+          <h3><em>{{ position }}</em>,
+            {{#if url }}
+            <a href="{{ url }}">{{{ employer }}}</a>
+            {{else}}
+            {{{ employer }}}
             {{/if}}
-          {{/compare}}
-          {{#compare @index 4 operator=">="}}
-
-            {{#compare @index 4 operator="=="}}
-            <h3>Previously...</h3>
-            <p style="clear: both;">Prior to {{{ employer }}}, I worked on a range of projects for companies large and small.</p>
+            <span class="tenure">{{formatDate safe.start 'YYYY-MM' }} &mdash; {{formatDate safe.end 'YYYY-MM' }}<span></h3>
+          <p style="clear: both;">{{{ summary }}}</p>
+          {{#if highlights}}
             <ul>
-            {{/compare}}
-
-            <li>{{{ position }}}, {{{ employer }}}</li>
-
-            {{#if @last}}
+            {{#each highlights}}
+              <li>{{{ this }}}</li>
+            {{/each}}
             </ul>
-            {{/if}}
-          {{/compare}}
+          {{/if}}
         {{/each}}
 
       </section>
@@ -104,6 +88,33 @@
   </header>
   <span class="fa fa-lg fa-building"></span>
   {{#each r.projects}}
+    {{#if url}}
+    <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
+    {{else}}
+    <h4><span class="res-label">{{ role }}</span>, <span class="defunct">{{ title }}</span></h4>
+    {{/if}}
+    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
+    {{{ summary }}}
+    {{#if proj.highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{{ this }}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+
+</section>
+{{/section}}
+
+{{#section 'samples'}}
+<hr>
+<section id="samples">
+  <header>
+  <h3>{{{sectionTitle "Samples"}}}</h3>
+  </header>
+  <span class="fa fa-lg fa-building"></span>
+  {{#each r.samples}}
     {{#if url}}
     <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
     {{else}}

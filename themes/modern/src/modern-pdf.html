@@ -18,9 +18,9 @@
       <header>
         <h1>{{{ r.name }}}</h1>
         <div id="contact">
-          {{#if r.contact.email}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/if}}
-          {{#if r.contact.phone}}<div class="phone">{{ RAW.contact.phone }}</div>{{/if}}
-          {{#if r.contact.website}}<div class="website"><a href="{{{ RAW.contact.website }}}">{{ RAW.contact.website }}</a></div>{{/if}}
+          {{#has r.contact.email}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/has}}
+          {{#has r.contact.phone}}<div class="phone">{{ RAW.contact.phone }}</div>{{/has}}
+          {{#has r.contact.website}}<div class="website"><a href="{{{ RAW.contact.website }}}">{{ RAW.contact.website }}</a></div>{{/has}}
         </div>
       </header>
 
@@ -35,7 +35,7 @@
 {{/if}}
 
 
-{{#if r.skills }}
+{{#section 'skills' }}
       <hr>
       <section id="skills">
         <header>
@@ -65,11 +65,11 @@
 
 
       </section>
-{{/if}}
+{{/section}}
 
 
 
-{{#if r.employment}}
+{{#section 'employment'}}
 <hr>
 <section id="employment">
   <header>
@@ -94,7 +94,7 @@
   {{/each}}
 
 </section>
-{{/if}}
+{{/section}}
 
 {{#section 'projects'}}
 <hr>
@@ -104,6 +104,33 @@
   </header>
   <span class="fa fa-lg fa-building"></span>
   {{#each r.projects}}
+    {{#if url}}
+    <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
+    {{else}}
+    <h4><span class="res-label">{{ role }}</span>, <span class="defunct">{{ title }}</span></h4>
+    {{/if}}
+    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
+    {{{ summary }}}
+    {{#if proj.highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{{ this }}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+
+</section>
+{{/section}}
+
+{{#section 'samples'}}
+<hr>
+<section id="samples">
+  <header>
+  <h3>{{{sectionTitle "Samples"}}}</h3>
+  </header>
+  <span class="fa fa-lg fa-building"></span>
+  {{#each r.samples}}
     {{#if url}}
     <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
     {{else}}
@@ -145,7 +172,7 @@
 </section>
 {{/section}}
 
-{{#if r.service}}
+{{#section 'service'}}
 <hr>
 <section id="volunteer">
   <header>
@@ -170,9 +197,9 @@
   {{/each}}
 
 </section>
-{{/if}}
+{{/section}}
 
-{{#if r.writing}}
+{{#section 'writing'}}
 <hr>
 <section id="publications">
   <header>
@@ -188,9 +215,9 @@
   <span class="tenure">Published on: {{formatDate safe.date 'YYYY-MM'}}</span>
   {{/each}}
 </section>
-{{/if}}
+{{/section}}
 
-{{# if r.recognition}}
+{{#section 'recognition'}}
 <hr>
 <section id="awards">
   <header>
@@ -203,7 +230,7 @@
     {{{ summary }}}
   {{/each}}
 </section>
-{{/if}}
+{{/section}}
 
       </div>
     </main>
