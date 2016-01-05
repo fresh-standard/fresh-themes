@@ -4,7 +4,7 @@
   "author": "hacksalot <hacksalot@fluentdesk.com>",
   "engine": "handlebars",
   "inherits": {
-    "text": "compact",
-    "md": "compact"
+    "text": "basis",
+    "md": "basis"
   }
 }
