@@ -1,6 +1,6 @@
 {
-  "title": "awesome",
-  "description": "A visually compact résumé theme for FluentCV.",
-  "author": "hacksalot <hacksalot@fluentdesk.com>",  
+  "title": "minimist",
+  "description": "A unstyled résumé theme for FluentCV.",
+  "author": "hacksalot <hacksalot@fluentdesk.com>",
   "engine": "underscore"
 }

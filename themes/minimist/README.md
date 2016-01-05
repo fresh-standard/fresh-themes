@@ -1,6 +1,7 @@
 Theme: Minimist
 ===============
-An unstyled résumé theme.
+An unstyled résumé theme. Unlike most other FRESH themes, Minimist uses the
+Underscore.js templating engine (instead of Handlebars).
 
 ## License
 

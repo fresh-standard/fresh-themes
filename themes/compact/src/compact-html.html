@@ -25,7 +25,7 @@
 {{/has}}
 
 
-{{#hasSection "skills"}}
+{{#section "skills"}}
       <section id="skills">
         <header>
         <h2><span class="fa fa-code"></span> {{{sectionTitle "Skills"}}}</h2><hr>
@@ -47,18 +47,17 @@
           </tbody>
         </table>
       </section>
-{{/hasSection}}
+{{/section}}
 
 
 
-{{#hasSection "employment"}}
+{{#section "employment"}}
       <section id="employment">
         <header>
         <h2><span class="fa fa-building" style="vertical-align: top;"></span> {{{sectionTitle "Employment"}}}</h2><hr>
         </header>
 
         {{#each r.employment.history}}
-          {{#compare @index 4 operator="<"}}
             <h3><em>{{ position }}</em>,
               {{#if url }}
               <a href="{{ url }}">{{ employer }}</a>
@@ -74,27 +73,39 @@
               {{/each}}
               </ul>
             {{/if}}
-          {{/compare}}
-          {{#compare @index 4 operator=">="}}
-
-            {{#compare @index 4 operator="=="}}
-            <h3>Previously...</h3>
-            <p style="clear: both;">Prior to {{ employer }}, I worked on a range of projects for companies large and small.</p>
-            <ul>
-            {{/compare}}
-
-            <li>{{{ position }}}, {{{ employer }}}</li>
-
-            {{#if @last}}
-            </ul>
-            {{/if}}
-          {{/compare}}
         {{/each}}
 
       </section>
-{{/hasSection}}
+{{/section}}
 
-{{#hasSection "education"}}
+{{#section 'projects'}}
+<hr>
+<section id="projects">
+  <header>
+  <h3>{{{sectionTitle "Projects"}}}</h3>
+  </header>
+  <span class="fa fa-lg fa-building"></span>
+  {{#each r.projects}}
+    {{#if url}}
+    <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
+    {{else}}
+    <h4><span class="res-label">{{ role }}</span>, <span class="defunct">{{ title }}</span></h4>
+    {{/if}}
+    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
+    {{{ summary }}}
+    {{#if proj.highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{{ this }}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+
+</section>
+{{/section}}
+
+{{#section "education"}}
       <section id="education">
         <header>
         <h2><span class="fa fa-mortar-board"></span> {{{sectionTitle "Education"}}}</h2><hr>
@@ -104,9 +115,9 @@
         {{/each}}
 
       </section>
-{{/hasSection}}
+{{/section}}
 
-{{#hasSection "service"}}
+{{#section "service"}}
       <section id="volunteer">
         <header>
         <h2><span class="fa fa-child" style="vertical-align: top;"></span> {{{sectionTitle "Service"}}}</h2><hr>
@@ -130,9 +141,9 @@
         {{/each}}
 
       </section>
-{{/hasSection}}
+{{/section}}
 
-{{#hasSection "writing"}}
+{{#section "writing"}}
       <section id="publications">
         <header>
         <h2><span class="fa fa-book"></span> {{{sectionTitle "Writing"}}}</h2><hr>
@@ -143,9 +154,9 @@
         {{# if summary}}{{{ summary }}}{{/if}}
         {{/each}}
       </section>
-{{/hasSection}}
+{{/section}}
 
-{{#hasSection "recognition"}}
+{{#section "recognition"}}
       <section id="awards">
         <header>
         <h2><span class="fa fa-trophy"></span> {{{sectionTitle "recognition" "Awards"}}}</h2><hr>
@@ -155,7 +166,7 @@
           {{ summary }}
         {{/each}}
       </section>
-{{/hasSection}}
+{{/section}}
 
     </main>
   </body>

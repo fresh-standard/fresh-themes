@@ -5,8 +5,9 @@ An experimental resume theme based on [Byungjin Park's][author] awesome
 
 ## Use
 
-1. Run `fluentcv build my-resume.json to out/my-resume.all -t awesome` to create
-a LaTeX résumé in the Awesome-CV style using your FRESH or JSON Resume resume.
+1. Run `hackmyresume build my-resume.json to out/my-resume.all -t awesome` to
+create a LaTeX résumé in the Awesome-CV style using your FRESH or JSON Resume
+resume.
 
 2. Generate a styled PDF by running `xelatex my-resume.tex` in the `examples`
 folder generated in Step 1. You'll need a valid and updated LaTeX environment on
@@ -21,10 +22,10 @@ are 3 symlinks in the `examples` folder that need to exist:
 - `fontawesome.sty` should link to `../fontawesome.sty`.
 - `fonts` should link to `../fonts` (folder).
 
-FluentCV creates these by default when it generates a resume under the `awesome`
-theme. To create these symlinks manually, either use the Linux / OS X symlink
-command for all three or, if on Windows, run use `mklink /H` for the first two
-and `mklink /J` for the last.
+HackMyResume creates these by default when it generates a resume under the
+`awesome` theme. To create these symlinks manually, either use the Linux / OS X
+symlink command for all three or, if on Windows, run use `mklink /H` for the
+first two and `mklink /J` for the last.
 
 ## License
 

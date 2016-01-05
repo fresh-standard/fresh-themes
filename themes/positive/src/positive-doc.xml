@@ -528,12 +528,12 @@
         </w:r> -->
       </w:p>
       {{/has}}
-      {{#hasSection "skills"}}{{> skills }}{{/hasSection}}
-      {{#hasSection "employment"}}{{> employment }}{{/hasSection}}
-      {{#hasSection "education"}}{{> education }}{{/hasSection}}
-      {{#hasSection "service"}}{{> service }}{{/hasSection}}
-      {{#hasSection "writing"}}{{> writing }}{{/hasSection}}
-      {{#hasSection "recognition"}}{{> recognition }}{{/hasSection}}
+      {{#section "skills"}}{{> skills }}{{/section}}
+      {{#section "employment"}}{{> employment }}{{/section}}
+      {{#section "education"}}{{> education }}{{/section}}
+      {{#section "service"}}{{> service }}{{/section}}
+      {{#section "writing"}}{{> writing }}{{/section}}
+      {{#section "recognition"}}{{> recognition }}{{/section}}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>
         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
