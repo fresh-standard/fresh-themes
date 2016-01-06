@@ -1,0 +1,17 @@
+{{! A resume heading with prefixed font-awesome icon. }}
+<wx:pBdrGroup>
+  <wx:borders>
+    <wx:top wx:val="solid" wx:bdrwidth="15" wx:space="1" wx:color="EEEEEE"/>
+  </wx:borders>
+  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00693C5A" wsp:rsidP="00C146CA">
+    <w:pPr>
+      <w:pStyle w:val="Heading1"/>
+    </w:pPr>
+    <w:r>
+      {{> (lookup . '_icon') }}
+    </w:r>
+    <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+      <w:t>{{{sectionTitle _title}}}</w:t>
+    </w:r>
+  </w:p>
+</wx:pBdrGroup>
