@@ -1,6 +1,6 @@
 <wx:sub-section>
 
-  {{> doc-header-icon.xml _title="RECOGNITION" _section="recognition" _icon="pict-rec" }}
+  {{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}
 
   {{#each r.recognition}}
 

@@ -1,6 +1,6 @@
 <wx:sub-section>
 
-  {{> doc-header-icon.xml _title="EMPLOYMENT" _section="employment" _icon="pict-emp" }}
+  {{> header-icon _title="EMPLOYMENT" _section="employment" _icon="pict/emp" }}
 
   {{#each r.employment.history}}
 
