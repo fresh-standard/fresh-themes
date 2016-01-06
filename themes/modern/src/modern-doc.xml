@@ -486,12 +486,13 @@
         </w:hlink>
       </w:p>
       {{#section "info"}}{{> info }}{{/section}}
-      {{#section "skills"}}{{> skills }}{{/section}}
-      {{#section "employment"}}{{> employment }}{{/section}}
-      {{#section "education"}}{{> education }}{{/section}}
-      {{#section "service"}}{{> service }}{{/section}}
-      {{#section "writing"}}{{> writing }}{{/section}}
-      {{#section "recognition"}}{{> recognition }}{{/section}}
+      {{#section "skills"}}{{> doc-skills.xml }}{{/section}}
+      {{#section "employment"}}{{> doc-employment.xml }}{{/section}}
+      {{#section "projects"}}{{> doc-projects.xml }}{{/section}}
+      {{#section "education"}}{{> doc-education.xml }}{{/section}}
+      {{#section "service"}}{{> doc-service.xml }}{{/section}}
+      {{#section "writing"}}{{> doc-writing.xml }}{{/section}}
+      {{#section "recognition"}}{{> doc-recognition.xml }}{{/section}}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>
         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>

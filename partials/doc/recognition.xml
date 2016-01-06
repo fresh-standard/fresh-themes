@@ -1,14 +1,16 @@
 <wx:sub-section>
-  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+
+  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00851045" wsp:rsidP="00C146CA">
     <w:pPr>
       <w:pStyle w:val="Heading1"/>
     </w:pPr>
-    <w:r wsp:rsidRPr="00C146CA">
-      <w:t>{{{sectionTitle "SERVICE"}}}</w:t>
+    <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+      <w:t>{{{sectionTitle "RECOGNITION"}}}</w:t>
     </w:r>
   </w:p>
 
-  {{#each r.service.history}}
+
+  {{#each r.recognition}}
 
   <wx:sub-section>
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
@@ -18,9 +20,6 @@
           <w:tab w:val="right" w:pos="9360"/>
         </w:tabs>
       </w:pPr>
-      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>{{ position }}, </w:t>
-      </w:r>
       {{#if url}}<w:hlink w:dest="{{{ url }}}">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
           {{#if url}}
@@ -28,14 +27,14 @@
             <w:rStyle w:val="Hyperlink"/>
           </w:rPr>
           {{/if}}
-          <w:t>{{ organization }}</w:t>
+          <w:t>{{ title }}</w:t>
         </w:r>
       {{#if url}}</w:hlink>{{/if}}
       <w:r wsp:rsidR="00EA0B64">
         <w:tab/>
       </w:r>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>{{formatDate safe.start 'MMM YYYY'}} — {{formatDate safe.end 'MMM YYYY'}}</w:t>
+        <w:t>{{formatDate safe.date 'YYYY-MM'}}</w:t>
       </w:r>
     </w:p>
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
@@ -44,15 +43,10 @@
           <w:sz-cs w:val="20"/>
         </w:rPr>
       </w:pPr>
-      {{{wpml summary true}}}
-      <!-- <w:r wsp:rsidRPr="000A3AF0">
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-        <w:t>{{ summary }}</w:t>
-      </w:r> -->
+      {{{wpml summary true }}}
     </w:p>
 
+    {{#if highlights}}
     {{#each highlights }}
     <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="009452CA" wsp:rsidP="00C146CA">
       <w:pPr>
@@ -68,14 +62,9 @@
         </w:rPr>
       </w:pPr>
       {{{wpml this true}}}
-      <!-- <w:r>
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-        <w:t>{{ this }}</w:t>
-      </w:r> -->
     </w:p>
     {{/each}}
+    {{/if}}
 
   </wx:sub-section>
 

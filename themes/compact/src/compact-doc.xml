@@ -515,6 +515,7 @@
       {{{wpml RAW.info.brief }}}
       {{#section "skills"}}{{> skills }}{{/section}}
       {{#section "employment"}}{{> employment }}{{/section}}
+      {{#section "projects"}}{{> projects }}{{/section}}
       {{#section "education"}}{{> education }}{{/section}}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>

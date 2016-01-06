@@ -1,0 +1,24 @@
+{{#section "service"}}
+<section id="volunteer">
+  <header>
+  <h2>{{{sectionTitle "Service"}}}</h2><hr>
+  </header>
+  {{#each r.service.history}}
+    <h3><em>{{ position }}</em>,
+      {{#if url}}
+      <a href="{{ url }}">{{ organization }}</a>
+      {{else}}
+      {{ organization }}
+      {{/if}}
+      <span class="tenure">{{dateRange .}}<span></h3>
+    <p style="clear: both;">{{{ summary }}}</p>
+    {{#if highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{{ this }}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+</section>
+{{/section}}

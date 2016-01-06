@@ -1,0 +1,24 @@
+{{#section "employment"}}
+<section id="employment">
+  <header>
+  <h2>{{{sectionTitle "Employment"}}}</h2><hr>
+  </header>
+  {{#each r.employment.history}}
+      <h3><em>{{ position }}</em>,
+        {{#if url }}
+        <a href="{{ url }}">{{ employer }}</a>
+        {{else}}
+        {{ employer }}
+        {{/if}}
+        <span class="tenure">{{dateRange .}}<span></h3>
+      <p style="clear: both;">{{{ summary }}}</p>
+      {{#if highlights}}
+        <ul>
+        {{#each highlights}}
+          <li>{{{ this }}}</li>
+        {{/each}}
+        </ul>
+      {{/if}}
+  {{/each}}
+</section>
+{{/section}}

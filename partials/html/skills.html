@@ -1,0 +1,23 @@
+{{#section "skills"}}
+<section id="skills">
+  <header>
+  <h2>{{{sectionTitle "Skills"}}}</h2><hr>
+  </header>
+  <table>
+    <thead>
+      <tr>
+        <th>Skill</th>
+        <th>Keywords</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each r.skills.sets}}
+      <tr>
+        <td style="width: 25%;">{{ name }}</td>
+        <td class="keywords">{{#each skills}}{{ this }} {{/each}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>
+{{/section}}

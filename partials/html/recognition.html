@@ -1,0 +1,11 @@
+{{#section "recognition"}}
+<section id="awards">
+  <header>
+  <h2>{{{sectionTitle "recognition" "Awards"}}}</h2><hr>
+  </header>
+  {{#each r.recognition}}
+    <h3><em>{{ title }}</em>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h3>
+    {{ summary }}
+  {{/each}}
+</section>
+{{/section}}

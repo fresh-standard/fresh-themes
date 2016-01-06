@@ -1,0 +1,25 @@
+{{#section 'projects'}}
+<hr>
+<section id="projects">
+  <header>
+  <h2>{{{sectionTitle "Projects"}}}</h2>
+  </header>
+  {{#each r.projects}}
+    <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
+    {{#if url}}
+    <a href="{{{ url }}}">{{ title }}</a>
+    {{else}}
+    {{ title }}
+    {{/if}}
+    <span class="tenure">{{dateRange .}}</span></h3>
+    {{{ summary }}}
+    {{#if proj.highlights}}
+      <ul>
+      {{#each highlights}}
+        <li>{{{ this }}}</li>
+      {{/each}}
+      </ul>
+    {{/if}}
+  {{/each}}
+</section>
+{{/section}}

@@ -1,0 +1,16 @@
+<wx:sub-section>
+  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+    <w:pPr>
+      <w:pStyle w:val="Heading1"/>
+    </w:pPr>
+    <w:r wsp:rsidRPr="00C146CA">
+      <w:t>{{{sectionTitle "info" "ABOUT}}}</w:t>
+    </w:r>
+  </w:p>
+  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00A210E1">
+    <w:pPr>
+      <w:pStyle w:val="Summary"/>
+    </w:pPr>
+    {{{wpml r.info.brief true }}}
+  </w:p>
+</wx:sub-section>
