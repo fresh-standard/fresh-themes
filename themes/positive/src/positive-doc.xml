@@ -523,9 +523,6 @@
           <w:pStyle w:val="Summary"/>
         </w:pPr>
         {{{wpml r.info.brief true }}}
-        <!-- <w:r wsp:rsidRPr="000A3AF0">
-          <w:t>{{ r.info.brief }}</w:t>
-        </w:r> -->
       </w:p>
       {{/has}}
       {{#section "skills"}}{{> skills }}{{/section}}

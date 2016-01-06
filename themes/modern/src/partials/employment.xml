@@ -20,14 +20,6 @@
       </w:r>
     </w:p>
   </wx:pBdrGroup>
-  <!-- <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
-    <w:pPr>
-      <w:pStyle w:val="Heading1"/>
-    </w:pPr>
-    <w:r wsp:rsidRPr="00C146CA">
-      <w:t>EMPLOYMENT</w:t>
-    </w:r>
-  </w:p> -->
 
   {{#each r.employment.history}}
 
@@ -66,12 +58,6 @@
         </w:rPr>
       </w:pPr>
       {{{wpml summary true}}}
-      <!-- <w:r wsp:rsidRPr="000A3AF0">
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-        <w:t>{{ summary }}</w:t>
-      </w:r> -->
     </w:p>
 
     {{#each highlights }}
