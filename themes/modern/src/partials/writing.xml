@@ -1,6 +1,6 @@
 <wx:sub-section>
 
-  {{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}
+  {{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}
 
   {{#each r.writing}}
   <wx:sub-section>
@@ -18,7 +18,7 @@
             <w:rStyle w:val="Hyperlink"/>
           </w:rPr>
           {{/if}}
-          <w:t>{{ title }}</w:t>
+          <w:t>{{{ title }}}</w:t>
         </w:r>
       {{#if url}}</w:hlink>{{/if}}
       <w:r wsp:rsidR="00EA0B64">
