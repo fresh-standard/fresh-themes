@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ RAW.name }}</title>
+    {{{styleSheet "html.css"}}}
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>{{{ r.name }}}</h1>
+        <div id="contact">
+          {{#has 'contact.email'}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/has}}
+          {{#has 'contact.phone'}}<div class="phone">{{ RAW.contact.phone }}</div>{{/has}}
+          {{#has 'contact.website'}}<div class="website"><a href="{{{ RAW.contact.website }}}">{{trimURL RAW.contact.website }}</a></div>{{/has}}
+        </div>
+      </header>
+
+
+
+{{#has "info.brief"}}
+<section id="summary">
+  {{{ r.info.brief }}}
+</section>
+{{/has}}
+
+
+
+{{!<!--
+  Use predefined global partials for the other sections.
+
+  The "inline" bit before each section allows us to pass a custom heading
+  icon into the global partial. For this theme, we're using Font Awesome.
+-->}}
+
+{{> section/skills }}
+
+{{> section/employment }}
+
+{{> section/projects }}
+
+{{> section/education }}
+
+{{> section/service }}
+
+{{> section/samples }}
+
+{{> section/writing }}
+
+{{> section/recognition }}
+
+{{> section/speaking }}
+
+
+
+    </main>
+  </body>
+</html>
