@@ -28,21 +28,21 @@
 {{#if r.info.brief}}
 <hr>
 <section id="summary">
-  <h3>{{{sectionTitle "info" "About"}}}</h3>
+  <h2>{{{sectionTitle "info" "About"}}}</h2>
   <span class="fa fa-lg fa-user"></span>
   {{{ r.info.brief }}}
 </section>
 {{/if}}
 
+{{!<!-- A custom skills section with colored skill bars. -->}}
 
 {{#section 'skills' }}
       <hr>
       <section id="skills">
         <header>
-        <h3>{{{sectionTitle "Skills"}}}</h3>
+        <h2>{{{sectionTitle "Skills"}}}</h2>
         </header>
         <span class="fa fa-lg fa-code"></span>
-
         <ul class="list-unstyled">
           {{#each r.skills.sets}}
             <li class="card card-nested card-skills">
@@ -62,175 +62,40 @@
             </li>
           {{/each}}
         </ul>
-
-
       </section>
 {{/section}}
 
+{{!<!--
+  Use predefined global partials for the other sections.
 
+  The "inline" bit before each section allows us to pass a custom heading
+  icon into the global partial. For this theme, we're using Font Awesome.
+-->}}
 
-{{#section 'employment'}}
-<hr>
-<section id="employment">
-  <header>
-  <h3>{{{sectionTitle "Employment"}}}</h3>
-  </header>
-  <span class="fa fa-lg fa-building"></span>
-  {{#each r.employment.history}}
-    {{#if url}}
-    <h4><span class="res-label">{{ position }}</span>, <a href="{{{ url }}}">{{ employer }}</a></h4>
-    {{else}}
-    <h4><span class="res-label">{{ position }}</span>, <span class="defunct">{{ employer }}</span></h4>
-    {{/if}}
-    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
-    {{{ summary }}}
-    {{#if proj.highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
-  {{/each}}
+{{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
+{{> section/employment }}
 
-</section>
-{{/section}}
+{{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
+{{> section/projects }}
 
-{{#section 'projects'}}
-<hr>
-<section id="projects">
-  <header>
-  <h3>{{{sectionTitle "Projects"}}}</h3>
-  </header>
-  <span class="fa fa-lg fa-building"></span>
-  {{#each r.projects}}
-    {{#if url}}
-    <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
-    {{else}}
-    <h4><span class="res-label">{{ role }}</span>, <span class="defunct">{{ title }}</span></h4>
-    {{/if}}
-    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
-    {{{ summary }}}
-    {{#if proj.highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
-  {{/each}}
+{{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
+{{> section/education }}
 
-</section>
-{{/section}}
+{{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
+{{> section/service }}
 
-{{#section 'samples'}}
-<hr>
-<section id="samples">
-  <header>
-  <h3>{{{sectionTitle "Samples"}}}</h3>
-  </header>
-  <span class="fa fa-lg fa-building"></span>
-  {{#each r.samples}}
-    {{#if url}}
-    <h4><span class="res-label">{{ role }}</span>, <a href="{{{ url }}}">{{ title }}</a></h4>
-    {{else}}
-    <h4><span class="res-label">{{ role }}</span>, <span class="defunct">{{ title }}</span></h4>
-    {{/if}}
-    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
-    {{{ summary }}}
-    {{#if proj.highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
-  {{/each}}
+{{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
+{{> section/samples }}
 
-</section>
-{{/section}}
+{{#*inline "icon-writing"}}<span class="fa fa-lg fa-pencil"></span>{{/inline}}
+{{> section/writing }}
 
-{{#section 'education'}}
-<hr>
-<section id="education">
-  <header>
-  <h3>{{{sectionTitle "Education"}}}</h3>
-  </header>
-  <span class="fa fa-lg fa-mortar-board"></span>
-  {{#each r.education.history}}
-    <h4>{{ institution }}</h4>
-    <span class="tenure">{{formatDate safe.start 'YYYY-MM' }}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
-    {{#if courses}}
-      <ul>
-      {{#each courses}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
-  {{/each}}
+{{#*inline "icon-recognition"}}<span class="fa fa-lg fa-trophy"></span>{{/inline}}
+{{> section/recognition }}
 
-</section>
-{{/section}}
+{{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
+{{> section/speaking }}
 
-{{#section 'service'}}
-<hr>
-<section id="volunteer">
-  <header>
-  <h3>{{{sectionTitle "Service"}}}</h3>
-  </header>
-  <span class="fa fa-lg fa-child"></span>
-  {{#each r.service.history}}
-    {{#if url}}
-    <h4><span class="res-label">{{ position }}</span>, <a href="{{{ website }}}">{{ organization }}</a></h4>
-    {{else}}
-    <h4><span class="res-label">{{ position }}</span>, <span class="defunct">{{ organization }}</span></h4>
-    {{/if}}
-    <span class="tenure">{{formatDate safe.start 'YYYY-MM'}}&mdash;{{formatDate safe.end 'YYYY-MM' }}</span>
-    {{{ summary }}}
-    {{#if highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
-  {{/each}}
-
-</section>
-{{/section}}
-
-{{#section 'writing'}}
-<hr>
-<section id="publications">
-  <header>
-  <h3>{{{sectionTitle "writing" "Publications"}}}</h3>
-  </header>
-  <span class="fa fa-lg fa-pencil"></span>
-  {{#each r.writing}}
-  {{#if url}}
-  <h4><a href=""><span class="res-label">{{{ title }}}</span></a>, <span>{{{ publisher.name }}}</span></h4>
-  {{else}}
-  <h4><span class="res-label">{{{ title }}}</span>, <span class="defunct">{{{ publisher.name }}}</span></h4>
-  {{/if}}
-  <span class="tenure">Published on: {{formatDate safe.date 'YYYY-MM'}}</span>
-  {{/each}}
-</section>
-{{/section}}
-
-{{#section 'recognition'}}
-<hr>
-<section id="awards">
-  <header>
-  <h3>{{{sectionTitle "recognition" "Awards"}}}</h3>
-  </header>
-  <span class="fa fa-lg fa-trophy"></span>
-  {{#each r.recognition}}
-    <h4><span class="res-label">{{{ title }}}</span>, {{{ from }}}</h4>
-    <span class="tenure">{{{ date }}}</span>
-    {{{ summary }}}
-  {{/each}}
-</section>
-{{/section}}
 
       </div>
     </main>

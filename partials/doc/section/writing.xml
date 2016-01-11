@@ -1,13 +1,8 @@
 <wx:sub-section>
-  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00851045" wsp:rsidP="00C146CA">
-    <w:pPr>
-      <w:pStyle w:val="Heading1"/>
-    </w:pPr>
-    <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-      <w:t>{{{sectionTitle "WRITING"}}}</w:t>
-    </w:r>
-  </w:p>
 
+  {{#> header-writing }}
+  {{> header-simple _title="WRITING" _section="writing" }}
+  {{/header-writing}}
 
   {{#each r.writing}}
   <wx:sub-section>

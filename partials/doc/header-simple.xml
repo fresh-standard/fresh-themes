@@ -1,0 +1,9 @@
+{{! A simple resume heading. }}
+<w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+  <w:pPr>
+    <w:pStyle w:val="Heading1"/>
+  </w:pPr>
+  <w:r wsp:rsidRPr="00C146CA">
+    <w:t>{{{sectionTitle _title}}</w:t>
+  </w:r>
+</w:p>

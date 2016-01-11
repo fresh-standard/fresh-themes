@@ -1,14 +1,8 @@
 <wx:sub-section>
 
-  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00851045" wsp:rsidP="00C146CA">
-    <w:pPr>
-      <w:pStyle w:val="Heading1"/>
-    </w:pPr>
-    <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-      <w:t>{{{sectionTitle "RECOGNITION"}}}</w:t>
-    </w:r>
-  </w:p>
-
+  {{#> header-recognition }}
+  {{> header-simple _title="RECOGNITION" _section="recognition" }}
+  {{/header-recognition}}
 
   {{#each r.recognition}}
 

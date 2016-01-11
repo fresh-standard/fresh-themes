@@ -485,15 +485,46 @@
           </w:r>
         </w:hlink>
       </w:p>
+
       {{#section "info"}}{{> info }}{{/section}}
+
       {{#section "skills"}}{{> skills }}{{/section}}
-      {{#section "employment"}}{{> employment }}{{/section}}
-      {{#section "projects"}}{{> projects }}{{/section}}
-      {{#section "education"}}{{> education }}{{/section}}
-      {{#section "service"}}{{> service }}{{/section}}
-      {{#section "writing"}}{{> writing }}{{/section}}
-      {{#section "recognition"}}{{> recognition }}{{/section}}
-      {{#section "speaking"}}{{> speaking }}{{/section}}
+
+      {{#*inline "header-employment"}}
+      {{> header-icon _title="EMPLOYMENT" _section="employment" _icon="pict/emp" }}
+      {{/inline}}
+      {{#section "employment"}}{{> section/employment }}{{/section}}
+
+      {{#*inline "header-projects"}}
+      {{> header-icon _title="PROJECTS" _section="projects" _icon="pict/star" }}
+      {{/inline}}
+      {{#section "projects"}}{{> section/projects }}{{/section}}
+
+      {{#*inline "header-education"}}
+      {{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}
+      {{/inline}}
+      {{#section "education"}}{{> section/education }}{{/section}}
+
+      {{#*inline "header-service"}}
+      {{> header-icon _title="SERVICE" _section="service" _icon="pict/srv" }}
+      {{/inline}}
+      {{#section "service"}}{{> section/service }}{{/section}}
+
+      {{#*inline "header-writing"}}
+      {{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}
+      {{/inline}}
+      {{#section "writing"}}{{> section/writing }}{{/section}}
+
+      {{#*inline "header-recognition"}}
+      {{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}
+      {{/inline}}
+      {{#section "recognition"}}{{> section/recognition }}{{/section}}
+
+      {{#*inline "header-speaking"}}
+      {{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/arrow" }}
+      {{/inline}}
+      {{#section "speaking"}}{{> section/speaking }}{{/section}}
+
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>
         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
