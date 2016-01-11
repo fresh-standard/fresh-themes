@@ -1,4 +1,3 @@
-{{#if r.skills }}
 <wx:sub-section>
   <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
     <w:pPr>
@@ -48,5 +47,4 @@
     {{/each}}
 
   </w:tbl>
-  {{/if}}
 </wx:sub-section>
