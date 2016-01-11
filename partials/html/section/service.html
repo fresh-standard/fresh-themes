@@ -3,9 +3,10 @@
 <section id="volunteer">
   <header>
   <h2>{{{sectionTitle "Service"}}}</h2>
-  </header>
   {{#> icon-service }}{{/icon-service}}
+  </header>
   {{#each r.service.history}}
+    <div>
     <h3><em>{{ position }}</em>,
       {{#if url}}
       <a href="{{ url }}">{{ organization }}</a>
@@ -13,7 +14,7 @@
       {{ organization }}
       {{/if}}
     </h3>
-    <span class="tenure">{{dateRange .}}<span>
+    <span class="tenure">{{dateRange .}}</span>
     <p style="clear: both;">{{{ summary }}}</p>
     {{#if highlights}}
       <ul>
@@ -22,6 +23,7 @@
       {{/each}}
       </ul>
     {{/if}}
+    </div>
   {{/each}}
 </section>
 {{/section}}

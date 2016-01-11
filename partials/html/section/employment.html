@@ -3,9 +3,10 @@
 <section id="employment">
   <header>
   <h2>{{{sectionTitle "Employment"}}}</h2>
-  </header>
   {{#> icon-employment }}{{/icon-employment}}
+  </header>
   {{#each r.employment.history}}
+    <div>
       <h3><em>{{ position }}</em>,
         {{#if url }}
         <a href="{{ url }}">{{ employer }}</a>
@@ -22,6 +23,7 @@
         {{/each}}
         </ul>
       {{/if}}
+    </div>
   {{/each}}
 </section>
 {{/section}}

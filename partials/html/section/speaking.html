@@ -3,11 +3,13 @@
 <section id="speaking">
   <header>
   <h2>{{{sectionTitle "speaking" "Speaking Engagements"}}}</h2>
-  </header>
   {{#> icon-speaking }}{{/icon-speaking}}
+  </header>
   {{#each r.speaking}}
+    <div>
     <h3><em>{{ title }}</em>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h3>
     {{ summary }}
+    </div>
   {{/each}}
 </section>
 {{/section}}

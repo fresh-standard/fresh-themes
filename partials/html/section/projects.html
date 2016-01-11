@@ -3,9 +3,10 @@
 <section id="projects">
   <header>
   <h2>{{{sectionTitle "Projects"}}}</h2>
+  {{#> icon-projects }}{{/icon-projects}}
   </header>
-  {{#> icon-projects }}{{/icon-projects}}  
   {{#each r.projects}}
+    <div>
     <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
     {{#if url}}
     <a href="{{{ url }}}">{{ title }}</a>
@@ -21,6 +22,7 @@
       {{/each}}
       </ul>
     {{/if}}
+    </div>
   {{/each}}
 </section>
 {{/section}}

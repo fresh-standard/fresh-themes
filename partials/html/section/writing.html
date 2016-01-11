@@ -3,12 +3,15 @@
 <section id="publications">
   <header>
   <h2>{{{sectionTitle "Writing"}}}</h2>
-  </header>
   {{#> icon-writing }}{{/icon-writing}}
+  </header>
   {{#each r.writing }}
+    <div>
     <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
-      {{ publisher.name }} <span class="tenure">{{formatDate safe.date 'YYYY'}}</span></h3>
-  {{# if summary}}{{{ summary }}}{{/if}}
+      {{ publisher.name }}</h3>
+      <span class="tenure">{{formatDate safe.date 'YYYY'}}</span>
+      {{{ summary }}}
+    </div>
   {{/each}}
 </section>
 {{/section}}

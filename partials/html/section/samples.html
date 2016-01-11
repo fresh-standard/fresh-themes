@@ -3,9 +3,10 @@
 <section id="samples">
   <header>
   <h2>{{{sectionTitle "Samples"}}}</h2>
-  </header>
   {{#> icon-samples }}{{/icon-samples}}
+  </header>
   {{#each r.samples}}
+    <div>
     <h3>
     {{#if url}}
     <a href="{{{ url }}}">{{ title }}</a>
@@ -21,6 +22,7 @@
       {{/each}}
       </ul>
     {{/if}}
+    </div>
   {{/each}}
 </section>
 {{/section}}

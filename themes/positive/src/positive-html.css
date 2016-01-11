@@ -33,6 +33,9 @@ h2 {
 
 h3 {
   font-size: 1em;
+  margin-top: 0;
+  width: 66%;
+  float: left;
 }
 
 table {
@@ -52,6 +55,10 @@ td:last-child {
   text-align: justify; /* HTML justification sucks, but in this case... */
 }
 
+hr {
+  display: none;
+}
+
 main {
   padding: 15px;
   max-width: 800px;
@@ -62,12 +69,21 @@ section {
   margin-top: 1em;
 }
 
-li {
-  margin-left: 2em;
+section > div {
+  margin-top: 1em;
+  overflow: hidden; /* Clear floated children */
 }
 
-h3 {
-  margin-top: 1em;
+section > div p {
+  clear: both;
+}
+
+section > header {
+  position: relative;
+}
+
+li {
+  margin-left: 2em;
 }
 
 p, li {
@@ -88,12 +104,11 @@ main > header {
   margin-bottom: 1em;
 }
 
-
-main > header > h1 {
+h1 {
   float: left;
 }
 
-main > header > h1, .label {
+h1, h2, .label {
   font-size: 2.5em;
   text-transform: uppercase;
   font-weight: 300;
@@ -105,11 +120,13 @@ main > header > h1, .label {
  float: right;
 }
 
-h2 > span.fa {
+header > span.fa {
   text-align: center;
   margin-right: 3px;
   position: absolute;
   width: 40px;
+  top: 10px;
+  font-size: 30px;
   transform: translateX(-110%);
   color: #DADADA;
 }
@@ -121,5 +138,5 @@ h2 > span.fa {
 
 #summary {
   color: #717171;
-  font-size: 1.25em;  
+  font-size: 1.25em;
 }

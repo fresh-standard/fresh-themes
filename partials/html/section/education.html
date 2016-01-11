@@ -3,11 +3,13 @@
 <section id="education">
   <header>
     <h2>{{{sectionTitle "Education"}}}</h2>
+    {{#> icon-education }}{{/icon-education}}
   </header>
-  {{#> icon-education }}{{/icon-education}}
   {{#each r.education.history}}
+    <div>
     <h3>{{{ institution }}}</h3>
-    <span class="tenure">{{dateRange .}}<span>
+    <span class="tenure">{{dateRange .}}</span>
+    </div>
   {{/each}}
 </section>
 {{/section}}
