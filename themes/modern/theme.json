@@ -6,7 +6,7 @@
   "palette": {
     "skillLevels": [ "#FFFFFF", "#5CB85C", "#F1C40F", "#428BCA", "#C00000" ]
   },
-  "message": "To get colored skill progress bars, make sure your resume includes a `level` element for each skill!",
+  "message": "To get colored skill progress bars, make sure your resume includes a `level` element for each skill.",
   "inherits": {
     "txt": "basis",
     "md": "basis"
