@@ -487,8 +487,14 @@
       </w:p>
 
       {{#section "info"}}{{> info }}{{/section}}
-
       {{#section "skills"}}{{> skills }}{{/section}}
+
+      {{!<!--
+        Use predefined global partials for the other sections.
+
+        The "inline" bit before each section allows us to pass a custom heading
+        into the global partial. For this theme, we're using Font Awesome.
+      -->}}
 
       {{#*inline "header-employment"}}
       {{> header-icon _title="EMPLOYMENT" _section="employment" _icon="pict/emp" }}
