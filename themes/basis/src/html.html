@@ -26,153 +26,30 @@
 
 
 
-{{#section "skills"}}
-<section id="skills">
-  <header>
-  <h2>{{{sectionTitle "Skills"}}}</h2><hr>
-  </header>
-  <table>
-    <thead>
-      <tr>
-        <th>Skill</th>
-        <th>Keywords</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each r.skills.sets}}
-      <tr>
-        <td style="width: 25%;">{{ name }}</td>
-        <td class="keywords">{{#each skills}}{{ this }} {{/each}}</td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
-</section>
-{{/section}}
+{{!<!--
+  Use predefined global partials for the other sections.
 
+  The "inline" bit before each section allows us to pass a custom heading
+  icon into the global partial. For this theme, we're using Font Awesome.
+-->}}
 
+{{> section/skills }}
 
-{{#section "employment"}}
-<section id="employment">
-  <header>
-  <h2>{{{sectionTitle "Employment"}}}</h2><hr>
-  </header>
-  {{#each r.employment.history}}
-      <h3><em>{{ position }}</em>,
-        {{#if url }}
-        <a href="{{ url }}">{{ employer }}</a>
-        {{else}}
-        {{ employer }}
-        {{/if}}
-        <span class="tenure">{{dateRange .}}<span></h3>
-      <p style="clear: both;">{{{ summary }}}</p>
-      {{#if highlights}}
-        <ul>
-        {{#each highlights}}
-          <li>{{{ this }}}</li>
-        {{/each}}
-        </ul>
-      {{/if}}
-  {{/each}}
-</section>
-{{/section}}
+{{> section/employment }}
 
+{{> section/projects }}
 
+{{> section/education }}
 
-{{#section 'projects'}}
-<hr>
-<section id="projects">
-  <header>
-  <h2>{{{sectionTitle "Projects"}}}</h2>
-  </header>
-  {{#each r.projects}}
-    <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
-    {{#if url}}
-    <a href="{{{ url }}}">{{ title }}</a>
-    {{else}}
-    {{ title }}
-    {{/if}}
-    <span class="tenure">{{dateRange .}}</span></h3>
-    {{{ summary }}}
-    {{#if proj.highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
-  {{/each}}
-</section>
-{{/section}}
+{{> section/service }}
 
+{{> section/samples }}
 
+{{> section/writing }}
 
-{{#section "education"}}
-<section id="education">
-  <header>
-  <h2>{{{sectionTitle "Education"}}}</h2><hr>
-  </header>
-  {{#each r.education.history}}
-    <h3>{{{ institution }}} <span class="tenure">{{dateRange .}}<span></h3>
-  {{/each}}
-</section>
-{{/section}}
+{{> section/recognition }}
 
-
-
-{{#section "service"}}
-<section id="volunteer">
-  <header>
-  <h2>{{{sectionTitle "Service"}}}</h2><hr>
-  </header>
-  {{#each r.service.history}}
-    <h3><em>{{ position }}</em>,
-      {{#if url}}
-      <a href="{{ url }}">{{ organization }}</a>
-      {{else}}
-      {{ organization }}
-      {{/if}}
-      <span class="tenure">{{dateRange .}}<span></h3>
-    <p style="clear: both;">{{{ summary }}}</p>
-    {{#if highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
-  {{/each}}
-</section>
-{{/section}}
-
-
-
-{{#section "writing"}}
-<section id="publications">
-  <header>
-  <h2>{{{sectionTitle "Writing"}}}</h2><hr>
-  </header>
-  {{#each r.writing }}
-    <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
-      {{ publisher.name }} <span class="tenure">{{formatDate safe.date 'YYYY'}}</span></h3>
-  {{# if summary}}{{{ summary }}}{{/if}}
-  {{/each}}
-</section>
-{{/section}}
-
-
-
-{{#section "recognition"}}
-<section id="awards">
-  <header>
-  <h2>{{{sectionTitle "recognition" "Awards"}}}</h2><hr>
-  </header>
-  {{#each r.recognition}}
-    <h3><em>{{ title }}</em>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h3>
-    {{ summary }}
-  {{/each}}
-</section>
-{{/section}}
+{{> section/speaking }}
 
 
 
