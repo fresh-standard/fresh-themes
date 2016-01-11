@@ -29,7 +29,8 @@
 </section>
 {{/if}}
 
-{{! A custom skills section }}
+{{!<!-- A custom skills section with colored skill bars. -->}}
+
 {{#section 'skills' }}
       <hr>
       <section id="skills">
@@ -37,7 +38,6 @@
         <h2>{{{sectionTitle "Skills"}}}</h2>
         </header>
         <span class="fa fa-lg fa-code"></span>
-
         <ul class="list-unstyled">
           {{#each r.skills.sets}}
             <li class="card card-nested card-skills">
@@ -57,37 +57,39 @@
             </li>
           {{/each}}
         </ul>
-
-
       </section>
 {{/section}}
 
-{{! Use predefined partials for the other sections, and the inline partial
-icon-[section] to pass in a heading icon. }}
+{{!<!--
+  Use predefined global partials for the other sections.
+
+  The "inline" bit before each section allows us to pass a custom heading
+  icon into the global partial. For this theme, we're using Font Awesome.
+-->}}
 
 {{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
-{{> sections/employment }}
+{{> section/employment }}
 
 {{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
-{{> sections/projects }}
+{{> section/projects }}
 
 {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
-{{> sections/education }}
+{{> section/education }}
 
 {{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
-{{> sections/service }}
+{{> section/service }}
 
 {{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
-{{> sections/samples }}
+{{> section/samples }}
 
 {{#*inline "icon-writing"}}<span class="fa fa-lg fa-pencil"></span>{{/inline}}
-{{> sections/writing }}
+{{> section/writing }}
 
 {{#*inline "icon-recognition"}}<span class="fa fa-lg fa-trophy"></span>{{/inline}}
-{{> sections/recognition }}
+{{> section/recognition }}
 
 {{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
-{{> sections/speaking }}
+{{> section/speaking }}
 
 
       </div>
