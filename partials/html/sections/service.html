@@ -1,8 +1,10 @@
 {{#section "service"}}
+<hr>
 <section id="volunteer">
   <header>
-  <h2>{{{sectionTitle "Service"}}}</h2><hr>
+  <h2>{{{sectionTitle "Service"}}}</h2>
   </header>
+  {{#> icon-service }}{{/icon-service}}
   {{#each r.service.history}}
     <h3><em>{{ position }}</em>,
       {{#if url}}
@@ -10,7 +12,8 @@
       {{else}}
       {{ organization }}
       {{/if}}
-      <span class="tenure">{{dateRange .}}<span></h3>
+    </h3>
+    <span class="tenure">{{dateRange .}}<span>
     <p style="clear: both;">{{{ summary }}}</p>
     {{#if highlights}}
       <ul>

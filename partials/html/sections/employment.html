@@ -1,8 +1,10 @@
 {{#section "employment"}}
+<hr>
 <section id="employment">
   <header>
-  <h2>{{{sectionTitle "Employment"}}}</h2><hr>
+  <h2>{{{sectionTitle "Employment"}}}</h2>
   </header>
+  {{#> icon-employment }}{{/icon-employment}}
   {{#each r.employment.history}}
       <h3><em>{{ position }}</em>,
         {{#if url }}
@@ -10,7 +12,8 @@
         {{else}}
         {{ employer }}
         {{/if}}
-        <span class="tenure">{{dateRange .}}<span></h3>
+        </h3>
+        <span class="tenure">{{dateRange .}}</span>
       <p style="clear: both;">{{{ summary }}}</p>
       {{#if highlights}}
         <ul>

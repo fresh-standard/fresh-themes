@@ -1,11 +1,11 @@
-{{#section "recognition"}}
+{{#section "speaking"}}
 <hr>
-<section id="awards">
+<section id="speaking">
   <header>
-  <h2>{{{sectionTitle "recognition" "Awards"}}}</h2>
+  <h2>{{{sectionTitle "speaking" "Speaking Engagements"}}}</h2>
   </header>
-  {{#> icon-recognition }}{{/icon-recognition}}
-  {{#each r.recognition}}
+  {{#> icon-speaking }}{{/icon-speaking}}
+  {{#each r.speaking}}
     <h3><em>{{ title }}</em>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h3>
     {{ summary }}
   {{/each}}
