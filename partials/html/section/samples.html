@@ -12,7 +12,7 @@
     {{else}}
     {{ title }}
     {{/if}}
-    <span class="tenure">{{formatDate date 'YYYY-MM'}}</span></h3>
+    <span class="tenure">{{formatDate safe.date 'YYYY-MM'}}</span></h3>
     {{{ summary }}}
     {{#if highlights}}
       <ul>
