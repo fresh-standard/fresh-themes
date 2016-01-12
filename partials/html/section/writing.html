@@ -2,8 +2,7 @@
 <hr>
 <section id="writing">
   {{#> header-writing }}
-    {{> header-simple _title="WRITING" _section="writing" }}
-    {{#> icon-writing }}{{/icon-writing}}
+    {{> header-icon _title="WRITING" _section="writing" _hdricon=(lookup . '_icon') }}
   {{/header-writing}}
   {{#each r.writing }}
     <div>

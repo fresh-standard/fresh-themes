@@ -2,8 +2,7 @@
 <hr>
 <section id="skills">
   {{#> header-skills }}
-    {{> header-simple _title="SKILLS" _section="skills" }}
-    {{#> icon-skills }}{{/icon-skills}}
+    {{> header-icon _title="SKILLS" _section="skills" _hdricon=(lookup . '_icon') }}
   {{/header-skills}}
   <table>
     <thead>
@@ -16,7 +15,7 @@
       {{#each r.skills.sets}}
       <tr>
         <td style="width: 25%;">{{ name }}</td>
-        <td class="keywords">{{#each skills}}{{ this }} {{/each}}</td>
+        <td class="keywords">{{#each skills}}{{ . }} {{/each}}</td>
       </tr>
       {{/each}}
     </tbody>

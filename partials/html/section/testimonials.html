@@ -2,13 +2,12 @@
 <hr>
 <section id="testimonials">
   {{#> header-testimonials }}
-    {{> header-simple _title="TESTIMONIALS" _section="testimonials" }}
-    {{#> icon-testimonials }}{{/icon-testimonials}}
+    {{> header-icon _title="TESTIMONIALS" _section="testimonials" _hdricon=(lookup . '_icon') }}
   {{/header-testimonials}}
   {{#each r.testimonials}}
     <div>
     <h3><em>{{ name }}</em></h3>
-    {{{ quote }}}
+    <p>{{{ quote }}}</p>
     </div>
   {{/each}}
 </section>

@@ -2,8 +2,7 @@
 <hr>
 <section id="employment">
   {{#> header-employment }}
-    {{> header-simple _title="EMPLOYMENT" _section="employment" }}
-    {{#> icon-employment }}{{/icon-employment}}
+    {{> header-icon _title="EMPLOYMENT" _section="employment" _hdricon=(lookup . '_icon') }}
   {{/header-employment}}
 
   {{#each r.employment.history}}

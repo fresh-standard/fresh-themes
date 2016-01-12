@@ -2,8 +2,7 @@
 <hr>
 <section id="education">
   {{#> header-education }}
-    {{> header-simple _title="EDUCATION" _section="education" }}
-    {{#> icon-education }}{{/icon-education}}
+    {{> header-icon _title="EDUCATION" _section="education" _hdricon=(lookup . '_icon') }}
   {{/header-education}}
   {{#each r.education.history}}
     <div>

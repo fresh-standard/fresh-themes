@@ -2,8 +2,7 @@
 <hr>
 <section id="samples">
   {{#> header-samples }}
-    {{> header-simple _title="SAMPLES" _section="samples" }}
-    {{#> icon-samples }}{{/icon-samples}}
+    {{> header-icon _title="SAMPLES" _section="samples" _hdricon=(lookup . '_icon') }}
   {{/header-samples}}
   {{#each r.samples}}
     <div>

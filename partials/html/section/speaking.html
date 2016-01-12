@@ -2,13 +2,12 @@
 <hr>
 <section id="speaking">
   {{#> header-speaking }}
-    {{> header-simple _title="SPEAKING" _section="speaking" }}
-    {{#> icon-speaking }}{{/icon-speaking}}
+    {{> header-icon _title="SPEAKING" _section="speaking" _hdricon=(lookup . '_icon') }}
   {{/header-speaking}}
   {{#each r.speaking}}
     <div>
     <h3><em>{{ title }}</em>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h3>
-    {{ summary }}
+    {{{ summary }}}
     {{> highlights }}
     </div>
   {{/each}}

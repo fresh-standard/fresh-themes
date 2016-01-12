@@ -2,8 +2,7 @@
 <hr>
 <section id="recognition">
   {{#> header-recognition }}
-    {{> header-simple _title="RECOGNITION" _section="recognition" }}
-    {{#> icon-recognition }}{{/icon-recognition}}
+    {{> header-icon _title="RECOGNITION" _section="recognition" _hdricon=(lookup . '_icon') }}
   {{/header-recognition}}
   {{#each r.recognition}}
     <div>

@@ -2,8 +2,7 @@
 <hr>
 <section id="references">
   {{#> header-references }}
-    {{> header-simple _title="REFERENCES" _section="references" }}
-    {{#> icon-references }}{{/icon-references}}
+    {{> header-icon _title="REFERENCES" _section="references" _hdricon=(lookup . '_icon') }}
   {{/header-references}}
   {{#each r.references}}
     <div>
