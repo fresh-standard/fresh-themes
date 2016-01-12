@@ -1,10 +1,10 @@
 {{#section "references"}}
 <hr>
-<section id="awards">
-  <header>
-  <h2>{{{sectionTitle "references" "References"}}}</h2>
-  {{#> icon-references }}{{/icon-references}}
-  </header>
+<section id="references">
+  {{#> header-references }}
+    {{> header-simple _title="REFERENCES" _section="references" }}
+    {{#> icon-references }}{{/icon-references}}
+  {{/header-references}}
   {{#each r.references}}
     <div>
     <h3><em>{{ name }}</em></h3>

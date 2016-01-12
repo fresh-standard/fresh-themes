@@ -1,10 +1,10 @@
 {{#section "skills"}}
 <hr>
 <section id="skills">
-  <header>
-  <h2>{{{sectionTitle "Skills"}}}</h2>
-  {{#> icon-skills }}{{/icon-skills}}  
-  </header>
+  {{#> header-skills }}
+    {{> header-simple _title="SKILLS" _section="skills" }}
+    {{#> icon-skills }}{{/icon-skills}}
+  {{/header-skills}}
   <table>
     <thead>
       <tr>

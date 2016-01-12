@@ -1,14 +1,15 @@
 {{#section "recognition"}}
 <hr>
-<section id="awards">
-  <header>
-  <h2>{{{sectionTitle "recognition" "Awards"}}}</h2>
-  {{#> icon-recognition }}{{/icon-recognition}}
-  </header>
+<section id="recognition">
+  {{#> header-recognition }}
+    {{> header-simple _title="RECOGNITION" _section="recognition" }}
+    {{#> icon-recognition }}{{/icon-recognition}}
+  {{/header-recognition}}
   {{#each r.recognition}}
     <div>
     <h3><em>{{ title }}</em>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h3>
     {{ summary }}
+    {{> highlights }}
     </div>
   {{/each}}
 </section>

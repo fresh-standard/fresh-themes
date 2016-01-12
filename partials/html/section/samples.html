@@ -1,10 +1,10 @@
 {{#section 'samples'}}
 <hr>
 <section id="samples">
-  <header>
-  <h2>{{{sectionTitle "Samples"}}}</h2>
-  {{#> icon-samples }}{{/icon-samples}}
-  </header>
+  {{#> header-samples }}
+    {{> header-simple _title="SAMPLES" _section="samples" }}
+    {{#> icon-samples }}{{/icon-samples}}
+  {{/header-samples}}
   {{#each r.samples}}
     <div>
     <h3>
@@ -15,13 +15,7 @@
     {{/if}}
     <span class="tenure">{{formatDate safe.date 'YYYY-MM'}}</span></h3>
     {{{ summary }}}
-    {{#if highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
+    {{> highlights }}
     </div>
   {{/each}}
 </section>

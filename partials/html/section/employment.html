@@ -1,10 +1,11 @@
 {{#section "employment"}}
 <hr>
 <section id="employment">
-  <header>
-  <h2>{{{sectionTitle "Employment"}}}</h2>
-  {{#> icon-employment }}{{/icon-employment}}
-  </header>
+  {{#> header-employment }}
+    {{> header-simple _title="EMPLOYMENT" _section="employment" }}
+    {{#> icon-employment }}{{/icon-employment}}
+  {{/header-employment}}
+
   {{#each r.employment.history}}
     <div>
       <h3><em>{{ position }}</em>,
@@ -18,14 +19,8 @@
         {{#if keywords}}
         | <span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
         {{/if}}
-      <p style="clear: both;">{{{ summary }}}</p>
-      {{#if highlights}}
-        <ul>
-        {{#each highlights}}
-          <li>{{{ this }}}</li>
-        {{/each}}
-        </ul>
-      {{/if}}
+      <p>{{{ summary }}}</p>
+      {{> highlights }}
     </div>
   {{/each}}
 </section>

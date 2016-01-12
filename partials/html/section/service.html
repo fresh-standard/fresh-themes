@@ -1,10 +1,10 @@
 {{#section "service"}}
 <hr>
-<section id="volunteer">
-  <header>
-  <h2>{{{sectionTitle "Service"}}}</h2>
-  {{#> icon-service }}{{/icon-service}}
-  </header>
+<section id="service">
+  {{#> header-samples }}
+    {{> header-simple _title="SERVICE" _section="service" }}
+    {{#> icon-service }}{{/icon-service}}
+  {{/header-samples}}
   {{#each r.service.history}}
     <div>
     <h3><em>{{ position }}</em>,
@@ -16,13 +16,7 @@
     </h3>
     <span class="tenure">{{dateRange .}}</span>
     <p style="clear: both;">{{{ summary }}}</p>
-    {{#if highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
+    {{> highlights }}
     </div>
   {{/each}}
 </section>

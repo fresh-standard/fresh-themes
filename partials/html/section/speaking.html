@@ -1,14 +1,15 @@
 {{#section "speaking"}}
 <hr>
 <section id="speaking">
-  <header>
-  <h2>{{{sectionTitle "speaking" "Speaking Engagements"}}}</h2>
-  {{#> icon-speaking }}{{/icon-speaking}}
-  </header>
+  {{#> header-speaking }}
+    {{> header-simple _title="SPEAKING" _section="speaking" }}
+    {{#> icon-speaking }}{{/icon-speaking}}
+  {{/header-speaking}}
   {{#each r.speaking}}
     <div>
     <h3><em>{{ title }}</em>, {{ from }} <span class="tenure">{{formatDate safe.date 'YYYY' }}</span></h3>
     {{ summary }}
+    {{> highlights }}
     </div>
   {{/each}}
 </section>

@@ -1,10 +1,10 @@
 {{#section 'projects'}}
 <hr>
 <section id="projects">
-  <header>
-  <h2>{{{sectionTitle "Projects"}}}</h2>
-  {{#> icon-projects }}{{/icon-projects}}
-  </header>
+  {{#> header-projects }}
+    {{> header-simple _title="PROJECTS" _section="projects" }}
+    {{#> icon-projects }}{{/icon-projects}}
+  {{/header-projects}}
   {{#each r.projects }}
     <div>
     <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
@@ -19,13 +19,7 @@
     {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
     {{/if}}
     {{{ summary }}}
-    {{#if highlights}}
-      <ul>
-      {{#each highlights}}
-        <li>{{{ this }}}</li>
-      {{/each}}
-      </ul>
-    {{/if}}
+    {{> highlights }}
     </div>
   {{/each}}
 </section>
