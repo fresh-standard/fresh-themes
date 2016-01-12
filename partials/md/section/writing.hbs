@@ -2,7 +2,13 @@
 ## WRITING
 
 {{#each r.writing}}
+{{#if url}}
+### [{{{ title }}}]({{{ url }}}) ({{formatDate safe.date 'YYYY-MM' }})
+{{else}}
 ### {{{ title }}} ({{formatDate safe.date 'YYYY-MM' }})
+{{/if}}
+
 {{{ summary }}}
+
 {{/each}}
 {{/section}}

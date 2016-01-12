@@ -2,12 +2,12 @@
 ## {{{sectionTitle "EMPLOYMENT"}}}
 
 {{#each r.employment.history }}
-
 {{#if url}}
 ### *{{{ position }}}*, [{{{ employer }}}]({{{ url }}}) ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
 {{else}}
 ### *{{{ position }}}*, {{{ employer }}} ({{formatDate safe.start 'YYYY-MM' }} — {{formatDate safe.end 'YYYY-MM' }})
 {{/if}}
+
 {{{ summary }}}
 {{#if highlights}}
 {{#each highlights}}
