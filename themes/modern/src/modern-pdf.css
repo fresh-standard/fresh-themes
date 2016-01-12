@@ -11,7 +11,7 @@ body {
   font-size: 15px;
   color: #333;
   line-height: 1.42857143;
-  /*background-color: #F0F0F0;*/
+  background-color: #F0F0F0;
   margin: 0;
   padding: 0;
 }
@@ -27,7 +27,7 @@ the PDF case, <main> for the HTML case, and style both via an ID. */
   background-color: #FFF;
   margin: 10px;
   padding: 10px;
-  /*border: 1px solid #E6E6E6;*/
+  border: 1px solid #E6E6E6;
 }
 
 body.pdf > #main {
@@ -49,8 +49,8 @@ body.pdf #container > header {
   display: block;
 }
 
-#main > #container > section > span.fa
- {
+span.fa
+{
   position: absolute;
   top: 4px;
   left: -50px;
@@ -65,7 +65,7 @@ hr {
   border-top: 1px solid #EEE;
 }
 
-.tenure {
+.tenure, .keywords {
   font-size: 75%;
 }
 
