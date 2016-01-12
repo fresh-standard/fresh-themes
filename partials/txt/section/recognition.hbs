@@ -1,0 +1,9 @@
+{{#section "recognition"}}
+{{{sectionTitle "RECOGNITION"}}} --------------------------------------------------------------------
+
+{{#each r.recognition}}
+{{{ title }}}, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
+{{{ summary }}}
+
+{{/each}}
+{{/section}}

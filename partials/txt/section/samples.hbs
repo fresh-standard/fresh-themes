@@ -1,0 +1,15 @@
+{{#section 'samples'}}
+{{{sectionTitle "SAMPLES"}}} ------------------------------------------------------------------------
+
+{{#each r.samples }}
+{{{ title }}} ({{formatDate safe.date 'YYYY-MM'}})
+
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+  - {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}

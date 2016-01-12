@@ -1,0 +1,14 @@
+{{#section "service" }}
+{{{sectionTitle "SERVICE"}}} ------------------------------------------------------------------------
+
+{{#each r.service.history}}
+{{{ organization }}} ({{dateRange .}})
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+- {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}

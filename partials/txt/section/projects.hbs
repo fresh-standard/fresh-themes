@@ -1,0 +1,15 @@
+{{#section 'projects'}}
+{{{sectionTitle "PROJECTS"}}} -----------------------------------------------------------------------
+
+{{#each r.projects }}
+{{{ title }}}, {{{ role }}} ({{dateRange .}})
+{{{ description }}}
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+- {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}
