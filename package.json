@@ -24,6 +24,11 @@
     "YAML"
   ],
   "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
+  "contributors": [
+    "Brett Hardin (https://github.com/bhardin)",
+    "Ya Zhuang (https://github.com/zhuangya)",
+    "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/fluentdesk/fresh-themes/issues"
