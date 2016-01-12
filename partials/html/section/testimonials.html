@@ -1,0 +1,15 @@
+{{#section "testimonials"}}
+<hr>
+<section id="awards">
+  <header>
+  <h2>{{{sectionTitle "testimonials" "Testimonials"}}}</h2>
+  {{#> icon-testimonials }}{{/icon-testimonials}}
+  </header>
+  {{#each r.testimonials}}
+    <div>
+    <h3><em>{{ name }}</em></h3>
+    {{{ quote }}}
+    </div>
+  {{/each}}
+</section>
+{{/section}}

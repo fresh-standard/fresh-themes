@@ -15,6 +15,9 @@
         {{/if}}
         </h3>
         <span class="tenure">{{dateRange .}}</span>
+        {{#if keywords}}
+        | <span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+        {{/if}}
       <p style="clear: both;">{{{ summary }}}</p>
       {{#if highlights}}
         <ul>
