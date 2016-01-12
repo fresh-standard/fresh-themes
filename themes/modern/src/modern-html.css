@@ -49,8 +49,8 @@ body.pdf #container > header {
   display: block;
 }
 
-#main > #container > section > span.fa
- {
+span.fa
+{
   position: absolute;
   top: 4px;
   left: -50px;
@@ -65,7 +65,7 @@ hr {
   border-top: 1px solid #EEE;
 }
 
-.tenure {
+.tenure, .keywords {
   font-size: 75%;
 }
 

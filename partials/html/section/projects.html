@@ -5,7 +5,7 @@
   <h2>{{{sectionTitle "Projects"}}}</h2>
   {{#> icon-projects }}{{/icon-projects}}
   </header>
-  {{#each r.projects}}
+  {{#each r.projects }}
     <div>
     <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
     {{#if url}}
@@ -13,9 +13,13 @@
     {{else}}
     {{ title }}
     {{/if}}
-    <span class="tenure">{{dateRange .}}</span></h3>
+    </h3>
+    {{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+    {{#if keywords}}
+    {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+    {{/if}}
     {{{ summary }}}
-    {{#if proj.highlights}}
+    {{#if highlights}}
       <ul>
       {{#each highlights}}
         <li>{{{ this }}}</li>
