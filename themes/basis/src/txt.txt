@@ -6,89 +6,18 @@
 
 {{#has 'info.brief' }}{{{ r.info.brief }}}{{/has}}
 
-{{#section "skills"}}
-{{{sectionTitle "SKILLS"}}} -------------------------------------------------------------------------
+{{> section/skills }}
 
-{{#each r.skills.sets}}
-- {{{ name }}}: {{#each skills}}{{{ this }}} {{/each}}
-{{/each}}
-{{/section}}
+{{> section/employment }}
 
-{{#section "employment"}}
-{{{sectionTitle "EMPLOYMENT"}}} ---------------------------------------------------------------------
+{{> section/projects }}
 
-{{#each r.employment.history }}
-{{{ position }}}, {{{ employer }}} ({{dateRange .}})
-{{{ summary }}}
-{{#if highlights}}
-{{#each highlights}}
-- {{{ this }}}
-{{/each}}
-{{/if}}
+{{> section/education }}
 
-{{/each}}
-{{/section}}
+{{> section/samples }}
 
-{{#section 'projects'}}
-{{{sectionTitle "PROJECTS"}}} -----------------------------------------------------------------------
+{{> section/writing }}
 
-{{#each r.projects }}
-{{{ title }}}, {{{ role }}} ({{dateRange .}})
-{{{ description }}}
-{{{ summary }}}
-{{#if highlights}}
-{{#each highlights}}
-- {{{ this }}}
-{{/each}}
-{{/if}}
-{{/each}}
-{{/section}}
+{{> section/service }}
 
-{{#section "education"}}
-{{{sectionTitle "EDUCATION"}}} ----------------------------------------------------------------------
-
-{{#each r.education.history}}
-{{{ institution }}} ({{dateRange .}})
-{{#if summary }}
-{{{ summary }}}
-{{/if}}
-{{#if courses}}
-{{#each courses}}
-- {{{ this }}}
-{{/each}}
-{{/if}}
-
-{{/each}}
-{{/section}}
-
-{{#section "writing"}}
-{{{sectionTitle "WRITING"}}} ------------------------------------------------------------------------
-
-{{#each r.writing}}
-{{{ title }}}{{#has 'safe.date'}} ({{formatDate safe.date 'YYYY-MM' }}){{/has}}
-{{{ summary }}}
-{{/each}}
-{{/section}}
-
-{{#section "service" }}
-{{{sectionTitle "SERVICE"}}} ------------------------------------------------------------------------
-
-{{#each r.service.history}}
-{{{ organization }}} ({{dateRange .}})
-{{{ summary }}}
-{{#if highlights}}
-{{#each highlights}}
-- {{{ this }}}
-{{/each}}
-{{/if}}
-{{/each}}
-{{/section}}
-
-{{#section "recognition"}}
-{{{sectionTitle "RECOGNITION"}}} --------------------------------------------------------------------
-
-{{#each r.recognition}}
-{{{ title }}}, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
-{{{ summary }}}
-{{/each}}
-{{/section}}
+{{> section/recognition }}
