@@ -7,10 +7,19 @@
 {{#has "info.brief" }}{{{ r.info.brief }}}{{/has}}
 
 {{> section/skills }}
+
 {{> section/employment }}
+
 {{> section/projects }}
+
 {{> section/education }}
+
 {{> section/samples }}
+
 {{> section/writing }}
+
 {{> section/service }}
+
 {{> section/recognition }}
+
+{{> section/speaking }}
