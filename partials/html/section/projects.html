@@ -17,9 +17,7 @@
     {{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
     {{{ summary }}}
     {{> highlights }}
-    {{#if keywords}}
-    {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
-    {{/if}}    
+    {{#if keywords}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>{{/if}}    
     </div>
     {{/body-projects }}
   {{/each}}
