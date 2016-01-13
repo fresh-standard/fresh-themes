@@ -1,20 +1,35 @@
 fresh-themes
 ============
 
-*Stylized templates for your résumé and/or CV, compatible with [FRESH][f] and
-(through conversion) [JSON Resume][jrs] formats.*
+*Stylized templates for your résumé and/or CV, compatible with [FRESH/FRESCA][f]
+and (through conversion) [JSON Resume][jrs] formats.*
 
-- [positive][t-positive]: A visually dense/compact theme.
-- [modern][t-modern]: A middle of the road theme with a modern look 'n feel.
-- [compact][t-compact]: A visually dense/compact theme.
-- [awesome][t-awesome]: A technical resume theme based on [Awesome-CV][awe].
-- [underscore][t-underscore]: An unstyled barebones theme.
-- [hello-world][t-hello]: A simple-as-possible example theme.
-- New themes weekly.
+FRESH themes are multiformat, Markdown-aware, standards-friendly templates for
+résumés, CVs, and other employment artifacts.
+
+- **Markdown-friendly**. FRESH themes support Markdown and/or HTML formatting
+*across multiple formats*. That means if you **bold something in your resume**
+you will see that style reflected not just in the HTML version, but in the MS
+Word version, and the PDF too.
+
+- **Multiple output formats** including HTML, MS Word, Markdown, LaTeX, plain
+text, and more.
+
+- **Engine-agnostic**. FRESH themes can be built with Handlebars,
+Underscore, and in the future, other template engines such as Liquid.
+
+- **DRY**. FRESH themes rely on partials and theme inheritance in order to
+minimize the amount of duplication and boilerplate you have to wade through
+to design and/or build a modern, multiformat resume.
+
+- **Open and unaffiliated**. Like the [FRESH/FRESCA schema][f] they're based on,
+FRESH themes have no commercial or corporate backing, basis, or bias.
 
 ## Use
 
-1. Install [HackMyResume][hmr] or a similar tool.
+1. The quickest way to get started with FRESH themes is to install
+[HackMyResume][hmr]. Installing this repo (fresh-themes) is not required except
+for development purposes.
 
 2. Create a [FRESH][f] or [JRS][jrs] résumé.
 
@@ -25,15 +40,22 @@ fresh-themes
     hackmyresume BUILD resume.json TO out/resume.all -t positive
     ```
 
-## Install
+## Predefined FRESH Themes
 
-The **fresh-themes** repo is automatically installed when you install
-HackMyResume. For development or testing purposes, you can install the
-standalone version via NPM:
+This repository provides canonical versions of a handful of FRESH themes used
+in and installed with HackMyResume. Other FRESH themes may be available on
+GitHub and NPM.
 
-`[sudo] npm install fresh-themes [--save]`
+- [positive][t-positive]: A visually dense/compact theme.
+- [modern][t-modern]: A middle of the road theme with a modern look 'n feel.
+- [compact][t-compact]: A visually dense/compact theme.
+- [awesome][t-awesome]: A technical resume theme based on [Awesome-CV][awe].
+- [underscore][t-underscore]: An unstyled barebones theme.
+- [hello-world][t-hello]: A simple-as-possible example theme.
+- New themes weekly.
 
-...or fork and clone it from GitHub as usual.
+All FRESH themes in this repo are MIT licensed. You're free to change, modify,
+update, or improve them at will.
 
 ## How It Works
 
@@ -47,8 +69,8 @@ FRESH theme the same way you would any other template: by intermixing markup
 <p>{{ job.summary }}</p>
 ```
 
-Run it through a tool, and you get finished markup suitable for display or
-saving as a document:
+Run it through a tool like HackMyResume, and you get finished markup suitable
+for display or saving as a document:
 
 ```html
 <h3>Ninja</h3>
@@ -56,19 +78,12 @@ saving as a document:
 ```
 
 The only difference between a FRESH theme and your Jekyll blog or MS Word
-template is that FRESH themes are:
+template is the syntax. If you can do `{{ r.name }}` or `{% highlight html %}`
+in a template file you can work with FRESH themes.
 
-- **Multiformat**. Each FRESH theme can declare multiple formats: HTML, Word,
-PDF, Markdown, or other future formats.
-- **Markdown-friendly**. All FRESH themes support inline Markdown/HTML
-formatting.
-- **Inheritable**. FRESH themes can inherit or "borrow" formats from other
-themes.
-- **Agnostic**. FRESH themes don't mandate that you use a particular templating
-engine or style: you can use Handlebars, Underscore, or other engines in the
-future.
-
-If you can do `{{ r.name }}` or `{% highlight html %}` in a template file you can work with FRESH themes.
+For an annotated example of building a FRESH theme for multiple formats
+including HTML, MS Word, and PDF, check out the Modern theme's [HTML][h] and
+[DOC][d] templates.
 
 ## Structure
 
@@ -86,11 +101,12 @@ in your theme's JSON file.
 
 ## Contribute
 
-Contributions are welcome.
+Contributions are encouraged.
 
 1. Fork, branch, and clone this repository.
 2. Add or edit a theme or make other changes.
 3. Submit a PR.
+4. Ideally, target the `dev` branch with your PR.
 
 ## License
 
@@ -100,6 +116,8 @@ MIT. See [LICENSE.md][1] for details.
 [2]: https://github.com/fluentdesk/fluentcv
 [3]: https://github.com/fluentdesk/fresh-themes/blob/master/LICENSE.md
 [f]: https://github.com/fluentdesk/FRESCA
+[h]: https://github.com/fluentdesk/fresh-themes/blob/dev/themes/modern/src/modern-html.html
+[d]: https://github.com/fluentdesk/fresh-themes/blob/dev/themes/modern/src/modern-doc.xml
 [jrs]: http://jsonresume.org
 [awe]: https://github.com/posquit0/Awesome-CV
 [t-awesome]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/awesome
