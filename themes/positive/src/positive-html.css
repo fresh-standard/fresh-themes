@@ -100,10 +100,11 @@ p, li {
 
 .tenure {
   float: right;
-  color: #B5B5B5;
+  color: #6F6F6F;
   background-color: #F5F5F5;
   border-radius: 6px;
-  padding: 0px 6px;
+  padding: 4px 6px;
+  font-size: 85%;
 }
 
 span.keywords {
