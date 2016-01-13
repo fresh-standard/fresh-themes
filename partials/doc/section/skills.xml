@@ -26,16 +26,6 @@
           <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
         </w:tcPr>
         <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
-          <!-- <w:pPr>
-            <w:jc w:val="right"/>
-          </w:pPr>
-          <w:r>
-            <w:rPr>
-              <w:caps/>
-              <w:color w:val="989898"/>
-            </w:rPr>
-            <w:t>{{ name }}</w:t>
-          </w:r> -->
           <w:r>
             <w:rPr>
               <w:noProof/>

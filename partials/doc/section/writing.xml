@@ -56,12 +56,6 @@
         </w:rPr>
       </w:pPr>
       {{{wpml this true}}}
-      <!-- <w:r>
-        <w:rPr>
-          <w:sz-cs w:val="20"/>
-        </w:rPr>
-        <w:t>{{ this }}</w:t>
-      </w:r> -->
     </w:p>
     {{/each}}
 
