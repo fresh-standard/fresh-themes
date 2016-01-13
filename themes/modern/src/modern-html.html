@@ -1,15 +1,41 @@
+{{! <!--
+
+  Welcome to the annotated HTML template of the MODERN theme. This is the
+  template used to generate the output HTML format of your resume when you
+  choose the "modern" theme in HackMyResume or FluentCV.
+
+  These comments will be stripped when the resume is generated.
+
+  FRESH themes are just plain text documents with a bit of template magic
+  built in via Handlebars or Underscore (in this case, Handlebars). Here we're
+  buildng an HTML version of the theme, so we'll create an otherwise normal HTML
+  document, then inject data into it using special tags. Where does the data
+  come from? From our FRESH or JSON Resume-format resume, represented in this
+  template through the "r" and "RAW" objects.
+
+    r.some-propery
+    r.some-method
+    RAW.some-other-propery
+
+  So let's begin with a standard HTML 5 doctype and prelude.
+
+--> }}
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
+
     {{! <!--
-      Set the document title to the candidate's name. We use RAW.name here,
+      Set the document <title> to the candidate's name. We use RAW.name here,
       instead of r.name, because RAW gives us the text *as entered by the user*.
       The double bracket notation automatically encodes this value. If we wanted
       the unencoded raw value, we'd use triple brackets as in
       ((( RAW.name ))).
     --> }}
     <title>{{ RAW.name }}</title>
+
+    {{!<!-- TODO: Optimize Google Fonts and Font Awesome access. -->}}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
@@ -22,18 +48,27 @@
     {{{styleSheet "modern-html.css"}}}
 
     {{! <!--
-      If the user passes "css embed" via the command line, any styles present
-      in "html.css" will be embedded into the document via the <style></style>
-      tag. OTOH, if the user passes "css link" via the command line, then
-      "html.css" will be referenced via a standard <link> tag. If no "css"
-      parameter is given, HackMyResume defaults to CSS embedding via <style>,
-      because even if it's not as "correct" as <link>, it helps produce a more
-      "standalone" resume with fewer external dependencies.
+      Now, depending on options, "modern-html.css" will either be embedded
+      via <style> stags, or linked via <link>. Users can control this via
+      (for example) the --css option in HackMyResume.
+
+      Why might you want to embed CSS into <style> tags when most CSS guides
+      instruct you to use <link>? Because embedded CSS creates a more hardened
+      "standalone" resume with fewer external dependencies. This may not matter
+      in a typical web scenario, but HTML resumes are also used to drive PDF
+      generation, not to mention emailed, viewed locally, etc.
+
+      TL;DR Use the "styleSheet" helper whenever possible.
     -->}}
 
   </head>
+
+  {{!<!--
+    So much for the <head> element. Now let's tackle the <body>.
+  -->}}
+
   <body>
-    <main id="main">
+    <main id="main"> {{!<!-- Use your container markup of choice here -->}}
       <div id="container">
       <header>
 
@@ -96,6 +131,7 @@
 </section>
 {{/has}}
 
+
 {{! <!--
   Okay, let's create a custom SKILLS section with colored skill bars.
 
@@ -104,40 +140,46 @@
   omitted from the resume if either a) the section is empty or b) the user
   tells us to hide it.
 
-  Always wrap your sections with the "section"!
+  As fpr the colored bars, those are just standard HTML and CSS, with the
+  height and color of each bar linked to the candidate's skill "level" from
+  the resume.
+
+  TL;DR Always wrap your sections with the "section"!
 --> }}
 
+
 {{#section 'skills' }}
-      <hr>
-      <section id="skills">
-        <header>
-        <h2>{{{sectionTitle "Skills"}}}</h2>
-        </header>
-        <span class="fa fa-lg fa-code"></span>
-        <ul class="list-unstyled">
-          {{#each r.skills.sets}}
-            <li class="card card-nested card-skills">
-              <div class="skill-level" rel="tooltip" title="{{ level }}" data-placement="left">
-                <div class="skill-progress {{toLower level }}"></div>
-              </div>
-              <div class="skill-info">
-                <strong>{{ name }}</strong>
-                <div class="space-top labels">
-                  {{#if skills}}
-                    {{#each skills}}
-                      <span class="label label-keyword">{{ this }}</span>
-                    {{/each}}
-                  {{/if}}
-                </div>
-              </div>
-            </li>
-          {{/each}}
-        </ul>
-      </section>
+<hr>
+<section id="skills">
+  <header>
+  <h2>{{{sectionTitle "Skills"}}}</h2>
+  </header>
+  <span class="fa fa-lg fa-code"></span>
+  <ul class="list-unstyled">
+    {{#each r.skills.sets}}
+      <li class="card card-nested card-skills">
+        <div class="skill-level" rel="tooltip" title="{{ level }}" data-placement="left">
+          <div class="skill-progress {{toLower level }}"></div>
+        </div>
+        <div class="skill-info">
+          <strong>{{ name }}</strong>
+          <div class="space-top labels">
+            {{#if skills}}
+              {{#each skills}}
+                <span class="label label-keyword">{{ this }}</span>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</section>
 {{/section}}
 
 {{! <!--
-  Now let's render the EMPLOYMENT section.
+
+  So much for SKILLS. Now let's render the EMPLOYMENT section.
 
   We could do this manually with custom HTML, like we did with the SKILLS
   section, but let's take advantage of some predefined partials instead.
@@ -155,15 +197,28 @@
 
       ((> section/skills ))
 
-  However, in this case we also want to override the heading icon used
-  in the global partial. So we also declare what's known as an INLINE
-  PARTIAL, using ((#*inline "icon-skills")), and set its content to the
-  icon we'd like to display for the SKILLS section. The global partial
-  will reference this template by name, so it allows us to selectively
-  override that part of the global partial.
+  (Replace the parentheses with brackets). However, in this case we want to
+  override the heading icon used in the global partial as well as its content.
+  That is, we want to use the "section/employment" partial, but selectively
+  override portions of it with our own markup.
+
 --> }}
 
+
+{{!<!--
+First, we create an inline partial called "icon-employment." The contents of
+this partial will be referenced by the section/employment partial we invoke
+below. This partial doesn't, by itself, render any content -- it's a template.
+-->}}
+
 {{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
+
+
+{{!<!--
+Next we create another inline partial called "body-employment" and set its
+contents to the markup we'd like to use for the body section of each job. This
+also doesn't render any content.
+-->}}
 
 {{#*inline "body-employment" }}
 <div>
@@ -183,11 +238,21 @@
 </div>
 {{/inline}}
 
+{{! <!--
+  Actually render the employment section. Invoke the "section/employment"
+  partial (which lives at partials/html/section/employment.html). The header
+  icon and body of each employment stint will be rendered with the markup we
+  defined above.
+--> }}
+
 {{> section/employment _icon="icon-employment"}}
 
+
 {{! <!--
-  Do the same thing (roughly) with the PROJECT section.
+  Move on to the PROJECTS section, giving it the same treatment we gave the
+  EMPLOYMENT section.
 --> }}
+
 
 {{#*inline "body-projects" }}
 <div>
@@ -214,10 +279,7 @@
 
 {{! <!--
   We'll override all section heading icons the same way, for the rest of the
-  resume, using the same inline template technique. Keep in mind that these
-  inline templates do not, by themselves, create any markup. They emit markup
-  only when referenced by another template. Which template? In this case, the
-  global partial for each section.
+  resume, using the same inline template technique.
 --> }}
 
 {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
@@ -230,9 +292,8 @@
 {{#*inline "icon-references"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
 
 {{! <!--
-  Use the predefined global partials for the rest of the resume sections as-is.
-  Note: we can still customize the style of these via CSS. But we'll use the
-  default markup.
+  And we're done with the customizations. For the rest of the resume, we'll
+  use the default section partials and style them with whatever CSS we like.
 --> }}
 
 {{> section/education _icon="icon-education"}}
