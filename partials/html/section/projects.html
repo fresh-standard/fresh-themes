@@ -5,6 +5,7 @@
     {{> header-icon _title="PROJECTS" _section="projects" _hdricon=(lookup . '_icon') }}
   {{/header-projects}}
   {{#each r.projects }}
+    {{#> body-projects }}
     <div>
     <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
     {{#if url}}
@@ -14,12 +15,13 @@
     {{/if}}
     </h3>
     {{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
-    {{#if keywords}}
-    {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
-    {{/if}}
     {{{ summary }}}
     {{> highlights }}
+    {{#if keywords}}
+    {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+    {{/if}}    
     </div>
+    {{/body-projects }}
   {{/each}}
 </section>
 {{/section}}

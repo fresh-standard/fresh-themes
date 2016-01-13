@@ -6,6 +6,7 @@
   {{/header-employment}}
 
   {{#each r.employment.history}}
+    {{#> body-employment }}
     <div>
       <h3><em>{{ position }}</em>,
         {{#if url }}
@@ -15,12 +16,11 @@
         {{/if}}
         </h3>
         <span class="tenure">{{dateRange .}}</span>
-        {{#if keywords}}
-        | <span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
-        {{/if}}
       <p>{{{ summary }}}</p>
       {{> highlights }}
+      {{#if keywords}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>{{/if}}      
     </div>
+    {{/body-employment}}
   {{/each}}
 </section>
 {{/section}}

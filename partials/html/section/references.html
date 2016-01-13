@@ -5,10 +5,12 @@
     {{> header-icon _title="REFERENCES" _section="references" _hdricon=(lookup . '_icon') }}
   {{/header-references}}
   {{#each r.references}}
+    {{#> body-references }}
     <div>
     <h3><em>{{ name }}</em></h3>
     {{ summary }}
     </div>
+    {{/body-references}}
   {{/each}}
 </section>
 {{/section}}

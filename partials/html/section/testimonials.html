@@ -5,10 +5,12 @@
     {{> header-icon _title="TESTIMONIALS" _section="testimonials" _hdricon=(lookup . '_icon') }}
   {{/header-testimonials}}
   {{#each r.testimonials}}
+    {{#> body-testimonials }}
     <div>
     <h3><em>{{ name }}</em></h3>
     <p>{{{ quote }}}</p>
     </div>
+    {{/body-testimonials}}
   {{/each}}
 </section>
 {{/section}}

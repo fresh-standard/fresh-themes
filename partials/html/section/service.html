@@ -5,6 +5,7 @@
     {{> header-icon _title="SERVICE" _section="service" _hdricon=(lookup . '_icon') }}
   {{/header-samples}}
   {{#each r.service.history}}
+    {{#> body-service }}
     <div>
     <h3><em>{{ position }}</em>,
       {{#if url}}
@@ -17,6 +18,7 @@
     <p style="clear: both;">{{{ summary }}}</p>
     {{> highlights }}
     </div>
+    {{/body-service }}
   {{/each}}
 </section>
 {{/section}}

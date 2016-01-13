@@ -5,6 +5,7 @@
     {{> header-icon _title="WRITING" _section="writing" _hdricon=(lookup . '_icon') }}
   {{/header-writing}}
   {{#each r.writing }}
+    {{#> body-writing }}
     <div>
     <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
       {{ publisher.name }}</h3>
@@ -12,6 +13,7 @@
       {{{ summary }}}
       {{> highlights }}
     </div>
+    {{/body-writing}}
   {{/each}}
 </section>
 {{/section}}

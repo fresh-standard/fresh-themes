@@ -5,6 +5,7 @@
     {{> header-icon _title="SAMPLES" _section="samples" _hdricon=(lookup . '_icon') }}
   {{/header-samples}}
   {{#each r.samples}}
+    {{#> body-samples }}
     <div>
     <h3>
     {{#if url}}
@@ -12,10 +13,12 @@
     {{else}}
     {{ title }}
     {{/if}}
-    <span class="tenure">{{formatDate safe.date 'YYYY-MM'}}</span></h3>
+    </h3>
+    <span class="tenure">{{formatDate safe.date 'YYYY-MM'}}</span>
     {{{ summary }}}
     {{> highlights }}
     </div>
+    {{/body-samples}}
   {{/each}}
 </section>
 {{/section}}

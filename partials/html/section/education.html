@@ -5,11 +5,13 @@
     {{> header-icon _title="EDUCATION" _section="education" _hdricon=(lookup . '_icon') }}
   {{/header-education}}
   {{#each r.education.history}}
+    {{#> body-education }}
     <div>
     <h3>{{{ institution }}}</h3>
     <span class="tenure">{{dateRange .}}</span>
     {{> highlights }}
     </div>
+    {{/body-education}}
   {{/each}}
 </section>
 {{/section}}
