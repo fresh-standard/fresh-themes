@@ -60,17 +60,49 @@
       </section>
 {{/section}}
 
-{{!<!--
-  Use predefined global partials for the other sections.
-
-  The "inline" bit before each section allows us to pass a custom heading
-  icon into the global partial. For this theme, we're using Font Awesome.
--->}}
 
 {{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
+
+{{#*inline "body-employment" }}
+<div>
+  <h3><em>{{ position }}</em>,
+    {{#if url }}
+    <a href="{{{ url }}}">{{ employer }}</a>
+    {{else}}
+    {{ employer }}
+    {{/if}}
+    </h3>
+    <span class="tenure">{{dateRange .}}</span>
+    {{#if keywords}}
+    {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+    {{/if}}
+  <p>{{{ summary }}}</p>
+  {{> highlights }}
+</div>
+{{/inline}}
+
 {{> section/employment _icon="icon-employment"}}
 
+{{#*inline "body-projects" }}
+<div>
+<h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
+{{#if url}}
+<a href="{{{ url }}}">{{ title }}</a>
+{{else}}
+{{ title }}
+{{/if}}
+</h3>
+{{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+{{#if keywords}}
+{{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+{{/if}}
+{{{ summary }}}
+{{> highlights }}
+</div>
+{{/inline}}
+
 {{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
+
 {{> section/projects _icon="icon-projects"}}
 
 {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
