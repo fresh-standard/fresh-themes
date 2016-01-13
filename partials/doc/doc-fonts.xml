@@ -1,0 +1,17 @@
+<w:fonts>
+  <w:defaultFonts w:ascii="Times New Roman" w:fareast="Times New Roman" w:h-ansi="Times New Roman" w:cs="Times New Roman"/>
+  <w:font w:name="Times New Roman">
+    <w:panose-1 w:val="02020603050405020304"/>
+    <w:charset w:val="00"/>
+    <w:family w:val="Roman"/>
+    <w:pitch w:val="variable"/>
+    <w:sig w:usb-0="E0002AFF" w:usb-1="C0007841" w:usb-2="00000009" w:usb-3="00000000" w:csb-0="000001FF" w:csb-1="00000000"/>
+  </w:font>
+  <w:font w:name="Calibri">
+    <w:panose-1 w:val="020F0502020204030204"/>
+    <w:charset w:val="00"/>
+    <w:family w:val="Swiss"/>
+    <w:pitch w:val="variable"/>
+    <w:sig w:usb-0="A00002EF" w:usb-1="4000207B" w:usb-2="00000000" w:usb-3="00000000" w:csb-0="0000009F" w:csb-1="00000000"/>
+  </w:font>
+</w:fonts>

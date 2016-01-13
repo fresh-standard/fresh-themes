@@ -1,0 +1,41 @@
+<w:docPr>
+  <w:view w:val="print"/>
+  <w:zoom w:percent="98"/>
+  <w:doNotEmbedSystemFonts/>
+  <w:defaultTabStop w:val="720"/>
+  <w:characterSpacingControl w:val="DontCompress"/>
+  <w:webPageEncoding w:val="unicode"/>
+  <w:optimizeForBrowser/>
+  <w:allowPNG/>
+  <w:validateAgainstSchema/>
+  <w:saveInvalidXML w:val="off"/>
+  <w:ignoreMixedContent w:val="off"/>
+  <w:alwaysShowPlaceholderText w:val="off"/>
+  <w:compat>
+    <w:breakWrappedTables/>
+  </w:compat>
+  <wsp:rsids>
+    <wsp:rsidRoot wsp:val="00C146CA"/>
+    <wsp:rsid wsp:val="000A3AF0"/>
+    <wsp:rsid wsp:val="001B7422"/>
+    <wsp:rsid wsp:val="002743C8"/>
+    <wsp:rsid wsp:val="002865F0"/>
+    <wsp:rsid wsp:val="002D3B7B"/>
+    <wsp:rsid wsp:val="00397D4D"/>
+    <wsp:rsid wsp:val="00437135"/>
+    <wsp:rsid wsp:val="00505903"/>
+    <wsp:rsid wsp:val="00606071"/>
+    <wsp:rsid wsp:val="006C2CFB"/>
+    <wsp:rsid wsp:val="00771B3E"/>
+    <wsp:rsid wsp:val="007D096C"/>
+    <wsp:rsid wsp:val="009452CA"/>
+    <wsp:rsid wsp:val="00A210E1"/>
+    <wsp:rsid wsp:val="00B43FDC"/>
+    <wsp:rsid wsp:val="00C146CA"/>
+    <wsp:rsid wsp:val="00C77315"/>
+    <wsp:rsid wsp:val="00CD3781"/>
+    <wsp:rsid wsp:val="00E578D4"/>
+    <wsp:rsid wsp:val="00EA0B64"/>
+    <wsp:rsid wsp:val="00FE101B"/>
+  </wsp:rsids>
+</w:docPr>

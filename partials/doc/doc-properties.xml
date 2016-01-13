@@ -1,0 +1,17 @@
+<o:DocumentProperties>
+  <o:Title>Resume for {{ r.name }}</o:Title>
+  <o:Author>{{ r.name }}</o:Author>
+  <o:Keywords>resume;CV</o:Keywords>
+  <o:LastAuthor>{{ r.name }}</o:LastAuthor>
+  <o:Revision>1</o:Revision>
+  <o:TotalTime>60</o:TotalTime>
+  <o:Created>2015-12-16T17:38:00Z</o:Created>
+  <o:LastSaved>2015-12-16T18:32:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>241</o:Words>
+  <o:Characters>1379</o:Characters>
+  <o:Lines>11</o:Lines>
+  <o:Paragraphs>3</o:Paragraphs>
+  <o:CharactersWithSpaces>1617</o:CharactersWithSpaces>
+  <o:Version>15</o:Version>
+</o:DocumentProperties>
