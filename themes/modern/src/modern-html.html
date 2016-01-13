@@ -2,16 +2,58 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ r.name }}</title>
+    {{! <!--
+      Set the document title to the candidate's name. We use RAW.name here,
+      instead of r.name, because RAW gives us the text *as entered by the user*.
+      The double bracket notation automatically encodes this value. If we wanted
+      the unencoded raw value, we'd use triple brackets as in
+      ((( RAW.name ))).
+    --> }}
+    <title>{{ RAW.name }}</title>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    {{! <!--
+      Link in the resume's stylesheet. We could use a <link> tag here as above,
+      or dump the styles into <style></style>, but there's a handy helper
+      available that allows us to do either, conditionally.
+    --> }}
+
     {{{styleSheet "modern-html.css"}}}
+
+    {{! <!--
+      If the user passes "css embed" via the command line, any styles present
+      in "html.css" will be embedded into the document via the <style></style>
+      tag. OTOH, if the user passes "css link" via the command line, then
+      "html.css" will be referenced via a standard <link> tag. If no "css"
+      parameter is given, HackMyResume defaults to CSS embedding via <style>,
+      because even if it's not as "correct" as <link>, it helps produce a more
+      "standalone" resume with fewer external dependencies.
+    -->}}
+
   </head>
   <body>
     <main id="main">
       <div id="container">
       <header>
+
+        {{! <!--
+          Display the candidate's name using "r" (the FRESH or JSON Resume
+          object). Keep in mind that "r" contains the MARKDOWNIFIED version
+          of the text in the user's FRESH or JRS resume because FRESH resume
+          themes support Markdown natively. If you want the un-Markdownified
+          text, you'd use RAW instead.
+        --> }}
+
         <h1>{{{ r.name }}}</h1>
+
+        {{! <!--
+          Give some basic contact info. Here, the HAS helper is similar
+          to a normal IF, but provides a guaranteed-to-be-safe check against a
+          particular object path. That is, ((#if contact.email)) can error out
+          (throw an exception) if contact is null, depending on Handlebars
+          engine settings, but ((#has 'contact.email')) never will.
+        --> }}
         <div id="contact">
           {{#has r.contact.email}}<div class="email"><a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/has}}
           {{#has r.contact.phone}}<div class="phone">{{ RAW.contact.phone }}</div>{{/has}}
@@ -20,16 +62,50 @@
       </header>
 
 
-{{#if r.info.brief}}
+{{!<!--
+  Now let's emit the candidate's summary, which is stored in r.info.brief.
+  Again we'll use the ((#has)) helper to make sure the candidate HAS a
+  summary, and if so, we'll render an HTML 5 section element containing
+  the Markdownified HTML version of it.
+-->}}
+
+{{#has 'info.brief'}}
 <hr>
 <section id="summary">
+
+  {{!<!--
+    Here we're rendering the title of the summary section, but we don't want
+    to hard code it to "About" or "Summary" because FRESH themes should not
+    assume English. The "sectionTitle" helper allows us to emit an English
+    section title of "About" by default, but provides a hook by which users
+    can override this section title if they want.
+    TL;DR Never write section titles explicitly. Always use the helper.
+  -->}}
+
   <h2>{{{sectionTitle "info" "About"}}}</h2>
   <span class="fa fa-lg fa-user"></span>
+
+  {{!<!--
+    Emit the actual summary here.
+    Note the use of triple brackets to tell Handlebars not to further encode
+    the value. The value in r.info.brief has already been encoded (when it was
+    converted to HTML) so there's no need to encode it further.
+  -->}}
+
   {{{ r.info.brief }}}
 </section>
-{{/if}}
+{{/has}}
 
-{{!<!-- A custom skills section with colored skill bars. -->}}
+{{! <!--
+  Okay, let's create a custom SKILLS section with colored skill bars.
+
+  Since this is an official resume section, we want to wrap it in the
+  "section" block helper. This allows the section to be selectively
+  omitted from the resume if either a) the section is empty or b) the user
+  tells us to hide it.
+
+  Always wrap your sections with the "section"!
+--> }}
 
 {{#section 'skills' }}
       <hr>
@@ -60,6 +136,32 @@
       </section>
 {{/section}}
 
+{{! <!--
+  Now let's render the EMPLOYMENT section.
+
+  We could do this manually with custom HTML, like we did with the SKILLS
+  section, but let's take advantage of some predefined partials instead.
+  FRESH provides global partials for all resume sections (employment, skills,
+  education, speaking, etc.). They're named like this:
+
+      section/skills
+      section/employment
+      section/service
+      section/recognition
+      etc..
+
+  So what we want to do is inject the "section/skills" global partial
+  and use it here in our theme. We can do that simply with:
+
+      ((> section/skills ))
+
+  However, in this case we also want to override the heading icon used
+  in the global partial. So we also declare what's known as an INLINE
+  PARTIAL, using ((#*inline "icon-skills")), and set its content to the
+  icon we'd like to display for the SKILLS section. The global partial
+  will reference this template by name, so it allows us to selectively
+  override that part of the global partial.
+--> }}
 
 {{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
 
@@ -83,6 +185,10 @@
 
 {{> section/employment _icon="icon-employment"}}
 
+{{! <!--
+  Do the same thing (roughly) with the PROJECT section.
+--> }}
+
 {{#*inline "body-projects" }}
 <div>
 <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
@@ -105,28 +211,37 @@
 
 {{> section/projects _icon="icon-projects"}}
 
+
+{{! <!--
+  We'll override all section heading icons the same way, for the rest of the
+  resume, using the same inline template technique. Keep in mind that these
+  inline templates do not, by themselves, create any markup. They emit markup
+  only when referenced by another template. Which template? In this case, the
+  global partial for each section.
+--> }}
+
 {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
-{{> section/education _icon="icon-education"}}
-
 {{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
-{{> section/service _icon="icon-service"}}
-
 {{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
-{{> section/samples _icon="icon-samples"}}
-
 {{#*inline "icon-writing"}}<span class="fa fa-lg fa-pencil"></span>{{/inline}}
-{{> section/writing _icon="icon-writing"}}
-
 {{#*inline "icon-recognition"}}<span class="fa fa-lg fa-trophy"></span>{{/inline}}
-{{> section/recognition _icon="icon-recognition"}}
-
 {{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
-{{> section/speaking _icon="icon-speaking"}}
-
 {{#*inline "icon-testimonials"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
-{{> section/testimonials _icon="icon-testimonials"}}
-
 {{#*inline "icon-references"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
+
+{{! <!--
+  Use the predefined global partials for the rest of the resume sections as-is.
+  Note: we can still customize the style of these via CSS. But we'll use the
+  default markup.
+--> }}
+
+{{> section/education _icon="icon-education"}}
+{{> section/service _icon="icon-service"}}
+{{> section/samples _icon="icon-samples"}}
+{{> section/writing _icon="icon-writing"}}
+{{> section/recognition _icon="icon-recognition"}}
+{{> section/speaking _icon="icon-speaking"}}
+{{> section/testimonials _icon="icon-testimonials"}}
 {{> section/references _icon="icon-references"}}
 
       </div>
