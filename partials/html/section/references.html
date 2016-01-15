@@ -7,7 +7,7 @@
   {{#each r.references}}
     {{#> body-references }}
     <div>
-    <h3><em>{{ name }}</em></h3>
+    <h3><em>{{ name }}</em>{{#if role}}, {{{ role }}}{{/if}}</h3>
     {{{ summary }}}
     </div>
     {{/body-references}}
