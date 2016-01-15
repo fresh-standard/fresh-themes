@@ -7,7 +7,7 @@
   {{#each r.recognition}}
     {{#> body-recognition }}
     <div>
-    <h3><em>{{ title }}</em>, {{ from }}</h3>
+    <h3><em>{{ title }}</em>, {{{link from url }}}</h3>
     <span class="tenure">{{formatDate safe.date 'YYYY' }}</span>
     {{{ summary }}}
     {{> highlights }}
