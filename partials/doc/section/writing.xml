@@ -20,7 +20,7 @@
             <w:rStyle w:val="Hyperlink"/>
           </w:rPr>
           {{/if}}
-          <w:t>{{ title }}</w:t>
+          <w:t>{{{ title }}}</w:t>
         </w:r>
       {{#if url}}</w:hlink>{{/if}}
       <w:r wsp:rsidR="00EA0B64">
