@@ -21,3 +21,5 @@
 {{> section/service }}
 
 {{> section/recognition }}
+
+{{> section/references }}

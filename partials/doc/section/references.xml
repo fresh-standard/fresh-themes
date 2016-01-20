@@ -1,0 +1,49 @@
+<wx:sub-section>
+
+  {{#> header-references }}
+  {{> header-simple _title="REFERENCES" _section="references" }}
+  {{/header-references}}
+
+  {{#each r.references}}
+
+  <wx:sub-section>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00606071" wsp:rsidP="00E578D4">
+      <w:pPr>
+        <w:pStyle w:val="Heading2"/>
+        <w:tabs>
+          <w:tab w:val="right" w:pos="9360"/>
+        </w:tabs>
+      </w:pPr>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>{{{ name }}}</w:t>
+      </w:r>
+      {{#if role}}
+        <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
+          <w:t>, {{{ role }}}</w:t>
+        </w:r>
+      {{/if}}
+      {{#if category}}
+        <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
+          <w:t> ({{{ category }}})</w:t>
+        </w:r>
+      {{/if}}
+      <w:r wsp:rsidR="00EA0B64">
+        <w:tab/>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>{{formatDate safe.start 'MMM YYYY'}} — {{formatDate safe.end 'MMM YYYY'}}</w:t>
+      </w:r>
+    </w:p>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:rPr>
+          <w:sz-cs w:val="20"/>
+        </w:rPr>
+      </w:pPr>
+      {{{wpml summary true}}}
+    </w:p>
+  </wx:sub-section>
+
+  {{/each}}
+
+</wx:sub-section>

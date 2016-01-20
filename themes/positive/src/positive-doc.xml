@@ -562,6 +562,10 @@
       {{/inline}}
       {{#section "speaking"}}{{> section/speaking }}{{/section}}
 
+      {{#*inline "header-references"}}
+      {{> header-icon _title="REFERENCES" _section="references" _icon="pict/arrow" }}
+      {{/inline}}
+      {{#section "references"}}{{> section/references }}{{/section}}
 
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>

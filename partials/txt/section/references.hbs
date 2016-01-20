@@ -1,0 +1,14 @@
+{{#section "references"}}
+{{{sectionTitle "REFERENCES"}}} ---------------------------------------------------------------------
+
+{{#each r.references }}
+{{{ name }}}{{#if role}}, {{{ role }}}{{/if}}{{#if category}} ({{{ category }}}){{/if}}
+{{#if summary }}
+{{{ summary }}}
+{{/if}}
+{{#if contact}}{{#each contact }}{{{ label }}}: {{{ value }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}

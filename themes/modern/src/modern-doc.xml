@@ -202,6 +202,7 @@
       {{#*inline "header-writing"}}{{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}{{/inline}}
       {{#*inline "header-recognition"}}{{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}{{/inline}}
       {{#*inline "header-speaking"}}{{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/arrow" }}{{/inline}}
+      {{#*inline "header-references"}}{{> header-icon _title="REFERENCES" _section="references" _icon="pict/arrow" }}{{/inline}}
 
       {{!<!--
 
@@ -223,6 +224,7 @@
       {{#section "writing"}}{{> section/writing }}{{/section}}
       {{#section "recognition"}}{{> section/recognition }}{{/section}}
       {{#section "speaking"}}{{> section/speaking }}{{/section}}
+      {{#section "references"}}{{> section/references }}{{/section}}
 
       {{!<!--
         And we're done! Close off the word document and go home.
