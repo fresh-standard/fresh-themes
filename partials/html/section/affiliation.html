@@ -1,0 +1,26 @@
+{{#section "affiliation"}}
+<hr>
+<section id="affiliation">
+  {{#> header-affiliation }}
+    {{> header-icon _title="AFFILIATION" _section="affiliation" _hdricon=(lookup . '_icon') }}
+  {{/header-affiliation}}
+
+  {{#each r.affiliation.history}}
+    {{#> body-affiliation }}
+    <div>
+      <h3><em>{{ role }}</em>,
+        {{#if url }}
+        <a href="{{{ url }}}">{{ organization }}</a>
+        {{else}}
+        {{ organization }}
+        {{/if}}
+        </h3>
+        <span class="tenure">{{dateRange .}}</span>
+      {{{ summary }}}
+      {{> highlights }}
+      {{#if keywords}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>{{/if}}
+    </div>
+    {{/body-affiliation}}
+  {{/each}}
+</section>
+{{/section}}

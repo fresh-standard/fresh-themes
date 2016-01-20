@@ -1,0 +1,14 @@
+{{#section "affiliation"}}
+{{{sectionTitle "AFFILIATION"}}} --------------------------------------------------------------------
+
+{{#each r.affiliation.history }}
+{{#if role}}{{{ role }}}, {{/if}}{{{ organization }}} ({{dateRange .}})
+{{{ summary }}}
+{{#if highlights}}
+{{#each highlights}}
+- {{{ this }}}
+{{/each}}
+{{/if}}
+
+{{/each}}
+{{/section}}
