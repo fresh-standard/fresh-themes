@@ -18,7 +18,66 @@
         </div>
       </header>
 
+{{!<!--
 
+  INLINE TEMPLATE DEFINITIONS
+
+-->}}
+
+{{#*inline "icon-skills"}}<span class="fa fa-lg fa-code"></span>{{/inline}}
+{{#*inline "icon-employment"}}<span class="fa fa-building"></span>{{/inline}}
+{{#*inline "icon-projects"}}<span class="fa fa-star"></span>{{/inline}}
+{{#*inline "icon-education"}}<span class="fa fa-mortar-board"></span>{{/inline}}
+{{#*inline "icon-service"}}<span class="fa fa-child"></span>{{/inline}}
+{{#*inline "icon-samples"}}<span class="fa fa-share"></span>{{/inline}}
+{{#*inline "icon-writing"}}<span class="fa fa-pencil"></span>{{/inline}}
+{{#*inline "icon-reading"}}<span class="fa fa-book"></span>{{/inline}}
+{{#*inline "icon-recognition"}}<span class="fa fa-trophy"></span>{{/inline}}
+{{#*inline "icon-speaking"}}<span class="fa fa-users"></span>{{/inline}}
+{{#*inline "icon-testimonials"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
+{{#*inline "icon-references"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
+
+{{#*inline "body-employment" }}
+<div>
+  <h3><em>{{ position }}</em>,
+    {{#if url }}
+    <a href="{{{ url }}}">{{ employer }}</a>
+    {{else}}
+    {{ employer }}
+    {{/if}}
+    </h3>
+    <span class="tenure">{{dateRange .}}</span>
+  <p>{{{ summary }}}</p>
+  {{> highlights }}
+  {{#if keywords}}
+  <span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+  {{/if}}
+</div>
+{{/inline}}
+
+{{#*inline "body-projects" }}
+<div>
+  <h3><em>{{ role }}</em>,
+    {{#if url }}
+    <a href="{{{ url }}}">{{ title }}</a>
+    {{else}}
+    {{ title }}
+    {{/if}}
+    </h3>
+    <span class="tenure">{{dateRange .}}</span>
+  <p>{{{ summary }}}</p>
+  {{> highlights }}
+  {{#if keywords}}
+  <span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+  {{/if}}
+</div>
+{{/inline}}
+
+{{!<!--
+
+  RESUME SECTIONS
+
+-->}}
 
 {{#has "info.brief"}}
 <section id="summary">
@@ -26,49 +85,18 @@
 </section>
 {{/has}}
 
-
-
-{{!<!--
-  Use predefined global partials for the other sections.
-
-  The "inline" bit before each section allows us to pass a custom heading
-  icon into the global partial. For this theme, we're using Font Awesome.
--->}}
-
-{{#*inline "icon-skills"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
-{{> section/skills }}
-
-{{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
-{{> section/employment }}
-
-{{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
-{{> section/projects }}
-
-{{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
-{{> section/education }}
-
-{{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
-{{> section/service }}
-
-{{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
-{{> section/samples }}
-
-{{#*inline "icon-writing"}}<span class="fa fa-lg fa-pencil"></span>{{/inline}}
-{{> section/writing }}
-
-{{#*inline "icon-recognition"}}<span class="fa fa-lg fa-trophy"></span>{{/inline}}
-{{> section/recognition }}
-
-{{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
-{{> section/speaking }}
-
-{{#*inline "icon-testimonials"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
-{{> section/testimonials }}
-
-{{#*inline "icon-references"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
-{{> section/references }}
-
-
+{{> section/skills _icon="icon-skills"}}
+{{> section/employment _icon="icon-employment"}}
+{{> section/projects _icon="icon-projects"}}
+{{> section/education _icon="icon-education"}}
+{{> section/service _icon="icon-service"}}
+{{> section/samples _icon="icon-samples"}}
+{{> section/writing _icon="icon-writing"}}
+{{> section/reading _icon="icon-reading"}}
+{{> section/recognition _icon="icon-recognition"}}
+{{> section/speaking _icon="icon-speaking"}}
+{{> section/testimonials _icon="icon-testimonials"}}
+{{> section/references _icon="icon-references"}}
 
     </main>
   </body>

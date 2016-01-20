@@ -362,7 +362,9 @@
       {{#section "education"}}{{> section/education }}{{/section}}
       {{#section "service"}}{{> section/service }}{{/section}}
       {{#section "writing"}}{{> section/writing }}{{/section}}
+      {{#section "reading"}}{{> section/reading }}{{/section}}
       {{#section "recognition"}}{{> section/recognition }}{{/section}}
+      {{#section "references"}}{{> section/references }}{{/section}}
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>
         <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>

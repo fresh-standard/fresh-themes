@@ -1,0 +1,17 @@
+{{#section "reading"}}
+<hr>
+<section id="reading">
+  {{#> header-reading }}
+    {{> header-icon _title="READING" _section="reading" _hdricon=(lookup . '_icon') }}
+  {{/header-reading}}
+  {{#each r.reading }}
+    {{#> body-reading }}
+    <div>
+    <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>{{#if author}}, {{{ author }}}{{/if}}</h3>
+      <span class="tenure">{{formatDate safe.date 'YYYY'}}</span>
+      {{{ summary }}}
+    </div>
+    {{/body-reading}}
+  {{/each}}
+</section>
+{{/section}}

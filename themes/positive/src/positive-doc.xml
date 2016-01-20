@@ -552,6 +552,11 @@
       {{/inline}}
       {{#section "writing"}}{{> section/writing }}{{/section}}
 
+      {{#*inline "header-reading"}}
+      {{> header-icon _title="READING" _section="reading" _icon="pict/wri" }}
+      {{/inline}}
+      {{#section "reading"}}{{> section/reading }}{{/section}}
+
       {{#*inline "header-recognition"}}
       {{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}
       {{/inline}}

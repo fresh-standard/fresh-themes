@@ -1,0 +1,14 @@
+{{#section "reading"}}
+{{{sectionTitle "READING"}}} ------------------------------------------------------------------------
+
+{{#each r.reading}}
+"{{{ title }}}"{{#if author}}, {{{ author }}}{{/if}}
+{{#if url}}{{{ url }}}
+{{/if}}
+{{#if summary }}{{{ summary }}}
+{{/if}}
+{{#if date}}{{{ date }}}
+{{/if}}
+
+{{/each}}
+{{/section}}

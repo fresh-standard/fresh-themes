@@ -200,6 +200,7 @@
       {{#*inline "header-education"}}{{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}{{/inline}}
       {{#*inline "header-service"}}{{> header-icon _title="SERVICE" _section="service" _icon="pict/srv" }}{{/inline}}
       {{#*inline "header-writing"}}{{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}{{/inline}}
+      {{#*inline "header-reading"}}{{> header-icon _title="READING" _section="reading" _icon="pict/wri" }}{{/inline}}
       {{#*inline "header-recognition"}}{{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}{{/inline}}
       {{#*inline "header-speaking"}}{{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/arrow" }}{{/inline}}
       {{#*inline "header-references"}}{{> header-icon _title="REFERENCES" _section="references" _icon="pict/arrow" }}{{/inline}}
@@ -222,6 +223,7 @@
       {{#section "education"}}{{> section/education }}{{/section}}
       {{#section "service"}}{{> section/service }}{{/section}}
       {{#section "writing"}}{{> section/writing }}{{/section}}
+      {{#section "writing"}}{{> section/reading }}{{/section}}
       {{#section "recognition"}}{{> section/recognition }}{{/section}}
       {{#section "speaking"}}{{> section/speaking }}{{/section}}
       {{#section "references"}}{{> section/references }}{{/section}}
