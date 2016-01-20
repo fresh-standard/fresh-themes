@@ -12,8 +12,8 @@
     {{{ cssInfo.data }}}
     </style>
   </head>
-  <body class="pdf">
-    <main id="main">
+  <body>
+    <main id="main"> {{!<!-- Use your container markup of choice here -->}}
       <div id="container">
       <header>
         <h1>{{{ r.name }}}</h1>
@@ -24,83 +24,109 @@
         </div>
       </header>
 
-
-{{#if r.info.brief}}
+{{#has 'info.brief'}}
 <hr>
 <section id="summary">
+
   <h2>{{{sectionTitle "info" "About"}}}</h2>
   <span class="fa fa-lg fa-user"></span>
+
   {{{ r.info.brief }}}
 </section>
-{{/if}}
+{{/has}}
 
-{{!<!-- A custom skills section with colored skill bars. -->}}
 
 {{#section 'skills' }}
-      <hr>
-      <section id="skills">
-        <header>
-        <h2>{{{sectionTitle "Skills"}}}</h2>
-        </header>
-        <span class="fa fa-lg fa-code"></span>
-        <ul class="list-unstyled">
-          {{#each r.skills.sets}}
-            <li class="card card-nested card-skills">
-              <div class="skill-level" rel="tooltip" title="{{ level }}" data-placement="left">
-                <div class="skill-progress {{toLower level }}"></div>
-              </div>
-              <div class="skill-info">
-                <strong>{{ name }}</strong>
-                <div class="space-top labels">
-                  {{#if skills}}
-                    {{#each skills}}
-                      <span class="label label-keyword">{{ this }}</span>
-                    {{/each}}
-                  {{/if}}
-                </div>
-              </div>
-            </li>
-          {{/each}}
-        </ul>
-      </section>
+<hr>
+<section id="skills">
+  <header>
+  <h2>{{{sectionTitle "Skills"}}}</h2>
+  </header>
+  <span class="fa fa-lg fa-code"></span>
+  <ul class="list-unstyled">
+    {{#each r.skills.sets}}
+      <li class="card card-nested card-skills">
+        <div class="skill-level" rel="tooltip" title="{{ level }}" data-placement="left">
+          <div class="skill-progress {{toLower level }}"></div>
+        </div>
+        <div class="skill-info">
+          <strong>{{ name }}</strong>
+          <div class="space-top labels">
+            {{#if skills}}
+              {{#each skills}}
+                <span class="label label-keyword">{{ this }}</span>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</section>
 {{/section}}
 
-{{!<!--
-  Use predefined global partials for the other sections.
-
-  The "inline" bit before each section allows us to pass a custom heading
-  icon into the global partial. For this theme, we're using Font Awesome.
--->}}
-
 {{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
-{{> section/employment }}
+
+{{#*inline "body-employment" }}
+<div>
+  <h3><em>{{ position }}</em>,
+    {{#if url }}
+    <a href="{{{ url }}}">{{ employer }}</a>
+    {{else}}
+    {{ employer }}
+    {{/if}}
+    </h3>
+    <span class="tenure">{{dateRange .}}</span>
+    {{#if keywords}}
+    {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+    {{/if}}
+  <p>{{{ summary }}}</p>
+  {{> highlights }}
+</div>
+{{/inline}}
+
+{{> section/employment _icon="icon-employment"}}
+
+
+{{#*inline "body-projects" }}
+<div>
+<h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
+{{#if url}}
+<a href="{{{ url }}}">{{ title }}</a>
+{{else}}
+{{ title }}
+{{/if}}
+</h3>
+{{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+{{#if keywords}}
+{{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+{{/if}}
+{{{ summary }}}
+{{> highlights }}
+</div>
+{{/inline}}
 
 {{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
-{{> section/projects }}
+
+{{> section/projects _icon="icon-projects"}}
 
 {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
-{{> section/education }}
-
 {{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
-{{> section/service }}
-
 {{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
-{{> section/samples }}
-
 {{#*inline "icon-writing"}}<span class="fa fa-lg fa-pencil"></span>{{/inline}}
-{{> section/writing }}
-
 {{#*inline "icon-recognition"}}<span class="fa fa-lg fa-trophy"></span>{{/inline}}
-{{> section/recognition }}
-
 {{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
-{{> section/speaking }}
-
 {{#*inline "icon-testimonials"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
-{{> section/testimonials }}
-
 {{#*inline "icon-references"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
-{{> section/references }}
+
+{{> section/education _icon="icon-education"}}
+{{> section/service _icon="icon-service"}}
+{{> section/samples _icon="icon-samples"}}
+{{> section/writing _icon="icon-writing"}}
+{{> section/recognition _icon="icon-recognition"}}
+{{> section/speaking _icon="icon-speaking"}}
+{{> section/testimonials _icon="icon-testimonials"}}
+{{> section/references _icon="icon-references"}}
 
       </div>
     </main>
