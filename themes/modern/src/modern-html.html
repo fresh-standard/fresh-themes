@@ -276,13 +276,40 @@ also doesn't render any content.
 
 {{> section/projects _icon="icon-projects"}}
 
+{{! <!--
+  Move on to the EDUCATION section, giving it the same treatment we gave the
+  EMPLOYMENT section.
+--> }}
+
+
+{{#*inline "body-education" }}
+<div>
+<h3>{{#if title}}<em>{{ title }}</em>,{{/if}}
+{{#if url}}
+<a href="{{{ url }}}">{{ institution }}</a>
+{{else}}
+{{ institution }}
+{{/if}}
+</h3>
+{{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+{{#if curriculum}}
+{{#if start}}| {{/if}}<span class="keywords">{{#each curriculum}}{{{ . }}} {{/each}}</span>
+{{/if}}
+{{{ summary }}}
+{{> highlights }}
+</div>
+{{/inline}}
+
+{{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
+
+{{> section/education _icon="icon-education"}}
+
 
 {{! <!--
   We'll override all section heading icons the same way, for the rest of the
   resume, using the same inline template technique.
 --> }}
 
-{{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
 {{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
 {{#*inline "icon-affiliation"}}<span class="fa fa-lg fa-share-alt"></span>{{/inline}}
 {{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
@@ -298,7 +325,6 @@ also doesn't render any content.
   use the default section partials and style them with whatever CSS we like.
 --> }}
 
-{{> section/education _icon="icon-education"}}
 {{> section/service _icon="icon-service"}}
 {{> section/affiliation _icon="icon-affiliation"}}
 {{> section/samples _icon="icon-samples"}}
