@@ -8,11 +8,11 @@
   {{#each r.affiliation.history}}
     {{#> body-affiliation }}
     <div>
-      <h3><em>{{ role }}</em>,
+      <h3><em>{{{ role }}}</em>,
         {{#if url }}
-        <a href="{{{ url }}}">{{ organization }}</a>
+        <a href="{{{ url }}}">{{{ organization }}}</a>
         {{else}}
-        {{ organization }}
+        {{{ organization }}}
         {{/if}}
         </h3>
         <span class="tenure">{{dateRange .}}</span>
