@@ -50,7 +50,6 @@ GitHub and NPM.
 - [modern][t-modern]: A middle of the road theme with a modern look 'n feel.
 - [compact][t-compact]: A visually dense/compact theme.
 - [awesome][t-awesome]: A technical resume theme based on [Awesome-CV][awe].
-- [underscore][t-underscore]: An unstyled barebones theme.
 - New themes weekly.
 
 All FRESH themes in this repo are MIT licensed. You're free to change, modify,
@@ -120,7 +119,7 @@ MIT. See [LICENSE.md][1] for details.
 [jrs]: http://jsonresume.org
 [awe]: https://github.com/posquit0/Awesome-CV
 [t-awesome]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/awesome
-[t-underscore]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/minimist
+[t-underscore]: https://github.com/fluentdesk/fresh-themes-underscore
 [t-modern]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/modern
 [t-hello]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/hello-world
 [t-compact]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/compact
