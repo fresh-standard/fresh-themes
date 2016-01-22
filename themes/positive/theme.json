@@ -6,5 +6,20 @@
   "inherits": {
     "txt": "basis",
     "md": "basis"
+  },
+  "fonts": {
+    "default": [
+      "Calibri",
+      "Open Sans",
+      "sans-serif"
+    ],
+    "default-html": [
+      "Helvetica Neue"
+      "Helvetica",
+      "Lato",
+      "sans-serif"
+    ],
+    "heading1": ["xkcd"],
+    "heading2": ["xkcd"]
   }
 }

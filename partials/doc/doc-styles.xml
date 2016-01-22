@@ -3,8 +3,8 @@
     <w:name w:val="Normal"/>
     <w:rsid w:val="002743C8"/>
     <w:rPr>
-      <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
-      <wx:font wx:val="Calibri"/>
+      <w:rFonts w:ascii="{{{fontFace 'default'}}}" w:h-ansi="{{{fontFace 'default'}}}"/>
+      <wx:font wx:val="{{{fontFace 'default'}}}"/>
       <w:sz-cs w:val="24"/>
       <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
     </w:rPr>
@@ -26,7 +26,8 @@
       </w:pBdr>
     </w:pPr>
     <w:rPr>
-      <wx:font wx:val="Calibri"/>
+      <wx:font wx:val="{{{fontFace 'heading1'}}}"/>
+      <w:rFonts w:ascii="{{{fontFace 'heading1'}}}" w:h-ansi="{{{fontFace 'heading1'}}}"/>      
       <w:color w:val="AEAAAA"/>
       <w:kern w:val="36"/>
       <w:sz w:val="40"/>
@@ -44,7 +45,8 @@
       <w:outlineLvl w:val="1"/>
     </w:pPr>
     <w:rPr>
-      <wx:font wx:val="Calibri"/>
+      <wx:font wx:val="{{{fontFace 'heading2'}}}"/>
+      <w:rFonts w:ascii="{{{fontFace 'heading2'}}}" w:h-ansi="{{{fontFace 'heading2'}}}"/>
       <w:b/>
       <w:b-cs/>
       <w:caps/>
@@ -117,7 +119,8 @@
     <w:link w:val="Heading2"/>
     <w:rsid w:val="00505903"/>
     <w:rPr>
-      <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
+      <wx:font wx:val="{{{fontFace 'heading2'}}}"/>
+      <w:rFonts w:ascii="{{{fontFace 'heading2'}}}" w:h-ansi="{{{fontFace 'heading2'}}}"/>
       <w:b/>
       <w:b-cs/>
       <w:caps/>
@@ -152,7 +155,8 @@
     <w:link w:val="Heading1"/>
     <w:rsid w:val="00505903"/>
     <w:rPr>
-      <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
+      <wx:font wx:val="{{{fontFace 'heading1'}}}"/>
+      <w:rFonts w:ascii="{{{fontFace 'heading1'}}}" w:h-ansi="{{{fontFace 'heading1'}}}"/>
       <w:color w:val="AEAAAA"/>
       <w:kern w:val="36"/>
       <w:sz w:val="40"/>

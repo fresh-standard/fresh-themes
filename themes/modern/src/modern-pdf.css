@@ -7,7 +7,7 @@ main {
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, 'Lato', sans-serif;
+  font-family: {{{fontList 'default-html'}}};
   font-size: 15px;
   color: #333;
   line-height: 1.42857143;
@@ -17,7 +17,7 @@ body {
 }
 
 /* Typical page borders are awkward when rendered to PDF. */
-body.pdf {
+body {
   background-color: #FFFFFF;
 }
 
@@ -30,7 +30,7 @@ the PDF case, <main> for the HTML case, and style both via an ID. */
   border: 1px solid #E6E6E6;
 }
 
-body.pdf > #main {
+body > #main {
   border: none;
 }
 

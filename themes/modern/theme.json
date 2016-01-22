@@ -10,5 +10,22 @@
   "inherits": {
     "txt": "basis",
     "md": "basis"
+  },
+  "fonts": {
+    "default": [
+      "Segoe UI",
+      "Calibri",
+      "Helvetica Neue",
+      "Helvetica",
+      "sans-serif"
+    ],
+    "default-html": [
+      "Helvetica Neue",
+      "Helvetica",
+      "Lato",
+      "sans-serif"
+    ],
+    "heading1": ["xkcd"],
+    "heading2": ["xkcd"]
   }
 }
