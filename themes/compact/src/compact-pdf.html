@@ -2,10 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>{{ r.name }}</title>
-    <style>
-    {{{ cssInfo.data }}}
-    </style>
+    <title>{{ RAW.name }}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    {{{styleSheet "compact-html.css"}}}
   </head>
   <body>
     <main>
@@ -36,6 +35,7 @@
 {{#*inline "icon-speaking"}}<span class="fa fa-users"></span>{{/inline}}
 {{#*inline "icon-testimonials"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
 {{#*inline "icon-references"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
+{{#*inline "icon-interests"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
 
 {{#*inline "body-employment" }}
 <div>
@@ -97,6 +97,7 @@
 {{> section/speaking _icon="icon-speaking"}}
 {{> section/testimonials _icon="icon-testimonials"}}
 {{> section/references _icon="icon-references"}}
+{{> section/interests _icon="icon-interests"}}
 
     </main>
   </body>

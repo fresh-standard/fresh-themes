@@ -1,3 +1,10 @@
+{{!
+
+  Templatized CSS file for the Modern theme. Expanded by Handlebars during
+  resume generation.
+
+}}
+
 * {
   box-sizing: border-box;
 }

@@ -6,5 +6,8 @@
   "inherits": {
     "txt": "basis",
     "md": "basis"
+  },
+  "fonts": {
+    "default": ["Calibri", "Helvetica Neue", "Helvetica", "Segoe UI", "sans-serif"]
   }
 }
