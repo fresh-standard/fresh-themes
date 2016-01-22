@@ -45,7 +45,7 @@
       available that allows us to do either, conditionally.
     --> }}
 
-    {{{styleSheet "modern-pdf.css" "embed"}}}
+    {{{styleSheet "modern-html.css"}}}
 
     {{! <!--
       Now, depending on options, "modern-html.css" will either be embedded
@@ -98,38 +98,11 @@
 
 
 {{!<!--
-  Now let's emit the candidate's summary, which is stored in r.info.brief.
-  Again we'll use the ((#has)) helper to make sure the candidate HAS a
-  summary, and if so, we'll render an HTML 5 section element containing
-  the Markdownified HTML version of it.
+  Now let's emit the candidate's summary, overriding the icon.
 -->}}
 
-{{#has 'info.brief'}}
-<hr>
-<section id="summary">
-
-  {{!<!--
-    Here we're rendering the title of the summary section, but we don't want
-    to hard code it to "About" or "Summary" because FRESH themes should not
-    assume English. The "sectionTitle" helper allows us to emit an English
-    section title of "About" by default, but provides a hook by which users
-    can override this section title if they want.
-    TL;DR Never write section titles explicitly. Always use the helper.
-  -->}}
-
-  <h2>{{{sectionTitle "info" "About"}}}</h2>
-  <span class="fa fa-lg fa-user"></span>
-
-  {{!<!--
-    Emit the actual summary here.
-    Note the use of triple brackets to tell Handlebars not to further encode
-    the value. The value in r.info.brief has already been encoded (when it was
-    converted to HTML) so there's no need to encode it further.
-  -->}}
-
-  {{{ r.info.brief }}}
-</section>
-{{/has}}
+{{#*inline "icon-info"}}<span class="fa fa-lg fa-info"></span>{{/inline}}
+{{> section/info _icon="icon-info" }}
 
 
 {{! <!--
@@ -319,6 +292,7 @@ also doesn't render any content.
 {{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
 {{#*inline "icon-testimonials"}}<span class="fa fa-lg fa-quote-left"></span>{{/inline}}
 {{#*inline "icon-references"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
+{{#*inline "icon-interests"}}<span class="fa fa-lg fa-bicycle"></span>{{/inline}}
 
 {{! <!--
   And we're done with the customizations. For the rest of the resume, we'll
@@ -334,6 +308,7 @@ also doesn't render any content.
 {{> section/speaking _icon="icon-speaking"}}
 {{> section/testimonials _icon="icon-testimonials"}}
 {{> section/references _icon="icon-references"}}
+{{> section/interests _icon="icon-interests"}}
 
       </div>
     </main>

@@ -4,7 +4,7 @@
 {{#has 'contact.website' }}Web: {{{ r.contact.website }}}{{/has}}
 ================================================================================
 
-{{#has 'info.brief' }}{{{ r.info.brief }}}{{/has}}
+{{> section/info }}
 
 {{> section/skills }}
 

@@ -23,6 +23,7 @@
 
 -->}}
 
+{{#*inline "icon-info"}}<span class="fa fa-lg fa-info"></span>{{/inline}}
 {{#*inline "icon-skills"}}<span class="fa fa-lg fa-code"></span>{{/inline}}
 {{#*inline "icon-employment"}}<span class="fa fa-building"></span>{{/inline}}
 {{#*inline "icon-projects"}}<span class="fa fa-star"></span>{{/inline}}
@@ -79,12 +80,7 @@
 
 -->}}
 
-{{#has "info.brief"}}
-<section id="summary">
-  {{{ r.info.brief }}}
-</section>
-{{/has}}
-
+{{> section/info _icon="icon-info"}}
 {{> section/skills _icon="icon-skills"}}
 {{> section/employment _icon="icon-employment"}}
 {{> section/projects _icon="icon-projects"}}
