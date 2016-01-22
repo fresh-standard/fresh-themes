@@ -51,7 +51,6 @@ GitHub and NPM.
 - [compact][t-compact]: A visually dense/compact theme.
 - [awesome][t-awesome]: A technical resume theme based on [Awesome-CV][awe].
 - [underscore][t-underscore]: An unstyled barebones theme.
-- [hello-world][t-hello]: A simple-as-possible example theme.
 - New themes weekly.
 
 All FRESH themes in this repo are MIT licensed. You're free to change, modify,
