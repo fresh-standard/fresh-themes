@@ -16,7 +16,7 @@
     fill it in to a default value. (Usually, it sets all four font families
     to "Times New Roman").
   }}
-  <w:defaultFonts w:ascii="{{{fontFace 'default'}}}" w:fareast="{{{fontFace 'default'}}}" w:h-ansi="{{{fontFace 'default'}}}" w:cs="{{{fontFace 'default'}}}"/>
+  <w:defaultFonts w:ascii="{{{fontFace 'default' 'Calibri'}}}" w:fareast="{{{fontFace 'default' 'Calibri'}}}" w:h-ansi="{{{fontFace 'default' 'Calibri'}}}" w:cs="{{{fontFace 'default' 'Calibri'}}}"/>
 
   {{!
     Here go individual <w:font> entries. These are not required to actually use
@@ -28,7 +28,7 @@
     New Roman.
   }}
 
-  <w:font w:name="{{{fontFace 'default'}}}">
+  <w:font w:name="{{{fontFace 'default' 'Calibri'}}}">
     <w:panose-1 w:val="02020603050405020304"/>
     <w:charset w:val="00"/>
     <w:family w:val="Roman"/>
