@@ -3,7 +3,8 @@
 
 {{#each r.writing}}
 {{{ title }}}{{#has 'safe.date'}} ({{formatDate safe.date 'YYYY-MM' }}){{/has}}
-{{{ summary }}}
+{{#if summary}}{{{ summary }}}
+{{/if}}
 
 {{/each}}
 {{/section}}

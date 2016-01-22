@@ -29,3 +29,5 @@
 {{> section/speaking }}
 
 {{> section/references }}
+
+{{> section/interests }}

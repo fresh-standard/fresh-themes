@@ -27,3 +27,5 @@
 {{> section/recognition }}
 
 {{> section/references }}
+
+{{> section/interests }}

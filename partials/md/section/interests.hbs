@@ -1,0 +1,12 @@
+{{#section "interests"}}
+## {{{sectionTitle "INTERESTS"}}}
+
+{{#each r.interests}}
+- {{{toUpper name }}}{{#if keywords}}: {{#each keywords}}{{{ . }}} {{/each}}{{/if}}
+{{#if summary}}
+{{{ summary }}}
+{{/if}}
+
+{{/each}}
+
+{{/section}}

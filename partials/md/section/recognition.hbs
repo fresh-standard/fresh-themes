@@ -1,10 +1,12 @@
-{{#section 'recognition'}}
+{{#section "recognition"}}
 ## {{{sectionTitle "RECOGNITION"}}}
 
 {{#each r.recognition}}
-### *{{{ title }}}*, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
+### {{{ title }}}{{#if from}}, {{{ from }}}{{/if}}
+{{~#has 'safe.date'}} ({{formatDate safe.date 'MMM YYYY' }}){{/has}}
+{{~#if summary}}
 
-{{{ summary }}}
+{{{ summary }}}{{/if}}
 
 {{/each}}
 {{/section}}

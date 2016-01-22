@@ -2,8 +2,11 @@
 {{{sectionTitle "RECOGNITION"}}} --------------------------------------------------------------------
 
 {{#each r.recognition}}
-{{{ title }}}, {{{ from }}} ({{formatDate safe.date 'MMM YYYY' }})
-{{{ summary }}}
+{{{ title }}}{{#if from}}, {{{ from }}}{{/if}}
+{{~#has 'safe.date'}} ({{formatDate safe.date 'MMM YYYY' }}){{/has}}
+{{~#if summary}}
+
+{{{ summary }}}{{/if}}
 
 {{/each}}
 {{/section}}
