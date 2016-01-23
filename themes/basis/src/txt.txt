@@ -12,6 +12,8 @@
 
 {{> section/projects }}
 
+{{> section/governance }}
+
 {{> section/education }}
 
 {{> section/affiliation }}
