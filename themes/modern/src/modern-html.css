@@ -14,7 +14,7 @@ main {
 }
 
 body {
-  font-family: {{{fontList 'default-html'}}};
+  font-family: {{{fontList 'default'}}};
   font-size: 15px;
   color: #333;
   line-height: 1.42857143;
