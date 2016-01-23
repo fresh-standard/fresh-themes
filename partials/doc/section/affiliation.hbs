@@ -15,7 +15,7 @@
         </w:tabs>
       </w:pPr>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>{{ role }}, </w:t>
+        <w:t>{{{ role }}}, </w:t>
       </w:r>
       {{#if url}}<w:hlink w:dest="{{{ url }}}">{{/if}}
         <w:r wsp:rsidR="009452CA" wsp:rsidRPr="00606071">
@@ -24,13 +24,16 @@
             <w:rStyle w:val="Hyperlink"/>
           </w:rPr>
           {{/if}}
-          <w:t>{{ organization }}</w:t>
+          <w:t>{{{ organization }}}</w:t>
         </w:r>
       {{#if url}}</w:hlink>{{/if}}
       <w:r wsp:rsidR="00EA0B64">
         <w:tab/>
       </w:r>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:rPr>
+          <w:rStyle w:val="FromTo"/>
+        </w:rPr>
         <w:t>{{dateRange . 'MMM YYYY'}}</w:t>
       </w:r>
     </w:p>
