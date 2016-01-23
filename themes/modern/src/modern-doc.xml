@@ -37,8 +37,6 @@
       <o:DocumentProperties>
       <w:fonts>
       <w:lists>
-      <w:styles>
-      <w:docPr>
 
     To do that, we'll use the Handlebars partial syntax and pull in the
     sections one after the other.
@@ -48,7 +46,285 @@
   {{> doc-properties }}
   {{> doc-fonts }}
   {{> doc-lists }}
-  {{> doc-styles }}
+
+  {{!<!--
+
+    The <styles> section contains named style definitions for the Word document.
+    Here we can adjust fonts, paragraph settings, and make other stylistic
+    changes specific to the Word format of this resume. There's also a prebuilt
+    section partial we could use here (section/doc-styles) but that would make
+    it difficult to edit invidual styles.
+
+  -->}}
+
+  <w:styles>
+    <w:style w:type="paragraph" w:default="on" w:styleId="Normal">
+      <w:name w:val="Normal"/>
+      <w:rsid w:val="002743C8"/>
+      <w:rPr>
+        <w:rFonts w:ascii="{{{fontFace 'default' 'Calibri'}}}" w:h-ansi="{{{fontFace 'default' 'Calibri'}}}"/>
+        <wx:font wx:val="{{{fontFace 'default' 'Calibri'}}}"/>
+        <w:sz-cs w:val="24"/>
+        <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
+      </w:rPr>
+      <w:pPr>
+        <w:jc w:val="both"/>
+      </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Heading1">
+      <w:name w:val="heading 1"/>
+      <wx:uiName wx:val="Heading 1"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="Heading1Char"/>
+      <w:rsid w:val="00505903"/>
+      <w:pPr>
+        <w:spacing w:before="100" w:before-autospacing="on"/>
+        <w:outlineLvl w:val="0"/>
+        <w:pBdr>
+          <w:top w:val="single" w:sz="6" w:space="1" w:color="#EEEEEE" />
+        </w:pBdr>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading1' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:color w:val="AEAAAA"/>
+        <w:kern w:val="36"/>
+        <w:sz w:val="40"/>
+        <w:sz-cs w:val="40"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Heading2">
+      <w:name w:val="heading 2"/>
+      <wx:uiName wx:val="Heading 2"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="Heading2Char"/>
+      <w:rsid w:val="00505903"/>
+      <w:pPr>
+        <w:spacing w:before="600"/>
+        <w:outlineLvl w:val="1"/>
+      </w:pPr>
+      <w:rPr>
+        <w:color w:val="595959"/>
+        <wx:font wx:val="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading2' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:b/>
+        <w:b-cs/>
+        <!-- <w:caps/> -->
+        <w:sz-cs w:val="28"/>
+        <w:sz w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Heading3">
+      <w:name w:val="heading 3"/>
+      <wx:uiName wx:val="Heading 3"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="Heading3Char"/>
+      <w:rsid w:val="001B7422"/>
+      <w:pPr>
+        <w:spacing w:before="240" w:after="100" w:after-autospacing="on"/>
+        <w:outlineLvl w:val="2"/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+        <w:b/>
+        <w:b-cs/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="FromTo">
+      <w:name w:val="FromTo"/>
+      <w:rsid w:val="004E2103"/>
+      <w:rPr>
+        <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
+        <w:b w:val="off"/>
+        <w:b-cs/>
+        <w:color w:val="AEAAAA"/>
+        <w:sz w:val="28"/>
+        <w:sz-cs w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:default="on" w:styleId="DefaultParagraphFont">
+      <w:name w:val="Default Paragraph Font"/>
+    </w:style>
+    <w:style w:type="table" w:default="on" w:styleId="TableNormal">
+      <w:name w:val="Normal Table"/>
+      <wx:uiName wx:val="Table Normal"/>
+      <w:rPr>
+        <wx:font wx:val="Times New Roman"/>
+        <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
+      </w:rPr>
+      <w:tblPr>
+        <w:tblInd w:w="0" w:type="dxa"/>
+        <w:tblCellMar>
+          <w:top w:w="0" w:type="dxa"/>
+          <w:left w:w="108" w:type="dxa"/>
+          <w:bottom w:w="0" w:type="dxa"/>
+          <w:right w:w="108" w:type="dxa"/>
+        </w:tblCellMar>
+      </w:tblPr>
+    </w:style>
+    <w:style w:type="list" w:default="on" w:styleId="NoList">
+      <w:name w:val="No List"/>
+    </w:style>
+    <w:style w:type="character" w:styleId="Hyperlink">
+      <w:name w:val="Hyperlink"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:strike w:val="off"/>
+        <w:dstrike w:val="off"/>
+        <w:color w:val="2F5496"/>
+        <w:u w:val="none"/>
+        <w:effect w:val="none"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="FollowedHyperlink">
+      <w:name w:val="FollowedHyperlink"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:strike w:val="off"/>
+        <w:dstrike w:val="off"/>
+        <w:color w:val="7B0796"/>
+        <w:u w:val="none"/>
+        <w:effect w:val="none"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Heading2Char">
+      <w:name w:val="Heading 2 Char"/>
+      <w:link w:val="Heading2"/>
+      <w:rsid w:val="00505903"/>
+      <w:rPr>
+        <wx:font wx:val="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading2' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:b/>
+        <w:b-cs/>
+        <!-- <w:caps/> -->
+        <w:sz-cs w:val="28"/>
+        <w:sz w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Heading3Char">
+      <w:name w:val="Heading 3 Char"/>
+      <w:link w:val="Heading3"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:rFonts w:ascii="{{{fontFace 'heading3' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading3' 'Calibri'}}}"/>
+        <w:color w:val="1F4D78"/>
+        <w:sz w:val="28"/>
+        <w:sz-cs w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="NormalWeb">
+      <w:name w:val="Normal (Web)"/>
+      <w:basedOn w:val="Normal"/>
+      <w:rsid w:val="001B7422"/>
+      <w:pPr>
+        <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+        <w:jc w:val="both"/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Heading1Char">
+      <w:name w:val="Heading 1 Char"/>
+      <w:link w:val="Heading1"/>
+      <w:rsid w:val="00505903"/>
+      <w:rPr>
+        <wx:font wx:val="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading1' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:color w:val="AEAAAA"/>
+        <w:kern w:val="36"/>
+        <w:sz w:val="40"/>
+        <w:sz-cs w:val="40"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Strong">
+      <w:name w:val="Strong"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:b/>
+        <w:b-cs/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Emphasis">
+      <w:name w:val="Emphasis"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:i/>
+        <w:i-cs/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="tenure">
+      <w:name w:val="tenure"/>
+      <w:basedOn w:val="DefaultParagraphFont"/>
+      <w:rsid w:val="001B7422"/>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Title">
+      <w:name w:val="Title"/>
+      <w:basedOn w:val="Normal"/>
+      <w:next w:val="Normal"/>
+      <w:link w:val="TitleChar"/>
+      <w:rsid w:val="002D3B7B"/>
+      <w:pPr>
+        <w:contextualSpacing/>
+      </w:pPr>
+      <w:rPr>
+        <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
+        <wx:font wx:val="Segoe UI"/>
+        <w:b/>
+        <w:spacing w:val="-10"/>
+        <w:kern w:val="28"/>
+        <w:sz w:val="48"/>
+        <w:sz-cs w:val="56"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="TitleChar">
+      <w:name w:val="Title Char"/>
+      <w:link w:val="Title"/>
+      <w:rsid w:val="002D3B7B"/>
+      <w:rPr>
+        <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
+        <w:spacing w:val="-10"/>
+        <w:kern w:val="28"/>
+        <w:sz w:val="48"/>
+        <w:sz-cs w:val="56"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="ListParagraph">
+      <w:name w:val="List Paragraph"/>
+      <w:basedOn w:val="Normal"/>
+      <w:rsid w:val="00C146CA"/>
+      <w:pPr>
+        <w:ind w:left="720"/>
+        <w:contextualSpacing/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Summary">
+      <w:name w:val="Summary"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="SummaryChar"/>
+      <w:rsid w:val="00A210E1"/>
+      <w:pPr>
+        <w:spacing w:before="120"/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+        <w:color w:val="767171"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="SummaryChar">
+      <w:name w:val="Summary Char"/>
+      <w:link w:val="Summary"/>
+      <w:rsid w:val="00A210E1"/>
+      <w:rPr>
+        <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
+        <w:sz-cs w:val="24"/>
+      </w:rPr>
+    </w:style>
+  </w:styles>
+
   {{> doc-pr }}
 
   {{!<!--
@@ -197,15 +473,16 @@
       -->}}
 
       {{#*inline "header-projects"}}{{> header-icon _title="PROJECTS" _section="projects" _icon="pict/star" }}{{/inline}}
-      {{#*inline "header-governance"}}{{> header-icon _title="GOVERNANCE" _section="governance" _icon="pict/star" }}{{/inline}}
+      {{#*inline "header-governance"}}{{> header-icon _title="GOVERNANCE" _section="governance" _icon="pict/justice-scales" }}{{/inline}}
       {{#*inline "header-education"}}{{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}{{/inline}}
       {{#*inline "header-service"}}{{> header-icon _title="SERVICE" _section="service" _icon="pict/srv" }}{{/inline}}
+      {{#*inline "header-affiliation"}}{{> header-icon _title="AFFILIATION" _section="affiliation" _icon="pict/share-alt" }}{{/inline}}
       {{#*inline "header-writing"}}{{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}{{/inline}}
-      {{#*inline "header-reading"}}{{> header-icon _title="READING" _section="reading" _icon="pict/wri" }}{{/inline}}
+      {{#*inline "header-reading"}}{{> header-icon _title="READING" _section="reading" _icon="pict/book" }}{{/inline}}
       {{#*inline "header-recognition"}}{{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}{{/inline}}
-      {{#*inline "header-speaking"}}{{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/arrow" }}{{/inline}}
-      {{#*inline "header-references"}}{{> header-icon _title="REFERENCES" _section="references" _icon="pict/arrow" }}{{/inline}}
-      {{#*inline "header-interests"}}{{> header-icon _title="INTERESTS" _section="interests" _icon="pict/arrow" }}{{/inline}}
+      {{#*inline "header-speaking"}}{{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/group" }}{{/inline}}
+      {{#*inline "header-references"}}{{> header-icon _title="REFERENCES" _section="references" _icon="pict/thumbs-up" }}{{/inline}}
+      {{#*inline "header-interests"}}{{> header-icon _title="INTERESTS" _section="interests" _icon="pict/bicycle" }}{{/inline}}
 
       {{!<!--
 
@@ -222,14 +499,16 @@
 
       {{#section "employment"}}{{> section/employment }}{{/section}}
       {{#section "projects"}}{{> section/projects }}{{/section}}
-      {{#section "projects"}}{{> section/governance }}{{/section}}
+      {{#section "governance"}}{{> section/governance }}{{/section}}
       {{#section "education"}}{{> section/education }}{{/section}}
       {{#section "service"}}{{> section/service }}{{/section}}
+      {{#section "affiliation"}}{{> section/affiliation }}{{/section}}
       {{#section "writing"}}{{> section/writing }}{{/section}}
       {{#section "writing"}}{{> section/reading }}{{/section}}
       {{#section "recognition"}}{{> section/recognition }}{{/section}}
       {{#section "speaking"}}{{> section/speaking }}{{/section}}
       {{#section "interests"}}{{> section/interests }}{{/section}}
+      {{#section "references"}}{{> section/references }}{{/section}}
 
       {{!<!--
         And we're done! Close off the word document and go home.

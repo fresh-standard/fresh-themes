@@ -8,6 +8,7 @@
     <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00D1523B" wsp:rsidP="00C146CA">
       <w:pPr>
         <w:pStyle w:val="Heading1"/>
+        <w:ind w:left="-720"/>
       </w:pPr>
       <w:r>
         <w:pict>
