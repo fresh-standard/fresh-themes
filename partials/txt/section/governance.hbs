@@ -1,0 +1,17 @@
+{{#section "governance" }}
+{{{sectionTitle "GOVERNANCE"}}} ---------------------------------------------------------------------
+
+{{#each r.governance }}
+{{#if role}}{{{ role }}}, {{/if}}{{{ organization }}}{{#has 'start'}} ({{dateRange .}}){{/has}}
+{{~#if summary}}
+
+{{{ summary }}}{{/if}}
+
+{{~#if highlights}}
+
+{{#each highlights}}
+- {{{ this }}}
+{{/each}}{{/if}}
+
+{{/each}}
+{{/section}}
