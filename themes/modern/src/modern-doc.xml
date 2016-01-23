@@ -197,6 +197,7 @@
       -->}}
 
       {{#*inline "header-projects"}}{{> header-icon _title="PROJECTS" _section="projects" _icon="pict/star" }}{{/inline}}
+      {{#*inline "header-governance"}}{{> header-icon _title="GOVERNANCE" _section="governance" _icon="pict/star" }}{{/inline}}
       {{#*inline "header-education"}}{{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}{{/inline}}
       {{#*inline "header-service"}}{{> header-icon _title="SERVICE" _section="service" _icon="pict/srv" }}{{/inline}}
       {{#*inline "header-writing"}}{{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}{{/inline}}
@@ -221,6 +222,7 @@
 
       {{#section "employment"}}{{> section/employment }}{{/section}}
       {{#section "projects"}}{{> section/projects }}{{/section}}
+      {{#section "projects"}}{{> section/governance }}{{/section}}
       {{#section "education"}}{{> section/education }}{{/section}}
       {{#section "service"}}{{> section/service }}{{/section}}
       {{#section "writing"}}{{> section/writing }}{{/section}}

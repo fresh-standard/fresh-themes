@@ -37,7 +37,7 @@
 
     {{!<!-- TODO: Optimize Google Fonts and Font Awesome access. -->}}
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
     {{! <!--
       Link in the resume's stylesheet. We could use a <link> tag here as above,
@@ -276,6 +276,34 @@ also doesn't render any content.
 {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
 
 {{> section/education _icon="icon-education"}}
+
+
+{{! <!--
+  Move on to the GOVERNANCE section, giving it the same treatment we gave the
+  EMPLOYMENT section.
+--> }}
+
+{{#*inline "body-governance" }}
+<div>
+<h3>{{#if role}}<em>{{{ role }}}</em>,{{/if}}
+{{#if url}}
+<a href="{{{ url }}}">{{{ organization }}}</a>
+{{else}}
+{{{ organization }}}
+{{/if}}
+</h3>
+{{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+{{#if keywords}}
+{{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+{{/if}}
+{{{ summary }}}
+{{> highlights }}
+</div>
+{{/inline}}
+
+{{#*inline "icon-governance"}}<span class="fa fa-lg fa-balance-scale"></span>{{/inline}}
+
+{{> section/governance _icon="icon-governance"}}
 
 
 {{! <!--
