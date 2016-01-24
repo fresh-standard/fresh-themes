@@ -99,6 +99,16 @@
       {{/inline}}
       {{#section "projects"}}{{> section/projects }}{{/section}}
 
+      {{#*inline "header-governance"}}
+      {{> header-icon _title="GOVERNANCE" _section="governance" _icon="pict/justice-scales" }}
+      {{/inline}}
+      {{#section "governance"}}{{> section/governance }}{{/section}}
+
+      {{#*inline "header-affiliation"}}
+      {{> header-icon _title="AFFILIATION" _section="affiliation" _icon="pict/share-alt" }}
+      {{/inline}}
+      {{#section "affiliation"}}{{> section/affiliation }}{{/section}}
+
       {{#*inline "header-education"}}
       {{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}
       {{/inline}}
@@ -115,7 +125,7 @@
       {{#section "writing"}}{{> section/writing }}{{/section}}
 
       {{#*inline "header-reading"}}
-      {{> header-icon _title="READING" _section="reading" _icon="pict/wri" }}
+      {{> header-icon _title="READING" _section="reading" _icon="pict/book" }}
       {{/inline}}
       {{#section "reading"}}{{> section/reading }}{{/section}}
 
@@ -125,14 +135,19 @@
       {{#section "recognition"}}{{> section/recognition }}{{/section}}
 
       {{#*inline "header-speaking"}}
-      {{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/arrow" }}
+      {{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/group" }}
       {{/inline}}
       {{#section "speaking"}}{{> section/speaking }}{{/section}}
 
       {{#*inline "header-references"}}
-      {{> header-icon _title="REFERENCES" _section="references" _icon="pict/arrow" }}
+      {{> header-icon _title="REFERENCES" _section="references" _icon="pict/thumbs-up" }}
       {{/inline}}
       {{#section "references"}}{{> section/references }}{{/section}}
+
+      {{#*inline "header-interests"}}
+      {{> header-icon _title="INTERESTS" _section="interests" _icon="pict/bicycle" }}
+      {{/inline}}
+      {{#section "interests"}}{{> section/interests }}{{/section}}
 
       <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
         <w:pgSz w:w="12240" w:h="15840"/>

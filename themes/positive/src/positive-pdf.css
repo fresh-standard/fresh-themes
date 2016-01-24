@@ -127,7 +127,8 @@ header > span.fa {
   width: 40px;
   top: 10px;
   font-size: 30px;
-  transform: translateX(-110%);
+  /*transform: translateX(-110%); PDF no likey */
+  margin-left: -50px;
   color: #DADADA;
 }
 

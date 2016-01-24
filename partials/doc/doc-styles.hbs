@@ -64,7 +64,7 @@
       <w:outlineLvl w:val="2"/>
     </w:pPr>
     <w:rPr>
-      <wx:font wx:val="Calibri"/>
+      <wx:font wx:val="{{fontFace 'heading3'}}"/>
       <w:b/>
       <w:b-cs/>
     </w:rPr>
@@ -98,7 +98,7 @@
     <w:rPr>
       <w:strike w:val="off"/>
       <w:dstrike w:val="off"/>
-      <w:color w:val="0064BD"/>
+      <w:color w:val="{{{color 'hyperlink' '0064BD'}}}"/>
       <w:u w:val="none"/>
       <w:effect w:val="none"/>
     </w:rPr>
@@ -194,8 +194,8 @@
       <w:contextualSpacing/>
     </w:pPr>
     <w:rPr>
-      <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
-      <wx:font wx:val="Segoe UI"/>
+      <w:rFonts w:ascii="{{fontFace 'title'}}" w:h-ansi="{{fontFace 'title'}}"/>
+      <wx:font wx:val="{{fontFace 'title'}}"/>
       <w:b/>
       <w:spacing w:val="-10"/>
       <w:kern w:val="28"/>
@@ -208,7 +208,7 @@
     <w:link w:val="Title"/>
     <w:rsid w:val="002D3B7B"/>
     <w:rPr>
-      <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
+      <w:rFonts w:ascii="{{fontFace 'title'}}" w:h-ansi="{{fontFace 'title'}}"/>
       <w:spacing w:val="-10"/>
       <w:kern w:val="28"/>
       <w:sz w:val="48"/>

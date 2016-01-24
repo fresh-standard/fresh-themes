@@ -1,12 +1,12 @@
 html, body, main, section, header, ul, p, h1, h2, h3 {
-  font-family: Calibri, 'Open Sans', sans-serif;
+  font-family: {{{fontList 'default'}}};
   font-size: 14px;
   margin: 0; padding: 0;
   display: block;
 }
 
 a {
-  color: #0064BD;
+  color: #{{color 'hyperlink'}};
   text-decoration: none;
 }
 
@@ -130,7 +130,7 @@ h1, h2, .label {
   font-size: 2.5em;
   text-transform: uppercase;
   font-weight: 300;
-  font-family: 'Open Sans', 'Segoe UI', sans-serif;
+  font-family: {{{fontList 'heading1'}}}
 }
 
 #contact {
@@ -145,7 +145,8 @@ header > span.fa {
   width: 40px;
   top: 10px;
   font-size: 30px;
-  transform: translateX(-110%);
+  /*transform: translateX(-110%); PDF no likey */
+  margin-left: -50px;
   color: #DADADA;
 }
 
