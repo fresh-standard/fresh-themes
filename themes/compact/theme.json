@@ -8,6 +8,28 @@
     "md": "basis"
   },
   "fonts": {
-    "default": ["Calibri", "Helvetica Neue", "Helvetica", "Segoe UI", "sans-serif"]
+    "all": {
+      "default": ["Calibri", "Helvetica Neue", "Helvetica", "Segoe UI", "sans-serif"],
+      "title": [ "Calibri" ],
+      "heading3": [ "Calibri" ]
+    },
+    "doc": {
+      "default": {
+        "name": "Calibri",
+        "size": 20
+      },
+      "heading1": {
+        "name": "Calibri",
+        "size": 20
+      },
+      "heading3": {
+        "name": "Calibri",
+        "size": 20
+      },
+      "title": {
+        "name": "Calibri",
+        "size": 20
+      }
+    }
   }
 }
