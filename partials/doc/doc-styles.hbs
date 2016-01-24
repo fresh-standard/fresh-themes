@@ -22,16 +22,16 @@
       <w:spacing w:before="100" w:before-autospacing="on"/>
       <w:outlineLvl w:val="0"/>
       <w:pBdr>
-        <w:top w:val="single" w:sz="6" w:space="1" w:color="#EEEEEE" />
+        <w:top w:val="single" w:sz="6" w:space="1" w:color="{{{color 'heading-border' 'EEEEEE'}}}" />
       </w:pBdr>
     </w:pPr>
     <w:rPr>
       <wx:font wx:val="{{{fontFace 'heading1' 'Calibri'}}}"/>
       <w:rFonts w:ascii="{{{fontFace 'heading1' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading1' 'Calibri'}}}"/>
-      <w:color w:val="AEAAAA"/>
+      <w:color w:val="{{{color 'heading1' 'AEAAAA'}}}"/>
       <w:kern w:val="36"/>
-      <w:sz w:val="40"/>
-      <w:sz-cs w:val="40"/>
+      <w:sz w:val="{{{fontSize 'heading1' 40 'half-point'}}}"/>
+      <w:sz-cs w:val="{{{fontSize 'heading1' 40 'half-point'}}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="paragraph" w:styleId="Heading2">
@@ -109,7 +109,7 @@
     <w:rPr>
       <w:strike w:val="off"/>
       <w:dstrike w:val="off"/>
-      <w:color w:val="7B0796"/>
+      <w:color w:val="{{{color 'visited' '7B0796'}}}"/>
       <w:u w:val="none"/>
       <w:effect w:val="none"/>
     </w:rPr>
@@ -134,8 +134,8 @@
     <w:rPr>
       <w:rFonts w:ascii="Calibri Light" w:fareast="Times New Roman" w:h-ansi="Calibri Light" w:cs="Times New Roman"/>
       <w:color w:val="1F4D78"/>
-      <w:sz w:val="24"/>
-      <w:sz-cs w:val="24"/>
+      <w:sz w:val="{{fontSize 'heading3' 24 'half-point'}}"/>
+      <w:sz-cs w:val="{{fontSize 'heading3' 24 'half-point'}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="paragraph" w:styleId="NormalWeb">
@@ -157,10 +157,10 @@
     <w:rPr>
       <wx:font wx:val="{{{fontFace 'heading1' 'Calibri'}}}"/>
       <w:rFonts w:ascii="{{{fontFace 'heading1' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading1' 'Calibri'}}}"/>
-      <w:color w:val="AEAAAA"/>
+      <w:color w:val="{{{color 'heading1' 'AEAAAA'}}}"/>
       <w:kern w:val="36"/>
-      <w:sz w:val="40"/>
-      <w:sz-cs w:val="40"/>
+      <w:sz w:val="{{fontSize 'heading1' 40 'half-point'}}"/>
+      <w:sz-cs w:val="{{fontSize 'heading1' 40 'half-point'}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="character" w:styleId="Strong">
@@ -194,13 +194,13 @@
       <w:contextualSpacing/>
     </w:pPr>
     <w:rPr>
-      <w:rFonts w:ascii="{{fontFace 'title'}}" w:h-ansi="{{fontFace 'title'}}"/>
-      <wx:font wx:val="{{fontFace 'title'}}"/>
+      <w:rFonts w:ascii="{{{fontFace 'title'}}}" w:h-ansi="{{{fontFace 'title'}}}"/>
+      <wx:font wx:val="{{{fontFace 'title'}}}"/>
       <w:b/>
       <w:spacing w:val="-10"/>
       <w:kern w:val="28"/>
-      <w:sz w:val="48"/>
-      <w:sz-cs w:val="56"/>
+      <w:sz w:val="{{{fontSize 'title' 48 'half-point'}}}"/>
+      <w:sz-cs w:val="{{{fontSize 'title' 48 'half-point'}}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="character" w:styleId="TitleChar">
@@ -208,11 +208,11 @@
     <w:link w:val="Title"/>
     <w:rsid w:val="002D3B7B"/>
     <w:rPr>
-      <w:rFonts w:ascii="{{fontFace 'title'}}" w:h-ansi="{{fontFace 'title'}}"/>
+      <w:rFonts w:ascii="{{{fontFace 'title'}}}" w:h-ansi="{{{fontFace 'title'}}}"/>
       <w:spacing w:val="-10"/>
       <w:kern w:val="28"/>
-      <w:sz w:val="48"/>
-      <w:sz-cs w:val="56"/>
+      <w:sz w:val="{{{fontSize 'title' 48 'half-point'}}}"/>
+      <w:sz-cs w:val="{{{fontSize 'title' 48 'half-point'}}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="paragraph" w:styleId="ListParagraph">
@@ -237,7 +237,7 @@
     </w:pPr>
     <w:rPr>
       <wx:font wx:val="Calibri"/>
-      <w:color w:val="767171"/>
+      <w:color w:val="{{{color 'summary' '767171'}}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="character" w:styleId="SummaryChar">
