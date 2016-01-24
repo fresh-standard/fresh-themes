@@ -1,7 +1,7 @@
 <wx:sub-section>
 
   {{#> header-interests }}
-  {{> header-interests _title="INTERESTS" _section="interests" }}
+  {{> header-simple _title="INTERESTS" _section="interests" }}
   {{/header-interests}}
 
   <wx:sub-section>
@@ -22,7 +22,7 @@
         <w:tab/>
       </w:r>
       <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
-        <w:t>{{#each keywords}}{{{ . }}}{{/each}}</w:t>
+        <w:t>{{#each keywords}}{{#unless @first}}, {{/unless}}{{{ . }}}{{/each}}</w:t>
       </w:r>
       {{/if}}
     </w:p>
