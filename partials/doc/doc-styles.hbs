@@ -76,7 +76,7 @@
     <w:name w:val="Normal Table"/>
     <wx:uiName wx:val="Table Normal"/>
     <w:rPr>
-      <wx:font wx:val="Times New Roman"/>
+      <wx:font wx:val="{{{fontFace 'table' 'Calibri'}}}"/>
       <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
     </w:rPr>
     <w:tblPr>
@@ -124,7 +124,7 @@
       <w:b/>
       <w:b-cs/>
       <w:caps/>
-      <w:sz-cs w:val="36"/>
+      <w:sz-cs w:val="{{{fontSize 'heading2' 36 'half-point'}}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="character" w:styleId="Heading3Char">
@@ -132,10 +132,10 @@
     <w:link w:val="Heading3"/>
     <w:rsid w:val="001B7422"/>
     <w:rPr>
-      <w:rFonts w:ascii="Calibri Light" w:fareast="Times New Roman" w:h-ansi="Calibri Light" w:cs="Times New Roman"/>
+      <w:rFonts w:ascii="{{{fontFace 'heading3' 'Calibri'}}}" w:fareast="{{{fontFace 'heading3' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading3' 'Calibri'}}}" w:cs="{{{fontFace 'heading3' 'Calibri'}}}"/>
       <w:color w:val="1F4D78"/>
-      <w:sz w:val="{{fontSize 'heading3' 24 'half-point'}}"/>
-      <w:sz-cs w:val="{{fontSize 'heading3' 24 'half-point'}}"/>
+      <w:sz w:val="{{{fontSize 'heading3' 24 'half-point'}}}"/>
+      <w:sz-cs w:val="{{{fontSize 'heading3' 24 'half-point'}}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="paragraph" w:styleId="NormalWeb">
@@ -147,7 +147,7 @@
       <w:jc w:val="both"/>
     </w:pPr>
     <w:rPr>
-      <wx:font wx:val="Calibri"/>
+      <wx:font wx:val="{{{fontFace 'default-view-web' 'Calibri' }}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="character" w:styleId="Heading1Char">
@@ -224,7 +224,7 @@
       <w:contextualSpacing/>
     </w:pPr>
     <w:rPr>
-      <wx:font wx:val="Calibri"/>
+      <wx:font wx:val="{{{fontFace 'list-paragraph' 'Calibri' }}}"/>
     </w:rPr>
   </w:style>
   <w:style w:type="paragraph" w:styleId="Summary">
@@ -236,7 +236,7 @@
       <w:spacing w:before="120"/>
     </w:pPr>
     <w:rPr>
-      <wx:font wx:val="Calibri"/>
+      <wx:font wx:val="{{{fontFace 'summary' 'Calibri'}}}"/>
       <w:color w:val="{{{color 'summary' '767171'}}}"/>
     </w:rPr>
   </w:style>
@@ -245,8 +245,9 @@
     <w:link w:val="Summary"/>
     <w:rsid w:val="00A210E1"/>
     <w:rPr>
-      <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
-      <w:sz-cs w:val="24"/>
+      <w:rFonts w:ascii="{{{fontFace 'summary' 'Calibri'}}}" w:h-ansi="{{{fontFace 'summary' 'Calibri'}}}"/>
+      <w:sz-cs w:val="{{{fontSize 'summary' 24 'half-point'}}}"/>
+      <w:sz w:val="{{{fontSize 'summary' 24 'half-point'}}}"/>
     </w:rPr>
   </w:style>
 </w:styles>
