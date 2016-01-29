@@ -1,6 +1,6 @@
 {
   "title": "positive",
-  "description": "A conventional résumé theme for FluentCV.",
+  "description": "A conventional résumé theme.",
   "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
   "engine": "handlebars",
   "inherits": {
