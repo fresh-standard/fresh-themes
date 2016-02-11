@@ -1,15 +1,34 @@
-[~ if( r.skills && r.skills.sets && r.skills.sets.length ) { ~]
+[~ if(( r.skills && r.skills.sets && r.skills.sets.length ) ||
+      ( r.languages && r.languages.length ) ) { ~]
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
 \cvsection{Skills}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
 \begin{cvskills}
-[~ _.each(r.skills.sets, function(set) { ~]
+
+[~ if (r.skills && r.skills.sets && r.skills.sets.length ) { ~]
+[~ _.each( r.skills.sets, function(sks) { ~]
+%---------------------------------------------------------
   \cvskill
-    {[[ set.name ]]}
-    {[[ set.skills.join(', ') ]]}
+    {[[ sks.name ]]} % Category
+    {[~ print( sks.skills.join(', ') ) ~]} % Skills
+
 [~ }); ~]
-[~ if( r.languages && r.languages.length ) { ~]
-  \cvskill
-    {Languages}
-    {[[ r.languages.map( function(lang) { return lang.language } ).join(', ') ]]}
 [~ } ~]
+
+[~ if (r.languages && r.languages.length ) { ~]
+%---------------------------------------------------------
+  \cvskill
+    {Languages} % Category
+    {[~ print( _.map( r.languages, function(lang) { return lang.language; }).join(', ')) ~]} % Skills
+
+[~ } ~]
+
+%---------------------------------------------------------
 \end{cvskills}
 [~ } ~]

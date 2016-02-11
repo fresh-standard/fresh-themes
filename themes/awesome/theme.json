@@ -11,6 +11,7 @@
     "comment": "\\[\\#([\\s\\S]+?)\\#\\]"
   },
   "leaf": true,
+  "explicit": true,
   "formats": {
     "latex": {
       "transform": [
@@ -22,6 +23,7 @@
         "src/latex/examples/resume/extracurricular.tex",
         "src/latex/examples/resume/honors.tex",
         "src/latex/examples/resume/presentation.tex",
+        "src/latex/examples/resume/summary.tex",
         "src/latex/examples/resume/writing.tex",
         "src/latex/examples/cv/committees.tex",
         "src/latex/examples/cv/education.tex",
@@ -33,10 +35,11 @@
         "src/latex/examples/cv/writing.tex"
       ],
       "symLinks": {
-        "src/latex/examples/awesome-cv.cls": "../awesome-cv.cls",
-        "src/latex/examples/fontawesome.sty": "../fontawesome.sty",
-        "src/latex/examples/fonts": "../fonts"
-      }
+        "latex/examples/awesome-cv.cls": "../awesome-cv.cls",
+        "latex/examples/fontawesome.sty": "../fontawesome.sty",
+        "latex/examples/fonts": "../fonts"
+      },
+      "exclude": ["fontawesome.sty","README.md","package.json"]
     }
   },
   "message": "Don't forget to run 'xelatex <myresume.tex>' in the generated latex/examples folder to complete your resume build! For more info, see the theme README at https://github.com/fluentdesk/fresh-themes/blob/master/themes/awesome/README.md."

@@ -1,21 +1,30 @@
-[~ if( r.writing && r.writing.length ) { ~]
+[~ if (r.writing && r.writing.length ) { ~]
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
 \cvsection{Writing}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
 \begin{cventries}
-[~ _.each(r.writing, function(wri) { ~]
+[~ _.each( r.writing, function(wri) { ~]
+%---------------------------------------------------------
   \cventry
-    {[[ wri.publisher ]]}
-    {[[ wri.title ]]}
-    {[[ wri.url ]]}
-    {[[ wri.safe.date ]] - PRESENT}
-    [~ if( wri.highlights && wri.highlights.length ) { ~]
+    {[[ wri.title ]]} % Role
+    {[[ wri.publisher ]]} % Title
+    {[[ wri.url ]]} % Location
+    {[[ wri.date ]]} % Date(s)
     {
-      \begin{cvitems}
-        [~ _.each(wri.highlights, function(high) { ~]
+      \begin{cvitems} % Description(s)
+        [~ _.each( wri.highlights, function(high) { ~]
         \item {[[ high ]]}
         [~ }); ~]
       \end{cvitems}
     }
-    [~ } else { ~]{ }[~ } ~]
+
 [~ }); ~]
+%---------------------------------------------------------
 \end{cventries}
 [~ } ~]

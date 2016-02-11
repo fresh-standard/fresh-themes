@@ -1,12 +1,23 @@
-[~ if( r.committees && r.committees.length ) { ~]
+[~ if (r.governance && r.governance.length) { ~]
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
 \cvsection{Program Committees}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
 \begin{cvhonors}
-  [~ _.each(r.committees, function(com) { ~]
+[~ _.each( r.governance, function(gov) { ~]
+%---------------------------------------------------------
   \cvhonor
-    {[[ com.position ]]}
-    {[[ com.organization ]]}
-    {[[ com.location ]]}
-    {[[ com.safe.date ]]}
-  [~ }); ~]
+    {[[ gov.position ]]} % Position
+    {[[ gov.organization ]]} % Committee
+    {[[ gov.location ]]} % Location
+    {[[ h.dateRange( gov ) ]]} % Date(s)
+
+[~ }); ~]
+%---------------------------------------------------------
 \end{cvhonors}
 [~ } ~]

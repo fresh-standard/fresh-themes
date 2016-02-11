@@ -1,20 +1,30 @@
-[~ if( r.speaking && r.speaking.length) { ~]
+[~ if (r.speaking && r.speaking.length) { ~]
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
 \cvsection{Presentation}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
 \begin{cventries}
-  [~ _.each(r.speaking, function(pres) { ~]
+[~ _.each( r.speaking, function(spk) { ~]
+%---------------------------------------------------------
   \cventry
-    {[[ pres.title ]]}
-    {[[ pres.event ]]}
-    {[[ pres.location ]]}
-    {[[ pres.safe.date ]]}
-    [~ if (pres.highlights && pres.highlights.length) {
-    ~]{
-      \begin{cvitems}
-        [~ _.each(pres.highlights, function( high) {
-        ~]\item {[[ high ]]}[~ }); ~]
+    {[[ spk.title ]]} % Role
+    {[[ spk.event ]])} % Event
+    {[[ spk.location ]]} % Location
+    {[[ spk.date ]]} % Date(s)
+    {
+      \begin{cvitems} % Description(s)
+        [~ _.each( spk.highlights, function(high) { ~]
+        \item {[[ high ]]}
+        [~ }); ~]
       \end{cvitems}
     }
-    [~ } else { ~]{ }[~ } ~]
-  [~ }); ~]
+
+[~ }); ~]
+%---------------------------------------------------------
 \end{cventries}
 [~ } ~]
