@@ -9,20 +9,18 @@
 %	CONTENT
 %-------------------------------------------------------------------------------
 \begin{cventries}
-[~ _.each( function(cur) { ~]
+[~ _.each( r.extracurricular, function(cur) { ~]
 %---------------------------------------------------------
   \cventry
     {[[ cur.role ]]} % Affiliation/role
     {[[ cur.organization ]]} % Organization/group
     {[[ cur.location ]]} % Location
     {[[ h.dateRange(cur) ]]} % Date(s)
-    {
+    {[~ if (cur.highlights && cur.highlights.length ) { ~]
       \begin{cvitems} % Description(s) of experience/contributions/knowledge
-        [~ _.each( cur.highlights, function( high ) { ~]
-        \item {[[ high ]]}
-        [~ }); ~]
+[~ print( h.pad( cur.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ) ~]
       \end{cvitems}
-    }
+    [~ } ~]}
 
 [~ }); ~]
 %---------------------------------------------------------

@@ -16,13 +16,11 @@
     {[[ edu.institution ]]} % Institution
     {[[ edu.location ]]} % Location
     {[~ print( h.dateRange( edu ) ) ~]} % Date(s)
-    {
+    {[~ if( edu.highlights && edu.highlights.length ) { ~]
       \begin{cvitems} % Description(s) bullet points
-        [~ _.each( edu.highlights, function(high) { ~]
-        \item {[[ high ]]}
-        [~ }); ~]
+[~ print( h.pad( edu.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ) ~]
       \end{cvitems}
-    }
+    [~ } ~]}
 
 [~ }); ~]
 %---------------------------------------------------------

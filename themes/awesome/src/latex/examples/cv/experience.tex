@@ -16,13 +16,11 @@
     {[[ job.employer ]]} % Organization
     {[[ job.location ]]} % Location
     {[~ print( h.dateRange( job ) ) ~]} % Date(s)
-    {
+    {[~ if (job.highlights && job.highlights.length ) { ~]
       \begin{cvitems} % Description(s) of tasks/responsibilities
-        [~ _.each( job.highlights, function (high) { ~]
-        \item {[[ high ]]}
-        [~ }); ~]
+[~ print( h.pad( job.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ) ~]
       \end{cvitems}
-    }
+    [~ } ~]}
 
 [~ }); ~]
 %---------------------------------------------------------

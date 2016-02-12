@@ -16,13 +16,11 @@
     {[[ wri.publisher ]]} % Title
     {[[ wri.url ]]} % Location
     {[[ wri.date ]]} % Date(s)
-    {
+    {[~ if (wri.highlights && wri.highlights.length) { ~]
       \begin{cvitems} % Description(s)
-        [~ _.each( wri.highlights, function(high) { ~]
-        \item {[[ high ]]}
-        [~ }); ~]
+[~ print( h.pad( wri.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ) ~]
       \end{cvitems}
-    }
+    [~ } ~]}
 
 [~ }); ~]
 %---------------------------------------------------------
