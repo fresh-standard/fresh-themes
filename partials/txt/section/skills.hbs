@@ -2,6 +2,6 @@
 {{{sectionTitle "SKILLS"}}} -------------------------------------------------------------------------
 
 {{#each r.skills.sets}}
-- {{{ name }}}: {{#each skills}}{{{ this }}} {{/each}}
+- {{{ name }}}: {{#each skills}}{{{ . }}} {{/each}}
 {{/each}}
 {{/section}}

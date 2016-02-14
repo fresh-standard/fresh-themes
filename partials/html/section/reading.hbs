@@ -8,7 +8,7 @@
     {{#> body-reading }}
     <div>
     <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>{{#if author}}, {{{ author }}}{{/if}}</h3>
-      <span class="tenure">{{formatDate safe.date 'YYYY'}}</span>
+      <span class="tenure">{{date date 'YYYY'}}</span>
       {{{ summary }}}
     </div>
     {{/body-reading}}

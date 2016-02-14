@@ -3,7 +3,7 @@
 
 {{#each r.recognition}}
 ### {{{ title }}}{{#if from}}, {{{ from }}}{{/if}}
-{{~#has 'safe.date'}} ({{formatDate safe.date 'MMM YYYY' }}){{/has}}
+{{~#if date}} ({{date date 'MMM YYYY' }}){{/if}}
 {{~#if summary}}
 
 {{{ summary }}}{{/if}}

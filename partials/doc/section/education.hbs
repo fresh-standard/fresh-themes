@@ -31,7 +31,7 @@
         <w:rPr>
           <w:rStyle w:val="FromTo"/>
         </w:rPr>
-        <w:t>{{formatDate safe.start 'YYYY' }} — {{formatDate safe.end 'YYYY'}}</w:t>
+        <w:t>{{dateRange . 'YYYY'}}</w:t>
       </w:r>
     </w:p>
     {{#either area studyType }}

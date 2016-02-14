@@ -3,9 +3,9 @@
 
 {{#each r.samples }}
 {{#if url}}
-### [{{{ title }}}]({{{ url }}}) ({{formatDate safe.date 'YYYY-MM' }})
+### [{{{ title }}}]({{{ url }}}) ({{date date}})
 {{else}}
-### {{{ title }}} ({{formatDate safe.date}})
+### {{{ title }}} ({{date date}})
 {{/if}}
 
 {{{ summary }}}

@@ -9,7 +9,7 @@
     <div>
     <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
       {{ publisher.name }}</h3>
-      <span class="tenure">{{formatDate safe.date 'YYYY'}}</span>
+      <span class="tenure">{{date date 'YYYY'}}</span>
       {{{ summary }}}
       {{> highlights }}
     </div>
