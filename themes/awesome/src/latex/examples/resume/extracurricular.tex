@@ -12,13 +12,13 @@
 [~ _.each( r.extracurricular, function(cur) { ~]
 %---------------------------------------------------------
   \cventry
-    {[[ cur.role ]]} % Affiliation/role
-    {[[ cur.organization ]]} % Organization/group
+    {[[ cur.title ]]} % Affiliation/role
+    {[[ cur.activity ]]} % Organization/group
     {[[ cur.location ]]} % Location
     {[[ h.dateRange(cur) ]]} % Date(s)
     {[~ if (cur.highlights && cur.highlights.length ) { ~]
       \begin{cvitems} % Description(s) of experience/contributions/knowledge
-[~ print( h.pad( cur.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ) ~]
+[[ h.pad( cur.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ]]
       \end{cvitems}
     [~ } ~]}
 

@@ -12,10 +12,10 @@
 [~ _.each( r.writing, function(wri) { ~]
 %---------------------------------------------------------
   \cventry
-    {[[ wri.title ]]} % Role
-    {[[ wri.publisher ]]} % Title
+    {[~ print( wri.publisher ? wri.publisher.name : 'Unknown' ) ~]} % Role
+    {[[ wri.title ]]} % Title
     {[[ wri.url ]]} % Location
-    {[[ wri.date ]]} % Date(s)
+    {[[ h.date(wri.date) ]]} % Date(s)
     {[~ if (wri.highlights && wri.highlights.length) { ~]
       \begin{cvitems} % Description(s)
 [~ print( h.pad( wri.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ) ~]

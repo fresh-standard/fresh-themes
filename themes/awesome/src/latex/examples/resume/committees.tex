@@ -12,10 +12,10 @@
 [~ _.each( r.governance, function(gov) { ~]
 %---------------------------------------------------------
   \cvhonor
-    {[[ gov.position ]]} % Position
+    {[[ gov.role ]]} % Position
     {[[ gov.organization ]]} % Committee
     {[[ gov.location ]]} % Location
-    {[[ h.dateRange( gov ) ]]} % Date(s)
+    {[[ h.date(gov.start) ]]} % Date(s)
 
 [~ }); ~]
 %---------------------------------------------------------

@@ -15,10 +15,10 @@
     {[[ spk.title ]]} % Role
     {[[ spk.event ]])} % Event
     {[[ spk.location ]]} % Location
-    {[[ spk.date ]]} % Date(s)
+    {[[ h.date(spk.date) ]]} % Date(s)
     {[~ if (r.speaking && r.speaking.length) { ~]
       \begin{cvitems} % Description(s)
-[~ print( h.pad( spk.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ) ~]
+[[ h.pad( spk.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ]]
       \end{cvitems}
     [~ } ~]}
 
