@@ -53,7 +53,7 @@ table {
 td:first-child {
   text-align: right;
   color: #c00000;
-  letter-spacing: 2px;
+  /* letter-spacing: 2px; PDF hates letter spacing */
   font-weight: bold;
 }
 
