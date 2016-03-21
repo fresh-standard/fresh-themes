@@ -1,0 +1,49 @@
+<wx:sub-section>
+  {{!-- This pBdrGroup section creates an embedded font-awesome icon image. --}}
+  <wx:pBdrGroup>
+    <wx:borders>
+      <wx:top wx:val="solid" wx:bdrwidth="15" wx:space="1" wx:color="EEEEEE"/>
+    </wx:borders>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00D1523B" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="Heading1"/>
+      </w:pPr>
+      <w:r>
+        <w:pict>
+          <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+            <v:stroke joinstyle="miter"/>
+            <v:formulas>
+              <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+              <v:f eqn="sum @0 1 0"/>
+              <v:f eqn="sum 0 0 @1"/>
+              <v:f eqn="prod @2 1 2"/>
+              <v:f eqn="prod @3 21600 pixelWidth"/>
+              <v:f eqn="prod @3 21600 pixelHeight"/>
+              <v:f eqn="sum @0 0 1"/>
+              <v:f eqn="prod @6 1 2"/>
+              <v:f eqn="prod @7 21600 pixelWidth"/>
+              <v:f eqn="sum @8 21600 0"/>
+              <v:f eqn="prod @7 21600 pixelHeight"/>
+              <v:f eqn="sum @10 21600 0"/>
+            </v:formulas>
+            <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+            <o:lock v:ext="edit" aspectratio="t"/>
+          </v:shapetype>
+          <w:binData w:name="wordml://03000001.png" xml:space="preserve">iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAThQTFRFv8HDv8LOv8jXv8HEv8zdv8HGv8HIv8LQv8TTv8HOv8bVv8TM2dDOz8zO09bdxcHDw8jTw8HD3crDzcHDz8LDzcLDx8HDwcrZy8bExcrT1crGx8LGycrSy8LD1cjEw87f1cTDw8jM0dLZ3drZ1c7MycTD2cjDycHDz977wc7ixdLqz9rqydLix9buy9r11en/2+Xwz+H71ePx9d7Q7dTI5c7E5dTQ8drO+drM/drM79LG79TI4czE49DK7eHb/ePS///d/+nT/+vV//Hd/efV/evZ//XZ/+PS/+XS//v16ev1/f/////75/H/4fH/8//////1///i8fv///nu5+/7/e/i+//78/n///nz8+/w8/H1++3i9/////vo5fv////w7///4///4f/////x//vw+fHw9/n/////RIkD6QAAAP5JREFUSMdjSCcaMIwqHVVKL6Wedjy8fF7ehJX6GPMzgICALyGlPiYMUMDoR0CpvSBMKQOTP16lAUJwlQzMGniVOggjlDJo4lXqyI+klAWvUifilQaKICnVwqvUxxShklUff2A5iyJ85U0gtlzEoCrFg/BFQbCZhGRIqBRIIZt2mLm0jIE3DqWusqCA1wmPiIyM8o6WA+mQj8GqNFYBarWikrKKKpSti1WpBQMWwB6HRWm8GjalDHpYlLqpY1XKgkWpuyBWpRwJmEotsapk4EzEVGqFQ2kSRUqtiVfqgd1bXP6YSpNtsKlkNsQWWym2mOZyG+FIWT6pkaggDVkWALeXG64AV9ZXAAAAAElFTkSuQmCC</w:binData>
+          <v:shape id="_x0000_i1027" type="#_x0000_t75" style="width:31.5pt;height:31.5pt">
+            <v:imagedata src="wordml://03000001.png" o:title="fa-person"/>
+          </v:shape>
+        </w:pict>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>{{{sectionTitle "info" "ABOUT"}}}</w:t>
+      </w:r>
+    </w:p>
+  </wx:pBdrGroup>
+  <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0" wsp:rsidRDefault="00C146CA" wsp:rsidP="00A210E1">
+    <w:pPr>
+      <w:pStyle w:val="Summary"/>
+    </w:pPr>
+    {{{wpml r.info.brief true }}}
+  </w:p>
+</wx:sub-section>
