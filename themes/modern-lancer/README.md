@@ -1,8 +1,10 @@
 Theme: Modern
 ===============
-A contemporary technical résumé theme. Features colored progress bars
+A contemporary technical résumé theme with tweaks for freelancers. Features colored progress bars
 representing skill levels and Font Awesome icons for section headers. 
-Adds a picture and projects to the standard modern theme.
+Adds a picture and projects to the standard modern theme. 
+Also adds social info to contact data for Github/Bitbucket and the like, puts an image to the right, 
+renames the employment section to work, adds a section for languages and extracurricular.
 
 ![](modern.png)
 

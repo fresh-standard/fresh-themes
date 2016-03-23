@@ -224,6 +224,9 @@ contents to the markup we'd like to use for the body section of each job. This
 also doesn't render any content.
 -->}}
 
+{{#*inline "header-employment" }}
+  {{> header-icon _title="WORK" _section="work" _hdricon=(lookup . '_icon') }}
+{{/inline}}
 {{#*inline "body-employment" }}
 <div>
   <h3><em>{{ position }}</em>,
