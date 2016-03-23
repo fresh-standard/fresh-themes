@@ -1,4 +1,4 @@
-Theme: Modern
+Theme: Modern-Lancer
 ===============
 A contemporary technical résumé theme with tweaks for freelancers. Features colored progress bars
 representing skill levels and Font Awesome icons for section headers. 
