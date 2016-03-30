@@ -94,6 +94,7 @@
             {{#if r.contact.email}}<div><span class="fa fa-lg fa-envelope"></span> <a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/if}}
             {{#if r.contact.website}}<div><span class="fa fa-lg fa-firefox"></span> <a href="{{{ RAW.contact.website }}}">{{ RAW.contact.website }}</a></div>{{/if}}
             {{#if r.contact.phone}}<div><span class="fa fa-lg fa-phone"></span> {{ RAW.contact.phone }}</div>{{/if}}
+            {{#if r.contact.skype}}<div><span class="fa fa-lg fa-skype"></span> {{ RAW.contact.skype }}</div>{{/if}}
             {{#each r.social}}
             <div class="social">
               <span class="fa fa-lg fa-{{toLower label}}"></span> <a href="{{url}}">{{url}}</a>
