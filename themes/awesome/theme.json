@@ -28,6 +28,7 @@
         "src/latex/examples/cv/committees.tex",
         "src/latex/examples/cv/education.tex",
         "src/latex/examples/cv/experience.tex",
+        "src/latex/examples/cv/service.tex",
         "src/latex/examples/cv/extracurricular.tex",
         "src/latex/examples/cv/honors.tex",
         "src/latex/examples/cv/presentation.tex",
