@@ -52,7 +52,7 @@
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 \name{[~ print(h.initialWords( r.name )) ~]}{[[ h.lastWord( r.name ) ]]}
-\position{[[ r.info.label ]]}
+[~ if (r.info.label) { ~]\position{[[ r.info.label ]]}[~ } ~]
 \address{[[ r.location.address ]]}
 
 \mobile{[[ r.contact.phone ]]}
