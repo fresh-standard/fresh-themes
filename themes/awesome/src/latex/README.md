@@ -52,7 +52,7 @@ fork of the original Awesome-CV for LaTeX.
 See the original project for license information.
 
 [awe]: https://github.com/posquit0/Awesome-CV
-[hmr]: http://please.hackmyresume.com
+[hmr]: https://fluentdesk.com/hackmyresume
 [fre]: http://freshstandard.org
 [und]: http://underscorejs.org/#template
 [hb350]: https://github.com/wycats/handlebars.js/issues/350
