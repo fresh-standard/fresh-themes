@@ -107,6 +107,11 @@ p, li {
   font-size: 85%;
 }
 
+.location {
+  line-height: 2em;
+  color: #6F6F6F;
+}
+
 span.keywords {
   font-size: 10px;
   color: #B16666;
