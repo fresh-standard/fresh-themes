@@ -3,5 +3,6 @@
   "description": "A theme that is a basis for other themes.",
   "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
   "engine": "handlebars",
-  "message": "This theme contains default unstyled formats that can be used by other themes or as a starting point for a custom theme."
+  "message": "This theme contains default unstyled formats that can be used by other themes or as a starting point for a custom theme.",
+  "helpers": ["helpers/*.js"]
 }
