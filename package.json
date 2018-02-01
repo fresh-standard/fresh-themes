@@ -6,7 +6,7 @@
     "type": "git",
     "url": "https://github.com/fluentdesk/fresh-themes.git"
   },
-  "main": "README.md",
+  "main": "index.js",
   "keywords": [
     "résumé",
     "resume",
