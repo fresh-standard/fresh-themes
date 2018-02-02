@@ -1,0 +1,28 @@
+[~ if (r.service && r.service.history && r.service.history.length ) { ~]
+%-------------------------------------------------------------------------------
+%	SECTION TITLE
+%-------------------------------------------------------------------------------
+\cvsection{Service}
+
+
+%-------------------------------------------------------------------------------
+%	CONTENT
+%-------------------------------------------------------------------------------
+\begin{cventries}
+[~ _.each( r.service.history, function(job) { ~]
+%---------------------------------------------------------
+  \cventry
+    {[[ job.position ]]} % Job title
+    {[[ job.organization ]]} % Organization
+    {[[ job.location ]]} % Location
+    {[[ h.dateRange( job ) ]]} % Date(s)
+    {[~ if (job.highlights && job.highlights.length ) { ~]
+      \begin{cvitems} % Description(s) of tasks/responsibilities
+[[ h.pad( job.highlights.map( function(h) { return '\\item {' + h + '}' }), -8 ) ]]
+      \end{cvitems}
+    [~ } ~]}
+
+[~ }); ~]
+%---------------------------------------------------------
+\end{cventries}
+[~ } ~]
