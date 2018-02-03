@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ RAW.name }}</title>
+
+    {{!<!-- TODO: Optimize Google Fonts and Font Awesome access. -->}}
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    {{{styleSheet "modern-html.css"}}}
+  </head>
+
+  <body>
+    <main id="main"> {{!<!-- Use your container markup of choice here -->}}
+      <div id="container">
+      <header>
+
+        <div class="left">
+          <h1>{{{ r.name }}}</h1>
+  
+          <div id="contact">
+            {{#if r.contact.email}}<div><span class="fa fa-lg fa-envelope"></span> <a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/if}}
+            {{#if r.contact.website}}<div><span class="fa fa-lg fa-firefox"></span> <a href="{{{ RAW.contact.website }}}">{{ RAW.contact.website }}</a></div>{{/if}}
+            {{#if r.contact.phone}}<div><span class="fa fa-lg fa-phone"></span> {{ RAW.contact.phone }}</div>{{/if}}
+            {{#if r.contact.skype}}<div><span class="fa fa-lg fa-skype"></span> {{ RAW.contact.skype }}</div>{{/if}}
+            {{#each r.social}}
+            <div class="social">
+              <span class="fa fa-lg fa-{{toLower label}}"></span> <a href="{{url}}">{{url}}</a>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+        {{#if r.info.image}}<div id="picture" class="right"><img class="profile-pic media-object img-circle center-block" height="128" width="128" itemprop="image" alt="128x128" src="{{{ r.info.image }}}"></div>{{/if}}
+      </header>
+
+
+{{#*inline "icon-info"}}<span class="fa fa-lg fa-info"></span>{{/inline}}
+{{> section/info _icon="icon-info" }}
+
+{{#section 'skills' }}
+<hr>
+<section id="skills">
+  <header>
+  <h2>{{{sectionTitle "Skills"}}}</h2>
+  </header>
+  <span class="fa fa-lg fa-code"></span>
+  <ul class="list-unstyled">
+    {{#each r.skills.sets}}
+      <li class="card card-nested card-skills">
+        <div class="skill-level" rel="tooltip" title="{{ level }}" data-placement="left">
+          <div class="skill-progress {{toLower level }}"></div>
+        </div>
+        <div class="skill-info">
+          <strong>{{ name }}</strong>
+          <div class="space-top labels">
+            {{#if skills}}
+              {{#each skills}}
+                <span class="label label-keyword">{{ this }}</span>
+              {{/each}}
+            {{/if}}
+          </div>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</section>
+{{/section}}
+
+
+{{#*inline "body-projects" }}
+<div>
+  <h3>{{#if role}}<em>{{camelCase role }}</em>,{{/if}}
+    {{#if url}}
+    <a href="{{{ url }}}">{{ title }}</a>
+    {{else}}
+    {{ title }}
+    {{/if}}
+  </h3>
+  {{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+  {{#if keywords}}
+  {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+  {{/if}}
+  {{{ summary }}}
+  {{> highlights }}
+</div>
+{{/inline}}
+
+{{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
+
+{{> section/projects _icon="icon-projects"}}
+
+
+{{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
+{{#*inline "header-employment" }}
+  {{> header-icon _title="WORK" _section="work" _hdricon=(lookup . '_icon') }}
+{{/inline}}
+{{#*inline "body-employment" }} 
+<div>
+  <h3><em>{{ position }}</em>,
+    {{#if url }}
+    <a href="{{{ url }}}">{{ employer }}</a>
+    {{else}}
+    {{ employer }}
+    {{/if}}
+  </h3>
+  <span class="tenure">{{dateRange .}}</span>
+  {{#if keywords}}
+  {{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+  {{/if}}
+  <p>{{{ summary }}}</p>
+  {{> highlights }}
+</div>
+{{/inline}}
+{{> section/employment _icon="icon-employment"}}
+
+
+{{#*inline "body-education" }}
+<div>
+<h3>{{#if title}}<em>{{ title }}</em>,{{/if}}
+{{#if url}}
+<a href="{{{ url }}}">{{ institution }}</a>
+{{else}}
+{{ institution }}
+{{/if}}
+</h3>
+{{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+{{#if curriculum}}
+{{#if start}}| {{/if}}<span class="keywords">{{#each curriculum}}{{{ . }}} {{/each}}</span>
+{{/if}}
+{{{ summary }}}
+{{> highlights }}
+</div>
+{{/inline}}
+
+{{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
+
+{{> section/education _icon="icon-education"}}
+
+
+{{#if r.languages}}      
+  <hr>
+  <section id="languages">
+    <header><span class="fa fa-lg fa-language"></span> <h2>Languages</h2></header>
+    {{#each r.languages}}
+      <div class="language">
+        <h3><em>{{language}}</em></h3> ({{level}})
+      </div>
+    {{/each}}
+  </section>
+{{/if}}
+
+
+{{#*inline "body-governance" }}
+<div>
+<h3>{{#if role}}<em>{{{ role }}}</em>,{{/if}}
+{{#if url}}
+<a href="{{{ url }}}">{{{ organization }}}</a>
+{{else}}
+{{{ organization }}}
+{{/if}}
+</h3>
+{{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+{{#if keywords}}
+{{#if start}}| {{/if}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>
+{{/if}}
+{{{ summary }}}
+{{> highlights }}
+</div>
+{{/inline}}
+
+{{#*inline "icon-governance"}}<span class="fa fa-lg fa-balance-scale"></span>{{/inline}}
+
+{{> section/governance _icon="icon-governance"}}
+
+
+{{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
+{{#*inline "icon-affiliation"}}<span class="fa fa-lg fa-share-alt"></span>{{/inline}}
+{{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
+{{#*inline "icon-writing"}}<span class="fa fa-lg fa-pencil"></span>{{/inline}}
+{{#*inline "icon-reading"}}<span class="fa fa-lg fa-book"></span>{{/inline}}
+{{#*inline "icon-recognition"}}<span class="fa fa-lg fa-trophy"></span>{{/inline}}
+{{#*inline "icon-speaking"}}<span class="fa fa-lg fa-users"></span>{{/inline}}
+{{#*inline "icon-testimonials"}}<span class="fa fa-lg fa-quote-left"></span>{{/inline}}
+{{#*inline "icon-references"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
+{{#*inline "icon-interests"}}<span class="fa fa-lg fa-bicycle"></span>{{/inline}}
+
+{{> section/service _icon="icon-service"}}
+{{> section/affiliation _icon="icon-affiliation"}}
+{{> section/samples _icon="icon-samples"}}
+{{> section/writing _icon="icon-writing"}}
+{{> section/reading _icon="icon-reading"}}
+{{> section/recognition _icon="icon-recognition"}}
+{{> section/speaking _icon="icon-speaking"}}
+{{> section/testimonials _icon="icon-testimonials"}}
+{{> section/references _icon="icon-references"}}
+{{> section/interests _icon="icon-interests"}}
+
+
+      {{#if r.extracurricular}}
+      <hr>
+      <section id="extracurricular">
+        <header><span class="fa fa-lg fa-random"></span> <h2>Extracurricular</h2></header>
+        {{#each r.extracurricular}}
+        <div class="extracurricular">
+          <h3><em>{{title}}</em></h3>
+          {{#if start}}<span class="tenure">{{dateRange .}}</span>{{/if}}
+          <br/><em>Activity: </em>{{activity}}
+          {{#if location}}<br/><em>Location: </em>{{{location}}}{{/if}}
+          {{#if highlights}}<br/><em>Details: </em> {{{highlights}}}{{/if}}
+        </div>
+        {{/each}}
+      </section>
+      {{/if}}
+
+      </div>
+    </main>
+  </body>
+</html>

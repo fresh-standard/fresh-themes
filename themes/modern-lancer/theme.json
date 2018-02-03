@@ -1,0 +1,28 @@
+{
+  "title": "modern",
+  "description": "A contemporary resume template suitable for modern technical candidates and employees.",
+  "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
+  "engine": "handlebars",
+  "palette": {
+    "skillLevels": [ "#FFFFFF", "#5CB85C", "#F1C40F", "#428BCA", "#C00000" ]
+  },
+  "message": "To get colored skill progress bars, make sure your resume includes a `level` element for each skill.",
+  "inherits": {
+    "txt": "basis",
+    "md": "basis"
+  },
+  "fonts": {
+    "all": {
+      "default": [ "Helvetica Neue", "Helvetica", "Segoe UI", "Calibri", "sans-serif" ],
+      "heading1": ["Arial"],
+      "heading2": ["Arial"]
+    },
+    "doc": {
+      "default": "Calibri",
+      "heading1": "Trebuchet MS",
+      "heading2": "Calibri",
+      "heading3": "Calibri"
+    }
+  }
+
+}
