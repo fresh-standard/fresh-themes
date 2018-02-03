@@ -110,18 +110,15 @@ Contributions are encouraged.
 
 MIT. See [LICENSE.md][1] for details.
 
-[1]: http://fluentcv.com
-[2]: https://github.com/fluentdesk/fluentcv
-[3]: https://github.com/fluentdesk/fresh-themes/blob/master/LICENSE.md
-[f]: https://github.com/fluentdesk/FRESCA
-[h]: https://github.com/fluentdesk/fresh-themes/blob/dev/themes/modern/src/modern-html.html
-[d]: https://github.com/fluentdesk/fresh-themes/blob/dev/themes/modern/src/modern-doc.xml
+[1]: LICENSE.md
+[f]: https://github.com/fresh-standard/fresh-schema
+[h]: https://github.com/fresh-standard/fresh-themes/blob/dev/themes/modern/src/modern-html.html
+[d]: https://github.com/fresh-standard/fresh-themes/blob/dev/themes/modern/src/modern-doc.xml
 [jrs]: http://jsonresume.org
 [awe]: https://github.com/posquit0/Awesome-CV
 [t-awesome]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/awesome
 [t-underscore]: https://github.com/fluentdesk/fresh-themes-underscore
 [t-modern]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/modern
-[t-hello]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/hello-world
 [t-compact]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/compact
 [t-positive]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/positive
 [hmr]: https://github.com/hacksalot/hackmyresume
