@@ -1,0 +1,120 @@
+{{#if r.skills }}
+<wx:sub-section>
+  {{!-- This pBdrGroup section creates an embedded font-awesome icon image. --}}
+  <wx:pBdrGroup>
+    <wx:borders>
+      <wx:top wx:val="solid" wx:bdrwidth="15" wx:space="1" wx:color="EEEEEE"/>
+    </wx:borders>
+    <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="00D1523B" wsp:rsidP="00C146CA">
+      <w:pPr>
+        <w:pStyle w:val="Heading1"/>
+        <w:ind w:left="-720"/>
+      </w:pPr>
+      <w:r>
+        <w:pict>
+          <v:shapetype id="_x0000_t75" coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe" filled="f" stroked="f">
+            <v:stroke joinstyle="miter"/>
+            <v:formulas>
+              <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+              <v:f eqn="sum @0 1 0"/>
+              <v:f eqn="sum 0 0 @1"/>
+              <v:f eqn="prod @2 1 2"/>
+              <v:f eqn="prod @3 21600 pixelWidth"/>
+              <v:f eqn="prod @3 21600 pixelHeight"/>
+              <v:f eqn="sum @0 0 1"/>
+              <v:f eqn="prod @6 1 2"/>
+              <v:f eqn="prod @7 21600 pixelWidth"/>
+              <v:f eqn="sum @8 21600 0"/>
+              <v:f eqn="prod @7 21600 pixelHeight"/>
+              <v:f eqn="sum @10 21600 0"/>
+            </v:formulas>
+            <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+            <o:lock v:ext="edit" aspectratio="t"/>
+          </v:shapetype>
+          <w:binData w:name="wordml://03000002.png" xml:space="preserve">iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAMAAADyHTlpAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAPlQTFRFv8HDv8HEv8LQv8LSv8zdv8HGv8LKv8HKv8jXv8bVv8LOwczdzcHDycLEwcHDxcHGycLD18bD1cTDzcLDx8HD28jD08LDw8HD1cbDxcHD2czS1czSy8bEw9Dmzdzxz97xydj1xdLqx9Tqy9jszdz7wc7iy9bu0+P/2ef72e//2/X/+djK4czD6dDE89bK4crD99rM997Q/dzO5c7E89TI997T//vd/efX/+HQ++XT//Hd/+3V/+nT///5+/n/+//////75f//6f///f/////s///q8//////1///37/////vo///k4fH/5//////w4+/7//Hk5fH/////unTQ4QAAAQ1JREFUSMft1GtTQUEYB/A/JSlCoXJJUYqKqNwvFaFDquf7f5h0jrMXe3BmvGrGvnp29jc7O/99dkG2BzZ0Q/8/bbVt01vsd+zRlzskbO5a9jqul9OK78woqgfOV6r5kwtpJYCtN726x3a3F4QruYBO5c6NXr0f4pyofiRbWEhqhNxZUiwsJOWx2yfFwkIOwrgwKslClWJUooUqjahUq9NhAUh1Gf2Lik0eAM+HsKsWhCNtLo8iuGSyeIy9sXRW7YTb5qk7ZyFZAoI1o5qTPFdmeVSyFG7LtDwqWYo9MLMls2fmpNRZU+v8pEdc6bNJWJZyv2rRLyGq79jP8lcgRrXiwTzxqFbR53hm/S/jF09ZANBqGaBnAAAAAElFTkSuQmCC</w:binData>
+          <v:shape id="_x0000_i1028" type="#_x0000_t75" style="width:31.5pt;height:31.5pt">
+            <v:imagedata src="wordml://03000002.png" o:title="fa-code"/>
+          </v:shape>
+        </w:pict>
+      </w:r>
+      <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA">
+        <w:t>{{{sectionTitle "SKILLS"}}}</w:t>
+      </w:r>
+    </w:p>
+  </wx:pBdrGroup>
+
+  <w:tbl>
+    <w:tblPr>
+      <w:tblW w:w="0" w:type="auto"/>
+      <w:tblLook w:val="04A0"/>
+    </w:tblPr>
+    <w:tblGrid>
+      <w:gridCol w:w="828"/>
+      <w:gridCol w:w="8748"/>
+    </w:tblGrid>
+
+    {{#each r.skills.sets}}
+
+    <w:tr wsp:rsidR="00427ECC" wsp:rsidTr="00FD3B33">
+      <w:trPr>
+        <w:trHeight w:val="882"/>
+      </w:trPr>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="828" w:type="dxa"/>
+          <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+        </w:tcPr>
+        <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:pict>
+              <v:rect id="_x0000_s1028" style="position:absolute;left:0;text-align:left;margin-left:20.6pt;margin-top:1.4pt;width:7.15pt;height:38.25pt;z-index:1" fillcolor="{{{skillColor level}}}"  strokeweight="0"/>
+            </w:pict>
+          </w:r>
+          <w:r>
+            <w:rPr>
+              <w:noProof/>
+            </w:rPr>
+            <w:pict>
+              <v:rect id="_x0000_s1026" style="position:absolute;left:0;text-align:left;margin-left:20.6pt;margin-top:1.4pt;width:7.15pt;height:{{{skillHeight level}}}pt;z-index:2" fillcolor="#FFFFFF" strokeweight="0"/>
+            </w:pict>
+          </w:r>
+        </w:p>
+      </w:tc>
+      <w:tc>
+        <w:tcPr>
+          <w:tcW w:w="8748" w:type="dxa"/>
+          <w:shd w:val="clear" w:color="auto" w:fill="auto"/>
+        </w:tcPr>
+        <w:p>
+          <w:pPr>
+            <w:spacing w:before="120"/>
+          </w:pPr>
+          <w:r>
+            <w:rPr>
+              <w:sz w:val="24"/>
+              <w:b/>
+              <w:caps/>
+            </w:rPr>
+            <w:t>{{{ name }}}</w:t>
+          </w:r>
+        </w:p>
+        <w:p wsp:rsidR="00427ECC" wsp:rsidRDefault="00427ECC" wsp:rsidP="00427ECC">
+          <w:r>
+            <w:rPr>
+              <w:caps/>
+              <w:spacing w:val="22"/>
+            </w:rPr>
+            <w:t>{{#each skills }}{{ this }}{{#unless @last}}  {{/unless}}{{/each}}</w:t>
+          </w:r>
+        </w:p>
+      </w:tc>
+    </w:tr>
+
+    {{/each}}
+
+  </w:tbl>
+  {{/if}}
+</wx:sub-section>

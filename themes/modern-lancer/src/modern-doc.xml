@@ -1,0 +1,525 @@
+{{! <!--
+
+  Welcome to the annotated DOC template of the MODERN theme. This is the
+  template used to generate the output DOC (MS Word) format of your resume when
+  you choose the "modern" theme in HackMyResume or FluentCV.
+
+  These comments will be stripped when the resume is generated.
+
+  FRESH themes are just plain text documents with a bit of template magic
+  built in via Handlebars or Underscore (in this case, Handlebars). Here we're
+  buildng a DOC version of the theme, so we'll create an otherwise normal .DOC
+  document in Word XML 2003 format with WordProcessingML (an XML dialect), then
+  inject data into it using special tags. Where does the data come from? From
+  our FRESH or JSON Resume-format resume, represented in this template through
+  the "r" and "RAW" objects.
+
+    r.some-propery
+    r.some-method
+    RAW.some-other-propery
+
+  So let's begin with a standard <xml> tag and WordProcessingML prelude.
+
+--> }}
+<?xml version="1.0" encoding="UTF-8"?>
+<?mso-application progid="Word.Document"?>
+<w:wordDocument xmlns:aml="http://schemas.microsoft.com/aml/2001/core" xmlns:wpc="http://schemas.microsoft.com/office/word/2010/wordprocessingCanvas" xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w10="urn:schemas-microsoft-com:office:word" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml" xmlns:wx="http://schemas.microsoft.com/office/word/2003/auxHint" xmlns:wne="http://schemas.microsoft.com/office/word/2006/wordml" xmlns:wsp="http://schemas.microsoft.com/office/word/2003/wordml/sp2" xmlns:sl="http://schemas.microsoft.com/schemaLibrary/2003/core" w:macrosPresent="no" w:embeddedObjPresent="no" w:ocxPresent="no" xml:space="preserve">
+  <w:ignoreSubtree w:val="http://schemas.microsoft.com/office/word/2003/wordml/sp2"/>
+
+  {{!<!--
+
+    An MS Word document consists of a series of optional and required sections
+    for things like document properties, font information, and document styles.
+    FRESH provides predefined partials for all of these that you can use, or
+    you can always create your own custom markup. Here, we'll go ahead and pull
+    in predefined versions for these Word 2003 XML sections:
+
+      <o:DocumentProperties>
+      <w:fonts>
+      <w:lists>
+
+    To do that, we'll use the Handlebars partial syntax and pull in the
+    sections one after the other.
+
+  -->}}
+
+  {{> doc-properties }}
+  {{> doc-fonts }}
+  {{> doc-lists }}
+
+  {{!<!--
+
+    The <styles> section contains named style definitions for the Word document.
+    Here we can adjust fonts, paragraph settings, and make other stylistic
+    changes specific to the Word format of this resume. There's also a prebuilt
+    section partial we could use here (section/doc-styles) but that would make
+    it difficult to edit invidual styles.
+
+  -->}}
+
+  <w:styles>
+    <w:style w:type="paragraph" w:default="on" w:styleId="Normal">
+      <w:name w:val="Normal"/>
+      <w:rsid w:val="002743C8"/>
+      <w:rPr>
+        <w:rFonts w:ascii="{{{fontFace 'default' 'Calibri'}}}" w:h-ansi="{{{fontFace 'default' 'Calibri'}}}"/>
+        <wx:font wx:val="{{{fontFace 'default' 'Calibri'}}}"/>
+        <w:sz-cs w:val="24"/>
+        <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
+      </w:rPr>
+      <w:pPr>
+        <w:jc w:val="both"/>
+      </w:pPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Heading1">
+      <w:name w:val="heading 1"/>
+      <wx:uiName wx:val="Heading 1"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="Heading1Char"/>
+      <w:rsid w:val="00505903"/>
+      <w:pPr>
+        <w:spacing w:before="100" w:before-autospacing="on"/>
+        <w:outlineLvl w:val="0"/>
+        <w:pBdr>
+          <w:top w:val="single" w:sz="6" w:space="1" w:color="#EEEEEE" />
+        </w:pBdr>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading1' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:color w:val="AEAAAA"/>
+        <w:kern w:val="36"/>
+        <w:sz w:val="40"/>
+        <w:sz-cs w:val="40"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Heading2">
+      <w:name w:val="heading 2"/>
+      <wx:uiName wx:val="Heading 2"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="Heading2Char"/>
+      <w:rsid w:val="00505903"/>
+      <w:pPr>
+        <w:spacing w:before="600"/>
+        <w:outlineLvl w:val="1"/>
+      </w:pPr>
+      <w:rPr>
+        <w:color w:val="595959"/>
+        <wx:font wx:val="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading2' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:b/>
+        <w:b-cs/>
+        <!-- <w:caps/> -->
+        <w:sz-cs w:val="28"/>
+        <w:sz w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Heading3">
+      <w:name w:val="heading 3"/>
+      <wx:uiName wx:val="Heading 3"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="Heading3Char"/>
+      <w:rsid w:val="001B7422"/>
+      <w:pPr>
+        <w:spacing w:before="240" w:after="100" w:after-autospacing="on"/>
+        <w:outlineLvl w:val="2"/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+        <w:b/>
+        <w:b-cs/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="FromTo">
+      <w:name w:val="FromTo"/>
+      <w:rsid w:val="004E2103"/>
+      <w:rPr>
+        <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
+        <w:b w:val="off"/>
+        <w:b-cs/>
+        <w:color w:val="AEAAAA"/>
+        <w:sz w:val="28"/>
+        <w:sz-cs w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:default="on" w:styleId="DefaultParagraphFont">
+      <w:name w:val="Default Paragraph Font"/>
+    </w:style>
+    <w:style w:type="table" w:default="on" w:styleId="TableNormal">
+      <w:name w:val="Normal Table"/>
+      <wx:uiName wx:val="Table Normal"/>
+      <w:rPr>
+        <wx:font wx:val="Times New Roman"/>
+        <w:lang w:val="EN-US" w:fareast="EN-US" w:bidi="AR-SA"/>
+      </w:rPr>
+      <w:tblPr>
+        <w:tblInd w:w="0" w:type="dxa"/>
+        <w:tblCellMar>
+          <w:top w:w="0" w:type="dxa"/>
+          <w:left w:w="108" w:type="dxa"/>
+          <w:bottom w:w="0" w:type="dxa"/>
+          <w:right w:w="108" w:type="dxa"/>
+        </w:tblCellMar>
+      </w:tblPr>
+    </w:style>
+    <w:style w:type="list" w:default="on" w:styleId="NoList">
+      <w:name w:val="No List"/>
+    </w:style>
+    <w:style w:type="character" w:styleId="Hyperlink">
+      <w:name w:val="Hyperlink"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:strike w:val="off"/>
+        <w:dstrike w:val="off"/>
+        <w:color w:val="2F5496"/>
+        <w:u w:val="none"/>
+        <w:effect w:val="none"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="FollowedHyperlink">
+      <w:name w:val="FollowedHyperlink"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:strike w:val="off"/>
+        <w:dstrike w:val="off"/>
+        <w:color w:val="7B0796"/>
+        <w:u w:val="none"/>
+        <w:effect w:val="none"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Heading2Char">
+      <w:name w:val="Heading 2 Char"/>
+      <w:link w:val="Heading2"/>
+      <w:rsid w:val="00505903"/>
+      <w:rPr>
+        <wx:font wx:val="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading2' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading2' 'Calibri'}}}"/>
+        <w:b/>
+        <w:b-cs/>
+        <!-- <w:caps/> -->
+        <w:sz-cs w:val="28"/>
+        <w:sz w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Heading3Char">
+      <w:name w:val="Heading 3 Char"/>
+      <w:link w:val="Heading3"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:rFonts w:ascii="{{{fontFace 'heading3' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading3' 'Calibri'}}}"/>
+        <w:color w:val="1F4D78"/>
+        <w:sz w:val="28"/>
+        <w:sz-cs w:val="28"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="NormalWeb">
+      <w:name w:val="Normal (Web)"/>
+      <w:basedOn w:val="Normal"/>
+      <w:rsid w:val="001B7422"/>
+      <w:pPr>
+        <w:spacing w:before="100" w:before-autospacing="on" w:after="100" w:after-autospacing="on"/>
+        <w:jc w:val="both"/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Heading1Char">
+      <w:name w:val="Heading 1 Char"/>
+      <w:link w:val="Heading1"/>
+      <w:rsid w:val="00505903"/>
+      <w:rPr>
+        <wx:font wx:val="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:rFonts w:ascii="{{{fontFace 'heading1' 'Calibri'}}}" w:h-ansi="{{{fontFace 'heading1' 'Calibri'}}}"/>
+        <w:color w:val="AEAAAA"/>
+        <w:kern w:val="36"/>
+        <w:sz w:val="40"/>
+        <w:sz-cs w:val="40"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Strong">
+      <w:name w:val="Strong"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:b/>
+        <w:b-cs/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="Emphasis">
+      <w:name w:val="Emphasis"/>
+      <w:rsid w:val="001B7422"/>
+      <w:rPr>
+        <w:i/>
+        <w:i-cs/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="tenure">
+      <w:name w:val="tenure"/>
+      <w:basedOn w:val="DefaultParagraphFont"/>
+      <w:rsid w:val="001B7422"/>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Title">
+      <w:name w:val="Title"/>
+      <w:basedOn w:val="Normal"/>
+      <w:next w:val="Normal"/>
+      <w:link w:val="TitleChar"/>
+      <w:rsid w:val="002D3B7B"/>
+      <w:pPr>
+        <w:contextualSpacing/>
+      </w:pPr>
+      <w:rPr>
+        <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
+        <wx:font wx:val="Segoe UI"/>
+        <w:b/>
+        <w:spacing w:val="-10"/>
+        <w:kern w:val="28"/>
+        <w:sz w:val="48"/>
+        <w:sz-cs w:val="56"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="TitleChar">
+      <w:name w:val="Title Char"/>
+      <w:link w:val="Title"/>
+      <w:rsid w:val="002D3B7B"/>
+      <w:rPr>
+        <w:rFonts w:ascii="Segoe UI" w:h-ansi="Segoe UI"/>
+        <w:spacing w:val="-10"/>
+        <w:kern w:val="28"/>
+        <w:sz w:val="48"/>
+        <w:sz-cs w:val="56"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="ListParagraph">
+      <w:name w:val="List Paragraph"/>
+      <w:basedOn w:val="Normal"/>
+      <w:rsid w:val="00C146CA"/>
+      <w:pPr>
+        <w:ind w:left="720"/>
+        <w:contextualSpacing/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="paragraph" w:styleId="Summary">
+      <w:name w:val="Summary"/>
+      <w:basedOn w:val="Normal"/>
+      <w:link w:val="SummaryChar"/>
+      <w:rsid w:val="00A210E1"/>
+      <w:pPr>
+        <w:spacing w:before="120"/>
+      </w:pPr>
+      <w:rPr>
+        <wx:font wx:val="Calibri"/>
+        <w:color w:val="767171"/>
+      </w:rPr>
+    </w:style>
+    <w:style w:type="character" w:styleId="SummaryChar">
+      <w:name w:val="Summary Char"/>
+      <w:link w:val="Summary"/>
+      <w:rsid w:val="00A210E1"/>
+      <w:rPr>
+        <w:rFonts w:ascii="Calibri" w:h-ansi="Calibri"/>
+        <w:sz-cs w:val="24"/>
+      </w:rPr>
+    </w:style>
+  </w:styles>
+
+  {{> doc-pr }}
+
+  {{!<!--
+
+    That bring us to the <w:body> element, where the meat of the Word document
+    is stored.
+
+  -->}}
+
+  <w:body>
+    <wx:sect>
+
+      {{!<!--
+        Let's create a paragraph containing the user's name. This is the Word
+        concept of a paragraph, not quite the same as a normal paragraph, but
+        close enough. We'll use <w:p> and adorn with a <w:pPr> (paragraph
+        properties) that sets the style of this paragraph to "Title". We don't
+        have to do it this way -- we can insert arbitrary styled content here
+        -- but in practice this is how many Word docs are set up.
+      -->}}
+
+      <w:p wsp:rsidR="00C146CA" wsp:rsidRPr="00C146CA" wsp:rsidRDefault="007D096C" wsp:rsidP="00C146CA">
+        <w:pPr>
+          <w:pStyle w:val="Title"/>
+        </w:pPr>
+        <w:r>
+
+          {{!<!--
+            Emit the candidate's name into the paragraph, accessible as the
+            .name property on "r", which is the FRESH or JSON Resume resume
+            object. Now, we're creating XML content here, which means that we
+            potentially need to XML-encode the raw text values from the JSON
+            resume model. Luckily, this has already been done for us. Every
+            string property on "r" is already XML-encoded (for Word formats).
+            So we'll use Handlebars triple-bracket syntax to make sure the
+            value isn't further encoded.
+          -->}}
+
+          <w:t>{{{ r.name }}}</w:t>
+        </w:r>
+      </w:p>
+
+      {{!<!--
+        Let's create another paragraph, using the <w:p> element. The paragraph
+        will contain the candidate's contact info. We'll wrap the whole thing
+        with an #if so that none of the content gets emitted if the resume
+        doesnt have a contact info section (some don't).
+      -->}}
+
+      {{#if r.contact }}
+      <w:p wsp:rsidR="00C146CA" wsp:rsidRDefault="00505903" wsp:rsidP="00C146CA">
+        <w:pPr>
+          <w:rPr>
+            <w:sz-cs w:val="20"/>
+          </w:rPr>
+        </w:pPr>
+        <w:hlink w:dest="mailto:{{{ r.contact.email }}}">
+          <w:r wsp:rsidRPr="003876BF">
+            <w:rPr>
+              <w:rStyle w:val="Hyperlink"/>
+              <w:sz w:val="16"/>
+            </w:rPr>
+            <w:t>{{{ r.contact.email }}}<w:br/></w:t>
+          </w:r>
+        </w:hlink>
+        <w:r wsp:rsidR="00C146CA" wsp:rsidRPr="000A3AF0">
+          <w:rPr>
+            <w:sz w:val="16"/>
+          </w:rPr>
+          <w:t>{{{ r.contact.phone }}}<w:br/></w:t>
+        </w:r>
+        <w:hlink w:dest="{{{ r.contact.website }}}">
+          <w:r wsp:rsidRPr="003876BF">
+            <w:rPr>
+              <w:rStyle w:val="Hyperlink"/>
+              <w:sz w:val="16"/>
+            </w:rPr>
+            <w:t>{{{ r.contact.website }}}</w:t>
+          </w:r>
+        </w:hlink>
+      </w:p>
+      {{/if}}
+
+      {{!<!--
+
+      We could continue creating custom XML / WordProcessingML content as above,
+      but instead, let's use some predefined "section partials" for the rest
+      of the resume. A section partial is a fragment of markup (XML, in this
+      case) representing a single section of a resume. FRESH provides pre-
+      defined section partials for all resume sections that you can use and
+      override at will.
+
+      First let's create the candidate's INFO or SUMMARY section using the
+      "info" partial. "info" is a theme-specific partial owned by the modern
+      theme.
+
+      -->}}
+
+      {{#section "info"}}{{> info }}{{/section}}
+
+      {{!<!--
+
+      Now let's create the candidate's SKILLS section. The Modern theme uses
+      a skills section with colored skill bars representing the candidate's
+      proficiency with each skill. That's fairly complex to do in Word, and
+      specific to the Modern theme, so we've placed it in the "skills" partial.
+      Like the "info" partial, the "skills" partial is defined by the Modern
+      theme.
+
+      -->}}
+
+      {{#section "skills"}}{{> skills }}{{/section}}
+
+      {{!<!--
+
+      ...and we're done with major customizations for this theme. For the rest
+      of the resume, we'll used predefined SECTION PARTIALS provided by FRESH.
+      The only customization we'll make is overriding the header icon of each
+      partial to use our special embedded FontAwesome image.
+
+      We'll start with the EMPLOYMENT section.
+
+      -->}}
+
+
+      {{!<!-- Create an INLINE PARTIAL called "header-employment". This does
+      not itself render any content. Like any other partial, this one has to
+      be invoked from somewhere in order to actually be rendered. -->}}
+
+      {{#*inline "header-employment"}}
+
+        {{!<!-- Set the content of the partial. We could embed XML directly
+        here, but instead we'll reference the "header-icon" partial provided
+        by FRESH, passing in _title, _section, and _icon values so the the
+        "header-icon" partial knows how to render. -->}}
+
+        {{> header-icon _title="EMPLOYMENT" _section="employment" _icon="pict/emp" }}
+
+      {{!<!-- End the partial -->}}
+      {{/inline}}
+
+      {{!<!--
+        Do the same for each of the other sections. Again, we're just declaring
+        inline partials (templates) here. We're not actually rendering these
+        partials yet.
+      -->}}
+
+      {{#*inline "header-projects"}}{{> header-icon _title="PROJECTS" _section="projects" _icon="pict/star" }}{{/inline}}
+      {{#*inline "header-governance"}}{{> header-icon _title="GOVERNANCE" _section="governance" _icon="pict/justice-scales" }}{{/inline}}
+      {{#*inline "header-education"}}{{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}{{/inline}}
+      {{#*inline "header-service"}}{{> header-icon _title="SERVICE" _section="service" _icon="pict/srv" }}{{/inline}}
+      {{#*inline "header-affiliation"}}{{> header-icon _title="AFFILIATION" _section="affiliation" _icon="pict/share-alt" }}{{/inline}}
+      {{#*inline "header-writing"}}{{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}{{/inline}}
+      {{#*inline "header-reading"}}{{> header-icon _title="READING" _section="reading" _icon="pict/book" }}{{/inline}}
+      {{#*inline "header-recognition"}}{{> header-icon _title="RECOGNITION" _section="recognition" _icon="pict/rec" }}{{/inline}}
+      {{#*inline "header-speaking"}}{{> header-icon _title="SPEAKING" _section="speaking" _icon="pict/group" }}{{/inline}}
+      {{#*inline "header-references"}}{{> header-icon _title="REFERENCES" _section="references" _icon="pict/thumbs-up" }}{{/inline}}
+      {{#*inline "header-interests"}}{{> header-icon _title="INTERESTS" _section="interests" _icon="pict/bicycle" }}{{/inline}}
+
+      {{!<!--
+
+      Now, render each of the remaining sections of the resume in turn. We
+      could emit custom markup for these, but instead we'll take advantage
+      of the predefined "section partials" provided by FRESH, which have
+      names like "section/employment", "section/projects", etc. We'll wrap
+      each section in the special "#section" helper provided by the runtime
+      environment (HackMyResume or FluentCV) in order to allow sections to
+      be selectived hidden or ignored based on users preferences or when the
+      section isn't present or is present but has no items.
+
+      -->}}
+
+      {{#section "employment"}}{{> section/employment }}{{/section}}
+      {{#section "projects"}}{{> section/projects }}{{/section}}
+      {{#section "governance"}}{{> section/governance }}{{/section}}
+      {{#section "education"}}{{> section/education }}{{/section}}
+      {{#section "service"}}{{> section/service }}{{/section}}
+      {{#section "affiliation"}}{{> section/affiliation }}{{/section}}
+      {{#section "writing"}}{{> section/writing }}{{/section}}
+      {{#section "writing"}}{{> section/reading }}{{/section}}
+      {{#section "recognition"}}{{> section/recognition }}{{/section}}
+      {{#section "speaking"}}{{> section/speaking }}{{/section}}
+      {{#section "interests"}}{{> section/interests }}{{/section}}
+      {{#section "references"}}{{> section/references }}{{/section}}
+
+      {{!<!--
+        And we're done! Close off the word document and go home.
+      -->}}
+
+      <w:sectPr wsp:rsidR="00B43FDC" wsp:rsidRPr="000A3AF0" wsp:rsidSect="001B7422">
+        <w:pgSz w:w="12240" w:h="15840"/>
+        <w:pgMar w:top="1440" w:right="1440" w:bottom="1440" w:left="1440" w:header="720" w:footer="720" w:gutter="0"/>
+        <w:cols w:space="720"/>
+        <w:docGrid w:line-pitch="360"/>
+      </w:sectPr>
+    </wx:sect>
+  </w:body>
+</w:wordDocument>
