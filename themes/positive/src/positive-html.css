@@ -34,27 +34,25 @@ h2 {
 
 h3, .tenure {
   font-size: 1.5em;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h3 {
   margin-top: 0;
   margin-bottom: 5px;
-  width: 85%;
+  /*width: 85%;*/
   float: left;
 }
 
 table {
   width: 100%;
   text-transform: uppercase;
-  font-size: 1.3em;
 }
 
 td:first-child {
-  text-align: right;
-  color: #c00000;
   letter-spacing: 2px;
-  font-weight: bold;
+  color: #bd5b5b;
+  font-size: 1.35rem;
 }
 
 td:last-child {
@@ -76,7 +74,7 @@ section {
 }
 
 section > div {
-  margin-top: 1em;
+  margin-top: 2em;
   overflow: hidden; /* Clear floated children */
 }
 
@@ -111,11 +109,26 @@ p, li {
   border-radius: 6px;
   padding: 4px 6px;
   font-size: 85%;
+  font-weight: 600;
+  margin-top: 3px;
 }
 
 .location {
-  line-height: 2em;
-  color: #6F6F6F;
+  border: #e2aaaa dashed 1px;
+  background-color: #ffffff;
+  padding: 3px 6px;
+  border-radius: 6px;
+  float: right;
+  margin-right: 5px;
+  float: right;
+  font-size: 85%;
+  color: #717171;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.light-bubble {
+
 }
 
 span.keywords {

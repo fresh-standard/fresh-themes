@@ -1,0 +1,26 @@
+{{#section "employment"}}
+<hr>
+<section id="employment">
+  {{#> header-employment }}
+    {{> header-icon _title="EMPLOYMENT" _section="employment" _hdricon=(lookup . '_icon') }}
+  {{/header-employment}}
+  {{#each r.employment.history}}
+    {{#> body-employment }}
+    <div>
+      <h3><em>{{ position }}</em>,
+        {{#if url }}
+        <a href="{{{ url }}}">{{ employer }}</a>
+        {{else}}
+        {{ employer }}
+        {{/if}}
+        </h3>
+        <span class="tenure">{{dateRange .}}</span>        
+        <span class="location">{{location}}</span>
+      <p>{{{ summary }}}</p>
+      {{> highlights }}
+      {{#if keywords}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>{{/if}}
+    </div>
+    {{/body-employment}}
+  {{/each}}
+</section>
+{{/section}}

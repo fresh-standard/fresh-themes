@@ -12,7 +12,7 @@
   },
   "fonts": {
     "all": {
-      "default": [ "Calibri", "Open Sans", "sans-serif" ],
+      "default": [ "Open Sans", "sans-serif" ],
       "heading1": [ "Open Sans", "Helvetica Neue", "Helvetica", "Lato", "sans-serif" ],
       "heading2": [ "Helvetica Neue", "Helvetica", "Lato", "sans-serif" ]
     },
