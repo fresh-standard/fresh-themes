@@ -50,7 +50,8 @@ GitHub and NPM.
 - [modern][t-modern]: A middle of the road theme with a modern look 'n feel.
 - [compact][t-compact]: A visually dense/compact theme.
 - [awesome][t-awesome]: A technical resume theme based on [Awesome-CV][awe].
-- New themes weekly.
+- [modern-lancer][t-lancer]: A freelancer theme based on `modern`.
+- New themes forthcoming.
 
 All FRESH themes in this repo are MIT licensed. You're free to change, modify,
 update, or improve them at will.
@@ -116,9 +117,10 @@ MIT. See [LICENSE.md][1] for details.
 [d]: https://github.com/fresh-standard/fresh-themes/blob/dev/themes/modern/src/modern-doc.xml
 [jrs]: http://jsonresume.org
 [awe]: https://github.com/posquit0/Awesome-CV
-[t-awesome]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/awesome
+[t-awesome]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/awesome
 [t-underscore]: https://github.com/fluentdesk/fresh-themes-underscore
-[t-modern]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/modern
-[t-compact]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/compact
-[t-positive]: https://github.com/fluentdesk/fresh-themes/tree/master/themes/positive
+[t-modern]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/modern
+[t-compact]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/compact
+[t-positive]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/positive
+[t-lancer]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/modern-lancer
 [hmr]: https://github.com/hacksalot/hackmyresume
