@@ -6,6 +6,19 @@ html, body, main, section, header, ul, p, h1, h2, h3 {
   display: block;
 }
 
+::selection {
+  color: #fff;
+  background: #e48a8a; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  color: #fff;
+  background: #e48a8a; /* Gecko Browsers */
+}
+
+p::selection {
+  color: #fff;
+}
+
 a {
   color: #{{color 'hyperlink'}};
   text-decoration: none;
@@ -172,7 +185,7 @@ header > span.fa {
   margin-right: 3px;
   position: absolute;
   width: 40px;
-  top: 10px;
+  top: 14px;
   font-size: 30px;
   /*transform: translateX(-110%); PDF no likey */
   margin-left: -50px;
@@ -193,4 +206,13 @@ header > span.fa {
 #skills td {
   padding-top: 7px;
   padding-bottom: 7px;
+}
+
+#references > p, #references > p > a {
+  color: #961e1e;
+  text-align: center;
+  margin: 30px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
