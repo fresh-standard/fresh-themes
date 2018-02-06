@@ -65,7 +65,7 @@ table {
 td:first-child {
   letter-spacing: 2px;
   color: #bd5b5b;
-  font-size: 1.35rem;
+  font-size: 20px;
 }
 
 td:last-child {
@@ -138,10 +138,6 @@ p, li {
   color: #717171;
   font-weight: 600;
   margin-top: 3px;
-}
-
-.light-bubble {
-
 }
 
 span.keywords {

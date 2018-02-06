@@ -1,13 +1,26 @@
 html, body, main, section, header, ul, p, h1, h2, h3 {
-  font-family: Calibri, 'Open Sans', sans-serif;
+  font-family: {{{fontList 'default'}}};
   font-size: 14px;
   line-height: 1.4;
   margin: 0; padding: 0;
   display: block;
 }
 
+::selection {
+  color: #fff;
+  background: #e48a8a; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  color: #fff;
+  background: #e48a8a; /* Gecko Browsers */
+}
+
+p::selection {
+  color: #fff;
+}
+
 a {
-  color: #0064BD;
+  color: #{{color 'hyperlink'}};
   text-decoration: none;
 }
 
@@ -34,27 +47,25 @@ h2 {
 
 h3, .tenure {
   font-size: 1.5em;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 h3 {
   margin-top: 0;
   margin-bottom: 5px;
-  width: 85%;
+  /*width: 85%;*/
   float: left;
 }
 
 table {
   width: 100%;
   text-transform: uppercase;
-  font-size: 1.3em;
 }
 
 td:first-child {
-  text-align: right;
-  color: #c00000;
-  /* letter-spacing: 2px; PDF hates letter spacing */
-  font-weight: bold;
+  letter-spacing: 0;
+  color: #bd5b5b;
+  font-size: 20px;
 }
 
 td:last-child {
@@ -76,7 +87,7 @@ section {
 }
 
 section > div {
-  margin-top: 1em;
+  margin-top: 2em;
   overflow: hidden; /* Clear floated children */
 }
 
@@ -111,6 +122,22 @@ p, li {
   border-radius: 6px;
   padding: 4px 6px;
   font-size: 85%;
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+.location {
+  border: #e2aaaa dashed 1px;
+  background-color: #ffffff;
+  padding: 3px 6px;
+  border-radius: 6px;
+  float: right;
+  margin-right: 5px;
+  float: right;
+  font-size: 85%;
+  color: #717171;
+  font-weight: 600;
+  margin-top: 3px;
 }
 
 span.keywords {
@@ -136,7 +163,7 @@ h1, h2, .label {
   font-size: 2.5em;
   text-transform: uppercase;
   font-weight: 300;
-  font-family: 'Open Sans', 'Segoe UI', sans-serif;
+  font-family: {{{fontList 'heading1'}}}
 }
 
 #contact {
@@ -154,7 +181,7 @@ header > span.fa {
   margin-right: 3px;
   position: absolute;
   width: 40px;
-  top: 10px;
+  top: 14px;
   font-size: 30px;
   /*transform: translateX(-110%); PDF no likey */
   margin-left: -50px;
@@ -175,4 +202,13 @@ header > span.fa {
 #skills td {
   padding-top: 7px;
   padding-bottom: 7px;
+}
+
+#references > p, #references > p > a {
+  color: #961e1e;
+  text-align: center;
+  margin: 30px;
+  font-weight: bold;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
