@@ -28,10 +28,13 @@
   ],
   "author": "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
   "contributors": [
+    "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)",
     "Brett Hardin (https://github.com/bhardin)",
+    "hareekum (https://github.com/hareekum)",
+    "Jonathon Lui (https://jonathanlui.com)",
     "Evan Plaice <evanplaice@gmail.com> (https://github.com/evanplaice)",
-    "Ya Zhuang (https://github.com/zhuangya)",
-    "hacksalot <hacksalot@indevious.com> (https://github.com/hacksalot)"
+    "Jonathan Wolfe (https://github.com/JonathanWolfe)",
+    "Ya Zhuang (https://github.com/zhuangya)"
   ],
   "license": "MIT",
   "bugs": {
