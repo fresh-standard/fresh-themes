@@ -12,8 +12,7 @@ Mount individual themes onto the module object for convenience.
       basis: require('./themes/basis/theme.json'),
       compact: require('./themes/compact/theme.json'),
       modern: require('./themes/modern/theme.json'),
-      positive: require('./themes/positive/theme.json'),
-      'modern-lancer': require('./themes/modern-lancer/theme.json')
+      positive: require('./themes/positive/theme.json')
     }
   };
 
