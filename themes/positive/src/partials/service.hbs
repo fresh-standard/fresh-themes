@@ -15,7 +15,7 @@
       {{/if}}
     </h3>
     <span class="tenure">{{dateRange .}}</span>
-    <span class="location">{{location}}</span>
+    {{#if location}}<span class="location">{{location}}</span>{{/if}}
     <p>{{{ summary }}}</p>
     {{> highlights }}
     </div>

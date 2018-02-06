@@ -14,8 +14,8 @@
         {{ employer }}
         {{/if}}
         </h3>
-        <span class="tenure">{{dateRange .}}</span>        
-        <span class="location">{{location}}</span>
+        <span class="tenure">{{dateRange .}}</span>
+        {{#if location}}<span class="location">{{location}}</span>{{/if}}
       <p>{{{ summary }}}</p>
       {{> highlights }}
       {{#if keywords}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>{{/if}}

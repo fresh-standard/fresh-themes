@@ -9,7 +9,7 @@
     <div>
       <h3>{{#if title}}<em>{{{ title }}}</em>, {{/if}}{{{ institution }}}</h3>
       <span class="tenure">{{dateRange .}}</span>
-      <span class="location">{{location}}</span>
+      {{#if location}}<span class="location">{{location}}</span>{{/if}}
       {{{ summary }}}
       {{> highlights }}
       {{#if curriculum}}<span class="keywords">{{#each curriculum}}{{{ . }}} {{/each}}</span>{{/if}}
