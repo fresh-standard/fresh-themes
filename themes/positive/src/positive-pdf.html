@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>{{ r.name }}</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     {{{styleSheet "positive-pdf.css"}}}
   </head>
@@ -38,19 +38,22 @@
       {{> section/skills _icon="icon-skills"}}
 
       {{#*inline "icon-employment"}}<span class="fa fa-lg fa-building"></span>{{/inline}}
-      {{> section/employment _icon="icon-employment" }}
+      {{> employment _icon="icon-employment"}}
 
       {{#*inline "icon-projects"}}<span class="fa fa-lg fa-star"></span>{{/inline}}
       {{> section/projects _icon="icon-projects"}}
 
       {{#*inline "icon-education"}}<span class="fa fa-lg fa-mortar-board"></span>{{/inline}}
-      {{> section/education _icon="icon-education"}}
+      {{> education _icon="icon-education"}}
 
       {{#*inline "icon-affiliation"}}<span class="fa fa-lg fa-share-alt"></span>{{/inline}}
       {{> section/affiliation _icon="icon-affiliation"}}
 
       {{#*inline "icon-service"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
-      {{> section/service _icon="icon-service"}}
+      {{> service _icon="icon-service"}}
+
+      {{#*inline "icon-extracurricular"}}<span class="fa fa-lg fa-child"></span>{{/inline}}
+      {{> extracurricular _icon="icon-extracurricular"}}
 
       {{#*inline "icon-samples"}}<span class="fa fa-lg fa-share"></span>{{/inline}}
       {{> section/samples _icon="icon-samples"}}
@@ -68,11 +71,21 @@
       {{> section/speaking _icon="icon-speaking"}}
 
       {{#*inline "icon-testimonials"}}<span class="fa fa-lg fa-quote-left"></span>{{/inline}}
-      {{> section/testimonials _icon="icon-testimonials"}}
+      {{> testimonials _icon="icon-testimonials"}}
 
-      {{#*inline "icon-references"}}<span class="fa fa-lg fa-thumbs-o-up"></span>{{/inline}}
-      {{> section/references _icon="icon-references"}}
+      {{#if r.references}}
+      {{#section "references"}}
+      <section id="references">
+        {{#if r.contact.email}}
+        <p><a href="mailto:{{{ r.contact.email }}}">References available on request</a></p>
+        {{else}}
+        <p>References available on request</p>
+        {{/if}}
+      </section>
+      {{/section}}
+      {{/if}}
 
-    </div>
-  </main>
+
+    </main>
+  </body>
 </html>

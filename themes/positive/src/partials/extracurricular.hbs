@@ -1,0 +1,27 @@
+{{#section "extracurricular"}}
+<hr>
+<section id="extracurricular">
+  {{#> header-extracurricular }}
+    {{> header-icon _title="EXTRACURRICULAR" _section="extracurricular" _hdricon=(lookup . '_icon') }}
+  {{/header-extracurricular}}
+
+  {{#each r.extracurricular}}
+    {{#> body-extracurricular }}
+    <div>
+      <h3><em>{{ title }}</em>,
+        {{#if url }}
+        <a href="{{{ url }}}">{{ activity }}</a>
+        {{else}}
+        {{ activity }}
+        {{/if}}
+        </h3>
+        <span class="tenure">{{dateRange .}}</span>
+        {{#if location}}<span class="location">{{location}}</span>{{/if}}
+      <p>{{{ summary }}}</p>
+      {{> highlights }}
+      {{#if keywords}}<span class="keywords">{{#each keywords}}{{{ . }}} {{/each}}</span>{{/if}}
+    </div>
+    {{/body-extracurricular}}
+  {{/each}}
+</section>
+{{/section}}

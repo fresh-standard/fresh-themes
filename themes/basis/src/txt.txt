@@ -28,6 +28,8 @@
 
 {{> section/recognition }}
 
+{{> section/extracurricular }}
+
 {{> section/references }}
 
 {{> section/interests }}

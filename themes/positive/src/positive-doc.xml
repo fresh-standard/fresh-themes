@@ -119,6 +119,11 @@
       {{/inline}}
       {{#section "service"}}{{> section/service }}{{/section}}
 
+      {{#*inline "header-extracurricular"}}
+      {{> header-icon _title="EXTRACURRICULAR" _section="extracurricular" _icon="pict/srv" }}
+      {{/inline}}
+      {{#section "extracurricular"}}{{> section/extracurricular }}{{/section}}
+
       {{#*inline "header-writing"}}
       {{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}
       {{/inline}}
