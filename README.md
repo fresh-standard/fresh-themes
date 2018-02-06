@@ -22,8 +22,8 @@ Underscore, and in the future, other template engines such as Liquid.
 minimize the amount of duplication and boilerplate you have to wade through
 to design and/or build a modern, multiformat resume.
 
-- **Open and unaffiliated**. Like the [FRESH/FRESCA schema][f] they're based on,
-FRESH themes have no commercial or corporate backing, basis, or bias.
+- **Open and unaffiliated**. Like the [FRESH/FRESCA schema][f] they're based
+on, FRESH themes have no commercial or corporate backing, basis, or bias.
 
 ## Use
 
@@ -50,7 +50,7 @@ GitHub and NPM.
 - [modern][t-modern]: A middle of the road theme with a modern look 'n feel.
 - [compact][t-compact]: A visually dense/compact theme.
 - [awesome][t-awesome]: A technical resume theme based on [Awesome-CV][awe].
-- [modern-lancer][t-lancer]: A freelancer theme based on `modern`.
+- [basis][t-basis]: A starter theme used as a basis for other themes.
 - New themes forthcoming.
 
 All FRESH themes in this repo are MIT licensed. You're free to change, modify,
@@ -122,5 +122,5 @@ MIT. See [LICENSE.md][1] for details.
 [t-modern]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/modern
 [t-compact]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/compact
 [t-positive]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/positive
-[t-lancer]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/modern-lancer
+[t-basis]: https://github.com/fresh-standard/fresh-themes/tree/master/themes/basis
 [hmr]: https://github.com/hacksalot/hackmyresume
