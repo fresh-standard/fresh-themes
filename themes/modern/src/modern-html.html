@@ -139,7 +139,12 @@
           <div class="space-top labels">
             {{#if skills}}
               {{#each skills}}
-                <span class="label label-keyword">{{ this }}</span>
+                <div class="label label-keyword">
+                  <span class="kw">{{ this }}</span>
+                  {{#ifHasSkill @root.r .}}
+                  <span class="notes">{{skillYears . }} years</span>
+                  {{/ifHasSkill}}
+                </div>
               {{/each}}
             {{/if}}
           </div>

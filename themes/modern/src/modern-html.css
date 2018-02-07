@@ -14,13 +14,13 @@ main {
 }
 
 body {
-  font-family: {{{fontList 'default'}}};
   font-size: 15px;
   color: #333;
   line-height: 1.42857143;
   background-color: #F0F0F0;
   margin: 0;
   padding: 0;
+  font-family: {{{fontList 'default'}}};
 }
 
 /* Typical page borders are awkward when rendered to PDF. */
@@ -51,18 +51,23 @@ body.pdf #container > header {
 }
 
 #main > #container > section {
-  margin-left: 5em;
+  margin-left: 150px;
   position: relative;
   display: block;
 }
 
+section > div {
+  margin-bottom: 60px;
+}
+
 span.fa
 {
+  font-size: 56px;
   position: absolute;
-  top: 4px;
-  left: -50px;
-  font-size: 30px;
-  color: #BFC1C3;
+  top: 37px;
+  transform: translateY(-50%);
+  left: -100px;
+  color: #1a4367;
 }
 
 hr {
@@ -79,13 +84,16 @@ hr {
 h1 {
   margin: 0;
   font-size: 46px;
+  display: inline-block;
 }
 
 h2 {
-  font-size: 24px;
-  color: #BFC1C3;
+  font-size: 30px;
+  color: #4376a2;
   text-transform: uppercase;
   font-weight: normal;
+  padding-top: 20px;
+  margin-bottom: 60px;
 }
 
 h3 {
@@ -108,20 +116,53 @@ a:hover {
   font-weight: bold;
 }
 
+#summary {
+  font-size: 150%;
+  margin-left: 0;
+  padding: 20px 0;
+}
+
 #summary > p > strong {
   font-size: 1.25em;
+}
+
+#contact {
+  float: right;
+}
+
+#summary > header > .fa-info {
+  font-size: 70px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: normal;
+  top: 50%;
+  left: -85px;
+  transform: translateY(-50%);
+}
+
+#summary h2 {
+  display: none;
 }
 
 
 .label-keyword {
   display: inline-block;
-  background: #7eb0db;
-  color: white;
+  background: #e8f4ff;
+  color: black;
   font-size: 0.9em;
   padding: 5px;
   border: 1px solid #357ebd;
   border-radius: 5px;
   margin-top: 2px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.notes {
+  font-size: 10px;
+  display: block;
+  font-weight: normal;
+  text-transform: uppercase;
 }
 
 .card-skills {
@@ -178,6 +219,12 @@ a:hover {
     margin-left: 20px;
   }
 }
+.skill-info > strong {
+  font-weight: 400;
+  font-size: 24px;
+  color: #1d1d1d;
+  line-height: 24px;
+}
 
 .list-unstyled {
   padding-left: 0;
@@ -189,7 +236,7 @@ a:hover {
 }
 
 .space-top {
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
 #container {
