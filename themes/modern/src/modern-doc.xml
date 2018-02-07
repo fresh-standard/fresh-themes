@@ -503,7 +503,7 @@
       {{#section "governance"}}{{> section/governance }}{{/section}}
       {{#section "education"}}{{> section/education }}{{/section}}
       {{#section "service"}}{{> section/service }}{{/section}}
-      {{#section "service"}}{{> section/extracurricular }}{{/section}}
+      {{#section "extracurricular"}}{{> section/extracurricular }}{{/section}}
       {{#section "affiliation"}}{{> section/affiliation }}{{/section}}
       {{#section "writing"}}{{> section/writing }}{{/section}}
       {{#section "writing"}}{{> section/reading }}{{/section}}
