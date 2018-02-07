@@ -26,16 +26,19 @@
 {{#*inline "icon-skills"}}<span class="fa fa-lg fa-code"></span>{{/inline}}
 {{#*inline "icon-employment"}}<span class="fa fa-building"></span>{{/inline}}
 {{#*inline "icon-projects"}}<span class="fa fa-star"></span>{{/inline}}
+{{#*inline "icon-governance"}}<span class="fa fa-balance-scale"></span>{{/inline}}
 {{#*inline "icon-education"}}<span class="fa fa-mortar-board"></span>{{/inline}}
+{{#*inline "icon-extracurricular"}}<span class="fa fa-child"></span>{{/inline}}
 {{#*inline "icon-service"}}<span class="fa fa-child"></span>{{/inline}}
+{{#*inline "icon-affiliation"}}<span class="fa fa-share-alt"></span>{{/inline}}
 {{#*inline "icon-samples"}}<span class="fa fa-share"></span>{{/inline}}
 {{#*inline "icon-writing"}}<span class="fa fa-pencil"></span>{{/inline}}
 {{#*inline "icon-reading"}}<span class="fa fa-book"></span>{{/inline}}
 {{#*inline "icon-recognition"}}<span class="fa fa-trophy"></span>{{/inline}}
 {{#*inline "icon-speaking"}}<span class="fa fa-users"></span>{{/inline}}
-{{#*inline "icon-testimonials"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
+{{#*inline "icon-testimonials"}}<span class="fa fa-quote-right"></span>{{/inline}}
 {{#*inline "icon-references"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
-{{#*inline "icon-interests"}}<span class="fa fa-thumbs-o-up"></span>{{/inline}}
+{{#*inline "icon-interests"}}<span class="fa fa-bicycle"></span>{{/inline}}
 
 {{#*inline "body-employment" }}
 <div>
@@ -79,17 +82,16 @@
 
 -->}}
 
-{{#has "info.brief"}}
-<section id="summary">
-  {{{ r.info.brief }}}
-</section>
-{{/has}}
-
+{{#*inline "header-info"}}{{/inline}}
+{{> section/info }}
 {{> section/skills _icon="icon-skills"}}
 {{> section/employment _icon="icon-employment"}}
 {{> section/projects _icon="icon-projects"}}
+{{> section/governance _icon="icon-governance"}}
 {{> section/education _icon="icon-education"}}
 {{> section/service _icon="icon-service"}}
+{{> section/extracurricular _icon="icon-extracurricular"}}
+{{> section/affiliation _icon="icon-affiliation"}}
 {{> section/samples _icon="icon-samples"}}
 {{> section/writing _icon="icon-writing"}}
 {{> section/reading _icon="icon-reading"}}

@@ -67,6 +67,7 @@
       {{#section "affiliation"}}{{> section/affiliation }}{{/section}}
       {{#section "education"}}{{> section/education }}{{/section}}
       {{#section "service"}}{{> section/service }}{{/section}}
+      {{#section "extracurricular"}}{{> section/extracurricular }}{{/section}}
       {{#section "writing"}}{{> section/writing }}{{/section}}
       {{#section "speaking"}}{{> section/speaking }}{{/section}}
       {{#section "reading"}}{{> section/reading }}{{/section}}
