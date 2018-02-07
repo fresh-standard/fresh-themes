@@ -7,4 +7,3 @@ Predefined FRESH resume themes live here, one per folder.
 - [`compact`](compact): A compact theme.
 - [`positive`](positive): A theme that partakes of that which is positive.
 - [`awesome`](awesome): A LaTeX theme based on Awesome-CV.
-- [`modern-lancer`](modern-lancer): A theme based on modern with some tweaks for freelancers.
