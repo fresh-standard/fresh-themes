@@ -476,6 +476,7 @@
       {{#*inline "header-governance"}}{{> header-icon _title="GOVERNANCE" _section="governance" _icon="pict/justice-scales" }}{{/inline}}
       {{#*inline "header-education"}}{{> header-icon _title="EDUCATION" _section="education" _icon="pict/edu" }}{{/inline}}
       {{#*inline "header-service"}}{{> header-icon _title="SERVICE" _section="service" _icon="pict/srv" }}{{/inline}}
+      {{#*inline "header-extracurricular"}}{{> header-icon _title="EXTRACURRICULAR" _section="extracurricular" _icon="pict/srv" }}{{/inline}}
       {{#*inline "header-affiliation"}}{{> header-icon _title="AFFILIATION" _section="affiliation" _icon="pict/share-alt" }}{{/inline}}
       {{#*inline "header-writing"}}{{> header-icon _title="WRITING" _section="writing" _icon="pict/wri" }}{{/inline}}
       {{#*inline "header-reading"}}{{> header-icon _title="READING" _section="reading" _icon="pict/book" }}{{/inline}}
@@ -502,6 +503,7 @@
       {{#section "governance"}}{{> section/governance }}{{/section}}
       {{#section "education"}}{{> section/education }}{{/section}}
       {{#section "service"}}{{> section/service }}{{/section}}
+      {{#section "service"}}{{> section/extracurricular }}{{/section}}
       {{#section "affiliation"}}{{> section/affiliation }}{{/section}}
       {{#section "writing"}}{{> section/writing }}{{/section}}
       {{#section "writing"}}{{> section/reading }}{{/section}}
