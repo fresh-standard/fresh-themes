@@ -8,7 +8,8 @@
     {{#> body-writing }}
     <div>
     <h3><em>{{#if url}}<a href="{{{ url }}}">{{{ title }}}</a>{{else}}{{{ title }}}{{/if}}</em>,
-      {{ publisher.name }}</h3>
+
+      {{stringOrObject publisher "name" }}</h3>
       <span class="tenure">{{date date 'YYYY'}}</span>
       {{{ summary }}}
       {{> highlights }}

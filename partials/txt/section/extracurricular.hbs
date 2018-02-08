@@ -3,7 +3,8 @@
 
 {{#each r.extracurricular }}
 {{{ title }}}, {{{ activity }}} ({{dateRange .}})
-{{{ summary }}}
+{{#if summary}}{{{ summary }}}
+{{/if}}
 {{#if highlights}}
 {{#each highlights}}
 - {{{ this }}}

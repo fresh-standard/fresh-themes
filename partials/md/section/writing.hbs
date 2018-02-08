@@ -1,13 +1,8 @@
 {{#section 'writing'}}
-## WRITING
+## {{{sectionTitle "WRITING"}}}
 
 {{#each r.writing}}
-{{#if url}}
-### [{{{ title }}}]({{{ url }}}) ({{date date}})
-{{else}}
-### {{{ title }}} ({{date date}})
-{{/if}}
-
+### ***{{linkMD title url}}*** ({{#if publisher}}{{stringOrObject publisher "name"}}, {{/if}}{{date date}})
 {{{ summary }}}
 
 {{/each}}
