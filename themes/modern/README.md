@@ -7,7 +7,8 @@ representing skill levels and Font Awesome icons for section headers.
 
 ## Use
 
-Note: In order to display colored progress bars as in the below image, your resume should include a `level` annotation for each skill:
+Note: In order to display colored progress bars as in the below image, your
+resume should include a `level` annotation for each skill:
 
 ```json
 {
@@ -33,4 +34,4 @@ or a number between 1 and 10.
 
 MIT. See [LICENSE.md][lic] for details.
 
-[lic]: https://github.com/fluentdesk/fresh-themes/blob/master/LICENSE.md
+[lic]: https://github.com/fresh-standard/fresh-themes/blob/master/LICENSE.md
