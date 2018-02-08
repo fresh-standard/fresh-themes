@@ -53,4 +53,4 @@ making it easier to track theme-specific changes from release to release.
 See [/fresh-themes/releases][2] for previous releases.
 
 [1]: https://github.com/fresh-standard/fresh-theme-positive
-[2]: https://github.com/fresh-standard/fresh-theme-positive/releases
+[2]: https://github.com/fresh-standard/fresh-themes/releases
